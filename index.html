@@ -1,291 +1,210 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>زد علمك 🎓 - أدوات تعليمية مجانية</title>
-
-<meta name="description" content="زد علمك - أدوات تعليمية مجانية وسهلة تساعدك في الدراسة والحساب والحياة اليومية.">
-
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #222;
-}
-
-/* الهيدر */
-
-header {
-    background: #1565c0;
-    color: white;
-    padding: 18px 20px;
-}
-
-.header-content {
-    max-width: 1100px;
-    margin: auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 20px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 8px;
-}
-
-/* الصفحة الرئيسية */
-
-.hero {
-    text-align: center;
-
-    padding: 55px 20px;
-
-    background: white;
-}
-
-.hero h1 {
-    font-size: 38px;
-
-    color: #1565c0;
-
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 19px;
-
-    color: #555;
-}
-
-/* البحث */
-
-.search-box {
-    margin: 25px auto 0;
-
-    max-width: 600px;
-
-    display: flex;
-
-    gap: 8px;
-}
-
-.search-box input {
-    flex: 1;
-
-    padding: 14px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 8px;
-
-    font-size: 16px;
-}
-
-button {
-    border: none;
-
-    background: #1565c0;
-
-    color: white;
-
-    padding: 14px 22px;
-
-    border-radius: 8px;
-
-    font-size: 16px;
-
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-/* الأقسام */
-
-section {
-    max-width: 1100px;
-
-    margin: auto;
-
-    padding: 45px 20px;
-}
-
-section h2 {
-    text-align: center;
-
-    color: #1565c0;
-
-    margin-bottom: 30px;
-}
-
-/* الأدوات */
-
-.tools {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 18px;
-}
-
-.tool-card {
-    background: white;
-
-    padding: 25px 15px;
-
-    border-radius: 12px;
-
-    text-align: center;
-
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-}
-
-.tool-card .icon {
-    font-size: 38px;
-}
-
-.tool-card h3 {
-    font-size: 18px;
-}
-
-.tool-card p {
-    color: #666;
-
-    font-size: 14px;
-}
-
-/* رابط الأداة */
-
-.tool-link {
-    display: inline-block;
-
-    margin-top: 10px;
-
-    background: #1565c0;
-
-    color: white;
-
-    text-decoration: none;
-
-    padding: 12px 18px;
-
-    border-radius: 8px;
-
-    font-size: 15px;
-}
-
-.tool-link:hover {
-    opacity: 0.9;
-}
-
-/* لماذا زد علمك */
-
-.info {
-    background: white;
-
-    text-align: center;
-
-    border-radius: 12px;
-
-    padding: 30px;
-}
-
-/* قريباً */
-
-.coming {
-    text-align: center;
-}
-
-.coming span {
-    display: inline-block;
-
-    background: white;
-
-    padding: 12px 18px;
-
-    margin: 6px;
-
-    border-radius: 20px;
-
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-}
-
-/* الفوتر */
-
-footer {
-    background: #123b6d;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 30px 20px;
-
-    margin-top: 30px;
-}
-
-/* الهاتف */
-
-@media (max-width: 800px) {
-
-    .tools {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    nav {
-        display: none;
-    }
-
-}
-
-@media (max-width: 500px) {
-
-    .tools {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .search-box {
-        flex-direction: column;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>زد علمك - أدوات تعليمية مجانية</title>
+
+    <meta name="description"
+        content="زد علمك - أدوات تعليمية مجانية تساعدك في الدراسة والحساب والحياة اليومية.">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 15px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px;
+            background: white;
+        }
+
+        .hero h1 {
+            color: #1565c0;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .search-box {
+            margin: 25px auto 0;
+            max-width: 600px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 13px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #1565c0;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 30px;
+        }
+
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        .tool-card h3 {
+            color: #1565c0;
+        }
+
+        .tool-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .tool-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background: #1565c0;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .coming {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background: #eeeeee;
+            color: #777;
+            border-radius: 8px;
+        }
+
+        .info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            line-height: 1.9;
+        }
+
+        .coming-section {
+            text-align: center;
+            background: #e3f2fd;
+            padding: 35px 20px;
+        }
+
+        .coming-items {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .coming-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            min-width: 180px;
+        }
+
+        footer {
+            background: #eeeeee;
+            text-align: center;
+            padding: 25px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .tools {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<!-- الهيدر -->
 
-<header>
+    <!-- Header -->
 
-    <div class="header-content">
+    <header>
 
         <div class="logo">
             🎓 زد علمك
@@ -293,7 +212,7 @@ footer {
 
         <nav>
 
-            <a href="#home">
+            <a href="index.html">
                 الرئيسية
             </a>
 
@@ -311,354 +230,357 @@ footer {
 
         </nav>
 
-    </div>
+    </header>
 
-</header>
 
 
-<!-- الواجهة الرئيسية -->
+    <!-- Hero -->
 
-<div id="home" class="hero">
+    <section class="hero">
 
-    <h1>
-        زد علمك 🎓
-    </h1>
-
-    <p>
-        أدوات تعليمية مجانية تساعدك في الدراسة والحساب والحياة اليومية.
-    </p>
-
-
-    <!-- البحث -->
-
-    <div class="search-box">
-
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="🔍 ابحث عن أداة..."
-        >
-
-        <button onclick="searchTools()">
-            بحث
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- الأدوات -->
-
-<section id="tools">
-
-    <h2>
-        🧮 أدوات تعليمية مجانية
-    </h2>
-
-
-    <div class="tools">
-
-
-        <!-- النسبة المئوية -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                %
-            </div>
-
-            <h3>
-                حاسبة النسبة المئوية
-            </h3>
-
-            <p>
-                احسب النسبة المئوية بسهولة.
-            </p>
-
-            <a
-                class="tool-link"
-                href="percentage.html"
-            >
-                استخدم الأداة
-            </a>
-
-        </div>
-
-
-        <!-- المعدل -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                📊
-            </div>
-
-            <h3>
-                حاسبة المعدل
-            </h3>
-
-            <p>
-                احسب معدلك بطريقة بسيطة.
-            </p>
-
-            <span>
-                قريبًا
-            </span>
-
-        </div>
-
-
-        <!-- العلامة -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                📝
-            </div>
-
-            <h3>
-                حاسبة العلامة
-            </h3>
-
-            <p>
-                احسب علامتك النهائية.
-            </p>
-
-            <span>
-                قريبًا
-            </span>
-
-        </div>
-
-
-        <!-- العمر -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                🎂
-            </div>
-
-            <h3>
-                حاسبة العمر
-            </h3>
-
-            <p>
-                احسب العمر بسهولة.
-            </p>
-
-            <span>
-                قريبًا
-            </span>
-
-        </div>
-
-
-        <!-- الخصم -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                🏷️
-            </div>
-
-            <h3>
-                حاسبة الخصم
-            </h3>
-
-            <p>
-                اعرف السعر بعد الخصم.
-            </p>
-
-            <span>
-                قريبًا
-            </span>
-
-        </div>
-
-
-        <!-- التاريخ -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                📅
-            </div>
-
-            <h3>
-                الفرق بين تاريخين
-            </h3>
-
-            <p>
-                احسب المدة بين تاريخين.
-            </p>
-
-            <span>
-                قريبًا
-            </span>
-
-        </div>
-
-
-        <!-- الوحدات -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                📏
-            </div>
-
-            <h3>
-                محول الوحدات
-            </h3>
-
-            <p>
-                حوّل بين الوحدات المختلفة.
-            </p>
-
-            <span>
-                قريبًا
-            </span>
-
-        </div>
-
-
-        <!-- الوقت -->
-
-        <div class="tool-card">
-
-            <div class="icon">
-                ⏰
-            </div>
-
-            <h3>
-                حاسبة الوقت
-            </h3>
-
-            <p>
-                احسب الوقت بطريقة سهلة.
-            </p>
-
-            <span>
-                قريبًا
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- لماذا زد علمك -->
-
-<section id="about">
-
-    <div class="info">
-
-        <h2>
-            🌱 لماذا زد علمك؟
-        </h2>
+        <h1>
+            زد علمك 🎓
+        </h1>
 
         <p>
-            أدوات مجانية وسهلة الاستخدام تساعدك على التعلم
-            وإنجاز الحسابات بطريقة بسيطة.
+            أدوات تعليمية مجانية تساعدك في الدراسة والحساب والحياة اليومية.
         </p>
 
-    </div>
 
-</section>
+        <div class="search-box">
 
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 ابحث عن أداة..."
+            >
 
-<!-- قريباً -->
+            <button onclick="searchTools()">
+                بحث
+            </button>
 
-<section class="coming">
+        </div>
 
-    <h2>
-        🚀 قريبًا في زد علمك
-    </h2>
-
-    <p>
-        نعمل على إضافة محتوى تعليمي وأدوات جديدة باستمرار.
-    </p>
-
-
-    <span>
-        📚 محتوى تعليمي
-    </span>
-
-    <span>
-        🎥 شروحات ودروس
-    </span>
-
-    <span>
-        🔊 قراءة الدروس صوتيًا
-    </span>
-
-    <span>
-        📝 أسئلة واختبارات
-    </span>
-
-</section>
+    </section>
 
 
-<!-- الفوتر -->
 
-<footer id="contact">
+    <!-- Tools -->
 
-    <h3>
-        🎓 زد علمك
-    </h3>
+    <section class="section" id="tools">
 
-    <p>
-        أدوات تعليمية مجانية تساعدك على التعلم.
-    </p>
-
-    <p>
-        © 2026 زد علمك
-    </p>
-
-</footer>
+        <h2>
+            🛠️ الأدوات التعليمية
+        </h2>
 
 
-<script>
-
-function searchTools() {
-
-    let search =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
+        <div class="tools" id="toolsContainer">
 
 
-    let cards =
-        document
-        .querySelectorAll(".tool-card");
+            <!-- Percentage -->
+
+            <div class="tool-card">
+
+                <h3>
+                    حاسبة النسبة المئوية
+                </h3>
+
+                <p>
+                    احسب النسبة المئوية لأي رقم بسهولة.
+                </p>
+
+                <a
+                    class="tool-link"
+                    href="percentage.html"
+                >
+                    استخدم الأداة
+                </a>
+
+            </div>
 
 
-    cards.forEach(function(card) {
 
-        let text =
-            card.innerText.toLowerCase();
+            <!-- Average -->
+
+            <div class="tool-card">
+
+                <h3>
+                    حاسبة المعدل
+                </h3>
+
+                <p>
+                    احسب معدلك بسهولة مع إمكانية إضافة عدد غير محدود من المواد.
+                </p>
+
+                <a
+                    class="tool-link"
+                    href="average.html"
+                >
+                    استخدم الأداة
+                </a>
+
+            </div>
 
 
-        if (text.includes(search)) {
 
-            card.style.display = "";
+            <!-- Grade -->
 
-        } else {
+            <div class="tool-card">
 
-            card.style.display = "none";
+                <h3>
+                    حاسبة العلامة
+                </h3>
+
+                <p>
+                    احسب العلامة والنسبة التي تحتاجها.
+                </p>
+
+                <span class="coming">
+                    قريبًا
+                </span>
+
+            </div>
+
+
+
+            <!-- Age -->
+
+            <div class="tool-card">
+
+                <h3>
+                    حاسبة العمر
+                </h3>
+
+                <p>
+                    احسب عمرك بدقة.
+                </p>
+
+                <span class="coming">
+                    قريبًا
+                </span>
+
+            </div>
+
+
+
+            <!-- Discount -->
+
+            <div class="tool-card">
+
+                <h3>
+                    حاسبة الخصم
+                </h3>
+
+                <p>
+                    احسب السعر بعد الخصم وقيمة الخصم.
+                </p>
+
+                <span class="coming">
+                    قريبًا
+                </span>
+
+            </div>
+
+
+
+            <!-- Date Difference -->
+
+            <div class="tool-card">
+
+                <h3>
+                    الفرق بين تاريخين
+                </h3>
+
+                <p>
+                    احسب الفرق بين تاريخين بسهولة.
+                </p>
+
+                <span class="coming">
+                    قريبًا
+                </span>
+
+            </div>
+
+
+
+            <!-- Unit Converter -->
+
+            <div class="tool-card">
+
+                <h3>
+                    محول الوحدات
+                </h3>
+
+                <p>
+                    حوّل بين وحدات القياس المختلفة.
+                </p>
+
+                <span class="coming">
+                    قريبًا
+                </span>
+
+            </div>
+
+
+
+            <!-- Time Calculator -->
+
+            <div class="tool-card">
+
+                <h3>
+                    حاسبة الوقت
+                </h3>
+
+                <p>
+                    احسب الوقت والمدة بين الساعات.
+                </p>
+
+                <span class="coming">
+                    قريبًا
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- About -->
+
+    <section class="section" id="about">
+
+        <div class="info">
+
+            <h2>
+                🌱 لماذا زد علمك؟
+            </h2>
+
+            <p>
+                لأننا نؤمن أن الأدوات البسيطة يمكن أن تجعل التعلم أسهل
+                وأسرع وأكثر فائدة.
+            </p>
+
+            <p>
+                نعمل على توفير أدوات تعليمية مجانية وسهلة الاستخدام
+                للطلاب وكل من يريد تطوير معرفته ومهاراته.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Coming Soon -->
+
+    <section class="coming-section">
+
+        <h2>
+            🚀 قريبًا في زد علمك
+        </h2>
+
+
+        <div class="coming-items">
+
+            <div class="coming-item">
+                📚
+                <br>
+                محتوى تعليمي
+            </div>
+
+            <div class="coming-item">
+                🎥
+                <br>
+                شروحات ودروس
+            </div>
+
+            <div class="coming-item">
+                🔊
+                <br>
+                قراءة الدروس صوتيًا
+            </div>
+
+            <div class="coming-item">
+                📝
+                <br>
+                أسئلة واختبارات
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Contact -->
+
+    <section class="section" id="contact">
+
+        <div class="info">
+
+            <h2>
+                📩 تواصل معنا
+            </h2>
+
+            <p>
+                يمكنك التواصل معنا للاستفسارات والاقتراحات.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 زد علمك - جميع الحقوق محفوظة
+
+    </footer>
+
+
+
+    <script>
+
+        function searchTools() {
+
+            let search =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase()
+                .trim();
+
+            let cards =
+                document.querySelectorAll(".tool-card");
+
+
+            cards.forEach(function(card) {
+
+                let text =
+                    card.innerText.toLowerCase();
+
+
+                if (search === "" || text.includes(search)) {
+
+                    card.style.display = "";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
 
         }
 
-    });
+    </script>
 
-}
-
-</script>
 
 </body>
 
