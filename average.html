@@ -8,9 +8,10 @@
     <title>حاسبة المعدل - زد علمك</title>
 
     <meta name="description"
-        content="حاسبة المعدل المجانية من زد علمك تساعدك على حساب معدلك الدراسي بسهولة.">
+        content="حاسبة معدل مرنة ومجانية لحساب المعدل من أي عدد من المواد وبعلامات مختلفة.">
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -33,7 +34,7 @@
         }
 
         .container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 30px auto;
             padding: 20px;
         }
@@ -56,11 +57,23 @@
             color: #555;
         }
 
-        label {
-            display: block;
+        .subject {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
             margin-top: 15px;
-            margin-bottom: 7px;
+            background: #fafafa;
+        }
+
+        .subject-title {
             font-weight: bold;
+            margin-bottom: 10px;
+            color: #1565c0;
+        }
+
+        .inputs {
+            display: flex;
+            gap: 10px;
         }
 
         input {
@@ -72,31 +85,48 @@
             font-size: 16px;
         }
 
-        button {
-            width: 100%;
+        .small-label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
             margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
             padding: 13px;
             border: none;
             border-radius: 8px;
-            background: #1565c0;
-            color: white;
-            font-size: 17px;
+            font-size: 16px;
             cursor: pointer;
         }
 
-        button:hover {
-            background: #0d47a1;
+        .add-button {
+            background: #2e7d32;
+            color: white;
         }
 
-        #result {
+        .calculate-button {
+            background: #1565c0;
+            color: white;
+        }
+
+        .result {
             margin-top: 20px;
-            padding: 15px;
+            padding: 18px;
             background: #e3f2fd;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
             font-size: 20px;
             font-weight: bold;
             color: #1565c0;
+            line-height: 1.8;
         }
 
         .info {
@@ -114,7 +144,29 @@
             background: #eeeeee;
             color: #666;
         }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .inputs {
+                flex-direction: column;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
@@ -130,103 +182,229 @@
             <h1>حاسبة المعدل 📊</h1>
 
             <p class="description">
-                احسب معدلك الدراسي بسهولة من خلال إدخال علامات المواد.
+                أضف المواد التي تريدها، واكتب علامة كل مادة والعلامة العظمى لها.
+                يمكنك إضافة عدد غير محدود من المواد.
             </p>
 
-            <label for="mark1">علامة المادة الأولى:</label>
-            <input type="number" id="mark1" placeholder="مثال: 85">
+            <div id="subjects">
 
-            <label for="mark2">علامة المادة الثانية:</label>
-            <input type="number" id="mark2" placeholder="مثال: 90">
+                <div class="subject">
 
-            <label for="mark3">علامة المادة الثالثة:</label>
-            <input type="number" id="mark3" placeholder="مثال: 75">
+                    <div class="subject-title">
+                        المادة 1
+                    </div>
 
-            <label for="mark4">علامة المادة الرابعة:</label>
-            <input type="number" id="mark4" placeholder="مثال: 80">
+                    <label class="small-label">
+                        العلامة التي حصلت عليها
+                    </label>
 
-            <label for="mark5">علامة المادة الخامسة:</label>
-            <input type="number" id="mark5" placeholder="مثال: 95">
+                    <div class="inputs">
 
-            <button onclick="calculateAverage()">
-                احسب المعدل
-            </button>
+                        <input
+                            type="number"
+                            class="mark"
+                            placeholder="مثال: 85"
+                            min="0"
+                            step="any"
+                        >
 
-            <div id="result">
-                أدخل العلامات ثم اضغط احسب المعدل
+                        <input
+                            type="number"
+                            class="max-mark"
+                            placeholder="مثال: 100"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    class="add-button"
+                    onclick="addSubject()"
+                >
+                    ➕ إضافة مادة
+                </button>
+
+                <button
+                    class="calculate-button"
+                    onclick="calculateAverage()"
+                >
+                    🧮 احسب المعدل
+                </button>
+
+            </div>
+
+            <div class="result" id="result">
+                أضف العلامات ثم اضغط «احسب المعدل»
             </div>
 
         </div>
 
+
         <div class="info">
 
-            <h2>كيف نحسب المعدل؟</h2>
+            <h2>كيف تعمل حاسبة المعدل؟</h2>
 
             <p>
-                لحساب المعدل، نجمع علامات جميع المواد ثم نقسم الناتج
-                على عدد المواد.
+                يمكنك إضافة أي عدد من المواد، ولا يشترط أن تكون جميع المواد
+                من نفس العلامة العظمى.
             </p>
 
             <p>
-                <strong>مثال:</strong>
-                إذا كانت العلامات:
-                80، 90، 70، 85، 95
+                مثال:
             </p>
 
             <p>
-                المعدل =
-                (80 + 90 + 70 + 85 + 95) ÷ 5
-                = 84
+                رياضيات: 85 من 100
+                <br>
+                عربي: 170 من 200
+                <br>
+                علوم: 240 من 300
+            </p>
+
+            <p>
+                تقوم الحاسبة بجمع العلامات التي حصلت عليها،
+                ثم تجمع العلامات العظمى، وتحسب النسبة النهائية.
             </p>
 
         </div>
 
     </div>
 
+
     <footer>
         © 2026 زد علمك - جميع الحقوق محفوظة
     </footer>
 
+
     <script>
+
+        let subjectNumber = 1;
+
+
+        function addSubject() {
+
+            subjectNumber++;
+
+            let subjects = document.getElementById("subjects");
+
+            let subject = document.createElement("div");
+
+            subject.className = "subject";
+
+            subject.innerHTML = `
+
+                <div class="subject-title">
+                    المادة ${subjectNumber}
+                </div>
+
+                <label class="small-label">
+                    العلامة التي حصلت عليها
+                </label>
+
+                <div class="inputs">
+
+                    <input
+                        type="number"
+                        class="mark"
+                        placeholder="مثال: 85"
+                        min="0"
+                        step="any"
+                    >
+
+                    <input
+                        type="number"
+                        class="max-mark"
+                        placeholder="مثال: 100"
+                        min="0"
+                        step="any"
+                    >
+
+                </div>
+
+            `;
+
+            subjects.appendChild(subject);
+
+        }
+
 
         function calculateAverage() {
 
-            let marks = [
-                document.getElementById("mark1").value,
-                document.getElementById("mark2").value,
-                document.getElementById("mark3").value,
-                document.getElementById("mark4").value,
-                document.getElementById("mark5").value
-            ];
+            let marks =
+                document.querySelectorAll(".mark");
 
-            let total = 0;
-            let count = 0;
+            let maxMarks =
+                document.querySelectorAll(".max-mark");
+
+            let totalMarks = 0;
+
+            let totalMaxMarks = 0;
+
+            let validSubjects = 0;
+
 
             for (let i = 0; i < marks.length; i++) {
 
-                if (marks[i] !== "") {
+                let mark = parseFloat(marks[i].value);
 
-                    let mark = Number(marks[i]);
+                let maxMark = parseFloat(maxMarks[i].value);
 
-                    if (mark >= 0 && mark <= 100) {
-                        total += mark;
-                        count++;
-                    }
+
+                if (
+                    !isNaN(mark) &&
+                    !isNaN(maxMark) &&
+                    maxMark > 0 &&
+                    mark >= 0 &&
+                    mark <= maxMark
+                ) {
+
+                    totalMarks += mark;
+
+                    totalMaxMarks += maxMark;
+
+                    validSubjects++;
+
                 }
+
             }
 
-            if (count === 0) {
 
-                document.getElementById("result").innerText =
-                    "أدخل علامة واحدة على الأقل.";
+            if (validSubjects === 0) {
+
+                document.getElementById("result").innerHTML =
+                    "⚠️ أدخل علامة صحيحة واحدة على الأقل.";
 
                 return;
+
             }
 
-            let average = total / count;
 
-            document.getElementById("result").innerText =
-                "معدلك هو: " + average.toFixed(2);
+            let percentage =
+                (totalMarks / totalMaxMarks) * 100;
+
+
+            document.getElementById("result").innerHTML =
+
+                "مجموع علاماتك: " +
+                totalMarks.toFixed(2) +
+
+                "<br>" +
+
+                "المجموع الكلي: " +
+                totalMaxMarks.toFixed(2) +
+
+                "<br>" +
+
+                "معدلك: " +
+                percentage.toFixed(2) +
+                "%";
 
         }
 
