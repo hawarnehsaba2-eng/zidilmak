@@ -80,10 +80,6 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background: #0d47a1;
-        }
-
         .result {
             margin-top: 20px;
             padding: 15px;
@@ -133,7 +129,7 @@
 
         <label for="value">القيمة</label>
 
-        <input type="number" id="value" placeholder="مثال: 100">
+        <input type="number" id="value" placeholder="مثال: 1">
 
         <label for="fromUnit">من</label>
 
@@ -153,25 +149,28 @@
 
     <div class="info">
 
-        <h2>📚 ما فائدة محول الوحدات؟</h2>
+        <h2>📚 وحدات الطول</h2>
 
         <p>
-            يساعدك محول الوحدات على تحويل القياسات
-            من وحدة إلى وحدة أخرى بسهولة.
-        </p>
-
-        <p><strong>أمثلة:</strong></p>
-
-        <p>
-            1 كيلومتر = 1000 متر
+            كيلومتر → هكتومتر → ديكامتر → متر
+            → ديسيمتر → سنتيمتر → ملليمتر
         </p>
 
         <p>
-            1 كيلوغرام = 1000 غرام
+            كل خطوة باتجاه اليمين تعني الضرب في 10،
+            وكل خطوة باتجاه اليسار تعني القسمة على 10.
         </p>
 
+        <h2>⚖️ وحدات الوزن</h2>
+
         <p>
-            1 لتر = 1000 ملليلتر
+            طن → كيلوغرام → غرام → ملليغرام
+        </p>
+
+        <h2>🧪 وحدات الحجم</h2>
+
+        <p>
+            لتر → ملليلتر
         </p>
 
     </div>
@@ -187,48 +186,80 @@
 const units = {
 
     length: {
-        meter: {
-            name: "متر",
-            factor: 1
-        },
+
         kilometer: {
             name: "كيلومتر",
             factor: 1000
         },
+
+        hectometer: {
+            name: "هكتومتر",
+            factor: 100
+        },
+
+        dekameter: {
+            name: "ديكامتر",
+            factor: 10
+        },
+
+        meter: {
+            name: "متر",
+            factor: 1
+        },
+
+        decimeter: {
+            name: "ديسيمتر",
+            factor: 0.1
+        },
+
         centimeter: {
             name: "سنتيمتر",
             factor: 0.01
         },
+
         millimeter: {
             name: "ملليمتر",
             factor: 0.001
         }
+
     },
 
     weight: {
+
+        ton: {
+            name: "طن",
+            factor: 1000000
+        },
+
         kilogram: {
             name: "كيلوغرام",
-            factor: 1
+            factor: 1000
         },
+
         gram: {
             name: "غرام",
-            factor: 0.001
+            factor: 1
         },
+
         milligram: {
             name: "ملليغرام",
-            factor: 0.000001
+            factor: 0.001
         }
+
     },
 
     volume: {
+
         liter: {
             name: "لتر",
             factor: 1
         },
+
         milliliter: {
             name: "ملليلتر",
             factor: 0.001
         }
+
     }
 
 };
@@ -247,15 +278,18 @@ function changeUnits() {
     for (let key in units[type]) {
 
         let option1 = document.createElement("option");
+
         option1.value = key;
         option1.textContent = units[type][key].name;
 
         let option2 = document.createElement("option");
+
         option2.value = key;
         option2.textContent = units[type][key].name;
 
         fromUnit.appendChild(option1);
         toUnit.appendChild(option2);
+
     }
 
 }
@@ -264,23 +298,36 @@ function changeUnits() {
 function convertUnit() {
 
     let type = document.getElementById("type").value;
-    let value = parseFloat(document.getElementById("value").value);
 
-    let from = document.getElementById("fromUnit").value;
-    let to = document.getElementById("toUnit").value;
+    let value =
+        parseFloat(document.getElementById("value").value);
 
-    let result = document.getElementById("result");
+    let from =
+        document.getElementById("fromUnit").value;
+
+    let to =
+        document.getElementById("toUnit").value;
+
+    let result =
+        document.getElementById("result");
+
 
     if (isNaN(value)) {
 
-        result.innerHTML = "⚠️ الرجاء إدخال قيمة صحيحة.";
+        result.innerHTML =
+            "⚠️ الرجاء إدخال قيمة صحيحة.";
+
         return;
     }
 
-    let valueInBase = value * units[type][from].factor;
+
+    let valueInBase =
+        value * units[type][from].factor;
+
 
     let convertedValue =
         valueInBase / units[type][to].factor;
+
 
     result.innerHTML =
         "✅ النتيجة:<br><strong>" +
@@ -288,6 +335,7 @@ function convertUnit() {
         " " +
         units[type][to].name +
         "</strong>";
+
 }
 
 
@@ -296,4 +344,5 @@ changeUnits();
 </script>
 
 </body>
+
 </html>
