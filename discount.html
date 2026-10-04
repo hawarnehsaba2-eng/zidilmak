@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حاسبة الخصم - زد علمك</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #1565c0;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .info {
+            margin-top: 25px;
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">🎓 زد علمك</a>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>حاسبة الخصم 💰</h1>
+
+        <label for="price">السعر الأصلي</label>
+        <input type="number" id="price" placeholder="مثال: 100">
+
+        <label for="discount">نسبة الخصم %</label>
+        <input type="number" id="discount" placeholder="مثال: 20">
+
+        <button onclick="calculateDiscount()">احسب الخصم</button>
+
+        <div class="result" id="result">
+            أدخل السعر ونسبة الخصم ثم اضغط على الزر.
+        </div>
+
+    </div>
+
+    <div class="info">
+
+        <h2>📚 كيف تعمل حاسبة الخصم؟</h2>
+
+        <p>
+            تساعدك حاسبة الخصم على معرفة قيمة الخصم
+            والسعر النهائي بعد الخصم.
+        </p>
+
+        <p><strong>قيمة الخصم:</strong></p>
+
+        <p>
+            السعر الأصلي × نسبة الخصم ÷ 100
+        </p>
+
+        <p><strong>السعر بعد الخصم:</strong></p>
+
+        <p>
+            السعر الأصلي − قيمة الخصم
+        </p>
+
+        <h3>مثال:</h3>
+
+        <p>
+            إذا كان السعر الأصلي 200 دينار
+            ونسبة الخصم 15%:
+        </p>
+
+        <p>
+            قيمة الخصم = 30 دينار
+        </p>
+
+        <p>
+            السعر بعد الخصم = 170 دينار
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+<script>
+function calculateDiscount() {
+
+    let price = parseFloat(document.getElementById("price").value);
+    let discount = parseFloat(document.getElementById("discount").value);
+    let result = document.getElementById("result");
+
+    if (isNaN(price) || isNaN(discount)) {
+        result.innerHTML = "⚠️ الرجاء إدخال السعر ونسبة الخصم.";
+        return;
+    }
+
+    if (price < 0 || discount < 0 || discount > 100) {
+        result.innerHTML = "⚠️ تأكد من إدخال قيم صحيحة.";
+        return;
+    }
+
+    let discountValue = price * discount / 100;
+    let finalPrice = price - discountValue;
+
+    result.innerHTML =
+        "💰 قيمة الخصم: <strong>" + discountValue.toFixed(2) + "</strong><br>" +
+        "🛒 السعر بعد الخصم: <strong>" + finalPrice.toFixed(2) + "</strong>";
+}
+</script>
+
+</body>
+</html>
