@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حاسبة العمر - زد علمك</title>
+
+    <meta name="description"
+        content="حاسبة عمر مجانية لحساب العمر بالسنوات والأشهر والأيام.">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 18px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #1565c0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1565c0;
+        }
+
+        .description {
+            text-align: center;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #1565c0;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 19px;
+            font-weight: bold;
+            color: #1565c0;
+            line-height: 2;
+        }
+
+        .info {
+            margin-top: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            line-height: 1.9;
+        }
+
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            background: #eeeeee;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <a href="index.html">
+            🎓 زد علمك
+        </a>
+
+    </header>
+
+
+    <div class="container">
+
+
+        <div class="card">
+
+            <h1>
+                حاسبة العمر 🎂
+            </h1>
+
+            <p class="description">
+                أدخل تاريخ ميلادك لمعرفة عمرك بالسنوات والأشهر والأيام.
+            </p>
+
+
+            <label for="birthDate">
+                تاريخ الميلاد:
+            </label>
+
+            <input
+                type="date"
+                id="birthDate"
+            >
+
+
+            <label for="todayDate">
+                احسب العمر حتى تاريخ:
+            </label>
+
+            <input
+                type="date"
+                id="todayDate"
+            >
+
+
+            <button onclick="calculateAge()">
+                احسب العمر
+            </button>
+
+
+            <div
+                class="result"
+                id="result"
+            >
+                أدخل تاريخ الميلاد ثم اضغط «احسب العمر»
+            </div>
+
+        </div>
+
+
+
+        <div class="info">
+
+            <h2>
+                📌 كيف تعمل حاسبة العمر؟
+            </h2>
+
+            <p>
+                تقوم الحاسبة بحساب الفترة الزمنية بين تاريخ الميلاد
+                والتاريخ الذي اخترته.
+            </p>
+
+            <p>
+                ويمكنك استخدامها لمعرفة عمرك بالسنوات والأشهر والأيام.
+            </p>
+
+
+            <h2>
+                💡 مثال
+            </h2>
+
+            <div class="example">
+
+                إذا كان تاريخ الميلاد:
+
+                <br>
+
+                1 يناير 2010
+
+                <br><br>
+
+                والتاريخ المطلوب الحساب حتىه هو:
+
+                <br>
+
+                1 يناير 2026
+
+                <br><br>
+
+                فإن العمر يكون:
+
+                <br>
+
+                <strong>
+                    16 سنة
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <footer>
+
+        © 2026 زد علمك - جميع الحقوق محفوظة
+
+    </footer>
+
+
+    <script>
+
+        // وضع تاريخ اليوم تلقائيًا
+
+        let today = new Date();
+
+        let year = today.getFullYear();
+
+        let month = String(
+            today.getMonth() + 1
+        ).padStart(2, "0");
+
+        let day = String(
+            today.getDate()
+        ).padStart(2, "0");
+
+
+        document.getElementById("todayDate").value =
+            year + "-" + month + "-" + day;
+
+
+
+        function calculateAge() {
+
+            let birthValue =
+                document.getElementById("birthDate").value;
+
+            let todayValue =
+                document.getElementById("todayDate").value;
+
+
+            if (!birthValue || !todayValue) {
+
+                document.getElementById("result").innerHTML =
+                    "⚠️ أدخل تاريخ الميلاد والتاريخ المطلوب.";
+
+                return;
+
+            }
+
+
+            let birthDate =
+                new Date(birthValue + "T00:00:00");
+
+            let endDate =
+                new Date(todayValue + "T00:00:00");
+
+
+            if (birthDate > endDate) {
+
+                document.getElementById("result").innerHTML =
+                    "⚠️ تاريخ الميلاد يجب أن يكون قبل التاريخ المطلوب.";
+
+                return;
+
+            }
+
+
+            let years =
+                endDate.getFullYear() -
+                birthDate.getFullYear();
+
+            let months =
+                endDate.getMonth() -
+                birthDate.getMonth();
+
+            let days =
+                endDate.getDate() -
+                birthDate.getDate();
+
+
+            if (days < 0) {
+
+                months--;
+
+                let previousMonth =
+                    new Date(
+                        endDate.getFullYear(),
+                        endDate.getMonth(),
+                        0
+                    );
+
+                days +=
+                    previousMonth.getDate();
+
+            }
+
+
+            if (months < 0) {
+
+                years--;
+
+                months += 12;
+
+            }
+
+
+            // حساب إجمالي الأيام
+
+            let difference =
+                endDate.getTime() -
+                birthDate.getTime();
+
+            let totalDays =
+                Math.floor(
+                    difference /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            // حساب إجمالي الأشهر بشكل تقريبي
+
+            let totalMonths =
+                (years * 12) + months;
+
+
+            document.getElementById("result").innerHTML =
+
+                "🎂 عمرك هو:<br>" +
+
+                years +
+                " سنة و " +
+
+                months +
+                " شهر و " +
+
+                days +
+                " يوم" +
+
+                "<br><br>" +
+
+                "📅 إجمالي الأشهر: " +
+                totalMonths +
+
+                "<br>" +
+
+                "📆 إجمالي الأيام تقريبًا: " +
+                totalDays;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
