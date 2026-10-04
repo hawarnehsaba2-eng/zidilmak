@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حاسبة العلامة - زد علمك</title>
+
+    <meta name="description"
+        content="حاسبة العلامة من زد علمك تساعدك على معرفة معدلك الجديد أو العلامة التي تحتاجها للوصول إلى معدل معين.">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 18px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #1565c0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1565c0;
+        }
+
+        .description {
+            text-align: center;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .calculator-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 12px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #1565c0;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 18px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 19px;
+            font-weight: bold;
+            color: #1565c0;
+            line-height: 1.9;
+        }
+
+        .info {
+            margin-top: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            line-height: 1.9;
+        }
+
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            background: #eeeeee;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <a href="index.html">
+            🎓 زد علمك
+        </a>
+
+    </header>
+
+
+    <div class="container">
+
+
+        <div class="card">
+
+            <h1>
+                حاسبة العلامة 🎯
+            </h1>
+
+            <p class="description">
+                احسب معدلك الجديد بعد إضافة علامة جديدة،
+                أو اعرف العلامة التي تحتاجها للوصول إلى معدل معين.
+            </p>
+
+
+            <!-- القسم الأول -->
+
+            <div class="calculator-section">
+
+                <h2>
+                    📊 المعدل بعد إضافة علامة
+                </h2>
+
+                <label>
+                    مجموع علاماتك الحالية:
+                </label>
+
+                <input
+                    type="number"
+                    id="currentTotal"
+                    placeholder="مثال: 420"
+                    min="0"
+                    step="any"
+                >
+
+
+                <label>
+                    المجموع الكلي الحالي:
+                </label>
+
+                <input
+                    type="number"
+                    id="currentMax"
+                    placeholder="مثال: 500"
+                    min="0"
+                    step="any"
+                >
+
+
+                <label>
+                    العلامة الجديدة:
+                </label>
+
+                <input
+                    type="number"
+                    id="newMark"
+                    placeholder="مثال: 85"
+                    min="0"
+                    step="any"
+                >
+
+
+                <label>
+                    العلامة العظمى للعلامة الجديدة:
+                </label>
+
+                <input
+                    type="number"
+                    id="newMax"
+                    placeholder="مثال: 100"
+                    min="0"
+                    step="any"
+                >
+
+
+                <button onclick="calculateNewAverage()">
+                    احسب المعدل الجديد
+                </button>
+
+
+                <div
+                    class="result"
+                    id="newAverageResult"
+                >
+                    أدخل البيانات ثم اضغط على الزر
+                </div>
+
+            </div>
+
+
+
+            <!-- القسم الثاني -->
+
+            <div class="calculator-section">
+
+                <h2>
+                    🎯 كم علامة أحتاج؟
+                </h2>
+
+                <label>
+                    مجموع علاماتك الحالية:
+                </label>
+
+                <input
+                    type="number"
+                    id="targetCurrentTotal"
+                    placeholder="مثال: 420"
+                    min="0"
+                    step="any"
+                >
+
+
+                <label>
+                    المجموع الكلي الحالي:
+                </label>
+
+                <input
+                    type="number"
+                    id="targetCurrentMax"
+                    placeholder="مثال: 500"
+                    min="0"
+                    step="any"
+                >
+
+
+                <label>
+                    علامة الاختبار القادم من:
+                </label>
+
+                <input
+                    type="number"
+                    id="targetNewMax"
+                    placeholder="مثال: 100"
+                    min="0"
+                    step="any"
+                >
+
+
+                <label>
+                    المعدل الذي تريد الوصول إليه (%):
+                </label>
+
+                <input
+                    type="number"
+                    id="targetPercentage"
+                    placeholder="مثال: 85"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+
+
+                <button onclick="calculateNeededMark()">
+                    احسب العلامة المطلوبة
+                </button>
+
+
+                <div
+                    class="result"
+                    id="neededMarkResult"
+                >
+                    أدخل البيانات ثم اضغط على الزر
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- شرح الأداة -->
+
+        <div class="info">
+
+            <h2>
+                ما الفرق بين حاسبة المعدل وحاسبة العلامة؟
+            </h2>
+
+            <p>
+                <strong>حاسبة المعدل:</strong>
+                تستخدم لحساب معدلك بناءً على العلامات التي حصلت عليها
+                في المواد المختلفة.
+            </p>
+
+            <p>
+                <strong>حاسبة العلامة:</strong>
+                تستخدم لمعرفة تأثير علامة جديدة على معدلك،
+                أو لمعرفة العلامة التي تحتاجها للوصول إلى معدل معين.
+            </p>
+
+
+            <h2>
+                مثال على المعدل الجديد
+            </h2>
+
+            <div class="example">
+
+                لديك حاليًا:
+
+                <br>
+
+                420 من 500
+
+                <br><br>
+
+                وحصلت على 85 من 100 في اختبار جديد.
+
+                <br><br>
+
+                يصبح مجموعك:
+
+                <br>
+
+                505 من 600
+
+                <br><br>
+
+                والمعدل الجديد:
+
+                <br>
+
+                84.17%
+
+            </div>
+
+
+            <h2>
+                مثال على العلامة المطلوبة
+            </h2>
+
+            <div class="example">
+
+                لديك حاليًا:
+
+                <br>
+
+                420 من 500
+
+                <br><br>
+
+                وتريد الوصول إلى معدل 85%.
+
+                <br><br>
+
+                والاختبار القادم من 100.
+
+                <br><br>
+
+                الحاسبة تخبرك بالعلامة التي تحتاجها
+                في الاختبار للوصول إلى المعدل المطلوب.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <footer>
+
+        © 2026 زد علمك - جميع الحقوق محفوظة
+
+    </footer>
+
+
+    <script>
+
+
+        function calculateNewAverage() {
+
+            let currentTotal =
+                parseFloat(
+                    document.getElementById("currentTotal").value
+                );
+
+            let currentMax =
+                parseFloat(
+                    document.getElementById("currentMax").value
+                );
+
+            let newMark =
+                parseFloat(
+                    document.getElementById("newMark").value
+                );
+
+            let newMax =
+                parseFloat(
+                    document.getElementById("newMax").value
+                );
+
+
+            if (
+                isNaN(currentTotal) ||
+                isNaN(currentMax) ||
+                isNaN(newMark) ||
+                isNaN(newMax)
+            ) {
+
+                document.getElementById("newAverageResult").innerHTML =
+                    "⚠️ أدخل جميع البيانات.";
+
+                return;
+
+            }
+
+
+            if (
+                currentMax <= 0 ||
+                newMax <= 0 ||
+                currentTotal < 0 ||
+                newMark < 0 ||
+                currentTotal > currentMax ||
+                newMark > newMax
+            ) {
+
+                document.getElementById("newAverageResult").innerHTML =
+                    "⚠️ تأكد من صحة العلامات التي أدخلتها.";
+
+                return;
+
+            }
+
+
+            let total =
+                currentTotal + newMark;
+
+            let max =
+                currentMax + newMax;
+
+            let percentage =
+                (total / max) * 100;
+
+
+            document.getElementById("newAverageResult").innerHTML =
+
+                "المجموع الجديد: " +
+                total.toFixed(2) +
+                " من " +
+                max.toFixed(2) +
+
+                "<br>" +
+
+                "المعدل الجديد: " +
+                percentage.toFixed(2) +
+                "%";
+
+        }
+
+
+
+        function calculateNeededMark() {
+
+            let currentTotal =
+                parseFloat(
+                    document.getElementById("targetCurrentTotal").value
+                );
+
+            let currentMax =
+                parseFloat(
+                    document.getElementById("targetCurrentMax").value
+                );
+
+            let newMax =
+                parseFloat(
+                    document.getElementById("targetNewMax").value
+                );
+
+            let target =
+                parseFloat(
+                    document.getElementById("targetPercentage").value
+                );
+
+
+            if (
+                isNaN(currentTotal) ||
+                isNaN(currentMax) ||
+                isNaN(newMax) ||
+                isNaN(target)
+            ) {
+
+                document.getElementById("neededMarkResult").innerHTML =
+                    "⚠️ أدخل جميع البيانات.";
+
+                return;
+
+            }
+
+
+            if (
+                currentMax <= 0 ||
+                newMax <= 0 ||
+                currentTotal < 0 ||
+                currentTotal > currentMax ||
+                target < 0 ||
+                target > 100
+            ) {
+
+                document.getElementById("neededMarkResult").innerHTML =
+                    "⚠️ تأكد من صحة البيانات.";
+
+                return;
+
+            }
+
+
+            let requiredMark =
+                ((target / 100) *
+                (currentMax + newMax))
+                - currentTotal;
+
+
+            if (requiredMark <= 0) {
+
+                document.getElementById("neededMarkResult").innerHTML =
+                    "✅ معدلك الحالي يكفي للوصول إلى المعدل المطلوب.";
+
+                return;
+
+            }
+
+
+            if (requiredMark > newMax) {
+
+                document.getElementById("neededMarkResult").innerHTML =
+                    "❌ الوصول إلى هذا المعدل غير ممكن بعلامة واحدة من " +
+                    newMax +
+                    ".";
+
+                return;
+
+            }
+
+
+            document.getElementById("neededMarkResult").innerHTML =
+
+                "تحتاج إلى: " +
+                requiredMark.toFixed(2) +
+                " من " +
+                newMax +
+
+                "<br>" +
+
+                "أي ما يقارب: " +
+                ((requiredMark / newMax) * 100).toFixed(2) +
+                "% من الاختبار.";
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
