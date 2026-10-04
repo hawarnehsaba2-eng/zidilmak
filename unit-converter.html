@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>محول الوحدات - زد علمك</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: white;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #1565c0;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            line-height: 2;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .info {
+            margin-top: 25px;
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">🎓 زد علمك</a>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>محول الوحدات 📏</h1>
+
+        <label for="type">نوع الوحدة</label>
+
+        <select id="type" onchange="changeUnits()">
+            <option value="length">الطول</option>
+            <option value="weight">الوزن</option>
+            <option value="volume">الحجم</option>
+        </select>
+
+        <label for="value">القيمة</label>
+
+        <input type="number" id="value" placeholder="مثال: 100">
+
+        <label for="fromUnit">من</label>
+
+        <select id="fromUnit"></select>
+
+        <label for="toUnit">إلى</label>
+
+        <select id="toUnit"></select>
+
+        <button onclick="convertUnit()">تحويل</button>
+
+        <div class="result" id="result">
+            أدخل القيمة واختر الوحدات ثم اضغط تحويل.
+        </div>
+
+    </div>
+
+    <div class="info">
+
+        <h2>📚 ما فائدة محول الوحدات؟</h2>
+
+        <p>
+            يساعدك محول الوحدات على تحويل القياسات
+            من وحدة إلى وحدة أخرى بسهولة.
+        </p>
+
+        <p><strong>أمثلة:</strong></p>
+
+        <p>
+            1 كيلومتر = 1000 متر
+        </p>
+
+        <p>
+            1 كيلوغرام = 1000 غرام
+        </p>
+
+        <p>
+            1 لتر = 1000 ملليلتر
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+<script>
+
+const units = {
+
+    length: {
+        meter: {
+            name: "متر",
+            factor: 1
+        },
+        kilometer: {
+            name: "كيلومتر",
+            factor: 1000
+        },
+        centimeter: {
+            name: "سنتيمتر",
+            factor: 0.01
+        },
+        millimeter: {
+            name: "ملليمتر",
+            factor: 0.001
+        }
+    },
+
+    weight: {
+        kilogram: {
+            name: "كيلوغرام",
+            factor: 1
+        },
+        gram: {
+            name: "غرام",
+            factor: 0.001
+        },
+        milligram: {
+            name: "ملليغرام",
+            factor: 0.000001
+        }
+    },
+
+    volume: {
+        liter: {
+            name: "لتر",
+            factor: 1
+        },
+        milliliter: {
+            name: "ملليلتر",
+            factor: 0.001
+        }
+    }
+
+};
+
+
+function changeUnits() {
+
+    let type = document.getElementById("type").value;
+
+    let fromUnit = document.getElementById("fromUnit");
+    let toUnit = document.getElementById("toUnit");
+
+    fromUnit.innerHTML = "";
+    toUnit.innerHTML = "";
+
+    for (let key in units[type]) {
+
+        let option1 = document.createElement("option");
+        option1.value = key;
+        option1.textContent = units[type][key].name;
+
+        let option2 = document.createElement("option");
+        option2.value = key;
+        option2.textContent = units[type][key].name;
+
+        fromUnit.appendChild(option1);
+        toUnit.appendChild(option2);
+    }
+
+}
+
+
+function convertUnit() {
+
+    let type = document.getElementById("type").value;
+    let value = parseFloat(document.getElementById("value").value);
+
+    let from = document.getElementById("fromUnit").value;
+    let to = document.getElementById("toUnit").value;
+
+    let result = document.getElementById("result");
+
+    if (isNaN(value)) {
+
+        result.innerHTML = "⚠️ الرجاء إدخال قيمة صحيحة.";
+        return;
+    }
+
+    let valueInBase = value * units[type][from].factor;
+
+    let convertedValue =
+        valueInBase / units[type][to].factor;
+
+    result.innerHTML =
+        "✅ النتيجة:<br><strong>" +
+        convertedValue.toLocaleString("ar") +
+        " " +
+        units[type][to].name +
+        "</strong>";
+}
+
+
+changeUnits();
+
+</script>
+
+</body>
+</html>
