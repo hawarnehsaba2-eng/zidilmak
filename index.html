@@ -250,4 +250,187 @@ footer {
 
 <section id="tools">
 
-    <h2>🧮 أدوات تعليم
+    <h2>🧮 أدوات تعليمية مجانية</h2>
+
+    <div class="tools">
+
+        <div class="tool-card">
+            <div class="icon">%</div>
+            <h3>حاسبة النسبة المئوية</h3>
+            <p>احسب النسبة المئوية بسهولة.</p>
+            <button onclick="showCalculator()">استخدم الأداة</button>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">📊</div>
+            <h3>حاسبة المعدل</h3>
+            <p>احسب معدلك بطريقة بسيطة.</p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">📝</div>
+            <h3>حاسبة العلامة</h3>
+            <p>احسب علامتك النهائية.</p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">🎂</div>
+            <h3>حاسبة العمر</h3>
+            <p>احسب العمر بسهولة.</p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">🏷️</div>
+            <h3>حاسبة الخصم</h3>
+            <p>اعرف السعر بعد الخصم.</p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">📅</div>
+            <h3>الفرق بين تاريخين</h3>
+            <p>احسب المدة بين تاريخين.</p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">📏</div>
+            <h3>محول الوحدات</h3>
+            <p>حوّل بين الوحدات المختلفة.</p>
+        </div>
+
+        <div class="tool-card">
+            <div class="icon">⏰</div>
+            <h3>حاسبة الوقت</h3>
+            <p>احسب الوقت بطريقة سهلة.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="calculator">
+
+    <h2>🧮 حاسبة النسبة المئوية</h2>
+
+    <div class="calculator-box">
+
+        <label>العدد</label>
+        <input id="number" type="number" placeholder="مثال: 20">
+
+        <label>النسبة المئوية</label>
+        <input id="percent" type="number" placeholder="مثال: 15">
+
+        <br><br>
+
+        <button onclick="calculatePercentage()">
+            احسب
+        </button>
+
+        <div id="result" class="result">
+            النتيجة ستظهر هنا
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="info">
+
+        <h2>🌱 لماذا زد علمك؟</h2>
+
+        <p>
+            أدوات مجانية وسهلة الاستخدام تساعدك على التعلم
+            وإنجاز الحسابات بطريقة بسيطة.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="coming">
+
+    <h2>🚀 قريبًا في زد علمك</h2>
+
+    <p>نعمل على إضافة محتوى تعليمي وأدوات جديدة باستمرار.</p>
+
+    <span>📚 محتوى تعليمي</span>
+    <span>🎥 شروحات ودروس</span>
+    <span>🔊 قراءة الدروس صوتيًا</span>
+    <span>📝 أسئلة واختبارات</span>
+
+</section>
+
+<footer id="contact">
+
+    <h3>🎓 زد علمك</h3>
+
+    <p>أدوات تعليمية مجانية تساعدك على التعلم.</p>
+
+    <p>© 2026 زد علمك</p>
+
+</footer>
+
+<script>
+
+function showCalculator() {
+
+    document.getElementById("calculator").style.display = "block";
+
+    document.getElementById("calculator").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function calculatePercentage() {
+
+    let number = parseFloat(
+        document.getElementById("number").value
+    );
+
+    let percent = parseFloat(
+        document.getElementById("percent").value
+    );
+
+    if (isNaN(number) || isNaN(percent)) {
+
+        document.getElementById("result").innerText =
+            "⚠️ أدخل العدد والنسبة أولًا";
+
+        return;
+    }
+
+    let result = (number * percent) / 100;
+
+    document.getElementById("result").innerText =
+        "النتيجة = " + result;
+}
+
+function searchTools() {
+
+    let search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    let cards =
+        document.querySelectorAll(".tool-card");
+
+    cards.forEach(function(card) {
+
+        let text =
+            card.innerText.toLowerCase();
+
+        if (text.includes(search)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+}
+
+</script>
+
+</body>
+</html>
