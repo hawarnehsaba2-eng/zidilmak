@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الفرق بين تاريخين - زد علمك</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #1565c0;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .info {
+            margin-top: 25px;
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">🎓 زد علمك</a>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>الفرق بين تاريخين 📅</h1>
+
+        <label for="startDate">التاريخ الأول</label>
+        <input type="date" id="startDate">
+
+        <label for="endDate">التاريخ الثاني</label>
+        <input type="date" id="endDate">
+
+        <button onclick="calculateDifference()">احسب الفرق</button>
+
+        <div class="result" id="result">
+            اختر التاريخين ثم اضغط على الزر.
+        </div>
+
+    </div>
+
+    <div class="info">
+
+        <h2>📚 ما فائدة هذه الأداة؟</h2>
+
+        <p>
+            تساعدك هذه الأداة على معرفة المدة بين تاريخين.
+        </p>
+
+        <p>
+            يمكن استخدامها لمعرفة عدد السنوات والأشهر والأيام
+            بين تاريخين، بالإضافة إلى إجمالي عدد الأيام.
+        </p>
+
+        <h3>مثال:</h3>
+
+        <p>
+            من 1 يناير 2020 إلى 1 يناير 2025
+        </p>
+
+        <p>
+            النتيجة: 5 سنوات.
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+<script>
+function calculateDifference() {
+
+    let startValue = document.getElementById("startDate").value;
+    let endValue = document.getElementById("endDate").value;
+    let result = document.getElementById("result");
+
+    if (!startValue || !endValue) {
+        result.innerHTML = "⚠️ الرجاء اختيار التاريخين.";
+        return;
+    }
+
+    let start = new Date(startValue + "T00:00:00");
+    let end = new Date(endValue + "T00:00:00");
+
+    if (start > end) {
+        let temp = start;
+        start = end;
+        end = temp;
+    }
+
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+    let days = end.getDate() - start.getDate();
+
+    if (days < 0) {
+        months--;
+
+        let previousMonth = new Date(
+            end.getFullYear(),
+            end.getMonth(),
+            0
+        );
+
+        days += previousMonth.getDate();
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    let milliseconds = Math.abs(end - start);
+    let totalDays = Math.round(
+        milliseconds / (1000 * 60 * 60 * 24)
+    );
+
+    result.innerHTML =
+        "📅 الفرق هو: <strong>" +
+        years + " سنة، " +
+        months + " شهر، " +
+        days + " يوم</strong><br><br>" +
+
+        "🔢 إجمالي الأيام: <strong>" +
+        totalDays +
+        "</strong>";
+}
+</script>
+
+</body>
+</html>
