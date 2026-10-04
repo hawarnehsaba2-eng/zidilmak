@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة النسبة المئوية | زد علمك</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+header {
+    background: #1565c0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+h1, h2 {
+    color: #1565c0;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #1565c0;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #eef5ff;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.example {
+    background: #f5f7fb;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+footer {
+    text-align: center;
+    background: #123b6d;
+    color: white;
+    padding: 25px;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">🎓 زد علمك</a>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h1>🧮 حاسبة النسبة المئوية</h1>
+
+        <p>
+            احسب النسبة المئوية لأي عدد بسهولة.
+        </p>
+
+        <label>العدد</label>
+        <input id="number" type="number" placeholder="مثال: 200">
+
+        <label>النسبة المئوية</label>
+        <input id="percent" type="number" placeholder="مثال: 15">
+
+        <button onclick="calculate()">
+            احسب النسبة
+        </button>
+
+        <div id="result" class="result">
+            النتيجة ستظهر هنا
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📖 ما هي النسبة المئوية؟</h2>
+
+        <p>
+            النسبة المئوية هي طريقة للتعبير عن جزء من مئة.
+            ورمزها هو %.
+        </p>
+
+        <h2>✏️ طريقة الحساب</h2>
+
+        <p>
+            لحساب نسبة مئوية من عدد نستخدم:
+        </p>
+
+        <div class="example">
+            <strong>العدد × النسبة ÷ 100</strong>
+        </div>
+
+        <h2>✅ مثال</h2>
+
+        <div class="example">
+            نريد حساب 15% من 200:
+            <br><br>
+            200 × 15 ÷ 100 = <strong>30</strong>
+        </div>
+
+        <p>
+            إذن 15% من 200 تساوي <strong>30</strong>.
+        </p>
+
+        <h2>💡 مثال آخر</h2>
+
+        <div class="example">
+            25% من 400:
+            <br><br>
+            400 × 25 ÷ 100 = <strong>100</strong>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    🎓 زد علمك
+    <br>
+    أدوات تعليمية مجانية
+</footer>
+
+<script>
+
+function calculate() {
+
+    let number = parseFloat(
+        document.getElementById("number").value
+    );
+
+    let percent = parseFloat(
+        document.getElementById("percent").value
+    );
+
+    let result = document.getElementById("result");
+
+    if (isNaN(number) || isNaN(percent)) {
+
+        result.innerText =
+            "⚠️ أدخل العدد والنسبة أولًا";
+
+        return;
+    }
+
+    let answer = (number * percent) / 100;
+
+    result.innerText =
+        "النتيجة = " + answer;
+}
+
+</script>
+
+</body>
+</html>
