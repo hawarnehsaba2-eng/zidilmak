@@ -225,4 +225,88 @@ function showInputs() {
 function calculate() {
 
     const shape = document.getElementById("shape").value;
-    const result =
+    const result = document.getElementById("result");
+
+    if (shape === "square") {
+
+        const side = Number(document.getElementById("side").value);
+
+        if (side <= 0) {
+            result.innerHTML = "⚠️ أدخل طول ضلع صحيح.";
+            return;
+        }
+
+        const area = side * side;
+        const perimeter = 4 * side;
+
+        result.innerHTML =
+            `📏 المساحة = ${area}<br>
+             🔄 المحيط = ${perimeter}`;
+
+    } else if (shape === "rectangle") {
+
+        const length = Number(document.getElementById("length").value);
+        const width = Number(document.getElementById("width").value);
+
+        if (length <= 0 || width <= 0) {
+            result.innerHTML = "⚠️ أدخل الطول والعرض بشكل صحيح.";
+            return;
+        }
+
+        const area = length * width;
+        const perimeter = 2 * (length + width);
+
+        result.innerHTML =
+            `📏 المساحة = ${area}<br>
+             🔄 المحيط = ${perimeter}`;
+
+    } else if (shape === "triangle") {
+
+        const base = Number(document.getElementById("base").value);
+        const height = Number(document.getElementById("height").value);
+        const side1 = Number(document.getElementById("side1").value);
+        const side2 = Number(document.getElementById("side2").value);
+        const side3 = Number(document.getElementById("side3").value);
+
+        if (
+            base <= 0 ||
+            height <= 0 ||
+            side1 <= 0 ||
+            side2 <= 0 ||
+            side3 <= 0
+        ) {
+            result.innerHTML = "⚠️ أدخل جميع القياسات بشكل صحيح.";
+            return;
+        }
+
+        const area = (base * height) / 2;
+        const perimeter = side1 + side2 + side3;
+
+        result.innerHTML =
+            `📏 المساحة = ${area}<br>
+             🔄 المحيط = ${perimeter}`;
+
+    } else if (shape === "circle") {
+
+        const radius = Number(document.getElementById("radius").value);
+
+        if (radius <= 0) {
+            result.innerHTML = "⚠️ أدخل نصف قطر صحيح.";
+            return;
+        }
+
+        const area = Math.PI * radius * radius;
+        const perimeter = 2 * Math.PI * radius;
+
+        result.innerHTML =
+            `📏 المساحة = ${area.toFixed(2)}<br>
+             🔄 المحيط = ${perimeter.toFixed(2)}`;
+    }
+}
+
+showInputs();
+
+</script>
+
+</body>
+</html>
