@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حاسبة المساحة والمحيط | زد علمك</title>
+
+    <meta name="description"
+        content="حاسبة مجانية لحساب المساحة والمحيط للمربع والمستطيل والمثلث والدائرة.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        select,
+        input,
+        button {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        select,
+        input {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            border: none;
+            background: #1565c0;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .formula {
+            margin-top: 25px;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">🎓 زد علمك</a>
+</header>
+
+<div class="container">
+
+    <div class="box">
+
+        <h1>📐 حاسبة المساحة والمحيط</h1>
+
+        <p>
+            اختر الشكل وأدخل القياسات لحساب المساحة والمحيط.
+        </p>
+
+        <label for="shape">اختر الشكل:</label>
+
+        <select id="shape" onchange="showInputs()">
+            <option value="square">مربع</option>
+            <option value="rectangle">مستطيل</option>
+            <option value="triangle">مثلث</option>
+            <option value="circle">دائرة</option>
+        </select>
+
+        <div id="inputs"></div>
+
+        <button onclick="calculate()">
+            احسب
+        </button>
+
+        <div id="result" class="result">
+            أدخل القياسات ثم اضغط «احسب».
+        </div>
+
+        <div class="formula">
+            <h3>📚 القوانين</h3>
+
+            <p>
+                <strong>المربع:</strong><br>
+                المساحة = طول الضلع × طول الضلع<br>
+                المحيط = 4 × طول الضلع
+            </p>
+
+            <p>
+                <strong>المستطيل:</strong><br>
+                المساحة = الطول × العرض<br>
+                المحيط = 2 × (الطول + العرض)
+            </p>
+
+            <p>
+                <strong>المثلث:</strong><br>
+                المساحة = (القاعدة × الارتفاع) ÷ 2<br>
+                المحيط = مجموع أطوال الأضلاع
+            </p>
+
+            <p>
+                <strong>الدائرة:</strong><br>
+                المساحة = π × نصف القطر²<br>
+                المحيط = 2 × π × نصف القطر
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showInputs() {
+
+    const shape = document.getElementById("shape").value;
+    const inputs = document.getElementById("inputs");
+
+    if (shape === "square") {
+
+        inputs.innerHTML = `
+            <label>طول الضلع:</label>
+            <input type="number" id="side" min="0" step="any">
+        `;
+
+    } else if (shape === "rectangle") {
+
+        inputs.innerHTML = `
+            <label>الطول:</label>
+            <input type="number" id="length" min="0" step="any">
+
+            <label>العرض:</label>
+            <input type="number" id="width" min="0" step="any">
+        `;
+
+    } else if (shape === "triangle") {
+
+        inputs.innerHTML = `
+            <label>القاعدة:</label>
+            <input type="number" id="base" min="0" step="any">
+
+            <label>الارتفاع:</label>
+            <input type="number" id="height" min="0" step="any">
+
+            <label>الضلع الأول:</label>
+            <input type="number" id="side1" min="0" step="any">
+
+            <label>الضلع الثاني:</label>
+            <input type="number" id="side2" min="0" step="any">
+
+            <label>الضلع الثالث:</label>
+            <input type="number" id="side3" min="0" step="any">
+        `;
+
+    } else if (shape === "circle") {
+
+        inputs.innerHTML = `
+            <label>نصف القطر:</label>
+            <input type="number" id="radius" min="0" step="any">
+        `;
+    }
+}
+
+function calculate() {
+
+    const shape = document.getElementById("shape").value;
+    const result =
