@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حاسبة الكسور | زد علمك</title>
+
+    <meta name="description"
+        content="حاسبة كسور مجانية لجمع وطرح وضرب وقسمة الكسور وتبسيط الناتج.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            color: #222;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+        }
+
+        .fraction-area {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .fraction {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fraction input {
+            width: 100px;
+            padding: 12px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .line {
+            width: 100px;
+            border-top: 2px solid #222;
+            margin: 5px 0;
+        }
+
+        .operator {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        select,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        select {
+            border: 1px solid #ccc;
+            background: white;
+        }
+
+        button {
+            border: none;
+            background: #1565c0;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 18px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 22px;
+            line-height: 1.8;
+        }
+
+        .explanation {
+            margin-top: 25px;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .fraction-result {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+
+        .fraction-result .line {
+            width: 70px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">🎓 زد علمك</a>
+</header>
+
+<div class="container">
+
+    <div class="box">
+
+        <h1>➗ حاسبة الكسور</h1>
+
+        <p>
+            أدخل الكسرين واختر العملية الحسابية للحصول على النتيجة في أبسط صورة.
+        </p>
+
+        <div class="fraction-area">
+
+            <div class="fraction">
+                <input type="number" id="num1" placeholder="البسط">
+                <div class="line"></div>
+                <input type="number" id="den1" placeholder="المقام">
+            </div>
+
+            <div class="operator" id="operator">+</div>
+
+            <div class="fraction">
+                <input type="number" id="num2" placeholder="البسط">
+                <div class="line"></div>
+                <input type="number" id="den2" placeholder="المقام">
+            </div>
+
+        </div>
+
+        <select id="operation" onchange="updateOperator()">
+            <option value="add">جمع ➕</option>
+            <option value="subtract">طرح ➖</option>
+            <option value="multiply">ضرب ✖️</option>
+            <option value="divide">قسمة ➗</option>
+        </select>
+
+        <button onclick="calculateFraction()">
+            احسب
+        </button>
+
+        <div class="result" id="result">
+            أدخل الكسور ثم اضغط «احسب».
+        </div>
+
+        <div class="explanation">
+
+            <h3>📚 كيف نحسب الكسور؟</h3>
+
+            <p>
+                <strong>الجمع:</strong>
+                نوحّد المقامات ثم نجمع البسطين.
+            </p>
+
+            <p>
+                <strong>الطرح:</strong>
+                نوحّد المقامات ثم نطرح البسطين.
+            </p>
+
+            <p>
+                <strong>الضرب:</strong>
+                نضرب البسط في البسط والمقام في المقام.
+            </p>
+
+            <p>
+                <strong>القسمة:</strong>
+                نقلب الكسر الثاني ثم نضرب.
+            </p>
+
+            <p>
+                يتم تبسيط الناتج تلقائيًا إلى أبسط صورة.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function gcd(a, b) {
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+
+function simplify(num, den) {
+
+    if (den < 0) {
+        num = -num;
+        den = -den;
+    }
+
+    const divisor = gcd(num, den);
+
+    return {
+        num: num / divisor,
+        den: den / divisor
+    };
+}
+
+
+function updateOperator() {
+
+    const operation = document.getElementById("operation").value;
+    const operator = document.getElementById("operator");
+
+    if (operation === "add") {
+        operator.textContent = "+";
+    }
+
+    else if (operation === "subtract") {
+        operator.textContent = "−";
+    }
+
+    else if (operation === "multiply") {
+        operator.textContent = "×";
+    }
+
+    else if (operation === "divide") {
+        operator.textContent = "÷";
+    }
+}
+
+
+function calculateFraction() {
+
+    const num1 = Number(document.getElementById("num1").value);
+    const den1 = Number(document.getElementById("den1").value);
+
+    const num2 = Number(document.getElementById("num2").value);
+    const den2 = Number(document.getElementById("den2").value);
+
+    const operation = document.getElementById("operation").value;
+
+    const result = document.getElementById("result");
+
+    if (
+        !Number.isInteger(num1) ||
+        !Number.isInteger(den1) ||
+        !Number.isInteger(num2) ||
+        !Number.isInteger(den2)
+    ) {
+        result.innerHTML = "⚠️ أدخل أعدادًا صحيحة في البسط والمقام.";
+        return;
+    }
+
+    if (den1 === 0 || den2 === 0) {
+        result.innerHTML = "⚠️ المقام لا يمكن أن يساوي صفرًا.";
+        return;
+    }
+
+    if (operation === "divide" && num2 === 0) {
+        result.innerHTML = "⚠️ لا يمكن القسمة على كسر يساوي صفرًا.";
+        return;
+    }
+
+    let numerator;
+    let denominator;
+
+    if (operation === "add") {
+
+        numerator = (num1 * den2) + (num2 * den1);
+        denominator = den1 * den2;
+
+    }
+
+    else if (operation === "subtract") {
+
+        numerator = (num1 * den2) - (num2 * den1);
+        denominator = den1 * den2;
+
+    }
+
+    else if (operation === "multiply") {
+
+        numerator = num1 * num2;
+        denominator = den1 * den2;
+
+    }
+
+    else if (operation === "divide") {
+
+        numerator = num1 * den2;
+        denominator = den1 * num2;
+
+    }
+
+    const simplified = simplify(numerator, denominator);
+
+    if (simplified.den === 1) {
+
+        result.innerHTML =
+            `✅ النتيجة = <strong>${simplified.num}</strong>`;
+
+    } else {
+
+        result.innerHTML =
+            `✅ النتيجة =
+            <span class="fraction-result">
+                <span>${simplified.num}</span>
+                <span class="line"></span>
+                <span>${simplified.den}</span>
+            </span>`;
+
+    }
+}
+
+</script>
+
+</body>
+
+</html>
