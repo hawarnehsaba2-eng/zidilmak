@@ -8,7 +8,7 @@
     <title>المهارات الرقمية الصف السابع - الفصل الأول | زد علمك</title>
 
     <meta name="description"
-        content="شروحات مادة المهارات الرقمية للصف السابع - الفصل الدراسي الأول، مع الدروس والملخصات التعليمية.">
+        content="شروحات مادة المهارات الرقمية للصف السابع - الفصل الدراسي الأول، تشمل وحدات أنظمة الحوسبة وشبكات الحاسوب.">
 
     <style>
         body {
@@ -52,35 +52,78 @@
         }
 
         .intro h2 {
-            color: #1565c0;
             margin-top: 0;
+            color: #1565c0;
+        }
+
+        .unit {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .unit-title {
+            background: #e3f2fd;
+            color: #0d47a1;
+            padding: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .lessons {
+            padding: 15px;
         }
 
         .lesson {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 15px;
+            display: block;
+            text-decoration: none;
+            color: #222;
+            background: #f8f9fa;
             border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            transition: 0.2s;
         }
 
-        .lesson h3 {
-            margin-top: 0;
-            color: #0d47a1;
+        .lesson:hover {
+            background: #e3f2fd;
+            border-color: #90caf9;
         }
 
-        .coming {
-            background: #f1f1f1;
-            color: #777;
-            text-align: center;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 20px;
+        .lesson-title {
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .lesson-parts {
+            display: block;
+            color: #666;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .unit-questions {
+            display: block;
+            text-decoration: none;
+            background: #fff3e0;
+            color: #e65100;
+            border: 1px solid #ffcc80;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .unit-questions:hover {
+            background: #ffe0b2;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 10px;
             text-decoration: none;
             background: #1565c0;
             color: white;
@@ -97,13 +140,22 @@
         }
 
         @media (max-width: 600px) {
+
             header h1 {
                 font-size: 24px;
             }
 
-            .intro,
-            .lesson {
-                padding: 18px;
+            .unit-title {
+                font-size: 19px;
+            }
+
+            .intro {
+                padding: 20px;
+            }
+
+            .lesson,
+            .unit-questions {
+                padding: 13px;
             }
         }
     </style>
@@ -126,61 +178,161 @@
 
         <section class="intro">
 
-            <h2>📚 شروحات المهارات الرقمية</h2>
+            <h2>📚 محتوى الفصل الدراسي الأول</h2>
 
             <p>
-                في هذه الصفحة ستجد شروحات مادة المهارات الرقمية
-                للصف السابع في الفصل الدراسي الأول.
-            </p>
-
-            <p>
-                سيتم إضافة الدروس والملخصات التعليمية
-                بشكل مرتب وسهل للطالب.
+                اختر الوحدة ثم الدرس الذي تريد دراسته.
             </p>
 
         </section>
 
 
-        <section class="lesson">
+        <!-- الوحدة الأولى -->
 
-            <h3>📘 الدروس</h3>
+        <section class="unit">
 
-            <p>
-                سيتم إضافة شروحات الدروس هنا قريبًا.
-            </p>
+            <div class="unit-title">
+                📘 الوحدة الأولى: أنظمة الحوسبة
+            </div>
+
+            <div class="lessons">
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الأول: جهاز الحاسوب
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الثاني: مكونات الحاسوب المادية
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الثالث: مكونات الحاسوب البرمجية
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الرابع: أنظمة التشغيل
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الخامس: تفاعل الإنسان مع أجهزة الحاسوب
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="unit-questions" href="#">
+                    📝 أسئلة الوحدة الأولى
+                </a>
+
+            </div>
 
         </section>
 
 
-        <section class="lesson">
+        <!-- الوحدة الثانية -->
 
-            <h3>📝 الملخصات</h3>
+        <section class="unit">
 
-            <p>
-                سيتم إضافة ملخصات المادة هنا.
-            </p>
+            <div class="unit-title">
+                🌐 الوحدة الثانية: شبكات الحاسوب
+            </div>
+
+            <div class="lessons">
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الأول: مقدمة إلى شبكات الحاسوب
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الثاني: مكونات شبكات الحاسوب
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الثالث: نماذج الربط في شبكات الحاسوب
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الرابع: التواصل باستخدام الشبكات
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="lesson" href="#">
+                    <span class="lesson-title">
+                        الدرس الخامس: أداء الشبكة
+                    </span>
+
+                    <span class="lesson-parts">
+                        الشروحات • التلخيص • اختبر نفسك • أسئلة الدرس وحلولها
+                    </span>
+                </a>
+
+
+                <a class="unit-questions" href="#">
+                    📝 أسئلة الوحدة الثانية
+                </a>
+
+            </div>
 
         </section>
-
-
-        <section class="lesson">
-
-            <h3>❓ أسئلة ومراجعة</h3>
-
-            <p>
-                سيتم إضافة أسئلة المراجعة والاختبارات
-                بعد تجهيز محتوى الدروس.
-            </p>
-
-        </section>
-
-
-        <div class="coming">
-
-            🚀 سيتم تحديث هذه الصفحة باستمرار
-            وإضافة محتوى الفصل الدراسي الأول.
-
-        </div>
 
 
         <a class="back-link" href="digital-skills.html">
