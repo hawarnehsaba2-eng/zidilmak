@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>المهارات الرقمية | زد علمك</title>
+
+    <meta name="description"
+        content="شروحات مادة المهارات الرقمية للطلاب من الصف السابع إلى الصف العاشر، مع الدروس والملخصات التعليمية.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.8;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 17px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .intro h2 {
+            margin-top: 0;
+            color: #1565c0;
+        }
+
+        .grade {
+            background: white;
+            margin-bottom: 18px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .grade-title {
+            padding: 18px 20px;
+            font-size: 21px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #e3f2fd;
+            color: #0d47a1;
+        }
+
+        .grade-title:hover {
+            background: #d5ebfa;
+        }
+
+        .semesters {
+            display: none;
+            padding: 15px;
+        }
+
+        .semester {
+            display: block;
+            text-decoration: none;
+            background: #f8f9fa;
+            color: #222;
+            padding: 15px;
+            margin: 8px 0;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .semester.available {
+            background: #e8f5e9;
+            border-color: #81c784;
+            color: #1b5e20;
+            font-weight: bold;
+        }
+
+        .semester.soon {
+            color: #777;
+            background: #f1f1f1;
+            cursor: default;
+        }
+
+        .semester small {
+            display: block;
+            font-weight: normal;
+            margin-top: 3px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 40px;
+            background: #eeeeee;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            main {
+                margin-top: 20px;
+            }
+
+            .grade-title {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>💻 المهارات الرقمية</h1>
+        <p>اختر صفك الدراسي للوصول إلى الشروحات</p>
+    </header>
+
+    <main>
+
+        <section class="intro">
+            <h2>📚 شروحات المهارات الرقمية</h2>
+
+            <p>
+                اختر الصف الدراسي لمعرفة الفصول المتاحة والشروحات التعليمية.
+            </p>
+        </section>
+
+
+        <!-- الصف السابع -->
+        <section class="grade">
+
+            <div class="grade-title" onclick="toggleGrade('grade7')">
+                📘 الصف السابع
+            </div>
+
+            <div class="semesters" id="grade7">
+
+                <a class="semester available" href="digital-skills-7-term1.html">
+                    📖 الفصل الدراسي الأول
+                    <small>الشروحات متاحة</small>
+                </a>
+
+                <div class="semester soon">
+                    📕 الفصل الدراسي الثاني
+                    <small>قريبًا</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- الصف الثامن -->
+        <section class="grade">
+
+            <div class="grade-title" onclick="toggleGrade('grade8')">
+                📗 الصف الثامن
+            </div>
+
+            <div class="semesters" id="grade8">
+
+                <div class="semester soon">
+                    📖 الفصل الدراسي الأول
+                    <small>قريبًا</small>
+                </div>
+
+                <div class="semester soon">
+                    📕 الفصل الدراسي الثاني
+                    <small>قريبًا</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- الصف التاسع -->
+        <section class="grade">
+
+            <div class="grade-title" onclick="toggleGrade('grade9')">
+                📙 الصف التاسع
+            </div>
+
+            <div class="semesters" id="grade9">
+
+                <div class="semester soon">
+                    📖 الفصل الدراسي الأول
+                    <small>قريبًا</small>
+                </div>
+
+                <div class="semester soon">
+                    📕 الفصل الدراسي الثاني
+                    <small>قريبًا</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- الصف العاشر -->
+        <section class="grade">
+
+            <div class="grade-title" onclick="toggleGrade('grade10')">
+                📕 الصف العاشر
+            </div>
+
+            <div class="semesters" id="grade10">
+
+                <div class="semester soon">
+                    📖 الفصل الدراسي الأول
+                    <small>قريبًا</small>
+                </div>
+
+                <div class="semester soon">
+                    📕 الفصل الدراسي الثاني
+                    <small>قريبًا</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 زد علمك</p>
+    </footer>
+
+
+    <script>
+        function toggleGrade(id) {
+
+            const section = document.getElementById(id);
+
+            if (section.style.display === "block") {
+                section.style.display = "none";
+            } else {
+                section.style.display = "block";
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
