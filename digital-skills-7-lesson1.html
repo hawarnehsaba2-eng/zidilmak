@@ -961,47 +961,73 @@
     <p>تعلم أكثر، واعرف أكثر.</p>
 </footer>
 
-
 <script>
 
-    let speech;
+    let speechChunks = [];
+    let currentChunk = 0;
 
     function readLesson() {
 
         if (!("speechSynthesis" in window)) {
-
             alert("عذرًا، متصفحك لا يدعم ميزة قراءة النص.");
-
             return;
         }
 
         speechSynthesis.cancel();
 
-        const lesson =
-            document.getElementById("lesson-content");
+        const lesson = document.getElementById("lesson-content");
+        const text = lesson.innerText.trim();
 
-        speech =
-            new SpeechSynthesisUtterance(
-                lesson.innerText
-            );
+        // تقسيم النص إلى أجزاء قصيرة حتى تعمل القراءة على الهاتف
+        speechChunks = text.match(/[^.!؟\n]+[.!؟\n]*/g) || [text];
+
+        currentChunk = 0;
+
+        speakNextChunk();
+    }
+
+    function speakNextChunk() {
+
+        if (currentChunk >= speechChunks.length) {
+            return;
+        }
+
+        const chunk = speechChunks[currentChunk].trim();
+
+        if (!chunk) {
+            currentChunk++;
+            speakNextChunk();
+            return;
+        }
+
+        const speech = new SpeechSynthesisUtterance(chunk);
 
         speech.lang = "ar-SA";
         speech.rate = 0.9;
         speech.pitch = 1;
         speech.volume = 1;
 
+        speech.onend = function () {
+            currentChunk++;
+            speakNextChunk();
+        };
+
+        speech.onerror = function () {
+            currentChunk++;
+            speakNextChunk();
+        };
+
         speechSynthesis.speak(speech);
     }
-
 
     function stopReading() {
 
         if ("speechSynthesis" in window) {
-
             speechSynthesis.cancel();
-
         }
 
+        speechChunks = [];
+        currentChunk = 0;
     }
 
 </script>
