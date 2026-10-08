@@ -8,6 +8,7 @@
     <title>اختبر نفسك | الدرس الأول: جهاز الحاسوب</title>
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background: #f4f7fb;
@@ -36,7 +37,7 @@
         }
 
         header p {
-            margin: 0;
+            margin: 5px 0;
             font-size: 16px;
         }
 
@@ -91,6 +92,11 @@
             background: #15803d;
         }
 
+        .finish-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         .result {
             display: none;
             background: white;
@@ -110,16 +116,6 @@
             font-weight: bold;
             color: #2563eb;
             margin: 15px 0;
-        }
-
-        .retry-btn {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
         }
 
         .back-btn {
@@ -143,189 +139,334 @@
             .question {
                 padding: 15px;
             }
+
         }
+
     </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
     <header>
+
         <h1>🧠 اختبر نفسك</h1>
+
         <p>الدرس الأول: جهاز الحاسوب</p>
+
         <p>اختر الإجابة الصحيحة لكل سؤال</p>
+
     </header>
 
 
     <form id="quizForm">
 
-        <!-- السؤال 1 -->
+
+        <!-- السؤال الأول -->
+
         <div class="question">
-            <h3>1. عملية يستقبل فيها جهاز الحاسوب البيانات والأوامر، ثم يخزنها تمهيدًا لمعالجتها هي:</h3>
+
+            <h3>
+                1. عملية يستقبل فيها جهاز الحاسوب البيانات والأوامر،
+                ثم يخزنها تمهيدًا لمعالجتها هي:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q1" value="correct">
+
                 عملية الإدخال
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q1" value="wrong">
+
                 عملية الإخراج
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 2 -->
+
+        <!-- السؤال الثاني -->
+
         <div class="question">
-            <h3>2. مرحلة يتم فيها معالجة البيانات عن طريق إجراء عمليات التصنيف والترتيب والتنسيق، وكذلك إجراء العمليات الحسابية وعمليات المقارنة المنطقية لإنتاج معلومات مفيدة، هي:</h3>
+
+            <h3>
+                2. مرحلة يتم فيها معالجة البيانات عن طريق إجراء عمليات
+                التصنيف والترتيب والتنسيق، وكذلك إجراء العمليات الحسابية
+                وعمليات المقارنة المنطقية لإنتاج معلومات مفيدة، هي:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q2" value="correct">
+
                 عملية المعالجة
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q2" value="wrong">
+
                 عملية الإخراج
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 3 -->
+
+        <!-- السؤال الثالث -->
+
         <div class="question">
-            <h3>3. تُعتبر مثالًا على وحدات الإخراج:</h3>
+
+            <h3>
+                3. تُعتبر مثالًا على وحدات الإخراج:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q3" value="correct">
+
                 الطابعة
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q3" value="wrong">
+
                 الماسح الضوئي
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 4 -->
+
+        <!-- السؤال الرابع -->
+
         <div class="question">
-            <h3>4. تمثل دماغ الحاسوب، وهي التي تقوم بمعالجة البيانات عن طريق إجراء العمليات الحسابية وعمليات المقارنة المنطقية لإنتاج معلومات مفيدة. هي:</h3>
+
+            <h3>
+                4. تمثل دماغ الحاسوب، وهي التي تقوم بمعالجة البيانات
+                عن طريق إجراء عمليات التصنيف والترتيب والتنسيق،
+                وكذلك إجراء العمليات الحسابية وعمليات المقارنة المنطقية
+                لإنتاج معلومات مفيدة. هي:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q4" value="wrong">
+
                 البطاقة الأم
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q4" value="correct">
+
                 وحدة المعالجة المركزية
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 5 -->
+
+        <!-- السؤال الخامس -->
+
         <div class="question">
-            <h3>5. مجموعة من الحقائق الأولية والعناصر غير المعالجة التي تُجمع وتُنظَّم لغرض معين هي:</h3>
+
+            <h3>
+                5. مجموعة من الحقائق الأولية والعناصر غير المعالجة
+                التي تُجمع وتُنظَّم لغرض معين هي:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q5" value="correct">
+
                 البيانات
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q5" value="wrong">
+
                 المعلومات
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 6 -->
+
+        <!-- السؤال السادس -->
+
         <div class="question">
-            <h3>6. نوع من أجهزة الحاسوب مصمم للاستخدام في مكان ثابت هو:</h3>
+
+            <h3>
+                6. نوع من أجهزة الحاسوب مصمم للاستخدام في مكان ثابت هو:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q6" value="correct">
+
                 الحاسوب المكتبي
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q6" value="wrong">
+
                 الجهاز اللوحي
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 7 -->
+
+        <!-- السؤال السابع -->
+
         <div class="question">
-            <h3>7. يُعد استخدام الروبوتات والمركبات الآلية، مثل الطائرات من دون طيار (Drone) والروبوتات الأرضية، من مجالات استخدام الحاسوب في:</h3>
+
+            <h3>
+                7. يُعد استخدام الروبوتات والمركبات الآلية، مثل الطائرات
+                من دون طيار (Drone) والروبوتات الأرضية، من مجالات استخدام
+                الحاسوب في:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q7" value="wrong">
+
                 الرياضة
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q7" value="correct">
+
                 النقل والتوصيل
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 8 -->
+
+        <!-- السؤال الثامن -->
+
         <div class="question">
-            <h3>8. تُستخدم تقنيات حديثة مثل GPS وRFID في:</h3>
+
+            <h3>
+                8. تُستخدم تقنيات حديثة مثل GPS وRFID في:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q8" value="correct">
+
                 الأنظمة الحاسوبية لتتبع الشحنات والحمولات
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q8" value="wrong">
+
                 الأنظمة الحاسوبية لإصدار تقارير عن أداء الرياضيين
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 9 -->
+
+        <!-- السؤال التاسع -->
+
         <div class="question">
-            <h3>9. تُعد الساعة الذكية أداة تساعد على:</h3>
+
+            <h3>
+                9. تُعد الساعة الذكية أداة تساعد على:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q9" value="wrong">
+
                 تتبع الشحنات والحمولات
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q9" value="correct">
+
                 إصدار تقارير عن أداء الرياضيين
+
             </label>
+
         </div>
 
 
-        <!-- السؤال 10 -->
+
+        <!-- السؤال العاشر -->
+
         <div class="question">
-            <h3>10. المعالجة هي المرحلة النهائية من مراحل عمل جهاز الحاسوب:</h3>
+
+            <h3>
+                10. المعالجة هي المرحلة النهائية من مراحل عمل جهاز الحاسوب:
+            </h3>
 
             <label class="option">
+
                 <input type="radio" name="q10" value="wrong">
+
                 عبارة صحيحة
+
             </label>
 
             <label class="option">
+
                 <input type="radio" name="q10" value="correct">
+
                 عبارة خاطئة
+
             </label>
+
         </div>
 
 
-        <button type="button" class="finish-btn" onclick="finishQuiz()">
+
+        <button
+            type="button"
+            class="finish-btn"
+            onclick="finishQuiz()">
+
             ✅ إنهاء الاختبار
+
         </button>
 
     </form>
 
+
+
+    <!-- النتيجة -->
 
     <div class="result" id="result">
 
@@ -335,25 +476,42 @@
 
         <p id="message"></p>
 
-        <button class="retry-btn" onclick="retryQuiz()">
-            🔄 إعادة الاختبار
-        </button>
-
     </div>
 
 
-    <a class="back-btn" href="digital-skills-7-term1.html">
+
+    <a
+        class="back-btn"
+        href="digital-skills-7-term1.html">
+
         ↩️ العودة إلى دروس الفصل
+
     </a>
 
 </div>
 
 
+
 <script>
+
+let quizFinished = false;
+
 
 function finishQuiz() {
 
+    // منع إعادة إنهاء الاختبار
+
+    if (quizFinished) {
+        return;
+    }
+
+    quizFinished = true;
+
+
     let score = 0;
+
+
+    // حساب العلامة
 
     for (let i = 1; i <= 10; i++) {
 
@@ -364,47 +522,96 @@ function finishQuiz() {
         if (answer && answer.value === "correct") {
             score++;
         }
+
     }
+
+
+    // تعطيل جميع الخيارات فور إنهاء الاختبار
+
+    const options = document.querySelectorAll(
+        '#quizForm input[type="radio"]'
+    );
+
+    options.forEach(function (option) {
+
+        option.disabled = true;
+
+    });
+
+
+    // تعطيل زر إنهاء الاختبار
+
+    const finishButton =
+        document.querySelector(".finish-btn");
+
+    finishButton.disabled = true;
+
+
+    // عرض العلامة
 
     document.getElementById("score").textContent =
         "علامتك: " + score + " / 10";
 
+
+    // رسالة حسب العلامة
+
     let message = "";
 
+
     if (score === 10) {
-        message = "🌟 ممتاز! أحسنت، إجاباتك كلها صحيحة.";
-    } else if (score >= 8) {
-        message = "👏 رائع! لديك فهم جيد للدرس.";
-    } else if (score >= 5) {
-        message = "👍 جيد، حاول مراجعة الدرس مرة أخرى.";
-    } else {
-        message = "📚 تحتاج إلى مراجعة الدرس والمحاولة مرة أخرى.";
+
+        message =
+            "🌟 ممتاز! أحسنت، إجاباتك كلها صحيحة.";
+
     }
 
-    document.getElementById("message").textContent = message;
+    else if (score >= 8) {
 
-    document.getElementById("result").style.display = "block";
+        message =
+            "👏 رائع! لديك فهم جيد للدرس.";
+
+    }
+
+    else if (score >= 5) {
+
+        message =
+            "👍 جيد، حاول مراجعة الدرس مرة أخرى.";
+
+    }
+
+    else {
+
+        message =
+            "📚 تحتاج إلى مراجعة الدرس والمحاولة مرة أخرى.";
+
+    }
+
+
+    document.getElementById("message").textContent =
+        message;
+
+
+    // إظهار النتيجة
+
+    document.getElementById("result").style.display =
+        "block";
+
+
+    // الانتقال إلى النتيجة
 
     window.scrollTo({
+
         top: document.body.scrollHeight,
+
         behavior: "smooth"
+
     });
-}
 
-
-function retryQuiz() {
-
-    document.getElementById("quizForm").reset();
-
-    document.getElementById("result").style.display = "none";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
 }
 
 </script>
 
+
 </body>
+
 </html>
