@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبر نفسك | الدرس الأول: جهاز الحاسوب</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 22px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 25px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .question {
+            background: white;
+            padding: 18px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .question h3 {
+            margin-top: 0;
+            color: #1e3a8a;
+            line-height: 1.7;
+        }
+
+        .option {
+            display: block;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option:hover {
+            background: #eff6ff;
+            border-color: #60a5fa;
+        }
+
+        .option input {
+            margin-left: 8px;
+            transform: scale(1.2);
+        }
+
+        .finish-btn {
+            width: 100%;
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .finish-btn:hover {
+            background: #15803d;
+        }
+
+        .result {
+            display: none;
+            background: white;
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h2 {
+            color: #16a34a;
+        }
+
+        .score {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .retry-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>🧠 اختبر نفسك</h1>
+        <p>الدرس الأول: جهاز الحاسوب</p>
+        <p>اختر الإجابة الصحيحة لكل سؤال</p>
+    </header>
+
+
+    <form id="quizForm">
+
+        <!-- السؤال 1 -->
+        <div class="question">
+            <h3>1. عملية يستقبل فيها جهاز الحاسوب البيانات والأوامر، ثم يخزنها تمهيدًا لمعالجتها هي:</h3>
+
+            <label class="option">
+                <input type="radio" name="q1" value="correct">
+                عملية الإدخال
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                عملية الإخراج
+            </label>
+        </div>
+
+
+        <!-- السؤال 2 -->
+        <div class="question">
+            <h3>2. مرحلة يتم فيها معالجة البيانات عن طريق إجراء عمليات التصنيف والترتيب والتنسيق، وكذلك إجراء العمليات الحسابية وعمليات المقارنة المنطقية لإنتاج معلومات مفيدة، هي:</h3>
+
+            <label class="option">
+                <input type="radio" name="q2" value="correct">
+                عملية المعالجة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                عملية الإخراج
+            </label>
+        </div>
+
+
+        <!-- السؤال 3 -->
+        <div class="question">
+            <h3>3. تُعتبر مثالًا على وحدات الإخراج:</h3>
+
+            <label class="option">
+                <input type="radio" name="q3" value="correct">
+                الطابعة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                الماسح الضوئي
+            </label>
+        </div>
+
+
+        <!-- السؤال 4 -->
+        <div class="question">
+            <h3>4. تمثل دماغ الحاسوب، وهي التي تقوم بمعالجة البيانات عن طريق إجراء العمليات الحسابية وعمليات المقارنة المنطقية لإنتاج معلومات مفيدة. هي:</h3>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                البطاقة الأم
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="correct">
+                وحدة المعالجة المركزية
+            </label>
+        </div>
+
+
+        <!-- السؤال 5 -->
+        <div class="question">
+            <h3>5. مجموعة من الحقائق الأولية والعناصر غير المعالجة التي تُجمع وتُنظَّم لغرض معين هي:</h3>
+
+            <label class="option">
+                <input type="radio" name="q5" value="correct">
+                البيانات
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                المعلومات
+            </label>
+        </div>
+
+
+        <!-- السؤال 6 -->
+        <div class="question">
+            <h3>6. نوع من أجهزة الحاسوب مصمم للاستخدام في مكان ثابت هو:</h3>
+
+            <label class="option">
+                <input type="radio" name="q6" value="correct">
+                الحاسوب المكتبي
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="wrong">
+                الجهاز اللوحي
+            </label>
+        </div>
+
+
+        <!-- السؤال 7 -->
+        <div class="question">
+            <h3>7. يُعد استخدام الروبوتات والمركبات الآلية، مثل الطائرات من دون طيار (Drone) والروبوتات الأرضية، من مجالات استخدام الحاسوب في:</h3>
+
+            <label class="option">
+                <input type="radio" name="q7" value="wrong">
+                الرياضة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="correct">
+                النقل والتوصيل
+            </label>
+        </div>
+
+
+        <!-- السؤال 8 -->
+        <div class="question">
+            <h3>8. تُستخدم تقنيات حديثة مثل GPS وRFID في:</h3>
+
+            <label class="option">
+                <input type="radio" name="q8" value="correct">
+                الأنظمة الحاسوبية لتتبع الشحنات والحمولات
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="wrong">
+                الأنظمة الحاسوبية لإصدار تقارير عن أداء الرياضيين
+            </label>
+        </div>
+
+
+        <!-- السؤال 9 -->
+        <div class="question">
+            <h3>9. تُعد الساعة الذكية أداة تساعد على:</h3>
+
+            <label class="option">
+                <input type="radio" name="q9" value="wrong">
+                تتبع الشحنات والحمولات
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="correct">
+                إصدار تقارير عن أداء الرياضيين
+            </label>
+        </div>
+
+
+        <!-- السؤال 10 -->
+        <div class="question">
+            <h3>10. المعالجة هي المرحلة النهائية من مراحل عمل جهاز الحاسوب:</h3>
+
+            <label class="option">
+                <input type="radio" name="q10" value="wrong">
+                عبارة صحيحة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="correct">
+                عبارة خاطئة
+            </label>
+        </div>
+
+
+        <button type="button" class="finish-btn" onclick="finishQuiz()">
+            ✅ إنهاء الاختبار
+        </button>
+
+    </form>
+
+
+    <div class="result" id="result">
+
+        <h2>🎉 انتهى الاختبار!</h2>
+
+        <div class="score" id="score"></div>
+
+        <p id="message"></p>
+
+        <button class="retry-btn" onclick="retryQuiz()">
+            🔄 إعادة الاختبار
+        </button>
+
+    </div>
+
+
+    <a class="back-btn" href="digital-skills-7-term1.html">
+        ↩️ العودة إلى دروس الفصل
+    </a>
+
+</div>
+
+
+<script>
+
+function finishQuiz() {
+
+    let score = 0;
+
+    for (let i = 1; i <= 10; i++) {
+
+        const answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (answer && answer.value === "correct") {
+            score++;
+        }
+    }
+
+    document.getElementById("score").textContent =
+        "علامتك: " + score + " / 10";
+
+    let message = "";
+
+    if (score === 10) {
+        message = "🌟 ممتاز! أحسنت، إجاباتك كلها صحيحة.";
+    } else if (score >= 8) {
+        message = "👏 رائع! لديك فهم جيد للدرس.";
+    } else if (score >= 5) {
+        message = "👍 جيد، حاول مراجعة الدرس مرة أخرى.";
+    } else {
+        message = "📚 تحتاج إلى مراجعة الدرس والمحاولة مرة أخرى.";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    document.getElementById("result").style.display = "block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+
+function retryQuiz() {
+
+    document.getElementById("quizForm").reset();
+
+    document.getElementById("result").style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
