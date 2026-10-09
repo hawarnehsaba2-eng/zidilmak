@@ -1,99 +1,102 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>الدرس الثاني: مكونات الحاسوب المادية | زد علمك</title>
 
     <meta name="description"
-        content="شرح الدرس الثاني: مكونات الحاسوب المادية Hardware من مادة المهارات الرقمية للصف السابع.">
+          content="شرح درس مكونات الحاسوب المادية للصف السابع، مع أمثلة وأسئلة وإجابات وجدول مقارنة بين RAM وROM وقراءة صوتية.">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 0;
-            color: #222;
+            font-family: Arial, Tahoma, sans-serif;
+            background-color: #f4f7fb;
+            color: #263238;
             line-height: 1.9;
-        }
-
-        header {
-            background-color: #1565c0;
-            color: white;
-            padding: 22px 15px;
-            text-align: center;
-        }
-
-        header h1 {
             margin: 0;
-            font-size: 25px;
-        }
-
-        header p {
-            margin: 8px 0 0;
+            padding: 15px;
+            font-size: 17px;
         }
 
         .container {
-            max-width: 850px;
-            margin: 25px auto;
-            padding: 0 15px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .section {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 14px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        .section h2 {
+        h1 {
             color: #1565c0;
-            font-size: 21px;
+            text-align: center;
+            font-size: 27px;
+            line-height: 1.6;
             margin-top: 0;
         }
 
-        .section h3 {
-            color: #333;
+        h2 {
+            color: #1565c0;
+            border-bottom: 2px solid #bbdefb;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            font-size: 22px;
+        }
+
+        h3 {
+            color: #37474f;
+            font-size: 19px;
+        }
+
+        p {
+            margin: 12px 0;
+        }
+
+        .intro {
+            background-color: #e8eaf6;
+            border-right: 5px solid #3949ab;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         .question {
             background-color: #e3f2fd;
-            padding: 15px;
             border-right: 5px solid #1565c0;
+            padding: 13px;
+            margin: 18px 0 8px;
             border-radius: 10px;
-            margin: 18px 0 10px;
-            font-weight: bold;
         }
 
         .answer {
             background-color: #e8f5e9;
-            padding: 15px;
             border-right: 5px solid #2e7d32;
+            padding: 13px;
+            margin: 8px 0 18px;
             border-radius: 10px;
-            margin-bottom: 18px;
         }
 
         .info-box {
             background-color: #fff8e1;
-            padding: 15px;
             border-right: 5px solid #f9a825;
-            border-radius: 10px;
+            padding: 14px;
             margin: 18px 0;
+            border-radius: 10px;
         }
 
         .list-box {
             background-color: #f3e5f5;
-            padding: 15px 25px;
             border-right: 5px solid #8e24aa;
-            border-radius: 10px;
+            padding: 14px 25px;
             margin: 15px 0;
+            border-radius: 10px;
         }
 
         ul,
@@ -101,1086 +104,775 @@
             padding-right: 25px;
         }
 
-        .buttons {
-            text-align: center;
-            margin: 25px 0;
-        }
-
-        .buttons button {
-            border: none;
-            padding: 12px 18px;
-            margin: 5px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .read-button {
-            background-color: #2e7d32;
-            color: white;
-        }
-
-        .stop-button {
-            background-color: #c62828;
-            color: white;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background-color: white;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: right;
-        }
-
-        th {
-            background-color: #1565c0;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f7f9fb;
+        li {
+            margin-bottom: 7px;
         }
 
         .table-box {
             background-color: #f3e5f5;
-            padding: 15px;
+            padding: 10px;
             border-right: 5px solid #8e24aa;
             border-radius: 10px;
             margin: 18px 0;
+            max-width: 100%;
+            overflow-x: auto;
         }
 
-        .back {
+        .table-box table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+
+        .table-box th,
+        .table-box td {
+            border: 1px solid #d1c4e9;
+            padding: 10px 6px;
             text-align: center;
-            margin: 30px 0;
+            font-size: 14px;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+            word-break: normal;
         }
 
-        .back a {
-            display: inline-block;
-            background-color: #1565c0;
-            color: white;
-            text-decoration: none;
-            padding: 12px 22px;
+        .table-box th {
+            background-color: #d1c4e9;
+            color: #311b92;
+        }
+
+        .table-box tr:nth-child(even) td {
+            background-color: #faf7ff;
+        }
+
+        .speech-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        button {
+            border: none;
             border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 16px;
+            font-family: inherit;
+            cursor: pointer;
+            min-height: 46px;
+        }
+
+        .read-button {
+            background-color: #1565c0;
+            color: #ffffff;
+        }
+
+        .stop-button {
+            background-color: #c62828;
+            color: #ffffff;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #ffb300;
+            outline-offset: 3px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #1565c0;
+            color: #ffffff;
+            padding: 13px;
+            margin-top: 30px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            background-color: #0d47a1;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            color: #666;
+            color: #607d8b;
             font-size: 14px;
+            margin-top: 25px;
+            border-top: 1px solid #eeeeee;
+            padding-top: 15px;
         }
 
-        @media (max-width: 600px) {
-
-            header h1 {
-                font-size: 21px;
+        @media (max-width: 480px) {
+            body {
+                padding: 8px;
+                font-size: 16px;
+                line-height: 1.85;
             }
 
             .container {
-                padding: 0 10px;
+                padding: 14px;
+                border-radius: 12px;
             }
 
-            .section {
-                padding: 15px;
+            h1 {
+                font-size: 22px;
             }
 
-            table {
-                font-size: 14px;
+            h2 {
+                font-size: 19px;
             }
 
-            th,
-            td {
-                padding: 9px;
+            h3 {
+                font-size: 17px;
             }
 
+            .question,
+            .answer,
+            .info-box,
+            .list-box {
+                padding: 11px;
+            }
+
+            .list-box {
+                padding-right: 25px;
+            }
+
+            .table-box {
+                padding: 5px;
+            }
+
+            .table-box th,
+            .table-box td {
+                padding: 8px 4px;
+                font-size: 12px;
+                line-height: 1.6;
+            }
+
+            .speech-controls {
+                flex-direction: column;
+            }
+
+            .speech-controls button {
+                width: 100%;
+            }
         }
-
     </style>
-
 </head>
 
 <body>
 
-
-<header>
+<div class="container">
 
     <h1>💻 الدرس الثاني: مكونات الحاسوب المادية</h1>
 
-    <p>المهارات الرقمية - الصف السابع</p>
+    <div class="intro">
+        سنتعرف في هذا الدرس إلى مكونات الحاسوب المادية،
+        ووظيفة كل مكون، والفرق بين الذاكرة RAM والذاكرة ROM.
+    </div>
 
-</header>
-
-
-<div class="container">
-
-
-    <div class="buttons">
-
-        <button class="read-button" onclick="readLesson()">
+    <div class="speech-controls">
+        <button type="button"
+                class="read-button"
+                onclick="readLesson()">
             🔊 اقرأ النص
         </button>
 
-        <button class="stop-button" onclick="stopReading()">
+        <button type="button"
+                class="stop-button"
+                onclick="stopReading()">
             ⏹️ إيقاف القراءة
         </button>
-
     </div>
 
+    <main id="lesson-content">
 
-    <div id="lesson-content">
+        <h2>أولًا: مكونات الحاسوب</h2>
 
+        <p>
+            يتكون الحاسوب من مكونات مادية ومكونات برمجية،
+            وتعمل هذه المكونات معًا لتنفيذ التعليمات والأوامر.
+        </p>
 
-        <!-- مقدمة -->
-
-        <div class="section">
-
-            <h2>🖥️ مكونات أجهزة الحاسوب</h2>
-
-            <div class="info-box">
-
-                <p>
-                    تنقسم مكونات أجهزة الحاسوب إلى:
-                </p>
-
-                <ul>
-
-                    <li>
-                        <strong>
-                            مكونات مادية ملموسة (Hardware).
-                        </strong>
-                    </li>
-
-                    <li>
-                        <strong>
-                            مكونات غير ملموسة تُسمّى البرمجيات (Software).
-                        </strong>
-                    </li>
-
-                </ul>
-
-                <p>
-                    يجب أن تعمل جميع هذه المكونات معًا في تناغم تام
-                    لتنفيذ التعليمات والأوامر.
-                </p>
-
-            </div>
-
-
-            <div class="question">
-
-                إلى أي قسمين رئيسين تنقسم المكونات المادية
-                في جهاز الحاسوب؟
-
-            </div>
-
-            <div class="answer">
-
-                تنقسم المكونات المادية في جهاز الحاسوب إلى قسمين رئيسين:
-
-                <ol>
-
-                    <li>
-                        المكونات الداخلية (Internal Components).
-                    </li>
-
-                    <li>
-                        المكونات الخارجية أو ما يُسمّى الملحقات
-                        (Peripherals).
-                    </li>
-
-                </ol>
-
-                ويؤدي كل من هذه المكونات دورًا مهمًا في تشغيل جهاز
-                الحاسوب واستخدام برامجه وتطبيقاته.
-
-            </div>
-
+        <div class="info-box">
+            <strong>المكونات المادية (Hardware):</strong>
+            هي الأجزاء الملموسة من الحاسوب التي نستطيع رؤيتها
+            أو لمسها، مثل الشاشة ولوحة المفاتيح.
+            <br><br>
+            <strong>المكونات البرمجية (Software):</strong>
+            هي البرامج والتعليمات التي توجّه الحاسوب لتنفيذ المهام،
+            مثل نظام التشغيل والتطبيقات.
         </div>
 
-
-        <!-- المكونات الخارجية -->
-
-        <div class="section">
-
-            <h2>🖱️ المكونات المادية الخارجية</h2>
-
-
-            <div class="question">
-
-                وضح المقصود بالمكونات المادية الخارجية
-                لجهاز الحاسوب (Peripherals)؟
-
-            </div>
-
-            <div class="answer">
-
-                تعني المكونات الموجودة خارج الهيكل الرئيس
-                لجهاز الحاسوب، أو ما يسمى وحدة النظام
-                (System Unit).
-
-            </div>
-
-
-            <div class="info-box">
-
-                <strong>
-                    من أمثلة المكونات المادية الخارجية:
-                </strong>
-
-                <ul>
-
-                    <li>السماعات (Speakers)</li>
-
-                    <li>الطابعة (Printer)</li>
-
-                    <li>الشاشة (Monitor)</li>
-
-                    <li>الفأرة (Mouse)</li>
-
-                    <li>لوحة المفاتيح (Keyboard)</li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="question">
-
-                أصنف مكونات الحاسوب إلى وحدات إدخال
-                ووحدات إخراج؟
-
-            </div>
-
-
-            <h3>⌨️ أولًا: وحدات الإدخال (Input Devices)</h3>
-
-
-            <div class="info-box">
-
-                <p>
-                    <strong>لوحة المفاتيح (Keyboard):</strong>
-                    تُستعمل هذه اللوحة لإدخال النصوص والأوامر.
-                </p>
-
-                <p>
-                    <strong>الفأرة (Mouse):</strong>
-                    تُستعمل الفأرة للتفاعل مع الواجهات الرسومية.
-                </p>
-
-                <p>
-                    <strong>جهاز الماسح الضوئي (Scanner):</strong>
-                    يُستعمل هذا الجهاز لتحويل الوثائق الورقية
-                    إلى صورة رقمية.
-                </p>
-
-                <p>
-                    <strong>الميكروفون (Microphone):</strong>
-                    يُستعمل الميكروفون لإدخال الصوت،
-                    وإجراء المكالمات الصوتية ومكالمات الفيديو.
-                </p>
-
-            </div>
-
-
-            <h3>🔊 ثانيًا: وحدات الإخراج (Output Devices)</h3>
-
-
-            <div class="info-box">
-
-                <p>
-                    <strong>الشاشة (Monitor Screen):</strong>
-                    تُستعمل الشاشة لعرض المعلومات بصورة مرئية،
-                    وتقديم واجهات المستخدم.
-                </p>
-
-                <p>
-                    <strong>الطابعة (Printer):</strong>
-                    تُستعمل الطابعة لطباعة الوثائق والصور على الورق.
-                </p>
-
-                <p>
-                    <strong>السماعات (Speakers):</strong>
-                    تُستعمل السماعات لإخراج الصوت من جهاز الحاسوب.
-                </p>
-
-            </div>
-
-
-            <div class="info-box">
-
-                <strong>أمثلة أخرى:</strong>
-
-                شاشة اللمس (Touch Screen)،
-                ونظارات الواقع الافتراضي
-                (Virtual Reality Glasses)،
-                وأجهزة الاستشعار (Digital Sensors)،
-                والقلم الرقمي (Digital Pen).
-
-            </div>
-
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            ما الفرق بين المكونات المادية والمكونات البرمجية؟
         </div>
 
-
-        <!-- المكونات الداخلية -->
-
-        <div class="section">
-
-            <h2>🧩 المكونات المادية الداخلية</h2>
-
-
-            <div class="question">
-
-                وضح المقصود بالمكونات المادية الداخلية
-                لجهاز الحاسوب؟
-
-            </div>
-
-            <div class="answer">
-
-                توجد المكونات الداخلية لجهاز الحاسوب داخل
-                وحدة النظام، وهي تؤدي دورًا مهمًا في تشغيل
-                الجهاز بكفاءة وفاعلية.
-
-            </div>
-
-
-            <div class="question">
-
-                ما المكونات الداخلية لجهاز الحاسوب؟
-
-            </div>
-
-            <div class="list-box">
-
-                <ul>
-
-                    <li>
-                        هيكل الحاسوب (Computer Chassis)
-                    </li>
-
-                    <li>
-                        اللوحة الأم (Motherboard)
-                    </li>
-
-                    <li>
-                        وحدة المعالجة المركزية (CPU)
-                    </li>
-
-                    <li>
-                        الذاكرة الرئيسية (Main Memory)
-                    </li>
-
-                    <li>
-                        القرص الصلب (HDD)
-                    </li>
-
-                    <li>
-                        بطاقة معالجة الرسوم / بطاقة الشاشة (GPU)
-                    </li>
-
-                    <li>
-                        مزود الطاقة (Power Supply)
-                    </li>
-
-                    <li>
-                        مروحة التبريد (Cooling Fan)
-                    </li>
-
-                </ul>
-
-            </div>
-
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            المكونات المادية أجزاء ملموسة، أما المكونات البرمجية
+            فهي برامج وتعليمات غير ملموسة تُستخدم لتشغيل الحاسوب
+            وتنفيذ المهام.
         </div>
 
+        <h2>ثانيًا: أنواع المكونات المادية</h2>
 
-        <!-- هيكل الحاسوب -->
+        <p>
+            تُقسم المكونات المادية للحاسوب إلى نوعين رئيسيين:
+        </p>
 
-        <div class="section">
-
-            <h2>🖥️ هيكل الحاسوب (Computer Chassis)</h2>
-
-
-            <div class="question">
-
-                وضح المقصود بهيكل الحاسوب؟
-
-            </div>
-
-            <div class="answer">
-
-                هيكل معدني يحوي المكونات الداخلية لجهاز
-                الحاسوب، مثل اللوحة الأم ومحتوياتها،
-                والقرص الصلب، ومزود الطاقة.
-
-            </div>
-
+        <div class="list-box">
+            <ol>
+                <li>المكونات الخارجية.</li>
+                <li>المكونات الداخلية.</li>
+            </ol>
         </div>
 
+        <h2>1. المكونات الخارجية</h2>
 
-        <!-- اللوحة الأم -->
+        <p>
+            هي الأجهزة التي تتصل بالحاسوب من الخارج،
+            وتساعد المستخدم على إدخال البيانات أو إخراج النتائج.
+        </p>
 
-        <div class="section">
+        <h3>أمثلة على المكونات الخارجية</h3>
 
-            <h2>🔲 اللوحة الأم (Motherboard)</h2>
-
-
-            <div class="question">
-
-                وضح المقصود باللوحة الأم؟
-
-            </div>
-
-            <div class="answer">
-
-                تُمثّل هذه اللوحة الوحدة الأساسية في جهاز
-                الحاسوب، وتُثبّت عليها مكونات الحاسوب الداخلية.
-
-                <p>
-                    وهي تربط بين جميع مكونات جهاز الحاسوب
-                    والأجهزة الطرفية، وتوفر وسائط الاتصال
-                    فيما بينها، مثل المعالج والذاكرة وبطاقة
-                    الرسوم، إضافة إلى عدد من الشرائح الإلكترونية.
-                </p>
-
-            </div>
-
-
-            <div class="question">
-
-                اذكر بعض الأجزاء التي تُثبّت على اللوحة الأم؟
-
-            </div>
-
-            <div class="answer">
-
-                المعالج، والذاكرة، وبطاقة الرسوم.
-
-            </div>
-
+        <div class="list-box">
+            <ul>
+                <li>لوحة المفاتيح.</li>
+                <li>الفأرة.</li>
+                <li>الماسح الضوئي.</li>
+                <li>الميكروفون.</li>
+                <li>الشاشة.</li>
+                <li>الطابعة.</li>
+                <li>السماعات.</li>
+                <li>النظارات الافتراضية.</li>
+                <li>القلم الرقمي.</li>
+                <li>شاشة اللمس.</li>
+                <li>المستشعرات الرقمية.</li>
+            </ul>
         </div>
 
+        <h3>وحدات الإدخال ووحدات الإخراج</h3>
 
-        <!-- CPU -->
+        <p>
+            <strong>وحدات الإدخال:</strong>
+            تُستخدم لإدخال البيانات والأوامر إلى الحاسوب.
+        </p>
 
-        <div class="section">
+        <p>
+            <strong>وحدات الإخراج:</strong>
+            تُستخدم لعرض المعلومات والنتائج التي يعالجها الحاسوب.
+        </p>
 
-            <h2>🧠 وحدة المعالجة المركزية (CPU)</h2>
-
-
-            <div class="question">
-
-                وضح المقصود بوحدة المعالجة المركزية؟
-
-            </div>
-
-            <div class="answer">
-
-                تُعد هذه الوحدة دماغ جهاز الحاسوب،
-                فهي تتولى تنفيذ العمليات الحسابية والمنطقية،
-                وكذلك عمليات الإدخال والإخراج، وجميع العمليات
-                التي تصل من نظام التشغيل.
-
-            </div>
-
-
-            <div class="question">
-
-                ما وظيفة وحدة المعالجة المركزية (CPU)؟
-
-            </div>
-
-            <div class="answer">
-
-                تنفيذ العمليات الحسابية والمنطقية،
-                وعمليات الإدخال والإخراج،
-                وتنفيذ العمليات التي تصل من نظام التشغيل.
-
-            </div>
-
-
-            <div class="info-box">
-
-                <strong>معلومة:</strong>
-
-                تمتاز وحدة المعالجة المركزية بتعدد أنواعها
-                واختلاف سرعاتها تبعًا لطبيعة المهام التي
-                يُراد تنفيذها.
-
-            </div>
-
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            أصنّف الأجهزة الآتية إلى وحدات إدخال ووحدات إخراج:
+            لوحة المفاتيح، الفأرة، الماسح الضوئي، الميكروفون،
+            الشاشة، الطابعة، والسماعات.
         </div>
 
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
 
-        <!-- الذاكرة -->
+            <p>
+                <strong>وحدات الإدخال:</strong>
+                لوحة المفاتيح، الفأرة، الماسح الضوئي، الميكروفون.
+            </p>
 
-        <div class="section">
+            <p>
+                <strong>وحدات الإخراج:</strong>
+                الشاشة، الطابعة، السماعات.
+            </p>
+        </div>
 
-            <h2>💾 الذاكرة الرئيسية (Main Memory)</h2>
+        <div class="info-box">
+            <strong>ملاحظة:</strong>
+            شاشة اللمس تُعد وحدة إدخال وإخراج؛ لأنها تعرض المعلومات
+            وتستقبل اللمس من المستخدم.
+        </div>
 
+        <h2>2. المكونات الداخلية</h2>
 
-            <div class="question">
+        <p>
+            هي المكونات الموجودة داخل صندوق الحاسوب،
+            وتؤدي وظائف مختلفة تساعد على تشغيل الجهاز ومعالجة البيانات.
+        </p>
 
-                وضح المقصود بالذاكرة الرئيسية؟
+        <div class="list-box">
+            <ul>
+                <li>صندوق الحاسوب.</li>
+                <li>اللوحة الأم.</li>
+                <li>وحدة المعالجة المركزية (CPU).</li>
+                <li>الذاكرة الرئيسية (RAM وROM).</li>
+                <li>وحدة التخزين (HDD).</li>
+                <li>وحدة معالجة الرسومات (GPU).</li>
+                <li>مزود الطاقة.</li>
+                <li>مروحة التبريد.</li>
+            </ul>
+        </div>
 
-            </div>
+        <h2>صندوق الحاسوب</h2>
 
-            <div class="answer">
+        <p>
+            هو الصندوق الذي يحتوي على مجموعة من المكونات الداخلية
+            للحاسوب، مثل اللوحة الأم ووحدة التخزين ومزود الطاقة.
+            ويكون مصنوعًا عادةً من مواد قوية تحمي المكونات الموجودة داخله.
+        </p>
 
-                تعمل الذاكرة الرئيسية على تخزين البيانات
-                والمعلومات داخل جهاز الحاسوب.
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            ما وظيفة صندوق الحاسوب؟
+        </div>
 
-            </div>
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            يحتوي على المكونات الداخلية للحاسوب ويساعد على حمايتها.
+        </div>
 
+        <h2>اللوحة الأم (Motherboard)</h2>
 
-            <div class="question">
+        <p>
+            هي لوحة إلكترونية رئيسية تتصل بها مكونات الحاسوب المختلفة،
+            وتساعد على التواصل وتبادل البيانات بينها.
+        </p>
 
-                ما أقسام الذاكرة الرئيسية؟
+        <p>
+            يتصل باللوحة الأم عدد من المكونات، مثل المعالج والذاكرة
+            وبطاقة معالجة الرسومات.
+        </p>
 
-            </div>
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            ما وظيفة اللوحة الأم؟
+        </div>
 
-            <div class="answer">
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            تربط مكونات الحاسوب المختلفة وتساعدها على التواصل وتبادل البيانات.
+        </div>
 
-                تنقسم الذاكرة الرئيسية إلى:
+        <h2>وحدة المعالجة المركزية (CPU)</h2>
 
-                <ul>
+        <p>
+            تُسمى وحدة المعالجة المركزية دماغ الحاسوب؛ لأنها تنفذ
+            التعليمات وتعالج البيانات، وتجري العمليات الحسابية والمنطقية.
+        </p>
 
-                    <li>
-                        ذاكرة الوصول العشوائي (RAM)
-                    </li>
+        <p>
+            كما تنفذ التعليمات اللازمة لتشغيل نظام التشغيل والبرامج،
+            وتساعد على تنظيم عمليات الإدخال والإخراج.
+        </p>
 
-                    <li>
-                        ذاكرة القراءة فقط (ROM)
-                    </li>
+        <p>
+            تختلف المعالجات في أنواعها وسرعتها وقدراتها.
+        </p>
 
-                </ul>
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            لماذا تُسمى وحدة المعالجة المركزية دماغ الحاسوب؟
+        </div>
 
-            </div>
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            لأنها تنفذ التعليمات وتعالج البيانات وتجري العمليات الحسابية والمنطقية.
+        </div>
 
+        <h2>الذاكرة الرئيسية</h2>
 
-            <h3>🔵 ذاكرة الوصول العشوائي (RAM)</h3>
+        <p>
+            تتضمن الذاكرة الرئيسية نوعين مهمين:
+            ذاكرة الوصول العشوائي (RAM) وذاكرة القراءة فقط (ROM).
+        </p>
 
+        <h3>ذاكرة الوصول العشوائي (RAM)</h3>
 
-            <div class="question">
+        <p>
+            تُستخدم لتخزين البيانات والتعليمات التي تحتاج إليها
+            البرامج أثناء عملها. وهي ذاكرة مؤقتة، وتفقد محتوياتها
+            عادةً عند انقطاع التيار الكهربائي.
+        </p>
 
-                وضح المقصود بذاكرة الوصول العشوائي (RAM)؟
+        <div class="info-box">
+            <strong>معلومة:</strong>
+            تساعد سعة RAM المناسبة على تشغيل البرامج والتعامل مع
+            عدة مهام في الوقت نفسه بسلاسة أكبر، بحسب احتياجات البرامج
+            وبقية مكونات الحاسوب.
+        </div>
 
-            </div>
+        <h3>ذاكرة القراءة فقط (ROM)</h3>
 
-            <div class="answer">
+        <p>
+            تُستخدم لتخزين تعليمات أساسية يحتاج إليها الحاسوب
+            عند بدء التشغيل. وتحتفظ بمحتوياتها عند إيقاف تشغيل الجهاز.
+        </p>
 
-                ذاكرة تخزين قصيرة المدى، وهي تُستخدم في تخزين
-                البيانات المؤقتة التي يحتاج إليها جهاز الحاسوب
-                أثناء استعمال التطبيقات، وتُعد ذاكرة رئيسة فيه.
+        <p>
+            من الأمثلة على البرامج الثابتة المرتبطة ببدء التشغيل:
+            BIOS.
+        </p>
 
-            </div>
+        <h2>مقارنة بين RAM وROM</h2>
 
+        <div class="table-box">
 
-            <div class="question">
-
-                ما العلاقة بين سرعة جهاز الحاسوب وRAM؟
-
-            </div>
-
-            <div class="answer">
-
-                كلما كان حجم الذاكرة كبيرًا زادت سرعة جهاز
-                الحاسوب في تنفيذ العمليات المطلوبة، والعكس صحيح.
-
-            </div>
-
-
-            <h3>🟢 ذاكرة القراءة فقط (ROM)</h3>
-
-
-            <div class="question">
-
-                وضح المقصود بذاكرة القراءة فقط (ROM)؟
-
-            </div>
-
-            <div class="answer">
-
-                تُستخدم هذه الذاكرة في تخزين البيانات الأساسية
-                لتشغيل جهاز الحاسوب ونظام التشغيل بصورة دائمة.
-
-                <p>
-                    ومن أمثلتها نظام
-                    BIOS (Basic Input/Output System).
-                </p>
-
-            </div>
-
-
-            <div class="question">
-
-                ما الفرق بين RAM وROM؟
-
-            </div>
-
-
-            <div class="table-box">
-
-                <table>
-
+            <table>
+                <thead>
                     <tr>
+                        <th>وجه المقارنة</th>
+                        <th>RAM</th>
+                        <th>ROM</th>
+                    </tr>
+                </thead>
 
-                        <th>
-                            وجه المقارنة
-                        </th>
-
-                        <th>
-                            RAM
-                        </th>
-
-                        <th>
-                            ROM
-                        </th>
-
+                <tbody>
+                    <tr>
+                        <td>نوع التخزين</td>
+                        <td>مؤقت</td>
+                        <td>دائم نسبيًا</td>
                     </tr>
 
-
                     <tr>
-
-                        <td>
-                            مدة التخزين
-                        </td>
-
-                        <td>
-                            قصيرة المدى
-                        </td>
-
-                        <td>
-                            طويلة المدى
-                        </td>
-
+                        <td>الاحتفاظ بالبيانات عند انقطاع الكهرباء</td>
+                        <td>لا تحتفظ بها عادةً</td>
+                        <td>تحتفظ بها</td>
                     </tr>
 
-
                     <tr>
-
-                        <td>
-                            الكتابة
-                        </td>
-
-                        <td>
-                            يُكتب عليها أكثر من مرة
-                        </td>
-
-                        <td>
-                            يُكتب عليها مرة واحدة
-                        </td>
-
+                        <td>استخدامها</td>
+                        <td>بيانات البرامج أثناء العمل</td>
+                        <td>تعليمات أساسية لبدء التشغيل</td>
                     </tr>
 
-
                     <tr>
-
-                        <td>
-                            البيانات
-                        </td>
-
-                        <td>
-                            البيانات التي يحتاج إليها جهاز
-                            الحاسوب في التطبيقات
-                        </td>
-
-                        <td>
-                            البيانات الأساسية لتشغيل جهاز الحاسوب
-                        </td>
-
+                        <td>إمكانية تعديل البيانات</td>
+                        <td>يمكن القراءة والكتابة عليها باستمرار</td>
+                        <td>تختلف حسب نوع الذاكرة؛ وليست كل أنواعها قابلة للكتابة بالطريقة نفسها</td>
                     </tr>
-
-                </table>
-
-            </div>
+                </tbody>
+            </table>
 
         </div>
 
-
-        <!-- HDD -->
-
-        <div class="section">
-
-            <h2>💽 القرص الصلب (HDD)</h2>
-
-
-            <div class="question">
-
-                وضح المقصود بالقرص الصلب (HDD)؟
-
-            </div>
-
-            <div class="answer">
-
-                وحدة تخزين طويلة المدى، وفيها تُخزّن البيانات
-                والمعلومات التي تمت معالجتها أو يُراد الرجوع
-                إليها ومعالجتها.
-
-            </div>
-
-
-            <div class="question">
-
-                ما وظيفة القرص الصلب (HDD)؟
-
-            </div>
-
-            <div class="answer">
-
-                حفظ البيانات والمعلومات وتخزينها لفترات طويلة.
-
-            </div>
-
-
-            <div class="info-box">
-
-                <strong>معلومة:</strong>
-
-                يمتاز القرص الصلب بتعدد أنواعه واختلاف سعات
-                تخزينه، ويُعد جزءًا رئيسًا في جهاز الحاسوب
-                لحفظ البيانات.
-
-            </div>
-
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            ما الفرق الأساسي بين RAM وROM؟
         </div>
 
-
-        <!-- GPU -->
-
-        <div class="section">
-
-            <h2>🎨 بطاقة معالجة الرسوم / بطاقة الشاشة (GPU)</h2>
-
-
-            <div class="question">
-
-                ما وظيفة بطاقة معالجة الرسوم (GPU)؟
-
-            </div>
-
-            <div class="answer">
-
-                تتمثل وظيفة هذه البطاقة في معالجة الرسوم
-                وعرض الصور ومقاطع الفيديو على الشاشة،
-                وهي تكون إما مدمجة في اللوحة الأم،
-                وإما بطاقة منفصلة.
-
-            </div>
-
-
-            <div class="question">
-
-                ما العلاقة بين GPU وجودة الصورة المعروضة
-                على الشاشة؟
-
-            </div>
-
-            <div class="answer">
-
-                كلما زادت قدرة البطاقة كانت جودة الصورة
-                المعروضة على الشاشة أفضل.
-
-            </div>
-
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            RAM ذاكرة مؤقتة تستخدمها البرامج أثناء العمل،
+            أما ROM فتحتفظ بتعليمات أساسية يحتاج إليها الحاسوب عند بدء التشغيل.
         </div>
 
+        <h2>وحدة التخزين (HDD)</h2>
 
-        <!-- Power Supply -->
+        <p>
+            تُستخدم وحدة التخزين لحفظ البيانات والملفات والبرامج
+            لفترات طويلة، حتى بعد إيقاف تشغيل الحاسوب.
+        </p>
 
-        <div class="section">
-
-            <h2>⚡ مزود الطاقة (Power Supply)</h2>
-
-
-            <div class="question">
-
-                وضح المقصود بمزود الطاقة؟
-
-            </div>
-
-            <div class="answer">
-
-                يعمل هذا الجزء على توفير الطاقة الكهربائية
-                اللازمة لتشغيل جهاز الحاسوب.
-
-            </div>
-
-
-            <div class="question">
-
-                ما آلية / مبدأ / وظيفة مزود الطاقة؟
-
-            </div>
-
-            <div class="answer">
-
-                يقوم مزود الطاقة بتغذية الأجزاء الداخلية،
-                مثل اللوحة الأم والقرص الصلب وقارئ الأقراص
-                المدمجة، عن طريق كابلات تُوزّع بحسب القدرات
-                اللازمة لعمل جهاز الحاسوب.
-
-                <p>
-                    ومن الجدير بالذكر أن مزود الطاقة يتصل
-                    مباشرة بالتيار الكهربائي.
-                </p>
-
-            </div>
-
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            ما وظيفة وحدة التخزين؟
         </div>
 
-
-        <!-- Cooling Fan -->
-
-        <div class="section">
-
-            <h2>❄️ مروحة التبريد (Cooling Fan)</h2>
-
-
-            <div class="question">
-
-                وضح المقصود بمروحة التبريد؟
-
-            </div>
-
-            <div class="answer">
-
-                توجد مروحة التبريد داخل هيكل جهاز الحاسوب،
-                وتُستخدم في تبريد مكونات الحاسوب الداخلية،
-                مثل وحدة المعالجة المركزية وبطاقة الرسوم
-                وغير ذلك.
-
-            </div>
-
-
-            <div class="question">
-
-                علل: تقوم مروحة التبريد بتبريد مكونات الحاسوب الداخلية؟
-
-            </div>
-
-            <div class="answer">
-
-                تجنبًا لزيادة درجات الحرارة التي قد تؤدي
-                إلى تلف المكونات الداخلية، أو تقليل العمر
-                الافتراضي لجهاز الحاسوب.
-
-            </div>
-
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            تخزين البيانات والملفات والبرامج للاحتفاظ بها واستخدامها لاحقًا.
         </div>
 
+        <h2>وحدة معالجة الرسومات (GPU)</h2>
 
-        <!-- التكامل الوظيفي -->
+        <p>
+            تختص بمعالجة الرسومات والصور والفيديو، وتساعد على عرضها
+            على الشاشة. وقد تكون مدمجة مع المعالج أو منفصلة عنه.
+        </p>
 
-        <div class="section">
+        <p>
+            يمكن أن تساعد وحدة معالجة رسومات أقوى في تحسين أداء
+            التطبيقات والألعاب التي تحتاج إلى معالجة رسومات مكثفة.
+        </p>
 
-            <h2>🔗 التكامل الوظيفي بين أجزاء الحاسوب</h2>
+        <h2>مزود الطاقة</h2>
 
+        <p>
+            يزوّد مكونات الحاسوب بالطاقة الكهربائية المناسبة لتشغيلها،
+            ويوصل الطاقة إلى المكونات الداخلية عبر الكابلات.
+            ويتصل بمصدر الكهرباء.
+        </p>
 
-            <div class="question">
-
-                علل: يُعد التكامل الوظيفي بين الأجزاء الداخلية
-                والأجزاء الخارجية مهمًا لعمل نظام الحاسوب بفاعلية؟
-
-            </div>
-
-            <div class="answer">
-
-                لأن جميع المكونات تعمل معًا بانسجام وتناغم،
-                تحقيقًا لأهداف تعزيز أداء المهام المطلوبة.
-
-            </div>
-
-
-            <div class="question">
-
-                أعط مثالًا على تكامل وظيفي بين أجزاء الحاسوب
-                الداخلية والخارجية؟
-
-            </div>
-
-            <div class="answer">
-
-                فمثلًا عند الكتابة باستخدام لوحة المفاتيح،
-                وهي من وحدات الإدخال، يستقبل المعالج (CPU)
-                المدخلات (Inputs)، وتُخزّن على وحدات التخزين،
-                ثم تُرسل المخرجات (Outputs) إلى الشاشة،
-                وهي وحدة إخراج، لعرض الحروف التي كُتبت.
-
-                <p>
-                    ونتيجةً لهذا التكامل، فإن جميع المكونات
-                    تعمل معًا بانسجام وتناغم، تحقيقًا لأهداف
-                    تعزيز أداء المهام المطلوبة.
-                </p>
-
-            </div>
-
+        <div class="question">
+            <strong>❓ السؤال:</strong>
+            ما وظيفة مزود الطاقة؟
         </div>
 
-
-        <!-- إعادة التدوير -->
-
-        <div class="section">
-
-            <h2>♻️ إضاءة: مشروع إعادة تدوير أجهزة الحاسوب</h2>
-
-
-            <div class="info-box">
-
-                <p>
-
-                    تحقيقًا لأهداف تعزيز الاستدامة، عملت وزارة
-                    البيئة على إعادة تدوير النفايات الإلكترونية؛
-                    بغية الحد من آثارها الضارة بالبيئة والمحافظة
-                    على الموارد البيئية، وتشجيع الابتكار والإبداع.
-
-                </p>
-
-
-                <p>
-
-                    ومن ثم، فقد حرصت الوزارة على تدوير الأجهزة
-                    التالفة، بما في ذلك أجهزة الحاسوب ومكوناتها.
-
-                </p>
-
-            </div>
-
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            يزوّد مكونات الحاسوب بالطاقة الكهربائية اللازمة لتشغيلها.
         </div>
 
+        <h2>مروحة التبريد</h2>
 
+        <p>
+            تساعد مروحة التبريد على التخلص من الحرارة الناتجة عن
+            عمل المكونات، مثل المعالج ووحدة معالجة الرسومات.
+        </p>
+
+        <div class="info-box">
+            <strong>لماذا نحتاج إلى التبريد؟</strong>
+            لأن ارتفاع درجة حرارة المكونات بصورة كبيرة قد يؤثر
+            في أداء الحاسوب ويتسبب في تلف بعض أجزائه.
+        </div>
+
+        <h2>كيف تعمل مكونات الحاسوب معًا؟</h2>
+
+        <p>
+            تعمل المكونات المادية والبرمجية معًا لإنجاز المهام.
+            فعندما يكتب المستخدم نصًا باستخدام لوحة المفاتيح،
+            تنتقل البيانات إلى الحاسوب، ويعالجها المعالج وفقًا
+            للتعليمات والبرنامج المستخدم، وقد تُحفظ في وحدة التخزين،
+            ثم تظهر النتيجة على الشاشة.
+        </p>
+
+        <div class="list-box">
+            <strong>مثال مبسط:</strong>
+            <ol>
+                <li>يدخل المستخدم البيانات باستخدام لوحة المفاتيح.</li>
+                <li>يعالج الحاسوب البيانات وفقًا للتعليمات.</li>
+                <li>يمكن حفظ البيانات في وحدة التخزين.</li>
+                <li>تظهر النتائج على الشاشة.</li>
+            </ol>
+        </div>
+
+        <h2>إعادة تدوير النفايات الإلكترونية</h2>
+
+        <p>
+            تحتوي الأجهزة الإلكترونية القديمة على مواد ينبغي التعامل
+            معها بطريقة صحيحة. لذلك تساعد إعادة تدوير النفايات
+            الإلكترونية على تقليل التلوث والاستفادة من المواد القابلة
+            لإعادة الاستخدام.
+        </p>
+
+        <div class="info-box">
+            <strong>تذكّر:</strong>
+            لا ينبغي التخلص من الأجهزة الإلكترونية القديمة عشوائيًا،
+            بل يُفضّل تسليمها إلى الجهات أو البرامج المتخصصة في جمعها
+            وإعادة تدويرها.
+        </div>
+
+        <h2>مراجعة الدرس</h2>
+
+        <div class="question">
+            <strong>❓ السؤال الأول:</strong>
+            ما المقصود بالمكونات المادية للحاسوب؟
+        </div>
+
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            هي الأجزاء الملموسة من الحاسوب التي يمكن رؤيتها أو لمسها.
+        </div>
+
+        <div class="question">
+            <strong>❓ السؤال الثاني:</strong>
+            اذكر ثلاثة أمثلة على وحدات الإدخال.
+        </div>
+
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            لوحة المفاتيح، والفأرة، والماسح الضوئي.
+        </div>
+
+        <div class="question">
+            <strong>❓ السؤال الثالث:</strong>
+            ما المكون الذي يُسمى دماغ الحاسوب؟
+        </div>
+
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            وحدة المعالجة المركزية (CPU).
+        </div>
+
+        <div class="question">
+            <strong>❓ السؤال الرابع:</strong>
+            ما وظيفة RAM؟
+        </div>
+
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            تخزين البيانات والتعليمات التي تحتاج إليها البرامج أثناء عملها بصورة مؤقتة.
+        </div>
+
+        <div class="question">
+            <strong>❓ السؤال الخامس:</strong>
+            ما وظيفة وحدة معالجة الرسومات (GPU)؟
+        </div>
+
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            معالجة الرسومات والصور والفيديو والمساعدة على عرضها.
+        </div>
+
+        <div class="question">
+            <strong>❓ السؤال السادس:</strong>
+            لماذا نحتاج إلى مروحة التبريد؟
+        </div>
+
+        <div class="answer">
+            <strong>✅ الإجابة:</strong>
+            للمساعدة على خفض حرارة مكونات الحاسوب وحمايتها من ارتفاع الحرارة.
+        </div>
+
+    </main>
+
+    <div class="speech-controls">
+        <button type="button"
+                class="read-button"
+                onclick="readLesson()">
+            🔊 اقرأ النص
+        </button>
+
+        <button type="button"
+                class="stop-button"
+                onclick="stopReading()">
+            ⏹️ إيقاف القراءة
+        </button>
     </div>
 
+    <a href="digital-skills-7-term1.html" class="back-link">
+        ↩️ العودة إلى دروس الفصل
+    </a>
 
-    <div class="back">
-
-        <a href="digital-skills-7-term1.html">
-            ↩️ العودة إلى دروس الفصل
-        </a>
-
-    </div>
-
+    <footer>
+        © 2026 زد علمك | أدوات تعليمية مجانية
+    </footer>
 
 </div>
 
-
-<footer>
-
-    © 2026 زد علمك
-
-</footer>
-
-
 <script>
-
     let speechChunks = [];
     let currentChunk = 0;
+    let isReading = false;
+    let readingSession = 0;
 
     function readLesson() {
-
         if (!("speechSynthesis" in window)) {
-
-            alert("عذرًا، متصفحك لا يدعم ميزة قراءة النص.");
-
+            alert("عذرًا، متصفحك لا يدعم القراءة الصوتية.");
             return;
-
         }
 
-        speechSynthesis.cancel();
+        stopReading();
 
         const lesson = document.getElementById("lesson-content");
-
         const text = lesson.innerText.trim();
 
-        speechChunks =
-            text.match(/[^.!؟\n]+[.!؟\n]*/g) || [text];
-
-        currentChunk = 0;
-
-        speakNextChunk();
-
-    }
-
-
-    function speakNextChunk() {
-
-        if (currentChunk >= speechChunks.length) {
-
+        if (!text) {
+            alert("لا يوجد نص لقراءته.");
             return;
-
         }
 
-        const chunk =
-            speechChunks[currentChunk].trim();
-
-        if (!chunk) {
-
-            currentChunk++;
-
-            speakNextChunk();
-
-            return;
-
-        }
-
-        const speech =
-            new SpeechSynthesisUtterance(chunk);
-
-        speech.lang = "ar-SA";
-
-        speech.rate = 0.9;
-
-        speech.pitch = 1;
-
-        speech.volume = 1;
-
-
-        speech.onend = function () {
-
-            currentChunk++;
-
-            speakNextChunk();
-
-        };
-
-
-        speech.onerror = function () {
-
-            currentChunk++;
-
-            speakNextChunk();
-
-        };
-
-
-        speechSynthesis.speak(speech);
-
-    }
-
-
-    function stopReading() {
-
-        if ("speechSynthesis" in window) {
-
-            speechSynthesis.cancel();
-
-        }
+        const session = readingSession;
+        const sentences = text
+            .replace(/\n{2,}/g, "\n")
+            .split(/(?<=[.!؟،؛:\n])\s*/)
+            .map(part => part.trim())
+            .filter(part => part.length > 0);
 
         speechChunks = [];
 
-        currentChunk = 0;
+        sentences.forEach(part => {
+            while (part.length > 220) {
+                let splitAt = part.lastIndexOf(" ", 220);
 
+                if (splitAt < 100) {
+                    splitAt = 220;
+                }
+
+                speechChunks.push(part.slice(0, splitAt).trim());
+                part = part.slice(splitAt).trim();
+            }
+
+            if (part) {
+                speechChunks.push(part);
+            }
+        });
+
+        currentChunk = 0;
+        isReading = true;
+
+        // انتظار تحميل الأصوات إن كانت لا تزال تُحمّل
+        const voices = speechSynthesis.getVoices();
+
+        speakNextChunk(voices, session);
     }
 
+    function speakNextChunk(voices, session) {
+        if (
+            !isReading ||
+            session !== readingSession ||
+            currentChunk >= speechChunks.length
+        ) {
+            if (session === readingSession) {
+                isReading = false;
+            }
+            return;
+        }
+
+        const chunk = speechChunks[currentChunk];
+        const speech = new SpeechSynthesisUtterance(chunk);
+
+        voices = voices || speechSynthesis.getVoices();
+
+        const arabicVoice = voices.find(voice =>
+            voice.lang &&
+            voice.lang.toLowerCase().startsWith("ar")
+        );
+
+        if (arabicVoice) {
+            speech.voice = arabicVoice;
+            speech.lang = arabicVoice.lang;
+        } else {
+            speech.lang = "ar-SA";
+        }
+
+        speech.rate = 0.85;
+        speech.pitch = 1;
+        speech.volume = 1;
+
+        speech.onend = function () {
+            if (!isReading || session !== readingSession) {
+                return;
+            }
+
+            currentChunk++;
+            speakNextChunk(voices, session);
+        };
+
+        speech.onerror = function () {
+            if (!isReading || session !== readingSession) {
+                return;
+            }
+
+            currentChunk++;
+            speakNextChunk(voices, session);
+        };
+
+        speechSynthesis.speak(speech);
+    }
+
+    function stopReading() {
+        isReading = false;
+        readingSession++;
+        speechChunks = [];
+        currentChunk = 0;
+
+        if ("speechSynthesis" in window) {
+            speechSynthesis.cancel();
+        }
+    }
 </script>
 
-
 </body>
-
 </html>
