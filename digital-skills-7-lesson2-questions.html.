@@ -233,6 +233,9 @@
 
         <!-- مكان صورة السؤال الأول -->
         <!-- أضيفي الصورة هنا عند تجهيز اسمها -->
+<img src="images/IMG_٢٠٢٦١٠١١_٢٣٠٩٥٠.jpg"
+     alt="صورة السؤال من درس مكونات الحاسوب المادية"
+     class="lesson-image">
 
         <button class="answer-button"
                 onclick="toggleAnswer('answer1', this)"
