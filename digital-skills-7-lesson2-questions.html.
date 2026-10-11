@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>أسئلة الدرس الثاني وحلولها | زد علمك</title>
+
+    <meta name="description"
+          content="أسئلة أقيم تعلمي وحلول الدرس الثاني: مكونات الحاسوب المادية، للصف السابع، المهارات الرقمية.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background: #f4f7fb;
+            color: #263238;
+            line-height: 1.9;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 22px 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 0;
+        }
+
+        .intro,
+        .question-card {
+            background: white;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .intro h2,
+        .question-card h2 {
+            color: #1565c0;
+            margin-top: 0;
+        }
+
+        .question-card h2 {
+            font-size: 20px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* تنسيق الصور */
+        .lesson-image {
+            display: block;
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .answer-button {
+            background: #1565c0;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .answer-button:hover {
+            background: #0d47a1;
+        }
+
+        .answer {
+            display: none;
+            background: #e8f5e9;
+            border-right: 5px solid #2e7d32;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        .answer h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        .answer ul,
+        .answer ol {
+            padding-right: 22px;
+        }
+
+        .table-box {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 280px;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #e3f2fd;
+            color: #0d47a1;
+        }
+
+        .english {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .note {
+            background: #fff8e1;
+            border-right: 5px solid #f9a825;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .back-link {
+            display: block;
+            background: #2e7d32;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 13px;
+            border-radius: 9px;
+            margin: 20px 0;
+        }
+
+        .back-link:hover {
+            background: #1b5e20;
+        }
+
+        footer {
+            text-align: center;
+            color: #607d8b;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            .question-card h2 {
+                font-size: 18px;
+            }
+
+            .intro,
+            .question-card {
+                padding: 14px;
+            }
+
+            .lesson-image {
+                max-width: 100%;
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>📝 أقيم تعلمي</h1>
+        <p>المهارات الرقمية – الصف السابع</p>
+        <p>الدرس الثاني: مكونات الحاسوب المادية</p>
+    </header>
+
+    <section class="intro">
+        <h2>المعرفة</h2>
+
+        <p>
+            أوظف في هذا الدرس ما تعلمته من معارف في الإجابة عن الأسئلة الآتية:
+        </p>
+    </section>
+
+    <!-- السؤال الأول -->
+    <section class="question-card">
+
+        <h2>السؤال الأول</h2>
+
+        <p class="question-text">
+            أذكر أسماء الوحدات الواردة في الجدول الآتي، وأحدد إذا كانت
+            من الوحدات المادية الداخلية أم من الوحدات المادية الخارجية.
+        </p>
+
+        <!-- مكان صورة السؤال الأول -->
+        <!-- أضيفي الصورة هنا عند تجهيز اسمها -->
+
+        <button class="answer-button"
+                onclick="toggleAnswer('answer1', this)"
+                aria-expanded="false">
+            إظهار الحل
+        </button>
+
+        <div class="answer" id="answer1">
+
+            <h3>الحل</h3>
+
+            <p>
+                يُضاف الحل بعد تحديد الوحدات الواردة في جدول الكتاب.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- السؤال الثاني -->
+    <section class="question-card">
+
+        <h2>السؤال الثاني</h2>
+
+        <p class="question-text">
+            أعدد الأجزاء الرئيسة لوحدة النظام.
+        </p>
+
+        <!-- مكان صورة السؤال الثاني -->
+        <!-- أضيفي الصورة هنا عند تجهيز اسمها -->
+
+        <button class="answer-button"
+                onclick="toggleAnswer('answer2', this)"
+                aria-expanded="false">
+            إظهار الحل
+        </button>
+
+        <div class="answer" id="answer2">
+
+            <h3>الحل</h3>
+
+            <ol>
+                <li>
+                    هيكل الحاسوب
+                    <span class="english">(Computer Chassis)</span>.
+                </li>
+
+                <li>
+                    اللوحة الأم
+                    <span class="english">(Motherboard)</span>.
+                </li>
+
+                <li>
+                    وحدة المعالجة المركزية
+                    <span class="english">(CPU)</span>.
+                </li>
+
+                <li>
+                    الذاكرة الرئيسية
+                    <span class="english">(Main Memory)</span>.
+                </li>
+
+                <li>
+                    القرص الصلب
+                    <span class="english">(HDD)</span>.
+                </li>
+
+                <li>
+                    بطاقة معالجة الرسوم / بطاقة الشاشة
+                    <span class="english">(GPU)</span>.
+                </li>
+
+                <li>
+                    مزود الطاقة
+                    <span class="english">(Power Supply)</span>.
+                </li>
+
+                <li>
+                    مروحة التبريد
+                    <span class="english">(Cooling Fan)</span>.
+                </li>
+            </ol>
+
+        </div>
+
+    </section>
+
+    <!-- السؤال الثالث -->
+    <section class="question-card">
+
+        <h2>السؤال الثالث</h2>
+
+        <p class="question-text">
+            أُقارِنُ بينَ المكوّنات المادية الداخلية والمكوّنات المادية
+            الخارجية من حيث المهام التي تؤديها كلّ منهما.
+        </p>
+
+        <!-- مكان صورة السؤال الثالث -->
+        <!-- أضيفي الصورة هنا عند تجهيز اسمها -->
+
+        <button class="answer-button"
+                onclick="toggleAnswer('answer3', this)"
+                aria-expanded="false">
+            إظهار الحل
+        </button>
+
+        <div class="answer" id="answer3">
+
+            <h3>الحل</h3>
+
+            <div class="table-box">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>وجه المقارنة</th>
+                            <th>المكونات المادية الداخلية</th>
+                            <th>المكونات المادية الخارجية</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>المهام التي تؤديها</td>
+
+                            <td>
+                                تكون غالبًا وحدات المعالجة المسؤولة عن نظام
+                                تشغيل الحاسوب ووحدات التخزين.
+                            </td>
+
+                            <td>
+                                تكون غالبًا وحدات مسؤولة عن عمليتي الإدخال والإخراج.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>إمكانية رؤيتها</td>
+
+                            <td>
+                                يصعب رؤيتها من الخارج.
+                            </td>
+
+                            <td>
+                                يمكن رؤيتها ولمسها دون الحاجة إلى تفكيك الجهاز.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <a class="back-link" href="digital-skills-7-term1.html">
+        ↩ العودة إلى فهرس الفصل الأول
+    </a>
+
+    <footer>
+        © 2026 زد علمك | أدوات تعليمية مجانية
+    </footer>
+
+</div>
+
+<script>
+    function toggleAnswer(id, button) {
+        const answer = document.getElementById(id);
+
+        const isHidden =
+            getComputedStyle(answer).display === "none";
+
+        answer.style.display = isHidden ? "block" : "none";
+
+        button.textContent =
+            isHidden ? "إخفاء الحل" : "إظهار الحل";
+
+        button.setAttribute("aria-expanded", String(isHidden));
+    }
+</script>
+
+</body>
+</html>
