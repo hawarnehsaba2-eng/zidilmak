@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبر نفسك | الدرس الثالث | زد علمك</title>
+
+    <meta name="description"
+          content="اختبر معلوماتك في درس مكونات الحاسوب البرمجية للصف السابع - المهارات الرقمية.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #263238;
+            line-height: 1.9;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 20px auto;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 26px;
+        }
+
+        header p {
+            margin: 5px 0;
+        }
+
+        .question-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            border: 1px solid #e0e6ed;
+        }
+
+        .question-card h2 {
+            color: #1565c0;
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .option {
+            display: block;
+            background: #f5f8fc;
+            border: 1px solid #dce4ee;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eaf2ff;
+        }
+
+        .option input {
+            margin-left: 8px;
+            transform: scale(1.15);
+        }
+
+        .classification-item {
+            background: #f5f8fc;
+            border: 1px solid #dce4ee;
+            border-radius: 9px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+
+        .classification-item label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #b8c7d9;
+            border-radius: 8px;
+            background: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #263238;
+        }
+
+        button {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            border: none;
+            border-radius: 9px;
+            padding: 13px 22px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .finish-btn {
+            background: #1565c0;
+            color: white;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .finish-btn:hover {
+            background: #0d47a1;
+        }
+
+        .retry-btn {
+            background: #e8eef7;
+            color: #263238;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        #result {
+            display: none;
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            border: 2px solid #1565c0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #score {
+            color: #1565c0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .feedback {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .correct-feedback {
+            color: #2e7d32;
+        }
+
+        .wrong-feedback {
+            color: #c62828;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            background: #455a64;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 9px;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            color: #607d8b;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        button:disabled,
+        select:disabled,
+        input:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .question-card {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>📝 اختبر نفسك</h1>
+        <p>المهارات الرقمية | الصف السابع</p>
+        <p>الدرس الثالث: مكونات الحاسوب البرمجية (Software)</p>
+        <p>أجب عن الأسئلة، ثم اضغط على زر إنهاء الاختبار لمعرفة نتيجتك.</p>
+    </header>
+
+
+    <!-- السؤال الأول -->
+
+    <section class="question-card">
+
+        <h2>السؤال الأول</h2>
+
+        <p class="question-text">
+            برامج مسؤولة عن إدارة عمل جهاز الحاسوب والتحكم فيه وتشغيله.
+        </p>
+
+        <label class="option">
+            <input type="radio" name="q1" value="correct">
+            برامج النظام
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="wrong">
+            برامج التطبيقات
+        </label>
+
+        <div id="feedback1" class="feedback"></div>
+
+    </section>
+
+
+    <!-- السؤال الثاني -->
+
+    <section class="question-card">
+
+        <h2>السؤال الثاني</h2>
+
+        <p class="question-text">
+            برامج حاسوبية صُمّمت لأداء مهام محددة تتعلق بحاجات المستخدمين.
+        </p>
+
+        <label class="option">
+            <input type="radio" name="q2" value="wrong">
+            برامج النظام
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="correct">
+            برامج التطبيقات
+        </label>
+
+        <div id="feedback2" class="feedback"></div>
+
+    </section>
+
+
+    <!-- السؤال الثالث -->
+
+    <section class="question-card">
+
+        <h2>السؤال الثالث</h2>
+
+        <p class="question-text">
+            البرنامج الذي يعمل وسيطًا بين المكونات المادية التي تُشكّل
+            جهاز الحاسوب وبرامج التطبيقات هو:
+        </p>
+
+        <label class="option">
+            <input type="radio" name="q3" value="correct">
+            برامج النظام
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="wrong">
+            المعدات
+        </label>
+
+        <div id="feedback3" class="feedback"></div>
+
+    </section>
+
+
+    <!-- السؤال الرابع: التصنيف -->
+
+    <section class="question-card">
+
+        <h2>السؤال الرابع: أصنّف الأمثلة الآتية</h2>
+
+        <p class="question-text">
+            أصنّف كل مثال إلى برامج نظام أو برامج تطبيقات.
+        </p>
+
+        <p>
+            اختر التصنيف المناسب لكل برنامج من القائمة الموجودة أسفله.
+        </p>
+
+
+        <div class="classification-item">
+            <label for="class1">1. متصفح الإنترنت</label>
+
+            <select id="class1">
+                <option value="">-- اختر التصنيف --</option>
+                <option value="application">برامج التطبيقات</option>
+                <option value="system">برامج النظام</option>
+            </select>
+
+            <div id="classFeedback1" class="feedback"></div>
+        </div>
+
+
+        <div class="classification-item">
+            <label for="class2">2. مايكروسوفت ويندوز (Microsoft Windows)</label>
+
+            <select id="class2">
+                <option value="">-- اختر التصنيف --</option>
+                <option value="application">برامج التطبيقات</option>
+                <option value="system">برامج النظام</option>
+            </select>
+
+            <div id="classFeedback2" class="feedback"></div>
+        </div>
+
+
+        <div class="classification-item">
+            <label for="class3">3. برامج العروض التقديمية</label>
+
+            <select id="class3">
+                <option value="">-- اختر التصنيف --</option>
+                <option value="application">برامج التطبيقات</option>
+                <option value="system">برامج النظام</option>
+            </select>
+
+            <div id="classFeedback3" class="feedback"></div>
+        </div>
+
+
+        <div class="classification-item">
+            <label for="class4">4. برامج إنشاء جداول البيانات</label>
+
+            <select id="class4">
+                <option value="">-- اختر التصنيف --</option>
+                <option value="application">برامج التطبيقات</option>
+                <option value="system">برامج النظام</option>
+            </select>
+
+            <div id="classFeedback4" class="feedback"></div>
+        </div>
+
+
+        <div class="classification-item">
+            <label for="class5">5. برنامج البريد الإلكتروني</label>
+
+            <select id="class5">
+                <option value="">-- اختر التصنيف --</option>
+                <option value="application">برامج التطبيقات</option>
+                <option value="system">برامج النظام</option>
+            </select>
+
+            <div id="classFeedback5" class="feedback"></div>
+        </div>
+
+
+        <div class="classification-item">
+            <label for="class6">6. أندرويد (Android)</label>
+
+            <select id="class6">
+                <option value="">-- اختر التصنيف --</option>
+                <option value="application">برامج التطبيقات</option>
+                <option value="system">برامج النظام</option>
+            </select>
+
+            <div id="classFeedback6" class="feedback"></div>
+        </div>
+
+
+        <div class="classification-item">
+            <label for="class7">7. ماك أو إس (macOS)</label>
+
+            <select id="class7">
+                <option value="">-- اختر التصنيف --</option>
+                <option value="application">برامج التطبيقات</option>
+                <option value="system">برامج النظام</option>
+            </select>
+
+            <div id="classFeedback7" class="feedback"></div>
+        </div>
+
+    </section>
+
+
+    <button type="button" class="finish-btn" id="finishBtn"
+            onclick="finishQuiz()">
+        إنهاء الاختبار وعرض النتيجة
+    </button>
+
+    <button type="button" class="retry-btn" id="retryBtn"
+            onclick="resetQuiz()" style="display:none;">
+        إعادة الاختبار
+    </button>
+
+
+    <!-- النتيجة -->
+
+    <section id="result" aria-live="polite">
+
+        <h2>نتيجتك في الاختبار 🎉</h2>
+
+        <p id="score"></p>
+
+        <p id="message"></p>
+
+    </section>
+
+
+    <a class="back-link" href="digital-skills-7-term1.html">
+        العودة إلى فهرس الدروس
+    </a>
+
+
+    <footer>
+        © 2026 زد علمك | أدوات تعليمية مجانية
+    </footer>
+
+</div>
+
+
+<script>
+
+    let quizFinished = false;
+
+    function finishQuiz() {
+
+        if (quizFinished) {
+            return;
+        }
+
+        quizFinished = true;
+
+        let totalScore = 0;
+
+        // تصحيح أسئلة الاختيار من متعدد
+
+        for (let i = 1; i <= 3; i++) {
+
+            const selected = document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+            const feedback = document.getElementById('feedback' + i);
+
+            if (selected && selected.value === 'correct') {
+
+                totalScore++;
+
+                feedback.textContent = '✔ إجابة صحيحة';
+                feedback.className = 'feedback correct-feedback';
+
+            } else {
+
+                feedback.textContent = selected
+                    ? '✘ إجابة غير صحيحة'
+                    : 'لم تجب عن هذا السؤال';
+
+                feedback.className = 'feedback wrong-feedback';
+            }
+        }
+
+
+        // الإجابات الصحيحة لسؤال التصنيف
+
+        const correctAnswers = [
+            'application', // متصفح الإنترنت
+            'system',      // ويندوز
+            'application', // العروض التقديمية
+            'application', // جداول البيانات
+            'application', // البريد الإلكتروني
+            'system',      // أندرويد
+            'system'       // ماك أو إس
+        ];
+
+
+        // تصحيح التصنيف
+
+        for (let i = 1; i <= 7; i++) {
+
+            const selected = document.getElementById('class' + i);
+            const feedback = document.getElementById('classFeedback' + i);
+
+            if (selected.value === correctAnswers[i - 1]) {
+
+                totalScore++;
+
+                feedback.textContent = '✔ تصنيف صحيح';
+                feedback.className = 'feedback correct-feedback';
+
+            } else {
+
+                feedback.textContent = selected.value
+                    ? '✘ تصنيف غير صحيح'
+                    : 'لم تختر تصنيفًا';
+
+                feedback.className = 'feedback wrong-feedback';
+            }
+        }
+
+
+        // إظهار النتيجة
+
+        document.getElementById('score').textContent =
+            'علامتك: ' + totalScore + ' / 10';
+
+        let message = '';
+
+        if (totalScore === 10) {
+            message = 'ممتاز! أحسنت، جميع إجاباتك صحيحة. 🌟';
+        } else if (totalScore >= 8) {
+            message = 'أحسنت! نتيجتك رائعة، واصل التقدم.';
+        } else if (totalScore >= 5) {
+            message = 'جيد! راجع الدرس وحاول مرة أخرى.';
+        } else {
+            message = 'لا بأس! راجع الدرس ثم أعد الاختبار.';
+        }
+
+        document.getElementById('message').textContent = message;
+
+        document.getElementById('result').style.display = 'block';
+
+        document.getElementById('finishBtn').disabled = true;
+        document.getElementById('retryBtn').style.display = 'block';
+
+
+        // منع تغيير الإجابات بعد إنهاء الاختبار
+
+        document.querySelectorAll('input[type="radio"]').forEach(function(input) {
+            input.disabled = true;
+        });
+
+        document.querySelectorAll('select').forEach(function(select) {
+            select.disabled = true;
+        });
+
+        document.getElementById('result').scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+
+
+    function resetQuiz() {
+
+        quizFinished = false;
+
+        document.querySelectorAll('input[type="radio"]').forEach(function(input) {
+            input.checked = false;
+            input.disabled = false;
+        });
+
+        document.querySelectorAll('select').forEach(function(select) {
+            select.selectedIndex = 0;
+            select.disabled = false;
+        });
+
+        document.querySelectorAll('.feedback').forEach(function(feedback) {
+            feedback.textContent = '';
+            feedback.className = 'feedback';
+        });
+
+        document.getElementById('result').style.display = 'none';
+
+        document.getElementById('finishBtn').disabled = false;
+        document.getElementById('retryBtn').style.display = 'none';
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+</script>
+
+</body>
+</html>
