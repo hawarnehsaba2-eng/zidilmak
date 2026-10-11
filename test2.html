@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبر نفسك | الدرس الثاني - زد علمك</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 15px;
+            color: #263238;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .header {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 22px 15px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 25px;
+        }
+
+        .header p {
+            margin: 0;
+        }
+
+        .question {
+            background: white;
+            padding: 18px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+
+        .question h3 {
+            color: #1565c0;
+            margin-top: 0;
+        }
+
+        .option {
+            display: block;
+            background: #f4f7fb;
+            padding: 11px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #dce3eb;
+            cursor: pointer;
+        }
+
+        .option:has(input:checked) {
+            background: #e3f2fd;
+            border-color: #1565c0;
+        }
+
+        input[type="radio"] {
+            margin-left: 8px;
+            accent-color: #1565c0;
+        }
+
+        .marks {
+            color: #607d8b;
+            font-size: 14px;
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .word {
+            background: #e3f2fd;
+            border: 2px solid #1565c0;
+            border-radius: 9px;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 16px;
+            touch-action: manipulation;
+        }
+
+        .word.selected {
+            background: #1565c0;
+            color: white;
+        }
+
+        .word.placed {
+            cursor: default;
+            background: #e8f5e9;
+            border-color: #388e3c;
+            color: #1b5e20;
+        }
+
+        .sorting-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+        }
+
+        .sorting-table th,
+        .sorting-table td {
+            border: 1px solid #cfd8dc;
+            padding: 12px;
+            text-align: center;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        .sorting-table th {
+            background: #e3f2fd;
+            color: #0d47a1;
+        }
+
+        .drop-zone {
+            min-height: 105px;
+        }
+
+        .drop-zone.drag-over {
+            background: #e3f2fd;
+        }
+
+        .placed-word {
+            display: inline-block;
+            margin: 5px;
+            padding: 7px 10px;
+            border-radius: 7px;
+            background: #f1f8e9;
+            border: 1px solid #9ccc65;
+            cursor: pointer;
+        }
+
+        .hint {
+            color: #546e7a;
+            font-size: 14px;
+        }
+
+        .controls {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        button {
+            border: none;
+            border-radius: 9px;
+            padding: 12px 22px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .finish-btn {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .category-btn {
+            background: #1565c0;
+            color: white;
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #result {
+            display: none;
+            background: white;
+            padding: 22px;
+            margin: 20px 0;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #2e7d32;
+        }
+
+        #result h2 {
+            color: #2e7d32;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 25px 0;
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 21px;
+            }
+
+            .question {
+                padding: 14px;
+            }
+
+            .sorting-table th,
+            .sorting-table td {
+                padding: 7px;
+                font-size: 14px;
+            }
+
+            .word {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🧠 اختبر نفسك</h1>
+        <p>الدرس الثاني: مكونات الحاسوب المادية</p>
+        <p>أجب عن الأسئلة واجمع العلامات العشر!</p>
+    </div>
+
+    <form id="quizForm">
+
+        <!-- السؤال الأول -->
+
+        <div class="question">
+            <h3>السؤال الأول</h3>
+
+            <p>المكونات غير الملموسة لجهاز الحاسوب تُسمّى:</p>
+
+            <label class="option">
+                <input type="radio" name="q1" value="correct">
+                البرمجيات
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                المعدات
+            </label>
+
+            <div class="marks">علامة واحدة</div>
+        </div>
+
+        <!-- السؤال الثاني -->
+
+        <div class="question">
+            <h3>السؤال الثاني</h3>
+
+            <p>
+                المكونات خارج الهيكل الرئيس لجهاز الحاسوب،
+                أو ما يُسمّى وحدة النظام (System Unit)، هي:
+            </p>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                المكونات المادية الداخلية
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="correct">
+                المكونات المادية الخارجية
+            </label>
+
+            <div class="marks">علامة واحدة</div>
+        </div>
+
+        <!-- السؤال الثالث -->
+
+        <div class="question">
+            <h3>السؤال الثالث</h3>
+
+            <p>
+                الوحدة الأساسية في جهاز الحاسوب، وتُثبّت عليها
+                مكونات الحاسوب الداخلية، وتربط بينها وبين
+                الأجهزة الطرفية، وتوفّر وسائط الاتصال فيما بينها:
+            </p>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                وحدة المعالجة المركزية (CPU)
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="correct">
+                اللوحة الأم (Motherboard)
+            </label>
+
+            <div class="marks">علامة واحدة</div>
+        </div>
+
+        <!-- السؤال الرابع -->
+
+        <div class="question">
+            <h3>السؤال الرابع</h3>
+
+            <p>ذاكرة للقراءة فقط، ويُكتب عليها مرة واحدة:</p>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                RAM
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="correct">
+                ROM
+            </label>
+
+            <div class="marks">علامة واحدة</div>
+        </div>
+
+        <!-- السؤال الخامس -->
+
+        <div class="question">
+            <h3>السؤال الخامس</h3>
+
+            <p>أي وحدة تتحكم بجودة الصورة المعروضة على الشاشة؟</p>
+
+            <label class="option">
+                <input type="radio" name="q5" value="correct">
+                بطاقة معالجة الرسوم (GPU)
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                وحدة المعالجة المركزية (CPU)
+            </label>
+
+            <div class="marks">علامة واحدة</div>
+        </div>
+
+        <!-- السؤال السادس -->
+
+        <div class="question">
+            <h3>السؤال السادس</h3>
+
+            <p>ما المكوّن المسؤول عن توفير الطاقة الكهربائية اللازمة لتشغيل جهاز الحاسوب؟</p>
+
+            <label class="option">
+                <input type="radio" name="q6" value="correct">
+                مزود الطاقة (Power Supply)
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="wrong">
+                مروحة التبريد (Cooling Fan)
+            </label>
+
+            <div class="marks">علامة واحدة</div>
+        </div>
+
+        <!-- السؤال السابع: لعبة ترتيب الكلمات -->
+
+        <div class="question" id="sortingQuestion">
+
+            <h3>السؤال السابع: لعبة تصنيف المكونات</h3>
+
+            <p>
+                رتّب الكلمات في الجدول حسب نوع المكونات:
+                المادية الداخلية أو المادية الخارجية.
+            </p>
+
+            <p class="hint">
+                اضغط على كلمة، ثم اضغط على القسم المناسب لوضعها فيه.
+                ويمكنك أيضًا سحب الكلمات وإفلاتها باستخدام الأجهزة التي تدعم السحب.
+                إذا أردت تغيير التصنيف، اضغط على الكلمة بعد وضعها.
+            </p>
+
+            <div class="word-bank" id="wordBank">
+
+                <button type="button" class="word"
+                    draggable="true" data-word="screen">
+                    الشاشة
+                </button>
+
+                <button type="button" class="word"
+                    draggable="true" data-word="ram">
+                    الذاكرة الرئيسية
+                </button>
+
+                <button type="button" class="word"
+                    draggable="true" data-word="hdd">
+                    القرص الصلب
+                </button>
+
+                <button type="button" class="word"
+                    draggable="true" data-word="mouse">
+                    الفأرة
+                </button>
+
+            </div>
+
+            <table class="sorting-table">
+                <thead>
+                    <tr>
+                        <th>المكونات المادية الداخلية</th>
+                        <th>المكونات المادية الخارجية</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="drop-zone"
+                                id="internal"
+                                data-category="internal">
+                            </div>
+                            <button type="button"
+                                class="category-btn"
+                                data-target="internal">
+                                ضع الكلمة هنا
+                            </button>
+                        </td>
+
+                        <td>
+                            <div class="drop-zone"
+                                id="external"
+                                data-category="external">
+                            </div>
+                            <button type="button"
+                                class="category-btn"
+                                data-target="external">
+                                ضع الكلمة هنا
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="hint">
+                كل كلمة صحيحة في مكانها تمنحك علامة واحدة.
+            </p>
+
+        </div>
+
+        <div class="controls">
+            <button type="button" id="finishBtn" class="finish-btn">
+                إنهاء الاختبار وحساب العلامة
+            </button>
+        </div>
+
+    </form>
+
+    <div id="result" aria-live="polite">
+        <h2>نتيجتك في الاختبار</h2>
+        <p id="scoreText"></p>
+        <p id="feedback"></p>
+    </div>
+
+    <a class="back-link" href="digital-skills-7-term1.html">
+        ⬅ العودة إلى فهرس الفصل الأول
+    </a>
+
+</div>
+
+<script>
+    let selectedWord = null;
+    let quizFinished = false;
+
+    const wordBank = document.getElementById("wordBank");
+    const words = Array.from(document.querySelectorAll(".word"));
+    const dropZones = Array.from(document.querySelectorAll(".drop-zone"));
+    const categoryButtons = Array.from(
+        document.querySelectorAll(".category-btn")
+    );
+
+    // اختيار كلمة باللمس أو النقر
+    words.forEach(word => {
+        word.addEventListener("click", () => {
+            if (quizFinished || word.classList.contains("placed")) {
+                return;
+            }
+
+            words.forEach(item => item.classList.remove("selected"));
+
+            selectedWord = word;
+            word.classList.add("selected");
+        });
+
+        // دعم السحب والإفلات
+        word.addEventListener("dragstart", event => {
+            if (quizFinished || word.classList.contains("placed")) {
+                event.preventDefault();
+                return;
+            }
+
+            selectedWord = word;
+            event.dataTransfer.setData("text/plain", word.dataset.word);
+        });
+    });
+
+    function placeWord(word, zone) {
+        if (quizFinished || !word || !zone) return;
+
+        // إذا كانت الكلمة في قسم سابق، أعدها إلى مكان الكلمات
+        word.classList.remove("placed", "selected");
+        word.classList.remove("placed-word");
+
+        wordBank.appendChild(word);
+
+        // ضعها في القسم الجديد
+        zone.appendChild(word);
+        word.classList.add("placed", "placed-word");
+        word.draggable = false;
+
+        selectedWord = null;
+    }
+
+    // الضغط على زر القسم يضع الكلمة المختارة
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            if (quizFinished) return;
+
+            if (!selectedWord) {
+                alert("اختَر كلمة أولًا.");
+                return;
+            }
+
+            const target = document.getElementById(button.dataset.target);
+            placeWord(selectedWord, target);
+        });
+    });
+
+    // الضغط على كلمة موضوعة يعيدها إلى قائمة الكلمات
+    dropZones.forEach(zone => {
+        zone.addEventListener("click", event => {
+            if (quizFinished) return;
+
+            const word = event.target.closest(".placed-word");
+
+            if (word) {
+                word.classList.remove("placed", "placed-word");
+                word.draggable = true;
+                wordBank.appendChild(word);
+                selectedWord = word;
+
+                words.forEach(item => item.classList.remove("selected"));
+                word.classList.add("selected");
+            }
+        });
+
+        zone.addEventListener("dragover", event => {
+            if (quizFinished) return;
+
+            event.preventDefault();
+            zone.classList.add("drag-over");
+        });
+
+        zone.addEventListener("dragleave", () => {
+            zone.classList.remove("drag-over");
+        });
+
+        zone.addEventListener("drop", event => {
+            if (quizFinished) return;
+
+            event.preventDefault();
+            zone.classList.remove("drag-over");
+
+            if (selectedWord) {
+                placeWord(selectedWord, zone);
+            }
+        });
+    });
+
+    // إنهاء الاختبار
+    document.getElementById("finishBtn").addEventListener("click", () => {
+        if (quizFinished) return;
+
+        let score = 0;
+
+        // الأسئلة الستة الأولى
+        for (let i = 1; i <= 6; i++) {
+            const answer = document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+            if (answer && answer.value === "correct") {
+                score++;
+            }
+        }
+
+        // السؤال السابع: 4 علامات
+        const correctCategories = {
+            screen: "external",
+            ram: "internal",
+            hdd: "internal",
+            mouse: "external"
+        };
+
+        Object.keys(correctCategories).forEach(wordId => {
+            const word = document.querySelector(
+                '.word[data-word="' + wordId + '"]'
+            );
+
+            if (
+                word &&
+                word.parentElement &&
+                word.parentElement.classList.contains("drop-zone") &&
+                word.parentElement.dataset.category === correctCategories[wordId]
+            ) {
+                score++;
+            }
+        });
+
+        quizFinished = true;
+
+        // إيقاف تغيير الإجابات بعد الإنهاء
+        document.querySelectorAll('#quizForm input[type="radio"]').forEach(input => {
+            input.disabled = true;
+        });
+
+        words.forEach(word => {
+            word.draggable = false;
+        });
+
+        categoryButtons.forEach(button => {
+            button.disabled = true;
+        });
+
+        document.getElementById("finishBtn").disabled = true;
+
+        document.getElementById("scoreText").textContent =
+            "حصلت على " + score + " من 10 علامات.";
+
+        let feedback = "";
+
+        if (score === 10) {
+            feedback = "ممتاز! أحسنت، جميع إجاباتك صحيحة. 🌟";
+        } else if (score >= 7) {
+            feedback = "أحسنت! نتيجتك جيدة، واصل التقدم. 👏";
+        } else if (score >= 5) {
+            feedback = "جهد جيد! راجع الدرس وحاول تذكّر المكونات.";
+        } else {
+            feedback = "لا بأس، راجع الدرس ثم أعد الاختبار من الفهرس.";
+        }
+
+        document.getElementById("feedback").textContent = feedback;
+        document.getElementById("result").style.display = "block";
+
+        document.getElementById("result").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    });
+</script>
+
+</body>
+</html>
