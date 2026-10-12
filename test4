@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبر نفسك | الدرس الرابع: أنظمة التشغيل</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 22px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 25px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .question {
+            background: white;
+            padding: 18px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .question h3 {
+            margin-top: 0;
+            color: #1e3a8a;
+            line-height: 1.8;
+        }
+
+        .mark {
+            color: #15803d;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .option {
+            display: block;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eff6ff;
+            border-color: #60a5fa;
+        }
+
+        .option input {
+            margin-left: 8px;
+            transform: scale(1.2);
+        }
+
+        .classification {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .classification th,
+        .classification td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .classification th {
+            background: #eff6ff;
+            color: #1e3a8a;
+        }
+
+        .classification select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: white;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .finish-btn {
+            width: 100%;
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .finish-btn:hover {
+            background: #15803d;
+        }
+
+        .finish-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .result {
+            display: none;
+            background: white;
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h2 {
+            color: #16a34a;
+        }
+
+        .score {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            text-align: right;
+            line-height: 1.9;
+        }
+
+        .feedback p {
+            padding: 10px;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+
+            .classification th,
+            .classification td {
+                padding: 7px;
+                font-size: 14px;
+            }
+
+            .classification select {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>🧠 اختبر نفسك</h1>
+        <p>الدرس الرابع: أنظمة التشغيل</p>
+        <p>اختر الإجابة الصحيحة وصنّف العبارات</p>
+        <p>العلامة الكلية: 10 علامات</p>
+    </header>
+
+    <form id="quizForm">
+
+        <!-- السؤال الأول: علامة واحدة -->
+
+        <div class="question">
+            <h3>
+                1. برنامج أساسي يعمل وسيطًا بين المستخدم ومكونات جهاز
+                الحاسوب المادية، ويتيح تشغيل التطبيقات والبرامج المختلفة:
+            </h3>
+
+            <p class="mark">علامة واحدة</p>
+
+            <label class="option">
+                <input type="radio" name="q1" value="correct">
+                نظام التشغيل
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                برامج التطبيقات
+            </label>
+        </div>
+
+        <!-- السؤال الثاني: خمس علامات -->
+
+        <div class="question">
+            <h3>
+                2. ميّز العبارات الآتية بين الأنظمة مفتوحة المصدر
+                والأنظمة مغلقة المصدر.
+            </h3>
+
+            <p class="mark">خمس علامات، علامة لكل عبارة</p>
+
+            <table class="classification">
+                <thead>
+                    <tr>
+                        <th>العبارة</th>
+                        <th>نوع النظام</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1. أنظمة شيفرتها المصدرية متاحة للجميع.</td>
+                        <td>
+                            <select name="q2a">
+                                <option value="">اختر</option>
+                                <option value="open">مفتوح المصدر</option>
+                                <option value="closed">مغلق المصدر</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2. نظام Linux من الأمثلة عليها.</td>
+                        <td>
+                            <select name="q2b">
+                                <option value="">اختر</option>
+                                <option value="open">مفتوح المصدر</option>
+                                <option value="closed">مغلق المصدر</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>3. نظام macOS من الأمثلة عليها.</td>
+                        <td>
+                            <select name="q2c">
+                                <option value="">اختر</option>
+                                <option value="open">مفتوح المصدر</option>
+                                <option value="closed">مغلق المصدر</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>4. توفر الشركة المصنعة حلول أمان مدمجة ودعمًا مستمرًا.</td>
+                        <td>
+                            <select name="q2d">
+                                <option value="">اختر</option>
+                                <option value="open">مفتوح المصدر</option>
+                                <option value="closed">مغلق المصدر</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>5. الشيفرة المصدرية سرية حمايةً للملكية الفكرية.</td>
+                        <td>
+                            <select name="q2e">
+                                <option value="">اختر</option>
+                                <option value="open">مفتوح المصدر</option>
+                                <option value="closed">مغلق المصدر</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- السؤال الثالث: علامة واحدة -->
+
+        <div class="question">
+            <h3>
+                3. منع حدوث تداخل بين البرامج والتطبيقات؛ لكيلا يؤثر ذلك
+                في عمل الذاكرة بكفاءة وفاعلية، فضلًا عن ضمان الاستخدام
+                الأمثل للذاكرة، من مسؤولية:
+            </h3>
+
+            <p class="mark">علامة واحدة</p>
+
+            <label class="option">
+                <input type="radio" name="q3" value="correct">
+                نظام التشغيل
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                برامج التطبيقات
+            </label>
+        </div>
+
+        <!-- السؤال الرابع: علامة واحدة -->
+
+        <div class="question">
+            <h3>
+                4. فتح برامج متعددة وإدارتها في الوقت نفسه، وذلك بتخصيص
+                وقت المعالجة بين البرامج المختلفة بسرعة كبيرة؛ ما يجعلها
+                تبدو كأنها تعمل في اللحظة نفسها، يُسمّى:
+            </h3>
+
+            <p class="mark">علامة واحدة</p>
+
+            <label class="option">
+                <input type="radio" name="q4" value="correct">
+                المهام المتعددة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                إدارة حسابات المستخدمين
+            </label>
+        </div>
+
+        <!-- السؤال الخامس: علامة واحدة -->
+
+        <div class="question">
+            <h3>
+                5. مستخدم صلاحياته محدودة؛ إذ تمكّنه فقط من استخدام
+                التطبيقات والوصول إلى ملفاته الخاصة، هو:
+            </h3>
+
+            <p class="mark">علامة واحدة</p>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                المستخدم المسؤول
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="correct">
+                المستخدم العادي
+            </label>
+        </div>
+
+        <!-- السؤال السادس: علامة واحدة -->
+
+        <div class="question">
+            <h3>
+                6. من وظائف نظام التشغيل تسهيل طرائق الوصول إلى الملفات
+                وحفظها، فضلًا عن إيجاد طرائق لتخزين البيانات واسترجاعها
+                بكفاءة، ويُسمّى ذلك:
+            </h3>
+
+            <p class="mark">علامة واحدة</p>
+
+            <label class="option">
+                <input type="radio" name="q6" value="wrong">
+                إدارة الذاكرة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="correct">
+                إدارة الملفات
+            </label>
+        </div>
+
+        <button type="button" class="finish-btn" onclick="finishQuiz()">
+            ✅ إنهاء الاختبار
+        </button>
+
+    </form>
+
+    <!-- النتيجة -->
+
+    <div class="result" id="result">
+        <h2>🎉 انتهى الاختبار!</h2>
+
+        <div class="score" id="score"></div>
+
+        <p id="message"></p>
+
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <a class="back-btn" href="digital-skills-7-lesson4-questions.html">
+        ✏️ العودة إلى أسئلة الدرس وحلولها
+    </a>
+
+    <a class="back-btn" href="digital-skills-7-lesson4.html">
+        📖 العودة إلى شرح الدرس
+    </a>
+
+    <a class="back-btn" href="digital-skills-7-term1.html">
+        ↩️ العودة إلى دروس الفصل
+    </a>
+
+</div>
+
+<script>
+let quizFinished = false;
+
+function finishQuiz() {
+    if (quizFinished) {
+        return;
+    }
+
+    const form = document.getElementById("quizForm");
+
+    let score = 0;
+    const feedback = [];
+
+    // السؤال الأول
+    const q1 = form.querySelector('input[name="q1"]:checked');
+
+    if (q1 && q1.value === "correct") {
+        score++;
+        feedback.push("السؤال الأول: إجابة صحيحة ✅");
+    } else {
+        feedback.push("السؤال الأول: الإجابة الصحيحة هي نظام التشغيل.");
+    }
+
+    // السؤال الثاني: خمس علامات
+    const classifications = [
+        { name: "q2a", answer: "open" },
+        { name: "q2b", answer: "open" },
+        { name: "q2c", answer: "closed" },
+        { name: "q2d", answer: "closed" },
+        { name: "q2e", answer: "closed" }
+    ];
+
+    let classificationScore = 0;
+
+    classifications.forEach(function (item, index) {
+        const selected = form.querySelector(
+            'select[name="' + item.name + '"]'
+        );
+
+        if (selected.value === item.answer) {
+            classificationScore++;
+        }
+    });
+
+    score += classificationScore;
+
+    feedback.push(
+        "السؤال الثاني: " + classificationScore + " / 5 علامات."
+    );
+
+    // السؤال الثالث
+    const q3 = form.querySelector('input[name="q3"]:checked');
+
+    if (q3 && q3.value === "correct") {
+        score++;
+        feedback.push("السؤال الثالث: إجابة صحيحة ✅");
+    } else {
+        feedback.push("السؤال الثالث: الإجابة الصحيحة هي نظام التشغيل.");
+    }
+
+    // السؤال الرابع
+    const q4 = form.querySelector('input[name="q4"]:checked');
+
+    if (q4 && q4.value === "correct") {
+        score++;
+        feedback.push("السؤال الرابع: إجابة صحيحة ✅");
+    } else {
+        feedback.push("السؤال الرابع: الإجابة الصحيحة هي المهام المتعددة.");
+    }
+
+    // السؤال الخامس
+    const q5 = form.querySelector('input[name="q5"]:checked');
+
+    if (q5 && q5.value === "correct") {
+        score++;
+        feedback.push("السؤال الخامس: إجابة صحيحة ✅");
+    } else {
+        feedback.push("السؤال الخامس: الإجابة الصحيحة هي المستخدم العادي.");
+    }
+
+    // السؤال السادس
+    const q6 = form.querySelector('input[name="q6"]:checked');
+
+    if (q6 && q6.value === "correct") {
+        score++;
+        feedback.push("السؤال السادس: إجابة صحيحة ✅");
+    } else {
+        feedback.push("السؤال السادس: الإجابة الصحيحة هي إدارة الملفات.");
+    }
+
+    quizFinished = true;
+
+    // تعطيل الإجابات بعد إنهاء الاختبار
+    form.querySelectorAll('input, select').forEach(function (item) {
+        item.disabled = true;
+    });
+
+    form.querySelector(".finish-btn").disabled = true;
+
+    // عرض العلامة من 10
+    document.getElementById("score").textContent =
+        "علامتك: " + score + " / 10";
+
+    let message = "";
+
+    if (score === 10) {
+        message = "🌟 ممتاز! جميع إجاباتك صحيحة.";
+    } else if (score >= 8) {
+        message = "👏 رائع! لديك فهم جيد للدرس.";
+    } else if (score >= 5) {
+        message = "👍 جيد، راجع الإجابات وحاول تحسين نتيجتك.";
+    } else {
+        message = "📚 حاول مراجعة الدرس مرة أخرى.";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    document.getElementById("feedback").innerHTML =
+        feedback.map(function (item) {
+            return "<p>" + item + "</p>";
+        }).join("");
+
+    document.getElementById("result").style.display = "block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
