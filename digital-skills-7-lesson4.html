@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الدرس الرابع: أنظمة التشغيل | زد علمك</title>
+
+    <meta name="description"
+          content="شرح الدرس الرابع: أنظمة التشغيل، للصف السابع في مادة المهارات الرقمية، مع وظائف نظام التشغيل وإدارة الذاكرة والملفات والمستخدمين.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+            color: #263238;
+            line-height: 1.9;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 27px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 16px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .intro,
+        .lesson-section {
+            background: white;
+            padding: 22px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        .intro {
+            text-align: center;
+        }
+
+        h2 {
+            color: #1565c0;
+            font-size: 23px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #0d47a1;
+            font-size: 19px;
+            margin-top: 22px;
+        }
+
+        h4 {
+            color: #37474f;
+            font-size: 17px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul,
+        ol {
+            padding-right: 25px;
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+
+        .definition {
+            background: #e3f2fd;
+            border-right: 5px solid #1565c0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .example {
+            background: #f5f8fc;
+            border: 1px solid #dce4ee;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 9px;
+        }
+
+        .question-box {
+            background: #fff8e1;
+            border-right: 5px solid #f9a825;
+            padding: 15px;
+            margin: 18px 0;
+            border-radius: 8px;
+        }
+
+        .note {
+            background: #e8f5e9;
+            border-right: 5px solid #388e3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .english {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .toc {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        .toc h2 {
+            font-size: 21px;
+        }
+
+        .toc a {
+            display: block;
+            color: #1565c0;
+            text-decoration: none;
+            padding: 7px 0;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #1565c0;
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            margin: 5px 0;
+        }
+
+        .back-link:hover {
+            background: #0d47a1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 35px;
+            background: #eeeeee;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 23px;
+            }
+
+            .intro,
+            .lesson-section,
+            .toc {
+                padding: 16px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>💻 الدرس الرابع: أنظمة التشغيل</h1>
+    <p>المهارات الرقمية | الصف السابع | الفصل الدراسي الأول</p>
+    <p>
+        <span class="english">(Operating Systems)</span>
+    </p>
+</header>
+
+<main>
+
+    <section class="intro">
+        <h2>📚 شرح الدرس</h2>
+        <p>
+            سنتعرف في هذا الدرس إلى أنظمة التشغيل ووظائفها،
+            وكيفية إدارتها لذاكرة الحاسوب والبرامج والأجهزة
+            والملفات وحسابات المستخدمين.
+        </p>
+    </section>
+
+
+    <!-- فهرس محتويات الدرس -->
+
+    <nav class="toc">
+        <h2>📌 محتويات الدرس</h2>
+
+        <a href="#definition">1. مفهوم نظام التشغيل</a>
+        <a href="#examples">2. أمثلة على أنظمة التشغيل</a>
+        <a href="#sources">3. أنظمة التشغيل مفتوحة ومغلقة المصدر</a>
+        <a href="#functions">4. وظائف نظام التشغيل</a>
+        <a href="#interface">5. واجهة المستخدم</a>
+        <a href="#memory">6. إدارة الذاكرة</a>
+        <a href="#io">7. إدارة عمليات الإدخال والإخراج</a>
+        <a href="#programs">8. إدارة البرامج والمهام المتعددة</a>
+        <a href="#access">9. التحكم في صلاحيات المستخدمين</a>
+        <a href="#accounts">10. إدارة حسابات المستخدمين</a>
+        <a href="#files">11. إدارة الملفات</a>
+    </nav>
+
+
+    <!-- مفهوم نظام التشغيل -->
+
+    <section class="lesson-section" id="definition">
+
+        <h2>أولًا: مفهوم نظام التشغيل</h2>
+
+        <h3>
+            وضّح المقصود بنظام التشغيل
+            <span class="english">(Operating System)</span>.
+        </h3>
+
+        <div class="definition">
+            نظام التشغيل هو برنامج أساسي يعمل وسيطًا بين المستخدم
+            ومكونات جهاز الحاسوب المادية، ويتيح تشغيل التطبيقات
+            والبرامج المختلفة، ويُشرف على إدارة موارد الجهاز
+            وتنسيق الأنشطة المختلفة فيه؛ ما يجعل استخدام الحاسوب
+            أكثر سهولة وكفاءة.
+        </div>
+
+    </section>
+
+
+    <!-- أمثلة على أنظمة التشغيل -->
+
+    <section class="lesson-section" id="examples">
+
+        <h2>ثانيًا: أمثلة على أنظمة التشغيل في جهاز الحاسوب</h2>
+
+        <h3>
+            1. مايكروسوفت ويندوز
+            <span class="english">(Microsoft Windows)</span>
+        </h3>
+
+        <p>
+            طوّرت شركة مايكروسوفت نظام التشغيل ويندوز في منتصف
+            عقد الثمانينيات من القرن الماضي.
+        </p>
+
+        <p>
+            ثم توالى ظهور العديد من الإصدارات لهذا النظام،
+            ومنها نظام التشغيل ويندوز 10 ونظام التشغيل ويندوز 11.
+        </p>
+
+        <h3>
+            2. ماك أو إس
+            <span class="english">(macOS)</span>
+        </h3>
+
+        <p>
+            تُعد سلسلة أنظمة التشغيل ماك أو إس أحد أشهر أنظمة
+            التشغيل لشركة آبل
+            <span class="english">(Apple)</span>.
+        </p>
+
+        <p>
+            وبالرغم من أن أجهزة الشركة أكثر تكلفة من غيرها،
+            فإن كثيرًا من الأشخاص يفضّلون نظام تشغيل آبل
+            على نظام التشغيل ويندوز.
+        </p>
+
+    </section>
+
+
+    <!-- مفتوح المصدر ومغلق المصدر -->
+
+    <section class="lesson-section" id="sources">
+
+        <h2>ثالثًا: أنظمة التشغيل مفتوحة المصدر ومغلقة المصدر</h2>
+
+        <p>
+            تُصنّف أنظمة التشغيل من حيث المصدر إلى نوعين رئيسين:
+        </p>
+
+        <ul>
+            <li>أنظمة التشغيل مفتوحة المصدر.</li>
+            <li>أنظمة التشغيل مغلقة المصدر.</li>
+        </ul>
+
+        <div class="question-box">
+            <strong>سؤال للتفكير:</strong>
+            <p>
+                اذكر أهم الفروقات بين أنظمة التشغيل مفتوحة المصدر
+                وأنظمة التشغيل مغلقة المصدر.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- وظائف نظام التشغيل -->
+
+    <section class="lesson-section" id="functions">
+
+        <h2>رابعًا: وظائف نظام التشغيل</h2>
+
+        <p>
+            يتولى نظام التشغيل مجموعة من الوظائف التي تساعد
+            على تشغيل جهاز الحاسوب وإدارة موارده وتنظيم عمله.
+        </p>
+
+    </section>
+
+
+    <!-- واجهة المستخدم -->
+
+    <section class="lesson-section" id="interface">
+
+        <h2>
+            1. واجهة المستخدم
+            <span class="english">(User Interface)</span>
+        </h2>
+
+        <h3>وضّح المقصود بواجهة المستخدم.</h3>
+
+        <div class="definition">
+            واجهة المستخدم هي جزء من نظام التشغيل أو التطبيق،
+            يتفاعل معه المستخدم مباشرة. وتشمل هذه الواجهة جميع
+            العناصر التي تلزم المستخدم للتفاعل مع جهاز الحاسوب.
+        </div>
+
+        <div class="question-box">
+            <strong>سؤال:</strong>
+            <p>
+                أعط أمثلة على العناصر التي تلزم المستخدم للتفاعل
+                مع جهاز الحاسوب.
+            </p>
+        </div>
+
+        <p>
+            تختلف واجهة المستخدم من نظام تشغيل إلى آخر؛ ولهذا،
+            فقد يبدو التفاعل مع نظام تشغيل جديد أمرًا غير مألوف
+            للوهلة الأولى.
+        </p>
+
+        <p>
+            إن أنظمة التشغيل الحديثة صُمّمت على نحو يجعل استخدامها
+            سهلًا؛ ما يعني أن مبادئ الاستخدام الأساسية متشابهة
+            في جميع الأنظمة.
+        </p>
+
+    </section>
+
+
+    <!-- إدارة الذاكرة -->
+
+    <section class="lesson-section" id="memory">
+
+        <h2>
+            2. إدارة الذاكرة
+            <span class="english">(Memory Management)</span>
+        </h2>
+
+        <h3>ما الذي تتضمنه إدارة الذاكرة من عمليات؟</h3>
+
+        <ul>
+            <li>
+                إدارة ذاكرة الوصول العشوائي
+                <span class="english">(RAM)</span>
+                وتنظيم استخدامها.
+            </li>
+
+            <li>
+                حفظ البيانات بصورة دائمة على وسائط التخزين
+                (مثل الأقراص الصلبة) واسترجاعها عند الحاجة.
+            </li>
+        </ul>
+
+        <h3>
+            كيف يساعد نظام التشغيل في إدارة ذاكرة الوصول العشوائي
+            وتنظيم استخدامها؟
+        </h3>
+
+        <p>
+            يساعد نظام التشغيل على منع حدوث تداخل بين البرامج
+            والتطبيقات؛ لكيلا يؤثر ذلك في عملها بكفاءة وفاعلية،
+            فضلًا عن ضمان الاستخدام الأمثل للذاكرة.
+        </p>
+
+        <div class="note">
+            <h3>🧪 جرّب بنفسي: استكشاف حجم ذاكرة حاسوبي</h3>
+
+            <p>
+                أتحقق من حجم الذاكرة المتوافرة في جهاز الحاسوب
+                الخاص بي عن طريق الدخول إلى إعدادات الجهاز
+                <span class="english">(Device Settings)</span>.
+            </p>
+
+            <p>
+                بناءً على تفاعلي مع جهاز الحاسوب والبرامج التي
+                أستخدمها، هل أحتاج إلى حجم ذاكرة أكبر؟
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- الإدخال والإخراج -->
+
+    <section class="lesson-section" id="io">
+
+        <h2>
+            3. إدارة عمليات الإدخال والإخراج
+            <span class="english">(Input/Output - I/O Management)</span>
+        </h2>
+
+        <p>
+            يتيح نظام التشغيل إدارة جميع العمليات المتعلقة
+            بتلقي البيانات من أجهزة الإدخال، مثل:
+        </p>
+
+        <ul>
+            <li>لوحة المفاتيح.</li>
+            <li>الفأرة.</li>
+            <li>الماسح الضوئي.</li>
+        </ul>
+
+        <p>
+            وكذلك إرسال البيانات إلى أجهزة الإخراج، مثل:
+        </p>
+
+        <ul>
+            <li>الشاشات.</li>
+            <li>الطابعات.</li>
+            <li>السماعات.</li>
+        </ul>
+
+        <p>
+            ومن ثم، فإن هذا النوع من التحكم يساعد على ضبط العمليات
+            ويضمن سيرها بسلاسة وكفاءة، فضلًا عن تنظيم آلية عمل
+            الأجهزة المتنوعة ومنع تداخل بعضها في بعض.
+        </p>
+
+    </section>
+
+
+    <!-- إدارة البرامج والمهام المتعددة -->
+
+    <section class="lesson-section" id="programs">
+
+        <h2>
+            4. إدارة البرامج
+            <span class="english">(Programs Management)</span>
+        </h2>
+
+        <h3>وضّح المقصود بالمهام المتعددة.</h3>
+
+        <p>
+            يمتاز نظام التشغيل بالقدرة على فتح برامج متعددة
+            وإدارتها في الوقت نفسه، وذلك بتخصيص وقت المعالجة
+            بين البرامج المختلفة بسرعة كبيرة؛ ما يجعلها تبدو
+            كأنها تعمل في اللحظة نفسها.
+        </p>
+
+        <div class="definition">
+            تُعرف هذه العملية بالمهام المتعددة
+            <span class="english">(Multitasking)</span>.
+        </div>
+
+    </section>
+
+
+    <!-- التحكم في صلاحيات المستخدمين -->
+
+    <section class="lesson-section" id="access">
+
+        <h2>
+            5. التحكم في صلاحيات المستخدمين
+            <span class="english">(Users Access Management)</span>
+        </h2>
+
+        <p>
+            يعمل نظام التشغيل على تقنين استعمال الموارد والبيانات،
+            ويحدد ذلك بناءً على حاجات المستخدم وصلاحياته.
+        </p>
+
+        <p>
+            ويضطلع نظام التشغيل بمهمتين أساسيتين:
+        </p>
+
+        <ul>
+            <li>
+                إدارة حسابات المستخدمين
+                <span class="english">(User Account Management)</span>.
+            </li>
+
+            <li>
+                إدارة الملفات
+                <span class="english">(File Management)</span>.
+            </li>
+        </ul>
+
+    </section>
+
+
+    <!-- إدارة حسابات المستخدمين -->
+
+    <section class="lesson-section" id="accounts">
+
+        <h2>
+            6. إدارة حسابات المستخدمين
+            <span class="english">(User Account Management)</span>
+        </h2>
+
+        <h3>كيف يعمل نظام التشغيل على إدارة حسابات المستخدمين؟</h3>
+
+        <p>
+            يتمثل ذلك في إنشاء نظام التشغيل حسابات جديدة للمستخدمين،
+            وتعيين أسماء مستخدمين وكلمات مرور.
+        </p>
+
+        <div class="question-box">
+            <strong>علّل:</strong>
+            <p>
+                إنشاء نظام التشغيل حسابات جديدة للمستخدمين،
+                وتعيين أسماء مستخدمين وكلمات مرور.
+            </p>
+
+            <p>
+                لتحديد مستويات الوصول
+                <span class="english">(Access Levels)</span>
+                وضبط صلاحيات الاستخدام.
+            </p>
+        </div>
+
+        <h3>أنواع المستخدمين</h3>
+
+        <p>
+            حدد نظام التشغيل نوعين من المستخدمين، هما:
+        </p>
+
+        <div class="example">
+
+            <h4>
+                المستخدم العادي
+                <span class="english">(Standard User)</span>
+            </h4>
+
+            <p>
+                مستخدم صلاحياته محدودة؛ إذ تمكّنه فقط من استخدام
+                التطبيقات والوصول إلى ملفاته الخاصة.
+            </p>
+
+        </div>
+
+        <div class="example">
+
+            <h4>
+                المستخدم المسؤول
+                <span class="english">(Administrator)</span>
+            </h4>
+
+            <p>
+                مستخدم لديه صلاحيات واسعة تشمل تثبيت البرامج
+                وتغيير إعدادات النظام وإدارة حسابات المستخدمين الأخرى.
+            </p>
+
+        </div>
+
+        <div class="question-box">
+            <strong>أسئلة للمراجعة:</strong>
+
+            <ul>
+                <li>وضّح المقصود بالمستخدم العادي والمستخدم المسؤول.</li>
+                <li>اذكر الفرق بين المستخدم العادي والمستخدم المسؤول.</li>
+            </ul>
+        </div>
+
+        <h3>فائدة إدارة حسابات المستخدمين</h3>
+
+        <p>
+            توفّر إدارة حسابات المستخدمين الحماية لنظام التشغيل،
+            وتنظم آلية عمل المستخدمين، وتمنح كلًا منهم شيئًا
+            من الأمان والخصوصية.
+        </p>
+
+    </section>
+
+
+    <!-- إدارة الملفات -->
+
+    <section class="lesson-section" id="files">
+
+        <h2>
+            7. إدارة الملفات
+            <span class="english">(File Management)</span>
+        </h2>
+
+        <p>
+            تمكّن إدارة الملفات والمجلدات نظام التشغيل من تنظيمها،
+            وتسهيل طرائق الوصول إليها وحفظها، فضلًا عن إيجاد طرائق
+            لتخزين البيانات واسترجاعها بكفاءة.
+        </p>
+
+        <h3>أمثلة على مديري الملفات</h3>
+
+        <p>
+            كيف يمكن التمثيل على مدير الملفات في مايكروسوفت ويندوز
+            ونظام ماك أو إس؟
+        </p>
+
+        <div class="example">
+
+            <p>
+                <strong>
+                    مستكشف الملفات
+                    <span class="english">(File Explorer)</span>
+                </strong>
+                الموجود في مايكروسوفت ويندوز.
+            </p>
+
+            <p>
+                <strong>
+                    فايندر
+                    <span class="english">(Finder)</span>
+                </strong>
+                الموجود في نظام ماك أو إس.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- روابط التنقل -->
+
+    <section class="lesson-section">
+
+        <h2>📌 انتهيت من شرح الدرس الرابع</h2>
+
+        <p>
+            يمكنك الانتقال إلى أسئلة الدرس أو اختبار نفسك
+            بعد الانتهاء من المراجعة.
+        </p>
+
+        <a class="back-link" href="digital-skills-7-lesson4-questions.html">
+            ✏️ أسئلة الدرس وحلولها
+        </a>
+
+        <a class="back-link" href="test4.html">
+            🧠 اختبر نفسك
+        </a>
+
+        <br>
+
+        <a class="back-link" href="digital-skills-7-term1.html">
+            ← العودة إلى فهرس الدروس
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 زد علمك | أدوات تعليمية مجانية</p>
+</footer>
+
+</body>
+</html>
