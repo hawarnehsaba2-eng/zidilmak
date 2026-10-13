@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الدرس الخامس: تفاعل الإنسان مع أجهزة الحاسوب | زد علمك</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 15px;
+            color: #222;
+            line-height: 1.9;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 22px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 25px;
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            color: #1e3a8a;
+            font-size: 21px;
+            margin-top: 0;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 8px;
+        }
+
+        .section h3 {
+            color: #166534;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .english {
+            direction: ltr;
+            display: inline-block;
+            color: #475569;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .definition {
+            background: #eff6ff;
+            border-right: 4px solid #2563eb;
+            padding: 14px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        .note {
+            background: #f0fdf4;
+            border-right: 4px solid #16a34a;
+            padding: 14px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        .example {
+            background: #f8fafc;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        ul, ol {
+            padding-right: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .toc {
+            background: white;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .toc h2 {
+            color: #1e3a8a;
+            margin-top: 0;
+        }
+
+        .toc a {
+            display: block;
+            color: #2563eb;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .question-box {
+            background: #fffbeb;
+            border-right: 4px solid #f59e0b;
+            padding: 14px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            padding: 13px;
+            margin-top: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 18px 12px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 19px;
+            }
+
+            .section h3 {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>💻 الدرس الخامس: تفاعل الإنسان مع أجهزة الحاسوب</h1>
+        <p>
+            <span class="english">Human Computer Interaction (HCI)</span>
+        </p>
+        <p>المهارات الرقمية - الصف السابع</p>
+    </header>
+
+    <!-- فهرس الدرس -->
+
+    <nav class="toc">
+        <h2>📚 محتويات الدرس</h2>
+
+        <a href="#hci">1. مفهوم التفاعل بين الحاسوب والإنسان</a>
+        <a href="#methods">2. طرائق التفاعل مع أنظمة الحوسبة</a>
+        <a href="#traditional">3. التفاعل التقليدي</a>
+        <a href="#touch">4. التفاعل باللمس</a>
+        <a href="#voice">5. التفاعل الصوتي</a>
+        <a href="#gestures">6. التفاعل عن طريق الإيماءات</a>
+        <a href="#visual">7. التفاعل البصري</a>
+        <a href="#interfaces">8. عناصر واجهات المستخدم وأنواعها</a>
+        <a href="#gui">9. واجهة المستخدم الرسومية</a>
+        <a href="#cli">10. واجهة المستخدم النصية</a>
+        <a href="#vui">11. واجهات المستخدم الصوتية</a>
+        <a href="#ar">12. واجهات الواقع المعزز</a>
+        <a href="#vr">13. واجهات الواقع الافتراضي</a>
+    </nav>
+
+    <!-- القسم الأول -->
+
+    <section class="section" id="hci">
+
+        <h2>أولًا: مفهوم التفاعل بين الحاسوب والإنسان</h2>
+
+        <h3>
+            <span class="english">Human Computer Interaction (HCI)</span>
+        </h3>
+
+        <div class="definition">
+            <p>
+                هو كيفية تفاعل المستخدمين مع أجهزة الحاسوب، وكيف يمكن
+                تصميم أنظمة حوسبة أكثر فاعلية وسهولة في الاستخدام.
+            </p>
+        </div>
+
+        <h3>الهدف الرئيس من هذا التفاعل</h3>
+
+        <p>
+            تحسين واجهات المستخدم، وجعل التفاعل مع أدوات التكنولوجيا
+            ووسائلها أكثر بدهية وراحة للمستخدمين.
+        </p>
+
+    </section>
+
+    <!-- القسم الثاني -->
+
+    <section class="section" id="methods">
+
+        <h2>ثانيًا: طرائق التفاعل مع أنظمة الحوسبة</h2>
+
+        <p>
+            <span class="english">
+                Methods of Interacting with Computing Systems
+            </span>
+        </p>
+
+        <ol>
+            <li>التفاعل التقليدي.</li>
+            <li>التفاعل باللمس.</li>
+            <li>التفاعل الصوتي.</li>
+            <li>التفاعل عن طريق الإيماءات.</li>
+            <li>التفاعل البصري.</li>
+        </ol>
+
+    </section>
+
+    <!-- القسم الثالث -->
+
+    <section class="section" id="traditional">
+
+        <h2>ثالثًا: التفاعل التقليدي</h2>
+
+        <h3>لوحة المفاتيح والفأرة</h3>
+
+        <p>
+            <span class="english">Keyboard and Mouse</span>
+        </p>
+
+        <p>
+            يُعد استخدام لوحة المفاتيح والفأرة إحدى أشهر الطرائق
+            وأقدمها في التفاعل مع أجهزة الحاسوب؛ فعن طريقهما يمكن
+            إدخال البيانات والتنقل بين القوائم والنوافذ.
+        </p>
+
+        <h3>الشاشة</h3>
+
+        <p>
+            <span class="english">Monitor</span>
+        </p>
+
+        <p>
+            تُستخدم الشاشة في عرض المعلومات، وتقديم واجهة مرئية للمستخدم.
+        </p>
+
+    </section>
+
+    <!-- القسم الرابع -->
+
+    <section class="section" id="touch">
+
+        <h2>رابعًا: التفاعل باللمس</h2>
+
+        <h3>الشاشات اللمسية</h3>
+
+        <p>
+            <span class="english">Touch Screens</span>
+        </p>
+
+        <p>
+            تتيح هذه الشاشات للمستخدمين التفاعل مع الأجهزة عن طريق
+            لمس الشاشة مباشرةً، وهي تُستخدم في الهواتف الذكية
+            والأجهزة اللوحية والشاشات التفاعلية.
+        </p>
+
+        <h3>اللوحات اللمسية</h3>
+
+        <p>
+            <span class="english">Touch Pads</span>
+        </p>
+
+        <p>
+            يوجد هذا النوع من اللوحات في أجهزة الحاسوب المحمولة،
+            وهو يتيح التحكم في المؤشر عن طريق اللمس.
+        </p>
+
+    </section>
+
+    <!-- القسم الخامس -->
+
+    <section class="section" id="voice">
+
+        <h2>خامسًا: التفاعل الصوتي</h2>
+
+        <h3>تعرّف الصوت</h3>
+
+        <p>
+            <span class="english">Voice Recognition</span>
+        </p>
+
+        <p>
+            يمكن للمستخدمين استعمال هذه التقنية لإعطاء الأجهزة
+            أوامر صوتية والتفاعل معها، كما هو الحال في أدوات
+            الذكاء الاصطناعي التي تقدم المساعدة للمستخدم بهذه الآلية.
+        </p>
+
+        <div class="example">
+            <h3>أمثلة على أدوات المساعدة الصوتية</h3>
+
+            <ul>
+                <li><span class="english">Siri</span></li>
+                <li><span class="english">Google Assistant</span></li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- القسم السادس -->
+
+    <section class="section" id="gestures">
+
+        <h2>سادسًا: التفاعل عن طريق الإيماءات</h2>
+
+        <h3>تعرّف الإيماءات</h3>
+
+        <p>
+            <span class="english">Gesture Recognition</span>
+        </p>
+
+        <p>
+            تتضمن هذه التقنية استعمال كاميرات أو أجهزة استشعار
+            لتعرّف الحركات والإيماءات الصادرة عن اليد أو الجسم،
+            بغية التحكم في جهاز الحاسوب. ويشيع استخدام هذه التقنية
+            في ألعاب الفيديو وأنظمة الواقع الافتراضي.
+        </p>
+
+        <h3>الأجهزة التفاعلية مع أعضاء الجسد</h3>
+
+        <p>
+            <span class="english">Wearable Devices</span>
+        </p>
+
+        <p>
+            تُعد الساعة الذكية مثالًا جيدًا على هذه التقنية؛ إذ
+            يمكن بها تعرّف حركات معينة للتحكم في بعض الوظائف.
+        </p>
+
+    </section>
+
+    <!-- القسم السابع -->
+
+    <section class="section" id="visual">
+
+        <h2>سابعًا: التفاعل البصري</h2>
+
+        <h3>تعرّف ملامح الوجه</h3>
+
+        <p>
+            <span class="english">Face Recognition</span>
+        </p>
+
+        <p>
+            تُستخدم هذه التقنية للتعرّف إلى المستخدم وتسجيل
+            الدخول إلى الأنظمة.
+        </p>
+
+        <h3>تتبّع حركات العين</h3>
+
+        <p>
+            <span class="english">Eye Tracking</span>
+        </p>
+
+        <p>
+            تُستعمل هذه التقنية للتحكم في المؤشر أو التنقل بين القوائم.
+        </p>
+
+    </section>
+
+    <!-- القسم الثامن -->
+
+    <section class="section" id="interfaces">
+
+        <h2>ثامنًا: عناصر واجهات المستخدم وأنواعها</h2>
+
+        <h3>عناصر واجهات المستخدم</h3>
+
+        <p>
+            <span class="english">User Interface Elements</span>
+        </p>
+
+        <div class="example">
+            <ul>
+                <li>الأزرار.</li>
+                <li>الأيقونات.</li>
+                <li>الشاشات.</li>
+            </ul>
+        </div>
+
+        <h3>تنوع واجهات المستخدم</h3>
+
+        <p>
+            تتنوع واجهات المستخدم من حيث:
+        </p>
+
+        <ul>
+            <li>طريقة عرض العناصر، مثل الأزرار والأيقونات والشاشات.</li>
+            <li>كيفية تفاعل المستخدم معها.</li>
+            <li>أوجه التفاعل التي توفرها.</li>
+        </ul>
+
+        <h3>أنواع واجهات المستخدم</h3>
+
+        <ol>
+            <li>
+                واجهة المستخدم الرسومية
+                <span class="english">(Graphical User Interface - GUI)</span>
+            </li>
+
+            <li>
+                واجهة المستخدم النصية
+                <span class="english">(Command-Line Interface - CLI)</span>
+            </li>
+
+            <li>
+                واجهة المستخدم الصوتية
+                <span class="english">(Voice User Interface - VUI)</span>
+            </li>
+
+            <li>
+                واجهة المستخدم للواقع المعزز
+                <span class="english">(Augmented Reality - AR User Interface)</span>
+            </li>
+
+            <li>
+                واجهة المستخدم للواقع الافتراضي
+                <span class="english">(Virtual Reality - VR User Interface)</span>
+            </li>
+        </ol>
+
+    </section>
+
+    <!-- القسم التاسع -->
+
+    <section class="section" id="gui">
+
+        <h2>تاسعًا: واجهة المستخدم الرسومية</h2>
+
+        <p>
+            <span class="english">Graphical User Interface (GUI)</span>
+        </p>
+
+        <h3>ما المقصود بواجهة المستخدم الرسومية؟</h3>
+
+        <div class="definition">
+            <p>
+                تُستخدم هذه الواجهة في أنظمة التشغيل، مثل
+                <span class="english">Windows</span> و
+                <span class="english">macOS</span>، وهي تسهّل
+                عملية التفاعل عن طريق النوافذ والأيقونات والقوائم.
+            </p>
+        </div>
+
+        <div class="question-box">
+            <strong>سؤال:</strong>
+            في أي أنظمة تُستخدم واجهة المستخدم الرسومية؟
+            وما الفائدة من استخدامها؟
+        </div>
+
+    </section>
+
+    <!-- القسم العاشر -->
+
+    <section class="section" id="cli">
+
+        <h2>عاشرًا: واجهة المستخدم النصية</h2>
+
+        <p>
+            <span class="english">Command-Line Interface (CLI)</span>
+        </p>
+
+        <h3>ما المقصود بواجهة المستخدم النصية؟</h3>
+
+        <div class="definition">
+            <p>
+                تعتمد هذه الواجهة في عملها على الأوامر النصية
+                التي يكتبها المستخدم، وهي شائعة الاستخدام في أوساط
+                المطورين ومسؤولي النظام.
+            </p>
+        </div>
+
+        <div class="question-box">
+            <strong>سؤال:</strong>
+            وضّح المقصود بواجهة المستخدم النصية، واذكر أماكن استخدامها.
+        </div>
+
+    </section>
+
+    <!-- القسم الحادي عشر -->
+
+    <section class="section" id="vui">
+
+        <h2>الحادي عشر: واجهات المستخدم الصوتية</h2>
+
+        <p>
+            <span class="english">Voice User Interface (VUI)</span>
+        </p>
+
+        <h3>على ماذا تعتمد واجهات المستخدم الصوتية؟</h3>
+
+        <div class="definition">
+            <p>
+                واجهات تعتمد في عملية التفاعل على الأوامر الصوتية وتفسيرها.
+            </p>
+        </div>
+
+        <h3>أمثلة على واجهات المستخدم الصوتية</h3>
+
+        <ul>
+            <li><span class="english">Alexa</span></li>
+            <li><span class="english">Cortana</span></li>
+        </ul>
+
+        <p>
+            ومن أمثلتها أيضًا برامج المساعدة في الذكاء الاصطناعي.
+        </p>
+
+    </section>
+
+    <!-- القسم الثاني عشر -->
+
+    <section class="section" id="ar">
+
+        <h2>الثاني عشر: واجهات الواقع المعزز</h2>
+
+        <p>
+            <span class="english">Augmented Reality (AR) User Interface</span>
+        </p>
+
+        <h3>ما المقصود بواجهات الواقع المعزز؟</h3>
+
+        <div class="definition">
+            <p>
+                واجهات تدمج العناصر الافتراضية في البيئة الطبيعية،
+                وهي تُستخدم بصورة شائعة في تطبيقات الملاحة والألعاب والتعليم.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- القسم الثالث عشر -->
+
+    <section class="section" id="vr">
+
+        <h2>الثالث عشر: واجهات الواقع الافتراضي</h2>
+
+        <p>
+            <span class="english">Virtual Reality (VR) User Interfaces</span>
+        </p>
+
+        <h3>ما المقصود بواجهات الواقع الافتراضي؟</h3>
+
+        <div class="definition">
+            <p>
+                واجهات تتضمن إنشاء بيئات افتراضية للتفاعل مع المستخدم،
+                وهي تُستخدم في ألعاب الواقع الافتراضي والمحاكاة
+                وبرامج التدريب، وتعتمد على التفاعل بالإيماءات
+                والأجهزة التفاعلية مع أعضاء الجسد.
+            </p>
+        </div>
+
+        <div class="question-box">
+            <strong>سؤال:</strong>
+            وضّح المقصود بأنظمة الواقع الافتراضي، وأعط أمثلة عليها.
+        </div>
+
+    </section>
+
+    <!-- روابط أسفل الصفحة -->
+
+    <a class="back-btn" href="digital-skills-7-lesson5-questions.html">
+        ✏️ أسئلة الدرس وحلولها
+    </a>
+
+    <a class="back-btn" href="test5.html">
+        🧠 اختبر نفسك
+    </a>
+
+    <a class="back-btn" href="digital-skills-7-term1.html">
+        ↩️ العودة إلى دروس الفصل
+    </a>
+
+</div>
+
+</body>
+</html>
