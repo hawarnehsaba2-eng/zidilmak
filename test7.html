@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبر نفسك: مكونات شبكات الحاسوب | زد علمك</title>
+    <meta name="description" content="اختبار تفاعلي في درس مكونات شبكات الحاسوب للصف السابع، الفصل الأول، مع حساب العلامة من 10.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f7fb;
+            color: #222;
+            margin: 0;
+            padding: 15px;
+            line-height: 1.8;
+        }
+
+        .header {
+            background-color: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 20px 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 24px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .question {
+            background-color: white;
+            padding: 16px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+        }
+
+        .question h3 {
+            margin-top: 0;
+            color: #1565c0;
+            font-size: 18px;
+        }
+
+        .option {
+            display: block;
+            padding: 8px;
+            margin: 6px 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #eef5ff;
+        }
+
+        .option input {
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 18px;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #finishButton {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        #finishButton:hover {
+            background-color: #1b5e20;
+        }
+
+        #result {
+            display: none;
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+        }
+
+        #result h2 {
+            color: #1565c0;
+        }
+
+        #score {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            background-color: #1565c0;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 21px;
+            }
+
+            .question h3 {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>🧠 اختبر نفسك</h1>
+        <p>الدرس الثاني: مكونات شبكات الحاسوب</p>
+        <p>الصف السابع - الفصل الأول</p>
+    </div>
+
+    <form id="quizForm">
+
+        <div class="question">
+            <h3>السؤال 1: ما الهدف من إنشاء شبكة الحاسوب؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                تشغيل جهاز واحد فقط
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="correct">
+                مشاركة البيانات والموارد والخدمات بين الأجهزة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                منع الاتصال بين الأجهزة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                زيادة حجم الملفات فقط
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 2: ما المقصود بخطوط الاتصال في شبكة الحاسوب؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                برامج معالجة النصوص
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                أجهزة تخزين البيانات فقط
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="correct">
+                وسائط تُستخدم لنقل إشارات البيانات
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                كلمات المرور
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 3: أي مما يأتي مثال على وسائط الاتصال السلكية؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                موجات الراديو
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="correct">
+                كابل الألياف الضوئية
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                الأشعة تحت الحمراء
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                الموجات الميكروية
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 4: ما وظيفة بطاقة واجهة الشبكة (NIC)؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                طباعة المستندات
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                عرض صفحات الإنترنت فقط
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                تخزين جميع بيانات الشبكة وحدها
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="correct">
+                ربط الحاسوب بالشبكة وإتاحة إرسال البيانات واستقبالها
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 5: أي مما يأتي يُعد من مميزات الخادم (Server)؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q5" value="correct">
+                سعة تخزين كبيرة وسرعة عالية
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                لا يستطيع تقديم الخدمات للأجهزة الأخرى
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                يعمل لفترة قصيرة فقط
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                يمنع مشاركة الموارد
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 6: ما وظيفة الموزع (Hub)؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q6" value="wrong">
+                توجيه البيانات إلى شبكة أخرى فقط
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="correct">
+                إرسال البيانات إلى جميع الأجهزة المتصلة به
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="wrong">
+                فحص الحزم وإعادة ترتيبها
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="wrong">
+                تحويل البيانات إلى صور
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 7: ما الذي يميز المحول (Switch) عن الموزع (Hub)؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q7" value="wrong">
+                يرسل البيانات إلى جميع الأجهزة دائمًا
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="wrong">
+                لا يمكن استخدامه في الشبكات المحلية
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="correct">
+                يرسل البيانات إلى الجهاز المستلم المقصود
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="wrong">
+                يُستخدم للطباعة فقط
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 8: ما وظيفة الموجه (Router)؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q8" value="wrong">
+                ربط لوحة المفاتيح بالحاسوب
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="wrong">
+                تخزين الملفات دون نقلها
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="wrong">
+                إرسال البيانات إلى جميع الأجهزة دون تمييز
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="correct">
+                ربط الشبكات المختلفة وتوجيه البيانات بينها
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 9: ما المقصود ببروتوكولات الشبكة؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q9" value="wrong">
+                أجهزة تُستخدم لعرض الصور
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="correct">
+                قواعد ومعايير تنظم نقل البيانات والاتصال بين الأجهزة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="wrong">
+                كابلات تُستخدم للطباعة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="wrong">
+                برامج للرسم فقط
+            </label>
+        </div>
+
+        <div class="question">
+            <h3>السؤال 10: ما وظيفة بروتوكول IP؟</h3>
+
+            <label class="option">
+                <input type="radio" name="q10" value="wrong">
+                إعادة تجميع الحزم بترتيبها الصحيح
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="wrong">
+                تشغيل نظام الحاسوب
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="correct">
+                توجيه حزم البيانات إلى عنوان الجهاز الصحيح
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="wrong">
+                ربط الطابعة بالكهرباء
+            </label>
+        </div>
+
+        <button type="button" id="finishButton" onclick="finishQuiz()">
+            إنهاء الاختبار وعرض النتيجة
+        </button>
+
+    </form>
+
+    <div id="result">
+        <h2>📊 نتيجتك في الاختبار</h2>
+        <p id="score"></p>
+        <p id="feedback"></p>
+        <button type="button" onclick="location.reload()"
+                style="background-color:#1565c0;color:white;">
+            إعادة الاختبار
+        </button>
+    </div>
+
+    <a href="digital-skills-7-lesson7.html" class="back-link">
+        📘 العودة إلى الدرس
+    </a>
+
+    <script>
+        let submitted = false;
+
+        function finishQuiz() {
+            if (submitted) {
+                return;
+            }
+
+            let score = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = document.querySelector(
+                    'input[name="q' + i + '"]:checked'
+                );
+
+                if (answer && answer.value === "correct") {
+                    score++;
+                }
+            }
+
+            submitted = true;
+
+            document.getElementById("score").textContent =
+                "علامتك: " + score + " / 10";
+
+            let feedback = "";
+
+            if (score === 10) {
+                feedback = "🌟 ممتاز! أجبت عن جميع الأسئلة إجابة صحيحة.";
+            } else if (score >= 8) {
+                feedback = "👏 رائع! لديك فهم جيد للدرس.";
+            } else if (score >= 5) {
+                feedback = "👍 جيد! راجع بعض أجزاء الدرس وحاول مرة أخرى.";
+            } else {
+                feedback = "📚 لا بأس، راجع الدرس جيدًا ثم أعد الاختبار.";
+            }
+
+            document.getElementById("feedback").textContent = feedback;
+            document.getElementById("result").style.display = "block";
+
+            document.querySelectorAll('#quizForm input[type="radio"]')
+                .forEach(function(input) {
+                    input.disabled = true;
+                });
+
+            document.getElementById("finishButton").disabled = true;
+            document.getElementById("finishButton").textContent =
+                "تم إنهاء الاختبار";
+
+            document.getElementById("finishButton").style.backgroundColor =
+                "#888";
+
+            document.getElementById("result").scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    </script>
+
+</body>
+</html>
