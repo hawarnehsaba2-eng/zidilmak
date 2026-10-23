@@ -105,7 +105,6 @@
             border: 0;
         }
 
-        /* أزرار القراءة الصوتية */
         .reading-controls {
             background: white;
             padding: 16px;
@@ -211,7 +210,6 @@
         <p>المهارات الرقمية - الصف السابع</p>
     </header>
 
-    <!-- أزرار القراءة الصوتية -->
     <div class="reading-controls">
         <h2>🔊 القراءة الصوتية للدرس</h2>
 
@@ -238,7 +236,6 @@
         </p>
     </div>
 
-    <!-- محتوى الدرس -->
     <div id="lessonContent">
 
         <div class="section">
@@ -643,27 +640,36 @@
 
 <script>
 (function () {
+    const status = document.getElementById("readingStatus");
+    const readBtn = document.getElementById("readBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const stopBtn = document.getElementById("stopBtn");
+
     if (!("speechSynthesis" in window) ||
         !("SpeechSynthesisUtterance" in window)) {
-        document.getElementById("readingStatus").textContent =
-            "عذرًا، المتصفح لا يدعم القراءة الصوتية.";
-        document.getElementById("readBtn").disabled = true;
+        status.textContent =
+            "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في Chrome.";
+        readBtn.disabled = true;
         return;
     }
 
     const synth = window.speechSynthesis;
 
-    const readBtn = document.getElementById("readBtn");
-    const pauseBtn = document.getElementById("pauseBtn");
-    const resumeBtn = document.getElementById("resumeBtn");
-    const stopBtn = document.getElementById("stopBtn");
-    const status = document.getElementById("readingStatus");
-
     let chunks = [];
     let currentChunkIndex = 0;
+    let runId = 0;
     let isReading = false;
     let isPaused = false;
-    let runId = 0;
+    let retryCount = 0;
+    let startTimer = null;
+
+    function clearStartTimer() {
+        if (startTimer !== null) {
+            clearTimeout(startTimer);
+            startTimer = null;
+        }
+    }
 
     function updateButtons() {
         readBtn.disabled = isReading && !isPaused;
@@ -673,8 +679,7 @@
     }
 
     function getLessonText() {
-        const lesson = document.getElementById("lessonContent");
-        const copy = lesson.cloneNode(true);
+        const copy = document.getElementById("lessonContent").cloneNode(true);
 
         copy.querySelectorAll(
             "script, style, img, iframe, video, audio, button, .reading-controls, .back-btn, .toc, .video-container"
@@ -714,20 +719,32 @@
     }
 
     function readLesson() {
+        clearStartTimer();
+
         runId++;
         synth.cancel();
 
         chunks = splitTextIntoChunks(getLessonText());
         currentChunkIndex = 0;
+        retryCount = 0;
         isReading = true;
         isPaused = false;
 
-        status.textContent = "جارٍ قراءة الدرس...";
+        status.textContent = "جارٍ بدء القراءة...";
         updateButtons();
-        speakCurrentChunk(runId);
+
+        const thisRun = runId;
+
+        // نعطي محرك الصوت وقتًا لإلغاء أي قراءة سابقة.
+        startTimer = setTimeout(function () {
+            startTimer = null;
+            speakCurrentChunk(thisRun);
+        }, 200);
     }
 
     function speakCurrentChunk(activeRunId) {
+        clearStartTimer();
+
         if (activeRunId !== runId || !isReading || isPaused) return;
 
         if (currentChunkIndex >= chunks.length) {
@@ -735,80 +752,145 @@
             return;
         }
 
-        const utterance = new SpeechSynthesisUtterance(
-            chunks[currentChunkIndex]
-        );
+        const text = chunks[currentChunkIndex];
+        const utterance = new SpeechSynthesisUtterance(text);
 
         utterance.lang = "ar-SA";
         utterance.rate = 0.9;
         utterance.pitch = 1;
 
-        utterance.onend = function () {
+        let started = false;
+        let ended = false;
+
+        utterance.onstart = function () {
             if (activeRunId !== runId || isPaused || !isReading) return;
 
+            started = true;
+            retryCount = 0;
+
+            status.textContent =
+                "جارٍ قراءة الجزء " + (currentChunkIndex + 1) +
+                " من " + chunks.length + "...";
+        };
+
+        utterance.onend = function () {
+            ended = true;
+
+            if (activeRunId !== runId || isPaused || !isReading) return;
+
+            clearStartTimer();
             currentChunkIndex++;
-            speakCurrentChunk(activeRunId);
+            retryCount = 0;
+
+            startTimer = setTimeout(function () {
+                startTimer = null;
+                speakCurrentChunk(activeRunId);
+            }, 100);
         };
 
         utterance.onerror = function (event) {
-            if (activeRunId !== runId) return;
+            if (activeRunId !== runId || isPaused || !isReading) return;
 
-            if (event.error !== "canceled" && event.error !== "interrupted") {
-                status.textContent =
-                    "حدثت مشكلة أثناء القراءة. حاول البدء من جديد.";
-                stopReading();
+            if (event.error === "canceled" ||
+                event.error === "interrupted") {
+                return;
             }
+
+            status.textContent =
+                "تعذرت قراءة الجزء الحالي. يمكنك الضغط على «متابعة القراءة» للمحاولة مجددًا.";
+            isPaused = true;
+            updateButtons();
         };
 
         synth.speak(utterance);
+
+        /*
+         * فحص بدء الصوت؛ بعض المتصفحات على الهواتف قد لا تبدأ
+         * النطق رغم قبول الأمر.
+         */
+        startTimer = setTimeout(function () {
+            startTimer = null;
+
+            if (activeRunId !== runId || isPaused || !isReading) return;
+            if (started || ended) return;
+
+            if (retryCount < 1) {
+                retryCount++;
+                synth.cancel();
+
+                startTimer = setTimeout(function () {
+                    startTimer = null;
+                    speakCurrentChunk(activeRunId);
+                }, 250);
+            } else {
+                isPaused = true;
+                status.textContent =
+                    "لم يبدأ الصوت. تحقق من إعدادات الصوت وأصوات اللغة العربية في الهاتف، ثم اضغط «متابعة القراءة».";
+                updateButtons();
+            }
+        }, 1800);
     }
 
     function pauseReading() {
         if (!isReading || isPaused) return;
 
         isPaused = true;
+        clearStartTimer();
 
-        if (synth.speaking) {
-            synth.pause();
-        }
+        /*
+         * إلغاء النطق الحالي أكثر ثباتًا من pause في بعض الهواتف.
+         * نحافظ على رقم الجزء الحالي للمتابعة.
+         */
+        synth.cancel();
 
         status.textContent =
-            "تم إيقاف القراءة مؤقتًا. اضغط «متابعة القراءة» للاستكمال.";
-
+            "تم الإيقاف المؤقت عند الجزء الحالي. اضغط «متابعة القراءة» للاستكمال.";
         updateButtons();
     }
 
     function resumeReading() {
         if (!isReading || !isPaused) return;
 
+        clearStartTimer();
+
         isPaused = false;
+        retryCount = 0;
 
-        if (synth.paused) {
-            synth.resume();
-            status.textContent = "تمت متابعة القراءة...";
-        } else {
-            status.textContent = "جارٍ متابعة القراءة...";
-            speakCurrentChunk(runId);
-        }
+        // إلغاء أي نطق عالق قبل تشغيل الجزء المحفوظ.
+        synth.cancel();
 
+        status.textContent = "جارٍ متابعة القراءة...";
         updateButtons();
+
+        const thisRun = runId;
+
+        startTimer = setTimeout(function () {
+            startTimer = null;
+            speakCurrentChunk(thisRun);
+        }, 250);
     }
 
     function stopReading() {
+        clearStartTimer();
+
         runId++;
         synth.cancel();
 
         isReading = false;
         isPaused = false;
         currentChunkIndex = 0;
+        retryCount = 0;
 
         status.textContent = "تم إيقاف القراءة.";
         updateButtons();
     }
 
     function finishReading() {
+        clearStartTimer();
+
         isReading = false;
         isPaused = false;
+        retryCount = 0;
 
         status.textContent = "انتهت قراءة الدرس.";
         updateButtons();
