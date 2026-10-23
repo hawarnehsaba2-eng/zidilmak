@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -105,6 +105,66 @@
             border: 0;
         }
 
+        /* أزرار القراءة الصوتية */
+        .reading-controls {
+            background: white;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .reading-controls h2 {
+            color: #1e3a8a;
+            font-size: 20px;
+            margin: 0 0 12px;
+        }
+
+        .reading-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .reading-buttons button {
+            border: none;
+            border-radius: 9px;
+            padding: 11px 14px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            color: white;
+        }
+
+        .read-btn {
+            background: #2563eb;
+        }
+
+        .pause-btn {
+            background: #d97706;
+        }
+
+        .resume-btn {
+            background: #16a34a;
+        }
+
+        .stop-btn {
+            background: #dc2626;
+        }
+
+        .reading-buttons button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        #readingStatus {
+            margin: 12px 0 0;
+            color: #475569;
+            font-size: 14px;
+        }
+
         .back-btn {
             display: block;
             text-align: center;
@@ -133,6 +193,10 @@
             .section {
                 padding: 15px;
             }
+
+            .reading-buttons button {
+                flex: 1 1 40%;
+            }
         }
     </style>
 </head>
@@ -147,244 +211,247 @@
         <p>المهارات الرقمية - الصف السابع</p>
     </header>
 
-    <div class="section">
+    <!-- أزرار القراءة الصوتية -->
+    <div class="reading-controls">
+        <h2>🔊 القراءة الصوتية للدرس</h2>
 
-        <h2>مقدمة إلى شبكات الحاسوب</h2>
+        <div class="reading-buttons">
+            <button type="button" class="read-btn" id="readBtn">
+                🔊 قراءة الدرس
+            </button>
 
-        <h3>وضح المقصود بشبكة الحاسوب (Computer Network)</h3>
+            <button type="button" class="pause-btn" id="pauseBtn" disabled>
+                ⏸️ إيقاف مؤقت
+            </button>
 
-        <div class="definition">
-            جهازا حاسوب أو أكثر، متصلة معًا بأجهزة اتصال خاصة
-            (Communication Devices) سلكية أو لاسلكية لتبادل البيانات
-            ومشاركة الموارد (مثل الطابعات).
+            <button type="button" class="resume-btn" id="resumeBtn" disabled>
+                ▶️ متابعة القراءة
+            </button>
+
+            <button type="button" class="stop-btn" id="stopBtn" disabled>
+                ⏹️ إيقاف القراءة
+            </button>
         </div>
 
-
-<img src="images/IMG_٢٠٢٦١٠١٩_٢١٤٥٢٤.jpg"
-     alt="مقدمة إلى شبكات الحاسوب"
-     class="lesson-image">
-
-
-
-
-
-
-        <div class="question">
-            <strong>علل: يرتبط جهازا حاسوب أو أكثر معًا بأجهزة اتصال خاصة.</strong>
-            <p>لتبادل البيانات ومشاركة الموارد (مثل الطابعات).</p>
-        </div>
-
-        <h3>أعط أمثلة على هذه الشبكات</h3>
-
-        تنتشر شبكات الحاسوب في كل مكان من حولنا؛ ففي المنزل، قد نجد
-        شبكة صغيرة تربط جهاز الحاسوب والهاتف والموجه معًا.
-
-        وفي المدرسة، ربما توجد شبكة أكبر تمكّن أجهزة الحاسوب في مختبر
-        المدرسة وأجهزة الحاسوب في المكتبة من تبادل البيانات ومشاركة
-        الموارد.
-
-        وكذا الحال بالنسبة إلى أنظمة البنوك والمستشفيات وغيرها.
-
-    </div>
-
-    <div class="section">
-
-        <h2>نتائج ظهور شبكات الحاسوب وتطورها على مر السنين</h2>
-
-        <div class="question">
-            أدى إلى حدوث ثورة في عالم الاتصالات والوصول إلى مصادر
-            المعلومات بسهولة.
-        </div>
-
-        <div class="question">
-            <strong>أعط أمثلة على مصطلحات ظهرت مرتبطة بشبكة الحاسوب.</strong>
-            <p>
-                مثل: الشبكة العنكبوتية (World Wide Web)،
-                وشبكة الإنترنت (Internet).
-            </p>
-        </div>
-
-        <h3>وضح المقصود بشبكة الإنترنت (Internet)</h3>
-
-        <div class="definition">
-            أكبر شبكة حاسوب في العالم؛ إذ تتصل عن طريقها أعداد لا تُحصى
-            من الحواسيب والأجهزة المنتشرة في مختلف أنحاء العالم؛ ما يمكّن
-            الأفراد من مشاركة بعضهم في الأنشطة المتنوعة، ويتيح لهم الوصول
-            إلى كم هائل من المعلومات والتواصل مع الآخرين بغض النظر عن
-            أماكن وجودهم.
-        </div>
-
-    </div>
-
-    <div class="section">
-
-        <h2>مزايا شبكات الحاسوب</h2>
-
-        <ul>
-            <li>مشاركة الملفات والبيانات.</li>
-            <li>مشاركة الموارد.</li>
-            <li>الاتصال.</li>
-            <li>التعلم.</li>
-            <li>الترفيه.</li>
-        </ul>
-
-        <h3>فوائد مشاركة الملفات والبيانات داخل الشبكة</h3>
-
-        <div class="question">
-            <strong>من مزايا شبكة الحاسوب مشاركة الملفات والبيانات، وضح ذلك.</strong>
-            <p>
-                يمكن مشاركة الملفات (Files) - على اختلاف أنواعها -
-                عن طريق أجهزة الحاسوب في الشبكة؛ ما يسهل الوصول إليها،
-                ويتيح تناقلها بين الأجهزة بصورة جماعية.
-            </p>
-        </div>
-<img src="images/IMG_٢٠٢٦١٠١٩_٢٢١٤٢٢.jpg"
-     alt="مقدمة إلى شبكات الحاسوب"
-     class="lesson-image">
-
-
-
-
-        <h3>فوائد مشاركة الموارد</h3>
-
-        <div class="question">
-            <strong>من مزايا شبكة الحاسوب مشاركة الموارد، وضح ذلك؟</strong>
-            <p>
-                يمكن مشاركة الأجهزة في شبكات الحاسوب، مثل الطابعات
-                ووحدات التخزين؛ ما يقلل من التكلفة المادية ويزيد من
-                مستوى الكفاءة.
-            </p>
-        </div>
-
-<img src="images/IMG_٢٠٢٦١٠١٩_٢٢١٨٤٨.jpg"
-     alt="مقدمة إلى شبكات الحاسوب"
-     class="lesson-image">
-
-
-        <h3>مثال على تقليل التكلفة المادية عند مشاركة الموارد داخل الشبكة</h3>
-
-        <p>
-            فبدلًا من وصل طابعة بكل جهاز حاسوب، يمكن استخدام طابعة واحدة
-            في شبكة الحاسوب بحيث تستفيد منها جميع الأجهزة المرتبطة بالشبكة.
+        <p id="readingStatus" aria-live="polite">
+            اضغط على «قراءة الدرس» للاستماع إلى المحتوى.
         </p>
+    </div>
 
-        <div class="question">
-            <strong>من مزايا شبكة الحاسوب الاتصال، وضح ذلك.</strong>
-            <p>
-                يمكن للمستخدمين في شبكة الحاسوب التواصل معًا بسهولة؛ سواء
-                كانوا في المكان نفسه، أو في أنحاء مختلفة من العالم.
-                ويتم الاتصال بطرائق عديدة، مثل البريد الإلكتروني،
-                والمراسلة الفورية، والمؤتمرات المرئية.
-            </p>
+    <!-- محتوى الدرس الذي ستتم قراءته -->
+    <div id="lessonContent">
+
+        <div class="section">
+
+            <h2>مقدمة إلى شبكات الحاسوب</h2>
+
+            <h3>وضح المقصود بشبكة الحاسوب (Computer Network)</h3>
+
+            <div class="definition">
+                جهازا حاسوب أو أكثر، متصلة معًا بأجهزة اتصال خاصة
+                (Communication Devices) سلكية أو لاسلكية لتبادل البيانات
+                ومشاركة الموارد (مثل الطابعات).
+            </div>
+
+            <img src="images/IMG_٢٠٢٦١٠١٩_٢١٤٥٢٤.jpg"
+                 alt="مقدمة إلى شبكات الحاسوب"
+                 class="lesson-image">
+
+            <div class="question">
+                <strong>علل: يرتبط جهازا حاسوب أو أكثر معًا بأجهزة اتصال خاصة.</strong>
+                <p>لتبادل البيانات ومشاركة الموارد (مثل الطابعات).</p>
+            </div>
+
+            <h3>أعط أمثلة على هذه الشبكات</h3>
+
+            تنتشر شبكات الحاسوب في كل مكان من حولنا؛ ففي المنزل، قد نجد
+            شبكة صغيرة تربط جهاز الحاسوب والهاتف والموجه معًا.
+
+            وفي المدرسة، ربما توجد شبكة أكبر تمكّن أجهزة الحاسوب في مختبر
+            المدرسة وأجهزة الحاسوب في المكتبة من تبادل البيانات ومشاركة
+            الموارد.
+
+            وكذا الحال بالنسبة إلى أنظمة البنوك والمستشفيات وغيرها.
+
         </div>
 
+        <div class="section">
 
-<img src="images/IMG_٢٠٢٦١٠١٩_٢٢٢٤٠٦.jpg"
-     alt="مقدمة إلى شبكات الحاسوب"
-     class="lesson-image">
+            <h2>نتائج ظهور شبكات الحاسوب وتطورها على مر السنين</h2>
 
+            <div class="question">
+                أدى إلى حدوث ثورة في عالم الاتصالات والوصول إلى مصادر
+                المعلومات بسهولة.
+            </div>
 
-        <div class="question">
-            <strong>من مزايا شبكة الحاسوب التعلم، وضح ذلك.</strong>
+            <div class="question">
+                <strong>أعط أمثلة على مصطلحات ظهرت مرتبطة بشبكة الحاسوب.</strong>
+                <p>
+                    مثل: الشبكة العنكبوتية (World Wide Web)،
+                    وشبكة الإنترنت (Internet).
+                </p>
+            </div>
+
+            <h3>وضح المقصود بشبكة الإنترنت (Internet)</h3>
+
+            <div class="definition">
+                أكبر شبكة حاسوب في العالم؛ إذ تتصل عن طريقها أعداد لا تُحصى
+                من الحواسيب والأجهزة المنتشرة في مختلف أنحاء العالم؛ ما يمكّن
+                الأفراد من مشاركة بعضهم في الأنشطة المتنوعة، ويتيح لهم الوصول
+                إلى كم هائل من المعلومات والتواصل مع الآخرين بغض النظر عن
+                أماكن وجودهم.
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>مزايا شبكات الحاسوب</h2>
+
             <ul>
-                <li>توفر شبكات الحاسوب كثيرًا من مصادر التعلم الرقمية المتنوعة.</li>
-                <li>تسهل الوصول إلى المعلومات.</li>
-                <li>تعزز التعلم التعاوني التفاعلي، والتعلم الذاتي.</li>
-                <li>تسهم في توفير فرص التعلم المستمر.</li>
+                <li>مشاركة الملفات والبيانات.</li>
+                <li>مشاركة الموارد.</li>
+                <li>الاتصال.</li>
+                <li>التعلم.</li>
+                <li>الترفيه.</li>
             </ul>
+
+            <h3>فوائد مشاركة الملفات والبيانات داخل الشبكة</h3>
+
+            <div class="question">
+                <strong>من مزايا شبكة الحاسوب مشاركة الملفات والبيانات، وضح ذلك.</strong>
+                <p>
+                    يمكن مشاركة الملفات (Files) - على اختلاف أنواعها -
+                    عن طريق أجهزة الحاسوب في الشبكة؛ ما يسهل الوصول إليها،
+                    ويتيح تناقلها بين الأجهزة بصورة جماعية.
+                </p>
+            </div>
+
+            <img src="images/IMG_٢٠٢٦١٠١٩_٢٢١٤٢٢.jpg"
+                 alt="مقدمة إلى شبكات الحاسوب"
+                 class="lesson-image">
+
+            <h3>فوائد مشاركة الموارد</h3>
+
+            <div class="question">
+                <strong>من مزايا شبكة الحاسوب مشاركة الموارد، وضح ذلك؟</strong>
+                <p>
+                    يمكن مشاركة الأجهزة في شبكات الحاسوب، مثل الطابعات
+                    ووحدات التخزين؛ ما يقلل من التكلفة المادية ويزيد من
+                    مستوى الكفاءة.
+                </p>
+            </div>
+
+            <img src="images/IMG_٢٠٢٦١٠١٩_٢٢١٨٤٨.jpg"
+                 alt="مقدمة إلى شبكات الحاسوب"
+                 class="lesson-image">
+
+            <h3>مثال على تقليل التكلفة المادية عند مشاركة الموارد داخل الشبكة</h3>
+
+            <p>
+                فبدلًا من وصل طابعة بكل جهاز حاسوب، يمكن استخدام طابعة واحدة
+                في شبكة الحاسوب بحيث تستفيد منها جميع الأجهزة المرتبطة بالشبكة.
+            </p>
+
+            <div class="question">
+                <strong>من مزايا شبكة الحاسوب الاتصال، وضح ذلك.</strong>
+                <p>
+                    يمكن للمستخدمين في شبكة الحاسوب التواصل معًا بسهولة؛ سواء
+                    كانوا في المكان نفسه، أو في أنحاء مختلفة من العالم.
+                    ويتم الاتصال بطرائق عديدة، مثل البريد الإلكتروني،
+                    والمراسلة الفورية، والمؤتمرات المرئية.
+                </p>
+            </div>
+
+            <img src="images/IMG_٢٠٢٦١٠١٩_٢٢٢٤٠٦.jpg"
+                 alt="مقدمة إلى شبكات الحاسوب"
+                 class="lesson-image">
+
+            <div class="question">
+                <strong>من مزايا شبكة الحاسوب التعلم، وضح ذلك.</strong>
+                <ul>
+                    <li>توفر شبكات الحاسوب كثيرًا من مصادر التعلم الرقمية المتنوعة.</li>
+                    <li>تسهل الوصول إلى المعلومات.</li>
+                    <li>تعزز التعلم التعاوني التفاعلي، والتعلم الذاتي.</li>
+                    <li>تسهم في توفير فرص التعلم المستمر.</li>
+                </ul>
+            </div>
+
+            <img src="images/IMG_٢٠٢٦١٠١٩_٢٢٢٩٣٧.jpg"
+                 alt="مقدمة إلى شبكات الحاسوب"
+                 class="lesson-image">
+
+            <div class="question">
+                <strong>من مزايا شبكة الحاسوب الترفيه، وضح ذلك.</strong>
+                <p>
+                    تتيح شبكات الحاسوب مشاركة محتويات ترفيهية مثل ملفات
+                    الموسيقى والأفلام، وألعاب الفيديو.
+                </p>
+            </div>
+
+            <img src="images/IMG_٢٠٢٦١٠١٩_٢٢٣٣٣٨.jpg"
+                 alt="مقدمة إلى شبكات الحاسوب"
+                 class="lesson-image">
+
+            <h3>أمثلة على محتويات ترفيهية تتيح مشاركتها شبكات الحاسوب</h3>
+
+            <p>ملفات الموسيقى والأفلام، وألعاب الفيديو.</p>
+
         </div>
 
+        <div class="section">
 
+            <h2>مخاطر استخدام شبكات الحاسوب</h2>
 
+            <ul>
+                <li>الاختراقات وتهديد أمان المعلومات.</li>
+                <li>فيروسات الحاسوب.</li>
+                <li>انتهاك الخصوصية.</li>
+            </ul>
 
+            <h3>من مخاطر شبكة الحاسوب الاختراقات وتهديد أمان المعلومات، وضح ذلك</h3>
 
-<img src="images/IMG_٢٠٢٦١٠١٩_٢٢٢٩٣٧.jpg"
-     alt="مقدمة إلى شبكات الحاسوب"
-     class="lesson-image">
-
-
-
-
-
-        <div class="question">
-            <strong>من مزايا شبكة الحاسوب الترفيه، وضح ذلك.</strong>
             <p>
-                تتيح شبكات الحاسوب مشاركة محتويات ترفيهية مثل ملفات
-                الموسيقى والأفلام، وألعاب الفيديو.
+                يتشارك المعلومات والموارد عدد كبير من الأشخاص والمؤسسات التي
+                تستخدم شبكات الحاسوب؛ ما قد يتسبب في حدوث بعض الأنشطة غير
+                الشرعية مثل تعرض البيانات المتداولة للاختراق أو السرقة.
             </p>
-        </div>
 
+            <h3>متى تكون أجهزة الحاسوب أو الهواتف معرضة للإصابة بفيروسات الحاسوب؟</h3>
 
-
-
-
-<img src="images/IMG_٢٠٢٦١٠١٩_٢٢٣٣٣٨.jpg"
-     alt="مقدمة إلى شبكات الحاسوب"
-     class="lesson-image">
-
-
-
-
-
-
-
-        <h3>أمثلة على محتويات ترفيهية تتيح مشاركتها شبكات الحاسوب</h3>
-
-        <p>ملفات الموسيقى والأفلام، وألعاب الفيديو.</p>
-
-    </div>
-
-    <div class="section">
-
-        <h2>مخاطر استخدام شبكات الحاسوب</h2>
-
-        <ul>
-            <li>الاختراقات وتهديد أمان المعلومات.</li>
-            <li>فيروسات الحاسوب.</li>
-            <li>انتهاك الخصوصية.</li>
-        </ul>
-
-        <h3>من مخاطر شبكة الحاسوب الاختراقات وتهديد أمان المعلومات، وضح ذلك</h3>
-
-        <p>
-            يتشارك المعلومات والموارد عدد كبير من الأشخاص والمؤسسات التي
-            تستخدم شبكات الحاسوب؛ ما قد يتسبب في حدوث بعض الأنشطة غير
-            الشرعية مثل تعرض البيانات المتداولة للاختراق أو السرقة.
-        </p>
-
-        <h3>متى تكون أجهزة الحاسوب أو الهواتف معرضة للإصابة بفيروسات الحاسوب؟</h3>
-
-        <p>
-            قد تتعرض أجهزة الحاسوب أو الهواتف المرتبطة بشبكات الحاسوب
-            للإصابة بالفيروسات أو البرامج الخبيثة عند تحميل برامج غير آمنة،
-            أو فتح روابط مجهولة المصدر.
-        </p>
-
-        <h3>أضرار الإصابة بالفيروس للجهاز</h3>
-
-        <ul>
-            <li>بطء في العمل.</li>
-            <li>اختفاء بعض البيانات.</li>
-            <li>تعطل جهاز الحاسوب.</li>
-        </ul>
-
-        <h3>من مخاطر شبكة الحاسوب انتهاك الخصوصية، وضح ذلك</h3>
-
-        <p>
-            يمكن لتراسل البيانات وتناقلها عبر شبكات الحاسوب أن يؤدي إلى
-            انتهاك الخصوصية من بيانات ورسائل وصور شخصية. ولهذا يجب الحرص
-            وتوخي الحذر عند مشاركة المعلومات أو نشرها عبر شبكات الحاسوب.
-        </p>
-
-        <div class="question">
-            <strong>
-                علل: يجب الحرص وتوخي الحذر عند مشاركة المعلومات أو نشرها
-                عبر شبكات الحاسوب.
-            </strong>
             <p>
-                يمكن لتراسل البيانات وتناقلها عبر شبكات الحاسوب أن يؤدي
-                إلى انتهاك الخصوصية؛ من بيانات ورسائل وصور شخصية.
+                قد تتعرض أجهزة الحاسوب أو الهواتف المرتبطة بشبكات الحاسوب
+                للإصابة بالفيروسات أو البرامج الخبيثة عند تحميل برامج غير آمنة،
+                أو فتح روابط مجهولة المصدر.
             </p>
+
+            <h3>أضرار الإصابة بالفيروس للجهاز</h3>
+
+            <ul>
+                <li>بطء في العمل.</li>
+                <li>اختفاء بعض البيانات.</li>
+                <li>تعطل جهاز الحاسوب.</li>
+            </ul>
+
+            <h3>من مخاطر شبكة الحاسوب انتهاك الخصوصية، وضح ذلك</h3>
+
+            <p>
+                يمكن لتراسل البيانات وتناقلها عبر شبكات الحاسوب أن يؤدي إلى
+                انتهاك الخصوصية من بيانات ورسائل وصور شخصية. ولهذا يجب الحرص
+                وتوخي الحذر عند مشاركة المعلومات أو نشرها عبر شبكات الحاسوب.
+            </p>
+
+            <div class="question">
+                <strong>
+                    علل: يجب الحرص وتوخي الحذر عند مشاركة المعلومات أو نشرها
+                    عبر شبكات الحاسوب.
+                </strong>
+                <p>
+                    يمكن لتراسل البيانات وتناقلها عبر شبكات الحاسوب أن يؤدي
+                    إلى انتهاك الخصوصية؛ من بيانات ورسائل وصور شخصية.
+                </p>
+            </div>
+
         </div>
 
     </div>
@@ -394,6 +461,189 @@
     </a>
 
 </div>
+
+<script>
+(function () {
+    const synth = window.speechSynthesis;
+
+    const readBtn = document.getElementById("readBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const status = document.getElementById("readingStatus");
+
+    let chunks = [];
+    let currentChunkIndex = 0;
+    let currentUtterance = null;
+    let isReading = false;
+    let isPaused = false;
+    let runId = 0;
+
+    function updateButtons() {
+        readBtn.disabled = isReading && !isPaused;
+        pauseBtn.disabled = !isReading || isPaused;
+        resumeBtn.disabled = !isReading || !isPaused;
+        stopBtn.disabled = !isReading;
+    }
+
+    function getLessonText() {
+        const lesson = document.getElementById("lessonContent");
+        const copy = lesson.cloneNode(true);
+
+        copy.querySelectorAll(
+            "script, style, img, iframe, video, audio, button, .reading-controls, .back-btn, .toc, .video-container"
+        ).forEach(function (element) {
+            element.remove();
+        });
+
+        return copy.innerText
+            .replace(/\u00a0/g, " ")
+            .replace(/[ \t]+\n/g, "\n")
+            .replace(/\n{2,}/g, "\n")
+            .trim();
+    }
+
+    function splitTextIntoChunks(text) {
+        const sentences = text.match(/[^.!؟?\n]+[.!؟?]?/g) || [text];
+        const result = [];
+        let chunk = "";
+
+        sentences.forEach(function (sentence) {
+            const part = sentence.trim();
+            if (!part) return;
+
+            if ((chunk + " " + part).length > 220 && chunk) {
+                result.push(chunk.trim());
+                chunk = part;
+            } else {
+                chunk += (chunk ? " " : "") + part;
+            }
+        });
+
+        if (chunk.trim()) {
+            result.push(chunk.trim());
+        }
+
+        return result;
+    }
+
+    function readLesson() {
+        if (!("speechSynthesis" in window)) {
+            status.textContent = "عذرًا، المتصفح لا يدعم القراءة الصوتية.";
+            return;
+        }
+
+        runId++;
+        synth.cancel();
+
+        chunks = splitTextIntoChunks(getLessonText());
+        currentChunkIndex = 0;
+        currentUtterance = null;
+        isReading = true;
+        isPaused = false;
+
+        status.textContent = "جارٍ قراءة الدرس...";
+        updateButtons();
+        speakCurrentChunk(runId);
+    }
+
+    function speakCurrentChunk(activeRunId) {
+        if (activeRunId !== runId || !isReading || isPaused) return;
+
+        if (currentChunkIndex >= chunks.length) {
+            finishReading();
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(
+            chunks[currentChunkIndex]
+        );
+
+        currentUtterance = utterance;
+        utterance.lang = "ar-SA";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        utterance.onend = function () {
+            if (activeRunId !== runId || isPaused || !isReading) return;
+
+            currentChunkIndex++;
+            speakCurrentChunk(activeRunId);
+        };
+
+        utterance.onerror = function (event) {
+            if (activeRunId !== runId) return;
+
+            if (event.error !== "canceled" && event.error !== "interrupted") {
+                status.textContent = "حدثت مشكلة أثناء القراءة. حاول البدء من جديد.";
+                stopReading();
+            }
+        };
+
+        synth.speak(utterance);
+    }
+
+    function pauseReading() {
+        if (!isReading || isPaused) return;
+
+        isPaused = true;
+
+        if (synth.speaking) {
+            synth.pause();
+        }
+
+        status.textContent =
+            "تم إيقاف القراءة مؤقتًا. اضغط «متابعة القراءة» للاستكمال.";
+
+        updateButtons();
+    }
+
+    function resumeReading() {
+        if (!isReading || !isPaused) return;
+
+        isPaused = false;
+
+        if (synth.paused) {
+            synth.resume();
+            status.textContent = "تمت متابعة القراءة...";
+        } else {
+            status.textContent = "جارٍ متابعة القراءة...";
+            speakCurrentChunk(runId);
+        }
+
+        updateButtons();
+    }
+
+    function stopReading() {
+        runId++;
+        synth.cancel();
+
+        isReading = false;
+        isPaused = false;
+        currentUtterance = null;
+        currentChunkIndex = 0;
+
+        status.textContent = "تم إيقاف القراءة.";
+        updateButtons();
+    }
+
+    function finishReading() {
+        isReading = false;
+        isPaused = false;
+        currentUtterance = null;
+
+        status.textContent = "انتهت قراءة الدرس.";
+        updateButtons();
+    }
+
+    readBtn.addEventListener("click", readLesson);
+    pauseBtn.addEventListener("click", pauseReading);
+    resumeBtn.addEventListener("click", resumeReading);
+    stopBtn.addEventListener("click", stopReading);
+
+    updateButtons();
+})();
+</script>
 
 </body>
 </html>
