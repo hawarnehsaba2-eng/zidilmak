@@ -151,6 +151,40 @@
             padding: 15px 0;
         }
 
+        /* أزرار القراءة الصوتية */
+        .reading-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0 20px;
+        }
+
+        .reading-controls button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .reading-controls button:hover {
+            background: #1d4ed8;
+        }
+
+        .reading-controls button:focus {
+            outline: 3px solid #93c5fd;
+            outline-offset: 2px;
+        }
+
+        .reading-controls button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         @media (max-width: 480px) {
             body {
                 padding: 10px;
@@ -172,33 +206,12 @@
             h3 {
                 font-size: 18px;
             }
+
+            .reading-controls button {
+                flex: 1 1 40%;
+                padding: 10px 8px;
+            }
         }
-.reading-controls {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 15px 0 20px;
-}
-
-.reading-controls button {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.reading-controls button:hover {
-    background: #1d4ed8;
-}
-
-.reading-controls button:focus {
-    outline: 3px solid #93c5fd;
-    outline-offset: 2px;
-}
     </style>
 </head>
 
@@ -206,16 +219,12 @@
 
 <div class="container">
 
-
-<div class="reading-controls">
-    <button type="button" onclick="readLesson()">🔊 قراءة الدرس</button>
-    <button type="button" onclick="pauseReading()">⏸️ إيقاف مؤقت</button>
-    <button type="button" onclick="resumeReading()">▶️ متابعة القراءة</button>
-    <button type="button" onclick="stopReading()">⏹️ إيقاف القراءة</button>
-</div>
-
-
-
+    <div class="reading-controls">
+        <button type="button" onclick="readLesson()">🔊 قراءة الدرس</button>
+        <button type="button" onclick="pauseReading()">⏸️ إيقاف مؤقت</button>
+        <button type="button" onclick="resumeReading()">▶️ متابعة القراءة</button>
+        <button type="button" onclick="stopReading()">⏹️ إيقاف القراءة</button>
+    </div>
 
     <header class="page-header">
         <h1>الدرس الثالث: مكونات الحاسوب البرمجية</h1>
@@ -224,7 +233,6 @@
             | الصف السابع
         </p>
     </header>
-
 
     <!-- المكونات البرمجية -->
 
@@ -260,7 +268,6 @@
 
     </section>
 
-
     <!-- برامج النظام -->
 
     <section class="lesson-section">
@@ -285,7 +292,6 @@
         </p>
 
     </section>
-
 
     <!-- نظم التشغيل -->
 
@@ -320,7 +326,6 @@
 
     </section>
 
-
     <!-- برامج التطبيقات -->
 
     <section class="lesson-section">
@@ -338,7 +343,6 @@
         </p>
 
     </section>
-
 
     <!-- إضاءة -->
 
@@ -360,7 +364,6 @@
         </p>
 
     </section>
-
 
     <!-- إثراء -->
 
@@ -389,9 +392,9 @@
 
     </section>
 
-<img src="images/IMG_٢٠٢٦١٠١٢_٠٠٢٢٥٦.jpg"
-     alt="صورة توضيحية للدرس الثالث"
-     class="lesson-image">
+    <img src="images/IMG_٢٠٢٦١٠١٢_٠٠٢٢٥٦.jpg"
+         alt="صورة توضيحية للدرس الثالث"
+         class="lesson-image">
 
     <!-- العلاقة بين المكونات المادية والبرمجية -->
 
@@ -403,9 +406,9 @@
 
         <h3>كيف يصبح التكامل في جهاز الحاسوب بين هذه المكونات؟</h3>
 
-<img src="images/IMG_٢٠٢٦١٠١٢_٠٠٢٦٣٦.jpg"
-     alt="صورة توضيحية للدرس الثالث"
-     class="lesson-image">
+        <img src="images/IMG_٢٠٢٦١٠١٢_٠٠٢٦٣٦.jpg"
+             alt="صورة توضيحية للدرس الثالث"
+             class="lesson-image">
 
         <div class="definition">
             عند تنفيذ أمر محدد في جهاز الحاسوب، تعمل المكونات المادية والمكونات البرمجية بتناغم وسلاسة لتنفيذ الأمر.
@@ -418,31 +421,25 @@
         <p>
             والمثال الآتي يوضح ذلك.
         </p>
-<img src="images/IMG_٢٠٢٦١٠١٢_٠٠٢٨٥٥.jpg"
-     alt="صورة توضيحية للدرس الثالث"
-     class="lesson-image">
+
+        <img src="images/IMG_٢٠٢٦١٠١٢_٠٠٢٨٥٥.jpg"
+             alt="صورة توضيحية للدرس الثالث"
+             class="lesson-image">
+
     </section>
 
+    <div class="video-container" style="margin: 20px 0; text-align: center;">
 
+        <h3>شاهد الفيديو: المكونات البرمجية لجهاز الحاسوب</h3>
 
+        <iframe
+            src="https://www.youtube.com/embed/AVpHX6wZWMo"
+            title="المكونات البرمجية لجهاز الحاسوب"
+            style="width: 100%; max-width: 800px; aspect-ratio: 16 / 9; border: 0; border-radius: 10px;"
+            allowfullscreen>
+        </iframe>
 
-
-
-<div class="video-container" style="margin: 20px 0; text-align: center;">
-
-    <h3>شاهد الفيديو: المكونات البرمجية لجهاز الحاسوب</h3>
-
-    <iframe
-        src="https://www.youtube.com/embed/AVpHX6wZWMo"
-        title="المكونات البرمجية لجهاز الحاسوب"
-        style="width: 100%; max-width: 800px; aspect-ratio: 16 / 9; border: 0; border-radius: 10px;"
-        allowfullscreen>
-    </iframe>
-
-</div>
-
-
-
+    </div>
 
     <a class="back-link" href="digital-skills-7-term1.html">
         ⬅ العودة إلى فهرس الفصل الأول
@@ -454,14 +451,18 @@
 
 </div>
 
-
-
 <script>
 let readingChunks = [];
 let currentChunk = 0;
 let isReading = false;
 
 function readLesson() {
+    if (!("speechSynthesis" in window) ||
+        !("SpeechSynthesisUtterance" in window)) {
+        alert("المتصفح لا يدعم القراءة الصوتية. جرّبي فتح الصفحة في Chrome.");
+        return;
+    }
+
     stopReading();
 
     const container = document.querySelector(".container");
@@ -474,32 +475,10 @@ function readLesson() {
     const clone = container.cloneNode(true);
 
     clone.querySelectorAll(
-        ".reading-controls, button, nav, footer, .back-link, .back-btn, .video-container, iframe, script, style"
-    ).forEach(el => el.remove());
-
-    const text = clone.innerText
-        .replace(/\s+/g, " ")
-        .trim();
-
-    if (!text) {
-        alert("لا يوجد نص لقراءته.");
-        return;
-    }
-
-    readingChunks = text.match(/.{1,180}(?:\s|$)/g) || [text];
-    currentChunk = 0;
-    isReading = true;
-
-    speakNextChunk();
-}
-
-
-
-    const clone = container.cloneNode(true);
-
-    clone.querySelectorAll(
-        ".reading-controls, button, nav, footer, .back-btn, script, style"
-    ).forEach(el => el.remove());
+        ".reading-controls, .back-link, .back-btn, footer, .video-container, iframe, script, style"
+    ).forEach(function (el) {
+        el.remove();
+    });
 
     const text = clone.innerText
         .replace(/\s+/g, " ")
@@ -530,27 +509,29 @@ function speakNextChunk() {
     utterance.lang = "ar";
     utterance.rate = 0.9;
 
-    utterance.onend = function() {
+    utterance.onend = function () {
         currentChunk++;
         speakNextChunk();
     };
 
-    utterance.onerror = function() {
+    utterance.onerror = function () {
         isReading = false;
-        alert("تعذرت متابعة القراءة. تحققي من دعم الأصوات العربية في المتصفح.");
+        alert("تعذرت متابعة القراءة. تأكدي من توفر صوت عربي في إعدادات الجهاز.");
     };
 
     speechSynthesis.speak(utterance);
 }
 
 function pauseReading() {
-    if (speechSynthesis.speaking && !speechSynthesis.paused) {
+    if ("speechSynthesis" in window &&
+        speechSynthesis.speaking &&
+        !speechSynthesis.paused) {
         speechSynthesis.pause();
     }
 }
 
 function resumeReading() {
-    if (speechSynthesis.paused) {
+    if ("speechSynthesis" in window && speechSynthesis.paused) {
         speechSynthesis.resume();
     }
 }
@@ -565,5 +546,6 @@ function stopReading() {
     }
 }
 </script>
+
 </body>
 </html>
