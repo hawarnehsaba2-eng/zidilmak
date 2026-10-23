@@ -105,6 +105,66 @@
             border: 0;
         }
 
+        /* أزرار القراءة الصوتية */
+        .reading-controls {
+            background: white;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .reading-controls h2 {
+            color: #1e3a8a;
+            font-size: 20px;
+            margin: 0 0 12px;
+        }
+
+        .reading-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .reading-buttons button {
+            border: none;
+            border-radius: 9px;
+            padding: 11px 14px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            color: white;
+        }
+
+        .read-btn {
+            background: #2563eb;
+        }
+
+        .pause-btn {
+            background: #d97706;
+        }
+
+        .resume-btn {
+            background: #16a34a;
+        }
+
+        .stop-btn {
+            background: #dc2626;
+        }
+
+        .reading-buttons button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        #readingStatus {
+            margin: 12px 0 0;
+            color: #475569;
+            font-size: 14px;
+        }
+
         .back-btn {
             display: block;
             text-align: center;
@@ -133,6 +193,10 @@
             .section {
                 padding: 15px;
             }
+
+            .reading-buttons button {
+                flex: 1 1 40%;
+            }
         }
     </style>
 </head>
@@ -147,433 +211,427 @@
         <p>المهارات الرقمية - الصف السابع</p>
     </header>
 
-    <div class="section">
+    <!-- أزرار القراءة الصوتية -->
+    <div class="reading-controls">
+        <h2>🔊 القراءة الصوتية للدرس</h2>
 
-        <h2>مكونات شبكات الحاسوب</h2>
+        <div class="reading-buttons">
+            <button type="button" class="read-btn" id="readBtn">
+                🔊 قراءة الدرس
+            </button>
 
-        <div class="question">
-            <strong>علل: شبكات الحاسوب ضرورية للتواصل وتبادل المعلومات.</strong>
-            <p>
-                إذ يمكن بها مشاركة البيانات والموارد والخدمات بين أجهزة المستخدمين.
-            </p>
+            <button type="button" class="pause-btn" id="pauseBtn" disabled>
+                ⏸️ إيقاف مؤقت
+            </button>
+
+            <button type="button" class="resume-btn" id="resumeBtn" disabled>
+                ▶️ متابعة القراءة
+            </button>
+
+            <button type="button" class="stop-btn" id="stopBtn" disabled>
+                ⏹️ إيقاف القراءة
+            </button>
         </div>
 
-        <p>
-            إن الأداء الصحيح والفاعل للشبكة يتطلب مكونات مختلفة:
+        <p id="readingStatus" aria-live="polite">
+            اضغط على «قراءة الدرس» للاستماع إلى المحتوى.
         </p>
+    </div>
 
-        <ul>
-            <li>منها ما هو في صورة أجهزة مادية (Hardware).</li>
-            <li>ومنها ما هو في صورة برامج (Software).</li>
-        </ul>
+    <!-- محتوى الدرس -->
+    <div id="lessonContent">
 
-        <div class="question">
-            <strong>على ماذا يعتمد نوع المكونات المطلوبة لتثبيت الشبكة؟</strong>
+        <div class="section">
+
+            <h2>مكونات شبكات الحاسوب</h2>
+
+            <div class="question">
+                <strong>علل: شبكات الحاسوب ضرورية للتواصل وتبادل المعلومات.</strong>
+                <p>
+                    إذ يمكن بها مشاركة البيانات والموارد والخدمات بين أجهزة المستخدمين.
+                </p>
+            </div>
+
             <p>
-                على نوع الشبكة، والهدف منها، ولكن توجد بعض المكونات التي لا يمكن
-                الاستغناء عنها بغض النظر عن نوع الشبكة وهدفها.
+                إن الأداء الصحيح والفاعل للشبكة يتطلب مكونات مختلفة:
             </p>
+
+            <ul>
+                <li>منها ما هو في صورة أجهزة مادية (Hardware).</li>
+                <li>ومنها ما هو في صورة برامج (Software).</li>
+            </ul>
+
+            <div class="question">
+                <strong>على ماذا يعتمد نوع المكونات المطلوبة لتثبيت الشبكة؟</strong>
+                <p>
+                    على نوع الشبكة، والهدف منها، ولكن توجد بعض المكونات التي لا يمكن
+                    الاستغناء عنها بغض النظر عن نوع الشبكة وهدفها.
+                </p>
+            </div>
+
+            <h3>تتألف شبكة الحاسوب من المكونات الآتية:</h3>
+
+            <img src="images/IMG_٢٠٢٦١٠٢١_٠١٣٠٤٧.jpg"
+                 alt="مكونات شبكات الحاسوب"
+                 class="lesson-image">
+
+            <ul>
+                <li>أجهزة الحاسوب.</li>
+                <li>خطوط الاتصال.</li>
+                <li>بطاقة واجهة الشبكة (NIC - Network Interface Card).</li>
+                <li>الخادم (Server).</li>
+                <li>أجهزة الربط الملحقة (Nodes).</li>
+                <li>بروتوكولات الشبكة (Protocol).</li>
+            </ul>
+
+            <div class="question">
+                يتطلب إنشاء شبكة حاسوب توافر جهازي حاسوب على الأقل.
+            </div>
+
         </div>
 
-        <h3>تتألف شبكة الحاسوب من المكونات الآتية:</h3>
-<img src="images/IMG_٢٠٢٦١٠٢١_٠١٣٠٤٧.jpg"
-     alt="مكونات شبكات الحاسوب"
-     class="lesson-image">
+        <div class="section">
 
+            <h2>أولًا: خطوط الاتصال</h2>
 
+            <h3>وضح المقصود بخطوط الاتصال.</h3>
 
+            <div class="definition">
+                وسائط لنقل إشارات البيانات بين أجهزة الشبكة.
+            </div>
 
+            <h3>تصنف خطوط الاتصال إلى نوعين:</h3>
 
-        <ul>
-            <li>أجهزة الحاسوب.</li>
-            <li>خطوط الاتصال.</li>
-            <li>بطاقة واجهة الشبكة (NIC - Network Interface Card).</li>
-            <li>الخادم (Server).</li>
-            <li>أجهزة الربط الملحقة (Nodes).</li>
-            <li>بروتوكولات الشبكة (Protocol).</li>
-        </ul>
+            <ul>
+                <li>وسائط الاتصال السلكية (Wired).</li>
+                <li>وسائط الاتصال اللاسلكية (Wireless).</li>
+            </ul>
 
-        <div class="question">
-            يتطلب إنشاء شبكة حاسوب توافر جهازي حاسوب على الأقل.
+            <h3>وضح المقصود بوسائط الاتصال السلكية.</h3>
+
+            <div class="definition">
+                وسيلة مادية (كابلات) تنقل إشارات البيانات بين الأجهزة المرتبطة بالشبكة.
+            </div>
+
+            <h3>أنواع كابلات الشبكة:</h3>
+
+            <ul>
+                <li>الكبل المحوري (Coaxial Cable).</li>
+                <li>الكبل المزدوج المجدول (Twisted Pair Cable).</li>
+                <li>كبل الألياف الضوئية (Fiber Optic Cable).</li>
+            </ul>
+
+            <img src="images/IMG_٢٠٢٦١٠٢١_٠١٥٢٢٠.jpg"
+                 alt="مكونات شبكات الحاسوب"
+                 class="lesson-image">
+
+            <h3>وضح المقصود بوسائط الاتصال اللاسلكية.</h3>
+
+            <div class="definition">
+                وسيلة لنقل البيانات في شبكة الحاسوب من دون الحاجة إلى وجود أسلاك (كابلات).
+            </div>
+
+            <h3>أعط أمثلة على وسائط الاتصال اللاسلكية.</h3>
+
+            <ul>
+                <li>موجات الراديو (Radio Waves).</li>
+                <li>الموجات القصيرة جدًا (Microwaves).</li>
+                <li>الأشعة تحت الحمراء (Infrared).</li>
+            </ul>
+
         </div>
 
-    </div>
+        <div class="section">
 
-    <div class="section">
+            <h2>ثانيًا: بطاقة واجهة الشبكة</h2>
 
-        <h2>أولًا: خطوط الاتصال</h2>
+            <h3>
+                وضح المقصود ببطاقة واجهة الشبكة
+                (Network Interface Card - NIC).
+            </h3>
 
-        <h3>وضح المقصود بخطوط الاتصال.</h3>
-
-        <div class="definition">
-            وسائط لنقل إشارات البيانات بين أجهزة الشبكة.
-        </div>
-
-        <h3>تصنف خطوط الاتصال إلى نوعين:</h3>
-
-        <ul>
-            <li>وسائط الاتصال السلكية (Wired).</li>
-            <li>وسائط الاتصال اللاسلكية (Wireless).</li>
-        </ul>
-
-        <h3>وضح المقصود بوسائط الاتصال السلكية.</h3>
-
-        <div class="definition">
-            وسيلة مادية (كابلات) تنقل إشارات البيانات بين الأجهزة المرتبطة بالشبكة.
-        </div>
-
-        <h3>أنواع كابلات الشبكة:</h3>
-
-        <ul>
-            <li>الكبل المحوري (Coaxial Cable).</li>
-            <li>الكبل المزدوج المجدول (Twisted Pair Cable).</li>
-            <li>كبل الألياف الضوئية (Fiber Optic Cable).</li>
-        </ul>
-
-
-<img src="images/IMG_٢٠٢٦١٠٢١_٠١٥٢٢٠.jpg"
-     alt="مكونات شبكات الحاسوب"
-     class="lesson-image">
-
-
-
-
-
-
-
-        <h3>وضح المقصود بوسائط الاتصال اللاسلكية.</h3>
-
-        <div class="definition">
-            وسيلة لنقل البيانات في شبكة الحاسوب من دون الحاجة إلى وجود أسلاك (كابلات).
-        </div>
-
-        <h3>أعط أمثلة على وسائط الاتصال اللاسلكية.</h3>
-
-        <ul>
-            <li>موجات الراديو (Radio Waves).</li>
-            <li>الموجات القصيرة جدًا (Microwaves).</li>
-            <li>الأشعة تحت الحمراء (Infrared).</li>
-        </ul>
-
-    </div>
-
-    <div class="section">
-
-        <h2>ثانيًا: بطاقة واجهة الشبكة</h2>
-
-        <h3>
-            وضح المقصود ببطاقة واجهة الشبكة
-            (Network Interface Card - NIC).
-        </h3>
-
-        <div class="definition">
-            مكوّن مادي يُستعمل لربط جهاز حاسوب بإحدى الشبكات، وهو مسؤول عن
-            نقل البيانات من جهاز الحاسوب المرسل واستقبال البيانات في جهاز
-            الحاسوب المستقبل.
-        </div>
-
-        <h3>وظيفة بطاقة واجهة الشبكة:</h3>
-
-        <ul>
-            <li>ربط جهاز حاسوب بإحدى الشبكات.</li>
-            <li>
+            <div class="definition">
+                مكوّن مادي يُستعمل لربط جهاز حاسوب بإحدى الشبكات، وهو مسؤول عن
                 نقل البيانات من جهاز الحاسوب المرسل واستقبال البيانات في جهاز
                 الحاسوب المستقبل.
-            </li>
-            <li>
-                تحتوي بطاقة الشبكة على واجهة تتيح للأجهزة الاتصال فيما بينها
-                عن طريق خطوط الاتصال المتوافرة؛ سواء كانت هذه الخطوط سلكية
-                أو لاسلكية.
-            </li>
-            <li>
-                تُعد هذه البطاقة مكونًا أساسيًا في أجهزة الحاسوب التي تتطلب
-                الاتصال بالشبكة؛ إذ تسمح بتبادل البيانات والاتصالات بين الأجهزة
-                المختلفة التي ترتبط بالشبكة.
-            </li>
-        </ul>
+            </div>
 
-    </div>
+            <h3>وظيفة بطاقة واجهة الشبكة:</h3>
 
+            <ul>
+                <li>ربط جهاز حاسوب بإحدى الشبكات.</li>
+                <li>
+                    نقل البيانات من جهاز الحاسوب المرسل واستقبال البيانات في جهاز
+                    الحاسوب المستقبل.
+                </li>
+                <li>
+                    تحتوي بطاقة الشبكة على واجهة تتيح للأجهزة الاتصال فيما بينها
+                    عن طريق خطوط الاتصال المتوافرة؛ سواء كانت هذه الخطوط سلكية
+                    أو لاسلكية.
+                </li>
+                <li>
+                    تُعد هذه البطاقة مكونًا أساسيًا في أجهزة الحاسوب التي تتطلب
+                    الاتصال بالشبكة؛ إذ تسمح بتبادل البيانات والاتصالات بين الأجهزة
+                    المختلفة التي ترتبط بالشبكة.
+                </li>
+            </ul>
 
-
-
-<img src="images/IMG_٢٠٢٦١٠٢١_٠١٥٥٤٠.jpg"
-     alt="مكونات شبكات الحاسوب"
-     class="lesson-image">
-
-
-
-
-
-
-
-
-    <div class="section">
-
-        <h2>إضاءة: الاتصال بالإنترنت عن طريق الأقمار الصناعية</h2>
-
-        <p>
-            يمكن الاتصال بشبكة الإنترنت عن طريق الأقمار الصناعية
-            (Satellite Internet).
-        </p>
-
-        <p>
-            ويُعد هذا النوع من الاتصال أكثر فاعلية في المناطق المعزولة والمناطق
-            النائية، مثل: البحار البعيدة، والجزر المعزولة، والطائرات.
-        </p>
-
-        <p>
-            ويشيع استخدام الاتصال بالأقمار الصناعية في أعقاب وقوع كارثة طبيعية،
-            وفي المناطق التي تشهد نزاعات ومعارك وصراعات؛ إذ يُعد ذلك حلًا ناجعًا
-            لتوفير اتصال سريع وموثوق به في ظل غياب البنية التحتية التقليدية.
-        </p>
-
-    </div>
-
-    <div class="section">
-
-        <h2>ثالثًا: الخادم (Server)</h2>
-
-        <h3>وضح المقصود بالخادم.</h3>
-
-        <div class="definition">
-            جهاز حاسوب مركزي يستخدم نظام برمجة خاصًا يوفر مجموعة من الخدمات
-            لأجهزة الحاسوب الأخرى المرتبطة بالشبكة (العملاء، أو المستخدمون).
         </div>
 
+        <img src="images/IMG_٢٠٢٦١٠٢١_٠١٥٥٤٠.jpg"
+             alt="مكونات شبكات الحاسوب"
+             class="lesson-image">
 
-<img src="images/IMG_٢٠٢٦١٠٢١_٠١٥٩٣٥.jpg"
-     alt="مكونات شبكات الحاسوب"
-     class="lesson-image">
+        <div class="section">
 
+            <h2>إضاءة: الاتصال بالإنترنت عن طريق الأقمار الصناعية</h2>
 
+            <p>
+                يمكن الاتصال بشبكة الإنترنت عن طريق الأقمار الصناعية
+                (Satellite Internet).
+            </p>
 
+            <p>
+                ويُعد هذا النوع من الاتصال أكثر فاعلية في المناطق المعزولة والمناطق
+                النائية، مثل: البحار البعيدة، والجزر المعزولة، والطائرات.
+            </p>
 
+            <p>
+                ويشيع استخدام الاتصال بالأقمار الصناعية في أعقاب وقوع كارثة طبيعية،
+                وفي المناطق التي تشهد نزاعات ومعارك وصراعات؛ إذ يُعد ذلك حلًا ناجعًا
+                لتوفير اتصال سريع وموثوق به في ظل غياب البنية التحتية التقليدية.
+            </p>
 
-
-
-
-
-
-        <h3>مميزات الخوادم:</h3>
-
-        <ul>
-            <li>سرعة عالية.</li>
-            <li>سعة تخزين كبيرة مقارنة بأجهزة الحاسوب المكتبية العادية.</li>
-            <li>
-                مصممة للعمل بصورة مستمرة، ومن دون توقف؛ للوفاء بحاجات المستخدمين المتعددة.
-            </li>
-        </ul>
-
-        <h3>وظائف الخوادم:</h3>
-
-        <ul>
-            <li>تحديد صلاحيات المستخدمين.</li>
-            <li>تخزين البيانات وإدارتها.</li>
-            <li>
-                الاحتفاظ بجميع المعلومات والموارد المهمة التي يمكن للأجهزة الأخرى
-                الوصول إليها.
-            </li>
-        </ul>
-
-        <div class="question">
-            <strong>
-                علل: الخوادم مصممة للعمل بصورة مستمرة، ومن دون توقف.
-            </strong>
-            <p>للوفاء بحاجات المستخدمين المتعددة.</p>
         </div>
 
-    </div>
+        <div class="section">
 
-    <div class="section">
+            <h2>ثالثًا: الخادم (Server)</h2>
 
-        <h2>رابعًا: أجهزة الربط الملحقة (Nodes)</h2>
+            <h3>وضح المقصود بالخادم.</h3>
 
-        <h3>وضح المقصود بأجهزة الربط الملحقة.</h3>
+            <div class="definition">
+                جهاز حاسوب مركزي يستخدم نظام برمجة خاصًا يوفر مجموعة من الخدمات
+                لأجهزة الحاسوب الأخرى المرتبطة بالشبكة (العملاء، أو المستخدمون).
+            </div>
 
-        <div class="definition">
-            أجهزة تُستعمل للربط بين أجهزة الحاسوب في الشبكة، أو ربط شبكتين
-            مختلفتين معًا، وهي تساعد على توجيه البيانات بين أجهزة الشبكة.
+            <img src="images/IMG_٢٠٢٦١٠٢١_٠١٥٩٣٥.jpg"
+                 alt="مكونات شبكات الحاسوب"
+                 class="lesson-image">
+
+            <h3>مميزات الخوادم:</h3>
+
+            <ul>
+                <li>سرعة عالية.</li>
+                <li>سعة تخزين كبيرة مقارنة بأجهزة الحاسوب المكتبية العادية.</li>
+                <li>
+                    مصممة للعمل بصورة مستمرة، ومن دون توقف؛ للوفاء بحاجات المستخدمين المتعددة.
+                </li>
+            </ul>
+
+            <h3>وظائف الخوادم:</h3>
+
+            <ul>
+                <li>تحديد صلاحيات المستخدمين.</li>
+                <li>تخزين البيانات وإدارتها.</li>
+                <li>
+                    الاحتفاظ بجميع المعلومات والموارد المهمة التي يمكن للأجهزة الأخرى
+                    الوصول إليها.
+                </li>
+            </ul>
+
+            <div class="question">
+                <strong>
+                    علل: الخوادم مصممة للعمل بصورة مستمرة، ومن دون توقف.
+                </strong>
+                <p>للوفاء بحاجات المستخدمين المتعددة.</p>
+            </div>
+
         </div>
 
-        <h3>من أجهزة الربط الملحقة:</h3>
+        <div class="section">
 
-        <ul>
-            <li>الموزع (Hub).</li>
-            <li>المحول (Switch).</li>
-            <li>الموجه (Router).</li>
-        </ul>
+            <h2>رابعًا: أجهزة الربط الملحقة (Nodes)</h2>
 
-    </div>
+            <h3>وضح المقصود بأجهزة الربط الملحقة.</h3>
 
-    <div class="section">
+            <div class="definition">
+                أجهزة تُستعمل للربط بين أجهزة الحاسوب في الشبكة، أو ربط شبكتين
+                مختلفتين معًا، وهي تساعد على توجيه البيانات بين أجهزة الشبكة.
+            </div>
 
+            <h3>من أجهزة الربط الملحقة:</h3>
 
+            <ul>
+                <li>الموزع (Hub).</li>
+                <li>المحول (Switch).</li>
+                <li>الموجه (Router).</li>
+            </ul>
 
-
-
-
-
-<img src="images/IMG_٢٠٢٦١٠٢١_٠٢٠٢٤١.jpg"
-     alt="مكونات شبكات الحاسوب"
-     class="lesson-image">
-
-
-
-
-
-        <h2>الموزع (Hub)</h2>
-
-        <h3>وضح المقصود بالموزع.</h3>
-
-        <div class="definition">
-            جهاز بسيط يربط عددًا من أجهزة الحاسوب في شبكة محلية
-            (Local Area Network: LAN)، وينشئ مجال بث واحدًا،
-            ويرسل البيانات إلى جميع الأجهزة المتصلة به بغض النظر عن وجهتها.
         </div>
 
-        <h3>آلية عمل الموزع (Hub):</h3>
+        <div class="section">
 
-        <p>
-            ينشئ مجال بث واحدًا، ويرسل البيانات إلى جميع الأجهزة المتصلة به
-            بغض النظر عن وجهتها.
-        </p>
+            <img src="images/IMG_٢٠٢٦١٠٢١_٠٢٠٢٤١.jpg"
+                 alt="مكونات شبكات الحاسوب"
+                 class="lesson-image">
 
-    </div>
+            <h2>الموزع (Hub)</h2>
 
-    <div class="section">
+            <h3>وضح المقصود بالموزع.</h3>
 
-        <h2>المحول (Switch)</h2>
+            <div class="definition">
+                جهاز بسيط يربط عددًا من أجهزة الحاسوب في شبكة محلية
+                (Local Area Network: LAN)، وينشئ مجال بث واحدًا،
+                ويرسل البيانات إلى جميع الأجهزة المتصلة به بغض النظر عن وجهتها.
+            </div>
 
-        <h3>وضح المقصود بالمحول.</h3>
+            <h3>آلية عمل الموزع (Hub):</h3>
 
-        <div class="definition">
-            جهاز يربط عددًا من أجهزة الحاسوب في شبكة محلية (LAN)، وينشئ
-            مجالات بث مختلفة، ويرسل البيانات فقط إلى المستلم المقصود؛ ما يقلل
-            الضغط على الشبكة ويحسن الأداء.
+            <p>
+                ينشئ مجال بث واحدًا، ويرسل البيانات إلى جميع الأجهزة المتصلة به
+                بغض النظر عن وجهتها.
+            </p>
+
         </div>
 
-        <h3>وظائف المحول ومميزاته:</h3>
+        <div class="section">
 
-        <ul>
-            <li>يربط عددًا من أجهزة الحاسوب في شبكة محلية (LAN).</li>
-            <li>ينشئ مجالات بث مختلفة.</li>
-            <li>يرسل البيانات فقط إلى المستلم المقصود.</li>
-            <li>يقلل الضغط على الشبكة ويحسن الأداء.</li>
-            <li>
-                يوفر مزايا أمان إضافية، ودعمًا مكثفًا لعمل الإدارة؛ ما يجعله
-                مثاليًا للشبكات الكبيرة.
-            </li>
-        </ul>
+            <h2>المحول (Switch)</h2>
 
-        <h3>آلية عمل المحول (Switch):</h3>
+            <h3>وضح المقصود بالمحول.</h3>
 
-        <p>
-            يرسل البيانات فقط إلى المستلم المقصود؛ ما يقلل الضغط على الشبكة
-            ويحسن الأداء.
-        </p>
+            <div class="definition">
+                جهاز يربط عددًا من أجهزة الحاسوب في شبكة محلية (LAN)، وينشئ
+                مجالات بث مختلفة، ويرسل البيانات فقط إلى المستلم المقصود؛ ما يقلل
+                الضغط على الشبكة ويحسن الأداء.
+            </div>
 
-    </div>
+            <h3>وظائف المحول ومميزاته:</h3>
 
-    <div class="section">
+            <ul>
+                <li>يربط عددًا من أجهزة الحاسوب في شبكة محلية (LAN).</li>
+                <li>ينشئ مجالات بث مختلفة.</li>
+                <li>يرسل البيانات فقط إلى المستلم المقصود.</li>
+                <li>يقلل الضغط على الشبكة ويحسن الأداء.</li>
+                <li>
+                    يوفر مزايا أمان إضافية، ودعمًا مكثفًا لعمل الإدارة؛ ما يجعله
+                    مثاليًا للشبكات الكبيرة.
+                </li>
+            </ul>
 
-        <h2>الموجه (Router)</h2>
+            <h3>آلية عمل المحول (Switch):</h3>
 
-        <h3>وضح المقصود بالموجه.</h3>
+            <p>
+                يرسل البيانات فقط إلى المستلم المقصود؛ ما يقلل الضغط على الشبكة
+                ويحسن الأداء.
+            </p>
 
-        <div class="definition">
-            جهاز يربط بين عدد من الشبكات المختلفة، مثل الشبكة المحلية (LAN)
-            والشبكات الواسعة (Wide Area Networks: WANs).
         </div>
 
-        <h3>وظيفة الموجه وآلية عمله:</h3>
+        <div class="section">
 
-        <p>
-            يعمل على توجيه البيانات بين هذه الشبكات، وذلك بتقسيم الشبكة إلى
-            أجزاء صغيرة، لكل منها مجال بث مختلف؛ ما يزيد من كفاءة الشبكة وفاعليتها.
-        </p>
+            <h2>الموجه (Router)</h2>
 
-    </div>
+            <h3>وضح المقصود بالموجه.</h3>
 
-    <div class="section">
+            <div class="definition">
+                جهاز يربط بين عدد من الشبكات المختلفة، مثل الشبكة المحلية (LAN)
+                والشبكات الواسعة (Wide Area Networks: WANs).
+            </div>
 
-        <h2>خامسًا: بروتوكولات الشبكة (Protocol)</h2>
+            <h3>وظيفة الموجه وآلية عمله:</h3>
 
-        <h3>وضح المقصود ببروتوكولات الشبكة.</h3>
+            <p>
+                يعمل على توجيه البيانات بين هذه الشبكات، وذلك بتقسيم الشبكة إلى
+                أجزاء صغيرة، لكل منها مجال بث مختلف؛ ما يزيد من كفاءة الشبكة وفاعليتها.
+            </p>
 
-        <div class="definition">
-            مكونات برمجية لشبكة الحاسوب، تتألف من مجموعة قواعد ومعايير تنظم
-            كيفية نقل البيانات عن طريق الشبكة، وتعمل على توفير اتصال صحيح وآمن
-            بين جميع الأجهزة المرتبطة بالشبكة.
         </div>
 
-        <div class="question">
-            تشبه بروتوكولات شبكة الإنترنت قواعد المرور التي نلتزم بها عند قيادة
-            المركبات؛ لضمان التحرك بصورة صحيحة، والوصول إلى وجهاتنا بأمان.
+        <div class="section">
+
+            <h2>خامسًا: بروتوكولات الشبكة (Protocol)</h2>
+
+            <h3>وضح المقصود ببروتوكولات الشبكة.</h3>
+
+            <div class="definition">
+                مكونات برمجية لشبكة الحاسوب، تتألف من مجموعة قواعد ومعايير تنظم
+                كيفية نقل البيانات عن طريق الشبكة، وتعمل على توفير اتصال صحيح وآمن
+                بين جميع الأجهزة المرتبطة بالشبكة.
+            </div>
+
+            <div class="question">
+                تشبه بروتوكولات شبكة الإنترنت قواعد المرور التي نلتزم بها عند قيادة
+                المركبات؛ لضمان التحرك بصورة صحيحة، والوصول إلى وجهاتنا بأمان.
+            </div>
+
+            <h3>وضح المقصود ببروتوكولات شبكة الإنترنت.</h3>
+
+            <div class="definition">
+                مجموعة من القواعد التي تضمن وصول البيانات خلال الأجهزة إلى وجهتها
+                المطلوبة على نحو صحيح وآمن.
+            </div>
+
+            <h3>أعط أمثلة على البروتوكولات المتبعة في نقل البيانات عبر شبكة الحاسوب.</h3>
+
+            <ul>
+                <li>بروتوكولات خاصة بنقل الملفات.</li>
+                <li>بروتوكولات خاصة بنقل رسائل البريد الإلكتروني.</li>
+                <li>بروتوكولات خاصة بعرض صفحات الإنترنت.</li>
+                <li>العديد من البروتوكولات الأخرى.</li>
+            </ul>
+
+            <div class="question">
+                يُعد بروتوكول التحكم في الإرسال / بروتوكول الإنترنت (TCP/IP)
+                واحدًا من أكثر بروتوكولات الشبكة شيوعًا وأهمية.
+            </div>
+
         </div>
 
-        <h3>وضح المقصود ببروتوكولات شبكة الإنترنت.</h3>
+        <div class="section">
 
-        <div class="definition">
-            مجموعة من القواعد التي تضمن وصول البيانات خلال الأجهزة إلى وجهتها
-            المطلوبة على نحو صحيح وآمن.
+            <h2>بروتوكولا TCP وIP</h2>
+
+            <h3>آلية عمل بروتوكول التحكم في الإرسال (TCP):</h3>
+
+            <p>
+                عند إرسال البيانات عبر شبكة الإنترنت، يعمل بروتوكول (TCP) في الجهاز
+                المرسل على تقسيم البيانات إلى أجزاء صغيرة تسمى الحزم، بغية نقل
+                البيانات بصورة أسرع، ثم يعمل بروتوكول (TCP) في الجهاز المستقبل على
+                إعادة تجميع البيانات وفق ترتيبها الصحيح بعد عملية التقسيم، والتحقق
+                من عدم ضياع حزم أثناء عملية الإرسال.
+            </p>
+
+            <img src="images/IMG_٢٠٢٦١٠٢١_٠٢٠٦١١.jpg"
+                 alt="مكونات شبكات الحاسوب"
+                 class="lesson-image">
+
+            <h3>فائدة بروتوكول (TCP):</h3>
+
+            <p>
+                نقل البيانات بصورة أسرع، والتحقق من عدم ضياع أي حزم أثناء عملية الإرسال.
+            </p>
+
+            <h3>وظيفة بروتوكول الإنترنت (IP):</h3>
+
+            <p>
+                يعمل على توجيه البيانات إلى العنوان الصحيح للجهاز المستقبل؛ إذ يرفق
+                بكل حزمة بيانات عنوان (IP) للجهاز المستقبل؛ بغية توجيه الحزمة إلى
+                الجهاز المستقبل الصحيح.
+            </p>
+
+            <h3>فائدة بروتوكول الإنترنت (IP):</h3>
+
+            <p>
+                توجيه البيانات إلى العنوان الصحيح للجهاز المستقبل.
+            </p>
+
+            <img src="images/IMG_٢٠٢٦١٠٢١_٠٢١٠٥٩.jpg"
+                 alt="مكونات شبكات الحاسوب"
+                 class="lesson-image">
+
         </div>
-
-        <h3>أعط أمثلة على البروتوكولات المتبعة في نقل البيانات عبر شبكة الحاسوب.</h3>
-
-        <ul>
-            <li>بروتوكولات خاصة بنقل الملفات.</li>
-            <li>بروتوكولات خاصة بنقل رسائل البريد الإلكتروني.</li>
-            <li>بروتوكولات خاصة بعرض صفحات الإنترنت.</li>
-            <li>العديد من البروتوكولات الأخرى.</li>
-        </ul>
-
-        <div class="question">
-            يُعد بروتوكول التحكم في الإرسال / بروتوكول الإنترنت (TCP/IP)
-            واحدًا من أكثر بروتوكولات الشبكة شيوعًا وأهمية.
-        </div>
-
-    </div>
-
-    <div class="section">
-
-        <h2>بروتوكولا TCP وIP</h2>
-
-        <h3>آلية عمل بروتوكول التحكم في الإرسال (TCP):</h3>
-
-        <p>
-            عند إرسال البيانات عبر شبكة الإنترنت، يعمل بروتوكول (TCP) في الجهاز
-            المرسل على تقسيم البيانات إلى أجزاء صغيرة تسمى الحزم، بغية نقل
-            البيانات بصورة أسرع، ثم يعمل بروتوكول (TCP) في الجهاز المستقبل على
-            إعادة تجميع البيانات وفق ترتيبها الصحيح بعد عملية التقسيم، والتحقق
-            من عدم ضياع حزم أثناء عملية الإرسال.
-        </p>
-<img src="images/IMG_٢٠٢٦١٠٢١_٠٢٠٦١١.jpg"
-     alt="مكونات شبكات الحاسوب"
-     class="lesson-image">
-
-        <h3>فائدة بروتوكول (TCP):</h3>
-
-        <p>
-            نقل البيانات بصورة أسرع، والتحقق من عدم ضياع أي حزم أثناء عملية الإرسال.
-        </p>
-
-        <h3>وظيفة بروتوكول الإنترنت (IP):</h3>
-
-        <p>
-            يعمل على توجيه البيانات إلى العنوان الصحيح للجهاز المستقبل؛ إذ يرفق
-            بكل حزمة بيانات عنوان (IP) للجهاز المستقبل؛ بغية توجيه الحزمة إلى
-            الجهاز المستقبل الصحيح.
-        </p>
-
-        <h3>فائدة بروتوكول الإنترنت (IP):</h3>
-
-        <p>
-            توجيه البيانات إلى العنوان الصحيح للجهاز المستقبل.
-        </p>
-<img src="images/IMG_٢٠٢٦١٠٢١_٠٢١٠٥٩.jpg"
-     alt="مكونات شبكات الحاسوب"
-     class="lesson-image">
 
     </div>
 
@@ -582,6 +640,188 @@
     </a>
 
 </div>
+
+<script>
+(function () {
+    if (!("speechSynthesis" in window) ||
+        !("SpeechSynthesisUtterance" in window)) {
+        document.getElementById("readingStatus").textContent =
+            "عذرًا، المتصفح لا يدعم القراءة الصوتية.";
+        document.getElementById("readBtn").disabled = true;
+        return;
+    }
+
+    const synth = window.speechSynthesis;
+
+    const readBtn = document.getElementById("readBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const status = document.getElementById("readingStatus");
+
+    let chunks = [];
+    let currentChunkIndex = 0;
+    let isReading = false;
+    let isPaused = false;
+    let runId = 0;
+
+    function updateButtons() {
+        readBtn.disabled = isReading && !isPaused;
+        pauseBtn.disabled = !isReading || isPaused;
+        resumeBtn.disabled = !isReading || !isPaused;
+        stopBtn.disabled = !isReading;
+    }
+
+    function getLessonText() {
+        const lesson = document.getElementById("lessonContent");
+        const copy = lesson.cloneNode(true);
+
+        copy.querySelectorAll(
+            "script, style, img, iframe, video, audio, button, .reading-controls, .back-btn, .toc, .video-container"
+        ).forEach(function (element) {
+            element.remove();
+        });
+
+        return copy.innerText
+            .replace(/\u00a0/g, " ")
+            .replace(/[ \t]+\n/g, "\n")
+            .replace(/\n{2,}/g, "\n")
+            .trim();
+    }
+
+    function splitTextIntoChunks(text) {
+        const sentences = text.match(/[^.!؟?\n]+[.!؟?]?/g) || [text];
+        const result = [];
+        let chunk = "";
+
+        sentences.forEach(function (sentence) {
+            const part = sentence.trim();
+            if (!part) return;
+
+            if ((chunk + " " + part).length > 220 && chunk) {
+                result.push(chunk.trim());
+                chunk = part;
+            } else {
+                chunk += (chunk ? " " : "") + part;
+            }
+        });
+
+        if (chunk.trim()) {
+            result.push(chunk.trim());
+        }
+
+        return result;
+    }
+
+    function readLesson() {
+        runId++;
+        synth.cancel();
+
+        chunks = splitTextIntoChunks(getLessonText());
+        currentChunkIndex = 0;
+        isReading = true;
+        isPaused = false;
+
+        status.textContent = "جارٍ قراءة الدرس...";
+        updateButtons();
+        speakCurrentChunk(runId);
+    }
+
+    function speakCurrentChunk(activeRunId) {
+        if (activeRunId !== runId || !isReading || isPaused) return;
+
+        if (currentChunkIndex >= chunks.length) {
+            finishReading();
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(
+            chunks[currentChunkIndex]
+        );
+
+        utterance.lang = "ar-SA";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        utterance.onend = function () {
+            if (activeRunId !== runId || isPaused || !isReading) return;
+
+            currentChunkIndex++;
+            speakCurrentChunk(activeRunId);
+        };
+
+        utterance.onerror = function (event) {
+            if (activeRunId !== runId) return;
+
+            if (event.error !== "canceled" && event.error !== "interrupted") {
+                status.textContent =
+                    "حدثت مشكلة أثناء القراءة. حاول البدء من جديد.";
+                stopReading();
+            }
+        };
+
+        synth.speak(utterance);
+    }
+
+    function pauseReading() {
+        if (!isReading || isPaused) return;
+
+        isPaused = true;
+
+        if (synth.speaking) {
+            synth.pause();
+        }
+
+        status.textContent =
+            "تم إيقاف القراءة مؤقتًا. اضغط «متابعة القراءة» للاستكمال.";
+
+        updateButtons();
+    }
+
+    function resumeReading() {
+        if (!isReading || !isPaused) return;
+
+        isPaused = false;
+
+        if (synth.paused) {
+            synth.resume();
+            status.textContent = "تمت متابعة القراءة...";
+        } else {
+            status.textContent = "جارٍ متابعة القراءة...";
+            speakCurrentChunk(runId);
+        }
+
+        updateButtons();
+    }
+
+    function stopReading() {
+        runId++;
+        synth.cancel();
+
+        isReading = false;
+        isPaused = false;
+        currentChunkIndex = 0;
+
+        status.textContent = "تم إيقاف القراءة.";
+        updateButtons();
+    }
+
+    function finishReading() {
+        isReading = false;
+        isPaused = false;
+
+        status.textContent = "انتهت قراءة الدرس.";
+        updateButtons();
+    }
+
+    readBtn.addEventListener("click", readLesson);
+    pauseBtn.addEventListener("click", pauseReading);
+    resumeBtn.addEventListener("click", resumeReading);
+    stopBtn.addEventListener("click", stopReading);
+
+    updateButtons();
+})();
+</script>
 
 </body>
 </html>
