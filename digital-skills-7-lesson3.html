@@ -151,7 +151,6 @@
             padding: 15px 0;
         }
 
-        /* أزرار القراءة الصوتية */
         .reading-controls {
             display: flex;
             flex-wrap: wrap;
@@ -178,11 +177,6 @@
         .reading-controls button:focus {
             outline: 3px solid #93c5fd;
             outline-offset: 2px;
-        }
-
-        .reading-controls button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
         }
 
         @media (max-width: 480px) {
@@ -455,6 +449,8 @@
 let readingChunks = [];
 let currentChunk = 0;
 let isReading = false;
+let isPaused = false;
+let currentUtterance = null;
 
 function readLesson() {
     if (!("speechSynthesis" in window) ||
@@ -480,25 +476,53 @@ function readLesson() {
         el.remove();
     });
 
-    const text = clone.innerText
-        .replace(/\s+/g, " ")
-        .trim();
+    const text = clone.innerText.replace(/\s+/g, " ").trim();
 
     if (!text) {
         alert("لا يوجد نص لقراءته.");
         return;
     }
 
-    readingChunks = text.match(/.{1,180}(?:\s|$)/g) || [text];
+    /* تقسيم النص عند نهاية الجملة قدر الإمكان */
+    readingChunks = text.match(/[^.!؟?؛]+[.!؟?؛]*/g) || [text];
+
+    /* دمج الجمل القصيرة في أجزاء لا تتجاوز تقريبًا 180 حرفًا */
+    const chunks = [];
+    let part = "";
+
+    readingChunks.forEach(function (sentence) {
+        sentence = sentence.trim();
+
+        if (!sentence) return;
+
+        if (part && (part.length + sentence.length + 1 > 180)) {
+            chunks.push(part);
+            part = "";
+        }
+
+        part += (part ? " " : "") + sentence;
+    });
+
+    if (part) {
+        chunks.push(part);
+    }
+
+    readingChunks = chunks.length ? chunks : [text];
     currentChunk = 0;
     isReading = true;
+    isPaused = false;
 
     speakNextChunk();
 }
 
 function speakNextChunk() {
-    if (!isReading || currentChunk >= readingChunks.length) {
+    if (!isReading || isPaused) {
+        return;
+    }
+
+    if (currentChunk >= readingChunks.length) {
         isReading = false;
+        currentUtterance = null;
         return;
     }
 
@@ -506,16 +530,37 @@ function speakNextChunk() {
         readingChunks[currentChunk]
     );
 
+    currentUtterance = utterance;
     utterance.lang = "ar";
     utterance.rate = 0.9;
 
     utterance.onend = function () {
+        if (currentUtterance !== utterance) {
+            return;
+        }
+
         currentChunk++;
-        speakNextChunk();
+        currentUtterance = null;
+
+        if (isReading && !isPaused) {
+            speakNextChunk();
+        }
     };
 
-    utterance.onerror = function () {
+    utterance.onerror = function (event) {
+        if (currentUtterance !== utterance) {
+            return;
+        }
+
+        currentUtterance = null;
+
+        if (event.error === "canceled" || event.error === "interrupted") {
+            return;
+        }
+
         isReading = false;
+        isPaused = false;
+
         alert("تعذرت متابعة القراءة. تأكدي من توفر صوت عربي في إعدادات الجهاز.");
     };
 
@@ -523,23 +568,38 @@ function speakNextChunk() {
 }
 
 function pauseReading() {
-    if ("speechSynthesis" in window &&
-        speechSynthesis.speaking &&
-        !speechSynthesis.paused) {
+    if (!("speechSynthesis" in window) || !isReading || isPaused) {
+        return;
+    }
+
+    isPaused = true;
+
+    if (speechSynthesis.speaking) {
         speechSynthesis.pause();
     }
 }
 
 function resumeReading() {
-    if ("speechSynthesis" in window && speechSynthesis.paused) {
+    if (!("speechSynthesis" in window) || !isReading || !isPaused) {
+        return;
+    }
+
+    isPaused = false;
+
+    if (speechSynthesis.paused) {
         speechSynthesis.resume();
+    } else if (!speechSynthesis.speaking) {
+        /* إذا لم يستأنف المتصفح الصوت، نتابع من الجزء الحالي */
+        speakNextChunk();
     }
 }
 
 function stopReading() {
     isReading = false;
+    isPaused = false;
     currentChunk = 0;
     readingChunks = [];
+    currentUtterance = null;
 
     if ("speechSynthesis" in window) {
         speechSynthesis.cancel();
