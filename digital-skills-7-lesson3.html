@@ -440,6 +440,9 @@ let isReading = false;
 let isPaused = false;
 let currentUtterance = null;
 let readingSession = 0;
+let pausedCharIndex = 0;
+let pauseRequested = false;
+let pauseTimer = null;
 
 function readLesson() {
     if (!("speechSynthesis" in window) ||
@@ -486,14 +489,15 @@ function readLesson() {
 
     readingChunks = chunks.length ? chunks : [text];
     currentChunk = 0;
+    pausedCharIndex = 0;
     isReading = true;
     isPaused = false;
-    readingSession++;
 
-    speakNextChunk(readingSession);
+    readingSession++;
+    speakCurrentChunk(readingSession, 0);
 }
 
-function speakNextChunk(session) {
+function speakCurrentChunk(session, startIndex) {
     if (session !== readingSession || !isReading || isPaused) return;
 
     if (currentChunk >= readingChunks.length) {
@@ -503,13 +507,33 @@ function speakNextChunk(session) {
         return;
     }
 
-    const utterance = new SpeechSynthesisUtterance(
-        readingChunks[currentChunk]
-    );
+    const fullChunk = readingChunks[currentChunk];
+    const safeIndex = Math.max(0, Math.min(startIndex, fullChunk.length));
+    const remainingText = fullChunk.slice(safeIndex);
 
+    if (!remainingText.trim()) {
+        currentChunk++;
+        pausedCharIndex = 0;
+        speakCurrentChunk(session, 0);
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(remainingText);
     currentUtterance = utterance;
+
     utterance.lang = "ar";
     utterance.rate = 0.9;
+
+    utterance.onboundary = function (event) {
+        if (session !== readingSession ||
+            currentUtterance !== utterance) {
+            return;
+        }
+
+        if (typeof event.charIndex === "number") {
+            pausedCharIndex = safeIndex + event.charIndex;
+        }
+    };
 
     utterance.onend = function () {
         if (session !== readingSession ||
@@ -518,10 +542,14 @@ function speakNextChunk(session) {
         }
 
         currentUtterance = null;
-        currentChunk++;
 
-        if (isReading && !isPaused) {
-            speakNextChunk(session);
+        if (isPaused) return;
+
+        currentChunk++;
+        pausedCharIndex = 0;
+
+        if (isReading) {
+            speakCurrentChunk(session, 0);
         }
     };
 
@@ -549,19 +577,37 @@ function speakNextChunk(session) {
 
 function pauseReading() {
     if (!("speechSynthesis" in window) ||
-        !isReading || isPaused) {
+        !isReading || isPaused || !currentUtterance) {
         return;
     }
 
     isPaused = true;
 
+    const utterance = currentUtterance;
+    const session = readingSession;
+
     /*
-      نلغي المقطع الحالي ونحتفظ برقم المقطع.
-      عند المتابعة سيُعاد هذا المقطع من بدايته،
-      بدل الاعتماد على استئناف الصوت المتوقف في المتصفح.
+      نطلب من المتصفح إيقاف الصوت مؤقتًا أولًا.
+      بعد ذلك نحفظ موضع القراءة الذي وصل إليه.
     */
-    currentUtterance = null;
-    speechSynthesis.cancel();
+    speechSynthesis.pause();
+
+    clearTimeout(pauseTimer);
+
+    pauseTimer = setTimeout(function () {
+        if (session !== readingSession ||
+            currentUtterance !== utterance ||
+            !isPaused) {
+            return;
+        }
+
+        /*
+          نلغي الصوت الحالي بعد حفظ موضعه،
+          ثم نعيد تشغيل النص من الحرف المحفوظ عند المتابعة.
+        */
+        currentUtterance = null;
+        speechSynthesis.cancel();
+    }, 250);
 }
 
 function resumeReading() {
@@ -570,24 +616,41 @@ function resumeReading() {
         return;
     }
 
+    clearTimeout(pauseTimer);
+    pauseTimer = null;
+
     isPaused = false;
 
+    const session = ++readingSession;
+    const startIndex = pausedCharIndex;
+
+    currentUtterance = null;
+
+    speechSynthesis.cancel();
+
     /*
-      نبدأ المقطع المحفوظ مباشرة.
-      زيادة رقم الجلسة تمنع أحداث الصوت القديمة
-      من تشغيل مقاطع إضافية أو التأثير في القراءة الجديدة.
+      نبدأ من موضع الحرف المحفوظ داخل المقطع الحالي.
     */
-    readingSession++;
-    speakNextChunk(readingSession);
+    setTimeout(function () {
+        if (session !== readingSession || !isReading || isPaused) {
+            return;
+        }
+
+        speakCurrentChunk(session, startIndex);
+    }, 100);
 }
 
 function stopReading() {
     isReading = false;
     isPaused = false;
     currentChunk = 0;
-    readingChunks = [];
+    pausedCharIndex = 0;
     currentUtterance = null;
+    readingChunks = [];
     readingSession++;
+
+    clearTimeout(pauseTimer);
+    pauseTimer = null;
 
     if ("speechSynthesis" in window) {
         speechSynthesis.cancel();
