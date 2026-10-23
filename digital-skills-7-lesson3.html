@@ -173,12 +173,49 @@
                 font-size: 18px;
             }
         }
+.reading-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0 20px;
+}
+
+.reading-controls button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.reading-controls button:hover {
+    background: #1d4ed8;
+}
+
+.reading-controls button:focus {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
     </style>
 </head>
 
 <body>
 
 <div class="container">
+
+
+<div class="reading-controls">
+    <button type="button" onclick="readLesson()">🔊 قراءة الدرس</button>
+    <button type="button" onclick="pauseReading()">⏸️ إيقاف مؤقت</button>
+    <button type="button" onclick="resumeReading()">▶️ متابعة القراءة</button>
+    <button type="button" onclick="stopReading()">⏹️ إيقاف القراءة</button>
+</div>
+
+
+
 
     <header class="page-header">
         <h1>الدرس الثالث: مكونات الحاسوب البرمجية</h1>
@@ -417,5 +454,94 @@
 
 </div>
 
+
+
+<script>
+let readingChunks = [];
+let currentChunk = 0;
+let isReading = false;
+
+function readLesson() {
+    stopReading();
+
+    const container = document.querySelector(
+        "main .lesson-content, main, .lesson-content, .container"
+    );
+
+    if (!container) {
+        alert("لم يتم العثور على محتوى الدرس.");
+        return;
+    }
+
+    const clone = container.cloneNode(true);
+
+    clone.querySelectorAll(
+        ".reading-controls, button, nav, footer, .back-btn, script, style"
+    ).forEach(el => el.remove());
+
+    const text = clone.innerText
+        .replace(/\s+/g, " ")
+        .trim();
+
+    if (!text) {
+        alert("لا يوجد نص لقراءته.");
+        return;
+    }
+
+    readingChunks = text.match(/.{1,180}(?:\s|$)/g) || [text];
+    currentChunk = 0;
+    isReading = true;
+
+    speakNextChunk();
+}
+
+function speakNextChunk() {
+    if (!isReading || currentChunk >= readingChunks.length) {
+        isReading = false;
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        readingChunks[currentChunk]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+
+    utterance.onend = function() {
+        currentChunk++;
+        speakNextChunk();
+    };
+
+    utterance.onerror = function() {
+        isReading = false;
+        alert("تعذرت متابعة القراءة. تحققي من دعم الأصوات العربية في المتصفح.");
+    };
+
+    speechSynthesis.speak(utterance);
+}
+
+function pauseReading() {
+    if (speechSynthesis.speaking && !speechSynthesis.paused) {
+        speechSynthesis.pause();
+    }
+}
+
+function resumeReading() {
+    if (speechSynthesis.paused) {
+        speechSynthesis.resume();
+    }
+}
+
+function stopReading() {
+    isReading = false;
+    currentChunk = 0;
+    readingChunks = [];
+
+    if ("speechSynthesis" in window) {
+        speechSynthesis.cancel();
+    }
+}
+</script>
 </body>
 </html>
