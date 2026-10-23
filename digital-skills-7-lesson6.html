@@ -105,7 +105,6 @@
             border: 0;
         }
 
-        /* أزرار القراءة الصوتية */
         .reading-controls {
             background: white;
             padding: 16px;
@@ -211,7 +210,6 @@
         <p>المهارات الرقمية - الصف السابع</p>
     </header>
 
-    <!-- أزرار القراءة الصوتية -->
     <div class="reading-controls">
         <h2>🔊 القراءة الصوتية للدرس</h2>
 
@@ -238,7 +236,6 @@
         </p>
     </div>
 
-    <!-- محتوى الدرس الذي ستتم قراءته -->
     <div id="lessonContent">
 
         <div class="section">
@@ -464,6 +461,13 @@
 
 <script>
 (function () {
+    if (!("speechSynthesis" in window) ||
+        !("SpeechSynthesisUtterance" in window)) {
+        document.getElementById("readingStatus").textContent =
+            "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في Chrome.";
+        return;
+    }
+
     const synth = window.speechSynthesis;
 
     const readBtn = document.getElementById("readBtn");
@@ -478,6 +482,14 @@
     let isReading = false;
     let isPaused = false;
     let runId = 0;
+    let fallbackTimer = null;
+
+    function clearFallbackTimer() {
+        if (fallbackTimer !== null) {
+            clearTimeout(fallbackTimer);
+            fallbackTimer = null;
+        }
+    }
 
     function updateButtons() {
         readBtn.disabled = isReading && !isPaused;
@@ -528,10 +540,7 @@
     }
 
     function readLesson() {
-        if (!("speechSynthesis" in window)) {
-            status.textContent = "عذرًا، المتصفح لا يدعم القراءة الصوتية.";
-            return;
-        }
+        clearFallbackTimer();
 
         runId++;
         synth.cancel();
@@ -544,10 +553,16 @@
 
         status.textContent = "جارٍ قراءة الدرس...";
         updateButtons();
-        speakCurrentChunk(runId);
+
+        const thisRun = runId;
+        window.setTimeout(function () {
+            speakCurrentChunk(thisRun);
+        }, 150);
     }
 
     function speakCurrentChunk(activeRunId) {
+        clearFallbackTimer();
+
         if (activeRunId !== runId || !isReading || isPaused) return;
 
         if (currentChunkIndex >= chunks.length) {
@@ -564,57 +579,134 @@
         utterance.rate = 0.9;
         utterance.pitch = 1;
 
+        utterance.onstart = function () {
+            if (activeRunId !== runId || isPaused || !isReading) return;
+            status.textContent =
+                "جارٍ قراءة الجزء " + (currentChunkIndex + 1) +
+                " من " + chunks.length + "...";
+        };
+
         utterance.onend = function () {
             if (activeRunId !== runId || isPaused || !isReading) return;
 
+            clearFallbackTimer();
+            currentUtterance = null;
             currentChunkIndex++;
-            speakCurrentChunk(activeRunId);
+
+            window.setTimeout(function () {
+                speakCurrentChunk(activeRunId);
+            }, 100);
         };
 
         utterance.onerror = function (event) {
-            if (activeRunId !== runId) return;
+            if (activeRunId !== runId || isPaused || !isReading) return;
 
-            if (event.error !== "canceled" && event.error !== "interrupted") {
-                status.textContent = "حدثت مشكلة أثناء القراءة. حاول البدء من جديد.";
-                stopReading();
+            clearFallbackTimer();
+
+            if (event.error === "canceled" ||
+                event.error === "interrupted") {
+                return;
             }
+
+            status.textContent =
+                "تعذرت قراءة هذا الجزء. اضغط «متابعة القراءة» للمحاولة مجددًا.";
+            isPaused = true;
+            currentUtterance = null;
+            updateButtons();
         };
 
         synth.speak(utterance);
+
+        /*
+         * بعض متصفحات الهاتف قد تقبل أمر القراءة دون بدء الصوت.
+         * إذا لم يبدأ الجزء خلال مدة قصيرة، نحاول إعادة تشغيله مرة واحدة.
+         */
+        fallbackTimer = window.setTimeout(function () {
+            if (activeRunId !== runId || isPaused || !isReading) return;
+
+            if (!synth.speaking && !synth.pending) {
+                synth.cancel();
+                currentUtterance = null;
+
+                const retryUtterance = new SpeechSynthesisUtterance(
+                    chunks[currentChunkIndex]
+                );
+
+                currentUtterance = retryUtterance;
+                retryUtterance.lang = "ar-SA";
+                retryUtterance.rate = 0.9;
+                retryUtterance.pitch = 1;
+
+                retryUtterance.onend = function () {
+                    if (activeRunId !== runId || isPaused || !isReading) return;
+
+                    clearFallbackTimer();
+                    currentUtterance = null;
+                    currentChunkIndex++;
+
+                    window.setTimeout(function () {
+                        speakCurrentChunk(activeRunId);
+                    }, 100);
+                };
+
+                retryUtterance.onerror = function () {
+                    if (activeRunId !== runId || isPaused || !isReading) return;
+
+                    clearFallbackTimer();
+                    currentUtterance = null;
+                    isPaused = true;
+                    status.textContent =
+                        "لم يبدأ الصوت. تحقق من إعدادات الصوت في الهاتف، ثم اضغط «متابعة القراءة».";
+                    updateButtons();
+                };
+
+                synth.speak(retryUtterance);
+            }
+        }, 1200);
     }
 
     function pauseReading() {
         if (!isReading || isPaused) return;
 
         isPaused = true;
+        clearFallbackTimer();
 
-        if (synth.speaking) {
-            synth.pause();
-        }
+        /*
+         * نلغي النطق الحالي لتجنب تعليق محرك الصوت على الهاتف،
+         * مع الاحتفاظ برقم الجزء الحالي كي تتم متابعته لاحقًا.
+         */
+        synth.cancel();
+        currentUtterance = null;
 
         status.textContent =
-            "تم إيقاف القراءة مؤقتًا. اضغط «متابعة القراءة» للاستكمال.";
-
+            "تم الإيقاف المؤقت عند الجزء الحالي. اضغط «متابعة القراءة» للاستكمال.";
         updateButtons();
     }
 
     function resumeReading() {
         if (!isReading || !isPaused) return;
 
+        clearFallbackTimer();
+
+        /*
+         * لا نعتمد على synth.resume()؛ لأن بعض متصفحات الهاتف
+         * لا تعيد الصوت بعد الإيقاف. نبدأ الجزء المحفوظ من جديد.
+         */
+        synth.cancel();
         isPaused = false;
 
-        if (synth.paused) {
-            synth.resume();
-            status.textContent = "تمت متابعة القراءة...";
-        } else {
-            status.textContent = "جارٍ متابعة القراءة...";
-            speakCurrentChunk(runId);
-        }
-
+        status.textContent = "جارٍ متابعة القراءة...";
         updateButtons();
+
+        const thisRun = runId;
+        window.setTimeout(function () {
+            speakCurrentChunk(thisRun);
+        }, 200);
     }
 
     function stopReading() {
+        clearFallbackTimer();
+
         runId++;
         synth.cancel();
 
@@ -628,6 +720,8 @@
     }
 
     function finishReading() {
+        clearFallbackTimer();
+
         isReading = false;
         isPaused = false;
         currentUtterance = null;
