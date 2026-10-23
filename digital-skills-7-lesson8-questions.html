@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>أقيم تعلمي | الدرس الثالث - زد علمك</title>
+
+    <meta name="description" content="أسئلة أقيم تعلمي للدرس الثالث من المهارات الرقمية للصف السابع: نماذج الربط في الشبكات السلكية.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+            line-height: 1.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 24px 18px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 26px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 17px;
+        }
+
+        .question-section {
+            background: white;
+            padding: 22px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+        }
+
+        .question-section h2 {
+            color: #1d4ed8;
+            font-size: 22px;
+            margin-top: 0;
+        }
+
+        .question-section h3 {
+            color: #1e40af;
+            font-size: 19px;
+            margin-top: 20px;
+        }
+
+        .english {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: embed;
+        }
+
+        .answer {
+            background: #eff6ff;
+            border-right: 4px solid #2563eb;
+            padding: 14px;
+            margin-top: 12px;
+            border-radius: 8px;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 520px;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 13px;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        th {
+            background: #dbeafe;
+            color: #1e3a8a;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            margin: 20px 0;
+            border-radius: 12px;
+            font-size: 17px;
+        }
+
+        .back-btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .question-section {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>📝 أقيم تعلمي</h1>
+        <p>الدرس الثالث: نماذج الربط في الشبكات السلكية</p>
+        <p>المهارات الرقمية - الصف السابع</p>
+    </header>
+
+    <section class="question-section">
+
+        <h2>المعرفة</h2>
+
+        <p>
+            أوظف ما تعلَّمْتُهُ من معارف فى هذا الدرس في الإجابة عن السؤالين الآتيين.
+        </p>
+
+        <h3>السؤال الأول: أعرّف المقصود بنماذج الربط في الشبكات (Network Topology).</h3>
+
+        <div class="answer">
+            طريقةً تنظيمية لترتيب عملية الربط بين أجهزة الحاسوب في الشبكة.
+        </div>
+
+    </section>
+
+    <section class="question-section">
+
+        <h3>السؤال الثاني: املأ الفراغ بما هو مناسب في الجدول الآتي:</h3>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>المكوّن</th>
+                        <th>طريقة نقل البيانات في النموذج</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            النموذج الخطّي
+                            <span class="english">(Bus Topology)</span>
+                        </td>
+                        <td>
+                            عند إرسال بيانات من أحد أجهزة الحاسوب إلى جهاز آخر، فإن البيانات تسري على طول خط الاتصال الرئيس، ويتحقَّقُ كلُّ جهاز حاسوب إذا كانت هذه البيانات مُوجّهةً إلَيْهِ أم لا. فإذا كانَتْ كذلك صدر أمر بالموافقة على تسلم البياناتِ، وَإِلَّا فَإِنَّها تُمرِّرُ إلى جهاز الحاسوب التالي في الشبكة.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            النموذج الحلقي
+                            <span class="english">(Ring Topology)</span>
+                        </td>
+                        <td>
+                            فيه تنتقل البيانات من الجهاز المُرسل إلى الجهاز المستقبل مرورًا بجميع الأجهزة الموجودة بينهما في اتجاه واحد فقط ثم يعيد كل جهاز إرسال البيانات حتى تصل إلى الجهاز المستقبل.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            النموذج النجمي
+                            <span class="english">(Star Topology)</span>
+                        </td>
+                        <td>
+                            وفيه تمرُّ جميع البياناتِ المُرسَلة من جهاز إلى آخر عبر الجهاز المركزي، ثم يعيد هذا الأخير إرسال البيانات إلى الجهاز المستقبل.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            النموذج الشبكي
+                            <span class="english">(Mesh Topology)</span>
+                        </td>
+                        <td>
+                            نموذج يتصل فيه كل جهاز في الشبكة بجميع الأجهزة الأخرى بواسطة كبل مستقل؛ ما يُشكل العديد من المسارات التي تتيحُ انتقال البيانات من جهاز إلى آخر.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <a class="back-btn" href="digital-skills-7-lesson8.html">
+        ↩️ العودة إلى الدرس الثالث
+    </a>
+
+    <a class="back-btn" href="digital-skills-7-term1.html">
+        📚 العودة إلى فهرس الدروس
+    </a>
+
+    <footer>
+        © 2026 زد علمك - جميع الحقوق محفوظة
+    </footer>
+
+</div>
+
+</body>
+</html>
