@@ -149,6 +149,56 @@
             background: #1d4ed8;
         }
 
+        .lesson-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 15px auto;
+            border-radius: 10px;
+        }
+
+        .reading-controls {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .reading-controls h2 {
+            color: #1e3a8a;
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .reading-controls button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 11px 13px;
+            margin: 5px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+
+        .reading-controls button:hover {
+            background: #1d4ed8;
+        }
+
+        .reading-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #readingStatus {
+            font-size: 14px;
+            margin: 10px 0 0;
+            color: #334155;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -173,20 +223,18 @@
             .section h3 {
                 font-size: 17px;
             }
+
+            .reading-controls button {
+                width: calc(50% - 14px);
+                padding: 11px 5px;
+            }
         }
-.lesson-image {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 15px auto;
-    border-radius: 10px;
-}
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="container" id="lessonContent">
 
     <header>
         <h1>💻 الدرس الخامس: تفاعل الإنسان مع أجهزة الحاسوب</h1>
@@ -195,6 +243,32 @@
         </p>
         <p>المهارات الرقمية - الصف السابع</p>
     </header>
+
+    <!-- أزرار القراءة الصوتية -->
+
+    <section class="reading-controls" aria-label="التحكم في القراءة الصوتية">
+        <h2>🔊 القراءة الصوتية للدرس</h2>
+
+        <button type="button" id="readButton" onclick="readLesson()">
+            🔊 قراءة الدرس
+        </button>
+
+        <button type="button" id="pauseButton" onclick="pauseReading()" disabled>
+            ⏸️ إيقاف مؤقت
+        </button>
+
+        <button type="button" id="resumeButton" onclick="resumeReading()" disabled>
+            ▶️ متابعة القراءة
+        </button>
+
+        <button type="button" id="stopButton" onclick="stopReading()" disabled>
+            ⏹️ إيقاف القراءة
+        </button>
+
+        <p id="readingStatus" aria-live="polite">
+            اضغط على «قراءة الدرس» للاستماع إلى محتوى الدرس.
+        </p>
+    </section>
 
     <!-- فهرس الدرس -->
 
@@ -231,9 +305,9 @@
                 هو كيفية تفاعل المستخدمين مع أجهزة الحاسوب، وكيف يمكن
                 تصميم أنظمة حوسبة أكثر فاعلية وسهولة في الاستخدام.
             </p>
-<img src="images/IMG_٢٠٢٦١٠١٣_٢٢٤١٠٠.jpg"
-     alt="إجابة أسئلة الدرس الخامس"
-     class="lesson-image">
+            <img src="images/IMG_٢٠٢٦١٠١٣_٢٢٤١٠٠.jpg"
+                 alt="إجابة أسئلة الدرس الخامس"
+                 class="lesson-image">
         </div>
 
         <h3>الهدف الرئيس من هذا التفاعل</h3>
@@ -295,9 +369,9 @@
             تُستخدم الشاشة في عرض المعلومات، وتقديم واجهة مرئية للمستخدم.
         </p>
 
-<img src="images/IMG_٢٠٢٦١٠١٣_٢٢٤٤٤٦.jpg"
-     alt="صورة الدرس الخامس"
-     class="lesson-image">
+        <img src="images/IMG_٢٠٢٦١٠١٣_٢٢٤٤٤٦.jpg"
+             alt="صورة الدرس الخامس"
+             class="lesson-image">
 
     </section>
 
@@ -619,19 +693,14 @@
             وضّح المقصود بأنظمة الواقع الافتراضي، وأعط أمثلة عليها.
         </div>
 
-
-
-<div class="video-container" style="margin: 20px auto; max-width: 700px;">
-    <iframe
-        src="https://www.youtube.com/embed/OmDIRUgwCps"
-        title="فيديو تعليمي - زد علمك"
-        style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px;"
-        allowfullscreen>
-    </iframe>
-</div>
-
-
-
+        <div class="video-container" style="margin: 20px auto; max-width: 700px;">
+            <iframe
+                src="https://www.youtube.com/embed/OmDIRUgwCps"
+                title="فيديو تعليمي - زد علمك"
+                style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px;"
+                allowfullscreen>
+            </iframe>
+        </div>
 
     </section>
 
@@ -650,6 +719,288 @@
     </a>
 
 </div>
+
+<script>
+    const synth = window.speechSynthesis;
+
+    let readingChunks = [];
+    let currentChunk = 0;
+    let currentUtterance = null;
+    let isReading = false;
+    let isPaused = false;
+    let pausedCharIndex = 0;
+    let readingSession = 0;
+    let chunkStartIndex = 0;
+
+    const readButton = document.getElementById("readButton");
+    const pauseButton = document.getElementById("pauseButton");
+    const resumeButton = document.getElementById("resumeButton");
+    const stopButton = document.getElementById("stopButton");
+    const readingStatus = document.getElementById("readingStatus");
+
+    function updateReadingButtons() {
+        readButton.disabled = isReading;
+        pauseButton.disabled = !isReading || isPaused;
+        resumeButton.disabled = !isReading || !isPaused;
+        stopButton.disabled = !isReading;
+    }
+
+    function getLessonText() {
+        const copy = document.getElementById("lessonContent").cloneNode(true);
+
+        copy.querySelectorAll(
+            ".reading-controls, .toc, .back-btn, .video-container, iframe, script, style, img"
+        ).forEach(function (element) {
+            element.remove();
+        });
+
+        return copy.innerText
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    function splitTextIntoChunks(text) {
+        const sentences = text.match(/[^.!؟?]+[.!؟?]*/g) || [text];
+        const chunks = [];
+        let currentText = "";
+
+        sentences.forEach(function (sentence) {
+            const cleanSentence = sentence.trim();
+
+            if (!cleanSentence) {
+                return;
+            }
+
+            if (
+                currentText &&
+                (currentText + " " + cleanSentence).length > 220
+            ) {
+                chunks.push(currentText.trim());
+                currentText = cleanSentence;
+            } else {
+                currentText = (currentText + " " + cleanSentence).trim();
+            }
+        });
+
+        if (currentText) {
+            chunks.push(currentText.trim());
+        }
+
+        return chunks;
+    }
+
+    function readLesson() {
+        if (!("speechSynthesis" in window)) {
+            readingStatus.textContent =
+                "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في متصفح آخر.";
+            return;
+        }
+
+        stopReading();
+
+        const text = getLessonText();
+
+        if (!text) {
+            readingStatus.textContent = "لم يتم العثور على نص لقراءته.";
+            return;
+        }
+
+        readingChunks = splitTextIntoChunks(text);
+        currentChunk = 0;
+        pausedCharIndex = 0;
+        chunkStartIndex = 0;
+        isReading = true;
+        isPaused = false;
+        readingSession++;
+
+        updateReadingButtons();
+        speakCurrentChunk(readingSession, 0);
+    }
+
+    function speakCurrentChunk(session, startIndex) {
+        if (session !== readingSession || !isReading || isPaused) {
+            return;
+        }
+
+        if (currentChunk >= readingChunks.length) {
+            finishReading();
+            return;
+        }
+
+        const fullText = readingChunks[currentChunk];
+        const textToSpeak = fullText.slice(startIndex);
+
+        if (!textToSpeak) {
+            currentChunk++;
+            pausedCharIndex = 0;
+            chunkStartIndex = 0;
+            speakCurrentChunk(session, 0);
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        currentUtterance = utterance;
+        chunkStartIndex = startIndex;
+
+        utterance.lang = "ar-SA";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        utterance.onboundary = function (event) {
+            if (
+                session === readingSession &&
+                currentUtterance === utterance &&
+                !isPaused &&
+                typeof event.charIndex === "number"
+            ) {
+                pausedCharIndex = chunkStartIndex + event.charIndex;
+            }
+        };
+
+        utterance.onend = function () {
+            if (session !== readingSession || currentUtterance !== utterance) {
+                return;
+            }
+
+            currentUtterance = null;
+
+            if (isPaused) {
+                return;
+            }
+
+            currentChunk++;
+            pausedCharIndex = 0;
+            chunkStartIndex = 0;
+
+            if (currentChunk < readingChunks.length) {
+                speakCurrentChunk(session, 0);
+            } else {
+                finishReading();
+            }
+        };
+
+        utterance.onerror = function (event) {
+            if (session !== readingSession || currentUtterance !== utterance) {
+                return;
+            }
+
+            if (event.error === "canceled" || event.error === "interrupted") {
+                return;
+            }
+
+            currentUtterance = null;
+            isReading = false;
+            isPaused = false;
+
+            readingStatus.textContent =
+                "حدثت مشكلة أثناء القراءة. اضغط على «قراءة الدرس» للمحاولة مجددًا.";
+
+            updateReadingButtons();
+        };
+
+        readingStatus.textContent =
+            "جارٍ قراءة الدرس... الجزء " +
+            (currentChunk + 1) +
+            " من " +
+            readingChunks.length;
+
+        synth.speak(utterance);
+    }
+
+    function pauseReading() {
+        if (!isReading || isPaused) {
+            return;
+        }
+
+        isPaused = true;
+
+        synth.pause();
+
+        const session = readingSession;
+
+        window.setTimeout(function () {
+            if (session !== readingSession || !isPaused) {
+                return;
+            }
+
+            synth.cancel();
+            currentUtterance = null;
+
+            readingStatus.textContent =
+                "تم إيقاف القراءة مؤقتًا. اضغط «متابعة القراءة» للاستكمال.";
+
+            updateReadingButtons();
+        }, 250);
+
+        updateReadingButtons();
+    }
+
+    function resumeReading() {
+        if (!isReading || !isPaused) {
+            return;
+        }
+
+        isPaused = false;
+
+        const session = readingSession;
+        const startIndex = pausedCharIndex;
+
+        synth.cancel();
+        currentUtterance = null;
+
+        readingStatus.textContent = "جارٍ متابعة القراءة...";
+        updateReadingButtons();
+
+        window.setTimeout(function () {
+            if (session !== readingSession || !isReading || isPaused) {
+                return;
+            }
+
+            speakCurrentChunk(session, startIndex);
+        }, 150);
+    }
+
+    function stopReading() {
+        readingSession++;
+
+        if ("speechSynthesis" in window) {
+            synth.cancel();
+        }
+
+        readingChunks = [];
+        currentChunk = 0;
+        currentUtterance = null;
+        pausedCharIndex = 0;
+        chunkStartIndex = 0;
+        isReading = false;
+        isPaused = false;
+
+        readingStatus.textContent =
+            "تم إيقاف القراءة. اضغط على «قراءة الدرس» للبدء من جديد.";
+
+        updateReadingButtons();
+    }
+
+    function finishReading() {
+        isReading = false;
+        isPaused = false;
+        currentUtterance = null;
+        pausedCharIndex = 0;
+        chunkStartIndex = 0;
+
+        readingStatus.textContent = "✅ انتهت قراءة الدرس.";
+
+        updateReadingButtons();
+    }
+
+    window.addEventListener("beforeunload", function () {
+        if ("speechSynthesis" in window) {
+            synth.cancel();
+        }
+    });
+
+    updateReadingButtons();
+</script>
 
 </body>
 </html>
