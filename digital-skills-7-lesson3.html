@@ -464,14 +464,36 @@ let isReading = false;
 function readLesson() {
     stopReading();
 
-    const container = document.querySelector(
-        "main .lesson-content, main, .lesson-content, .container"
-    );
+    const container = document.querySelector(".container");
 
     if (!container) {
         alert("لم يتم العثور على محتوى الدرس.");
         return;
     }
+
+    const clone = container.cloneNode(true);
+
+    clone.querySelectorAll(
+        ".reading-controls, button, nav, footer, .back-link, .back-btn, .video-container, iframe, script, style"
+    ).forEach(el => el.remove());
+
+    const text = clone.innerText
+        .replace(/\s+/g, " ")
+        .trim();
+
+    if (!text) {
+        alert("لا يوجد نص لقراءته.");
+        return;
+    }
+
+    readingChunks = text.match(/.{1,180}(?:\s|$)/g) || [text];
+    currentChunk = 0;
+    isReading = true;
+
+    speakNextChunk();
+}
+
+
 
     const clone = container.cloneNode(true);
 
