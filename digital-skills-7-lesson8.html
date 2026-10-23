@@ -300,8 +300,6 @@
 
     <div id="lessonContent">
 
-        <!-- تعريف نموذج ربط الشبكة السلكية -->
-
         <section class="lesson-section">
 
             <h2>نموذج ربط الشبكة السلكية (Network Topology)</h2>
@@ -312,6 +310,7 @@
                 </span>
 
                 <span class="answer-title">الإجابة:</span>
+
                 <p class="answer-text">
                     طريقةً تنظيمية لترتيب عملية الربط بين أجهزة الحاسوب في الشبكة.
                 </p>
@@ -334,8 +333,6 @@
 
         </section>
 
-        <!-- النموذج الخطي -->
-
         <section class="lesson-section">
 
             <h2>أولًا: النموذج الخطي (Bus Topology)</h2>
@@ -357,7 +354,7 @@
                 تتصل فيه جميع أجهزة الشبكة بخط اتصال رئيس يُسمى
                 <span class="english">(BUS)</span>.
                 ولهذا الخط نقطة بداية ونقطة نهاية
-                <span class="english">(Terminator)</span)؛
+                <span class="english">(Terminator)</span>؛
                 فعند إرسال بيانات من أحد أجهزة الحاسوب إلى جهاز آخر، فإنَّ البيانات تسري على طول خط الاتصال الرئيس، ويتحقَّقُ كلُّ جهاز حاسوب إذا كانَتْ هذه البيانات مُوجَهَةً إِلَيْهِ أمْ لَا. فإذا كانَتْ كذلك، صدر أمر بالموافقة على تسلم البياناتِ، وَإِلَّا فَإِنَّها تُمرّرُ إلى جهاز الحاسوب التالي في الشبكة.
             </p>
 
@@ -380,8 +377,6 @@
             </ul>
 
         </section>
-
-        <!-- النموذج النجمي -->
 
         <section class="lesson-section">
 
@@ -426,8 +421,6 @@
 
         </section>
 
-        <!-- النموذج الحلقي -->
-
         <section class="lesson-section">
 
             <h2>ثالثًا: النموذج الحلقي (Ring Topology)</h2>
@@ -465,8 +458,6 @@
 
         </section>
 
-        <!-- النموذج التشابكي -->
-
         <section class="lesson-section">
 
             <h2>رابعًا: النموذج التشابكي (Mesh Topology)</h2>
@@ -501,6 +492,7 @@
                 </span>
 
                 <span class="answer-title">الإجابة:</span>
+
                 <p class="answer-text">
                     لاحتوائه على العديد من مسارات الاتصال، بحيث إذا تعطل اتصال في مسار محدد، أمكن استخدام مسار بديل للاستمرار في عمل الشبكة.
                 </p>
@@ -531,6 +523,13 @@
 
 <script>
 (function () {
+    if (!("speechSynthesis" in window) ||
+        !("SpeechSynthesisUtterance" in window)) {
+        document.getElementById("readingStatus").textContent =
+            "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في Google Chrome.";
+        return;
+    }
+
     const synth = window.speechSynthesis;
 
     const startBtn = document.getElementById("startBtn");
@@ -544,11 +543,19 @@
     let isReading = false;
     let isPaused = false;
     let runId = 0;
-    let fallbackTimer = null;
-    let retryCount = 0;
+    let currentUtterance = null;
+    let nextTimer = null;
+    let startTimer = null;
 
     function setStatus(message) {
         statusBox.textContent = message;
+    }
+
+    function clearTimers() {
+        clearTimeout(nextTimer);
+        clearTimeout(startTimer);
+        nextTimer = null;
+        startTimer = null;
     }
 
     function updateButtons() {
@@ -558,56 +565,49 @@
         stopBtn.disabled = !isReading;
     }
 
-    function clearFallbackTimer() {
-        if (fallbackTimer !== null) {
-            clearTimeout(fallbackTimer);
-            fallbackTimer = null;
-        }
-    }
-
     function getLessonText() {
-        const content = document.getElementById("lessonContent");
-        const clone = content.cloneNode(true);
+        const clone = document.getElementById("lessonContent").cloneNode(true);
 
         clone.querySelectorAll(
-            "script, style, button, input, textarea, select, .no-read, img, video, audio"
+            "script, style, button, input, textarea, select, img, video, audio"
         ).forEach(function (element) {
             element.remove();
         });
 
-        return clone.innerText
-            .replace(/\s+/g, " ")
-            .trim();
+        return clone.innerText.replace(/\s+/g, " ").trim();
     }
 
-    function splitTextIntoChunks(text, maxLength) {
+    function splitText(text, maxLength) {
         const sentences = text.match(/[^.!؟]+[.!؟]?/g) || [text];
         const result = [];
-        let current = "";
+        let part = "";
 
         sentences.forEach(function (sentence) {
             sentence = sentence.trim();
             if (!sentence) return;
 
-            if ((current + " " + sentence).trim().length <= maxLength) {
-                current = (current + " " + sentence).trim();
+            while (sentence.length > maxLength) {
+                let splitAt = sentence.lastIndexOf(" ", maxLength);
+
+                if (splitAt < 1) splitAt = maxLength;
+
+                const piece = sentence.slice(0, splitAt).trim();
+                if (piece) result.push(piece);
+
+                sentence = sentence.slice(splitAt).trim();
+            }
+
+            if (!sentence) return;
+
+            if (part && (part + " " + sentence).length <= maxLength) {
+                part += " " + sentence;
             } else {
-                if (current) result.push(current);
-
-                while (sentence.length > maxLength) {
-                    let splitAt = sentence.lastIndexOf(" ", maxLength);
-
-                    if (splitAt < 1) splitAt = maxLength;
-
-                    result.push(sentence.slice(0, splitAt).trim());
-                    sentence = sentence.slice(splitAt).trim();
-                }
-
-                current = sentence;
+                if (part) result.push(part);
+                part = sentence;
             }
         });
 
-        if (current) result.push(current);
+        if (part) result.push(part);
 
         return result;
     }
@@ -615,7 +615,7 @@
     function speakCurrentChunk(id) {
         if (id !== runId || !isReading || isPaused) return;
 
-        clearFallbackTimer();
+        clearTimers();
 
         if (currentIndex >= chunks.length) {
             finishReading(id);
@@ -623,93 +623,78 @@
         }
 
         const utterance = new SpeechSynthesisUtterance(chunks[currentIndex]);
+        currentUtterance = utterance;
+
         utterance.lang = "ar-SA";
         utterance.rate = 0.9;
         utterance.pitch = 1;
 
-        let started = false;
-
         utterance.onstart = function () {
             if (id !== runId) return;
 
-            started = true;
-            retryCount = 0;
-            clearFallbackTimer();
-            setStatus("🔊 جارٍ قراءة الدرس... الجزء " + (currentIndex + 1) + " من " + chunks.length);
+            setStatus(
+                "🔊 جارٍ قراءة الدرس... الجزء " +
+                (currentIndex + 1) + " من " + chunks.length
+            );
         };
 
         utterance.onend = function () {
             if (id !== runId || !isReading || isPaused) return;
 
-            clearFallbackTimer();
+            currentUtterance = null;
             currentIndex++;
-            retryCount = 0;
 
             if (currentIndex < chunks.length) {
-                setTimeout(function () {
+                nextTimer = setTimeout(function () {
                     speakCurrentChunk(id);
-                }, 100);
+                }, 300);
             } else {
                 finishReading(id);
             }
         };
 
         utterance.onerror = function (event) {
-            if (id !== runId || isPaused) return;
+            if (id !== runId || isPaused || !isReading) return;
 
-            clearFallbackTimer();
-
-            if (event.error === "canceled" || event.error === "interrupted") {
+            if (event.error === "canceled" ||
+                event.error === "interrupted") {
                 return;
             }
 
-            setStatus("تعذر تشغيل الصوت. تحقق من إعدادات الصوت في الهاتف ثم اضغط قراءة الدرس.");
+            clearTimers();
+            isReading = false;
+            isPaused = false;
+            currentUtterance = null;
+            updateButtons();
+
+            setStatus(
+                "تعذر تشغيل الصوت. اضغط قراءة الدرس للمحاولة من جديد."
+            );
         };
 
         synth.speak(utterance);
-
-        fallbackTimer = setTimeout(function () {
-            if (id !== runId || !isReading || isPaused || started) return;
-
-            if (retryCount < 1) {
-                retryCount++;
-                synth.cancel();
-
-                setTimeout(function () {
-                    speakCurrentChunk(id);
-                }, 250);
-            } else {
-                isReading = false;
-                isPaused = false;
-                clearFallbackTimer();
-                updateButtons();
-                setStatus("لم يبدأ الصوت. تحقق من محرك تحويل النص إلى كلام في إعدادات الهاتف.");
-            }
-        }, 1800);
     }
 
     function finishReading(id) {
         if (id !== runId) return;
 
-        clearFallbackTimer();
+        clearTimers();
         isReading = false;
         isPaused = false;
+        currentUtterance = null;
+
         updateButtons();
-        setStatus("✅ انتهت قراءة الدرس.");
+        setStatus("✅ انتهت قراءة الدرس بالكامل.");
     }
 
     window.readLesson = function () {
-        if (!("speechSynthesis" in window) ||
-            !("SpeechSynthesisUtterance" in window)) {
-            setStatus("المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في Google Chrome.");
-            return;
-        }
-
         runId++;
         const id = runId;
 
-        clearFallbackTimer();
+        clearTimers();
         synth.cancel();
+
+        currentUtterance = null;
 
         const text = getLessonText();
 
@@ -718,76 +703,72 @@
             return;
         }
 
-        chunks = splitTextIntoChunks(text, 220);
+        chunks = splitText(text, 350);
         currentIndex = 0;
-        retryCount = 0;
         isReading = true;
         isPaused = false;
 
         updateButtons();
         setStatus("⏳ جارٍ تجهيز القراءة...");
 
-        setTimeout(function () {
+        startTimer = setTimeout(function () {
             speakCurrentChunk(id);
-        }, 250);
+        }, 300);
     };
 
     window.pauseReading = function () {
         if (!isReading || isPaused) return;
 
         isPaused = true;
-        clearFallbackTimer();
+        clearTimers();
 
         /*
-         * نلغي الجزء الحالي ونحتفظ برقمه،
-         * حتى تعيد المتابعة قراءة هذا الجزء من بدايته.
+         * نحافظ على رقم الجزء الحالي.
+         * المتابعة تعيد قراءة هذا الجزء من بدايته.
          */
         synth.cancel();
+        currentUtterance = null;
 
         updateButtons();
-        setStatus("⏸️ توقفت القراءة مؤقتًا. اضغط متابعة القراءة لاستكمال الدرس.");
+        setStatus("⏸️ توقفت القراءة مؤقتًا. اضغط متابعة القراءة للاستكمال.");
     };
 
     window.resumeReading = function () {
         if (!isReading || !isPaused) return;
 
-        /*
-         * لا نعتمد على synth.resume()؛ لأنه قد لا يعمل
-         * بصورة موثوقة في بعض متصفحات الهواتف.
-         */
-        clearFallbackTimer();
+        clearTimers();
         synth.cancel();
 
         isPaused = false;
-        retryCount = 0;
 
         updateButtons();
         setStatus("⏳ جارٍ استئناف القراءة...");
 
         const id = runId;
 
-        setTimeout(function () {
+        startTimer = setTimeout(function () {
             speakCurrentChunk(id);
-        }, 300);
+        }, 350);
     };
 
     window.stopReading = function () {
         runId++;
-        clearFallbackTimer();
+
+        clearTimers();
         synth.cancel();
 
-        isReading = false;
-        isPaused = false;
+        currentUtterance = null;
         chunks = [];
         currentIndex = 0;
-        retryCount = 0;
+        isReading = false;
+        isPaused = false;
 
         updateButtons();
         setStatus("⏹️ تم إيقاف القراءة.");
     };
 
-    window.addEventListener("beforeunload", function () {
-        clearFallbackTimer();
+    window.addEventListener("pagehide", function () {
+        clearTimers();
         synth.cancel();
     });
 
