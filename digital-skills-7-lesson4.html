@@ -163,12 +163,65 @@
             background: #0d47a1;
         }
 
+        .reading-controls {
+            background: #e3f2fd;
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .reading-controls p {
+            margin: 0 0 10px;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        .reading-controls button {
+            border: none;
+            border-radius: 8px;
+            padding: 11px 14px;
+            margin: 5px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            background: #1565c0;
+            color: white;
+        }
+
+        .reading-controls button:hover {
+            background: #0d47a1;
+        }
+
+        .reading-controls button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        #readingStatus {
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: 10px;
+            color: #37474f;
+        }
+
         footer {
             text-align: center;
             padding: 25px 15px;
             margin-top: 35px;
             background: #eeeeee;
             color: #555;
+        }
+
+        .lesson-image {
+            display: block;
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            margin: 20px auto;
+            border-radius: 10px;
         }
 
         @media (max-width: 600px) {
@@ -189,25 +242,17 @@
             h3 {
                 font-size: 18px;
             }
-        }
-.lesson-image {
-    display: block;
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
 
-@media (max-width: 600px) {
-    .lesson-image {
-        max-width: 100%;
-        max-height: 250px;
-    }
-}
+            .lesson-image {
+                max-width: 100%;
+                max-height: 250px;
+            }
+
+            .reading-controls button {
+                width: calc(50% - 14px);
+                padding: 11px 5px;
+            }
+        }
     </style>
 </head>
 
@@ -221,7 +266,7 @@
     </p>
 </header>
 
-<main>
+<main id="lessonContent">
 
     <section class="intro">
         <h2>📚 شرح الدرس</h2>
@@ -232,6 +277,31 @@
         </p>
     </section>
 
+    <!-- أزرار القراءة الصوتية -->
+
+    <section class="reading-controls" aria-label="التحكم في القراءة الصوتية">
+        <p>🔊 القراءة الصوتية للدرس</p>
+
+        <button type="button" id="readButton" onclick="readLesson()">
+            🔊 قراءة الدرس
+        </button>
+
+        <button type="button" id="pauseButton" onclick="pauseReading()" disabled>
+            ⏸️ إيقاف مؤقت
+        </button>
+
+        <button type="button" id="resumeButton" onclick="resumeReading()" disabled>
+            ▶️ متابعة القراءة
+        </button>
+
+        <button type="button" id="stopButton" onclick="stopReading()" disabled>
+            ⏹️ إيقاف القراءة
+        </button>
+
+        <div id="readingStatus" aria-live="polite">
+            اضغط على «قراءة الدرس» للاستماع إلى محتوى الدرس.
+        </div>
+    </section>
 
     <!-- فهرس محتويات الدرس -->
 
@@ -251,7 +321,6 @@
         <a href="#files">11. إدارة الملفات</a>
     </nav>
 
-
     <!-- مفهوم نظام التشغيل -->
 
     <section class="lesson-section" id="definition">
@@ -262,9 +331,11 @@
             وضّح المقصود بنظام التشغيل
             <span class="english">(Operating System)</span>.
         </h3>
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٢٧٥٨.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
+
+        <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٢٧٥٨.jpg"
+             alt="صورة توضيحية للدرس الرابع"
+             class="lesson-image">
+
         <div class="definition">
             نظام التشغيل هو برنامج أساسي يعمل وسيطًا بين المستخدم
             ومكونات جهاز الحاسوب المادية، ويتيح تشغيل التطبيقات
@@ -274,7 +345,6 @@
         </div>
 
     </section>
-
 
     <!-- أمثلة على أنظمة التشغيل -->
 
@@ -298,10 +368,9 @@
         </p>
 
         <h3>
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٣١٣٠.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
-
+            <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٣١٣٠.jpg"
+                 alt="صورة توضيحية للدرس الرابع"
+                 class="lesson-image">
 
             2. ماك أو إس
             <span class="english">(macOS)</span>
@@ -321,9 +390,10 @@
 
     </section>
 
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٣٥٠٠.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
+    <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٣٥٠٠.jpg"
+         alt="صورة توضيحية للدرس الرابع"
+         class="lesson-image">
+
     <!-- مفتوح المصدر ومغلق المصدر -->
 
     <section class="lesson-section" id="sources">
@@ -346,11 +416,12 @@
                 وأنظمة التشغيل مغلقة المصدر.
             </p>
         </div>
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٣٨٤٢.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
-    </section>
 
+        <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٣٨٤٢.jpg"
+             alt="صورة توضيحية للدرس الرابع"
+             class="lesson-image">
+
+    </section>
 
     <!-- وظائف نظام التشغيل -->
 
@@ -359,16 +430,15 @@
         <h2>رابعًا: وظائف نظام التشغيل</h2>
 
         <p>
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٤٣٢٦.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
+            <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٤٣٢٦.jpg"
+                 alt="صورة توضيحية للدرس الرابع"
+                 class="lesson-image">
 
             يتولى نظام التشغيل مجموعة من الوظائف التي تساعد
             على تشغيل جهاز الحاسوب وإدارة موارده وتنظيم عمله.
         </p>
 
     </section>
-
 
     <!-- واجهة المستخدم -->
 
@@ -407,12 +477,11 @@
             في جميع الأنظمة.
         </p>
 
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٥٤٤٠.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
+        <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٥٤٤٠.jpg"
+             alt="صورة توضيحية للدرس الرابع"
+             class="lesson-image">
 
     </section>
-
 
     <!-- إدارة الذاكرة -->
 
@@ -425,9 +494,10 @@
 
         <h3>ما الذي تتضمنه إدارة الذاكرة من عمليات؟</h3>
 
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٥٥٠١.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
+        <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٥٥٠١.jpg"
+             alt="صورة توضيحية للدرس الرابع"
+             class="lesson-image">
+
         <ul>
             <li>
                 إدارة ذاكرة الوصول العشوائي
@@ -469,7 +539,6 @@
 
     </section>
 
-
     <!-- الإدخال والإخراج -->
 
     <section class="lesson-section" id="io">
@@ -508,7 +577,6 @@
 
     </section>
 
-
     <!-- إدارة البرامج والمهام المتعددة -->
 
     <section class="lesson-section" id="programs">
@@ -531,11 +599,12 @@
             تُعرف هذه العملية بالمهام المتعددة
             <span class="english">(Multitasking)</span>.
         </div>
-<img src="images/IMG_٢٠٢٦١٠١٢_٢٣٥٥١٥.jpg"
-     alt="صورة توضيحية للدرس الرابع"
-     class="lesson-image">
-    </section>
 
+        <img src="images/IMG_٢٠٢٦١٠١٢_٢٣٥٥١٥.jpg"
+             alt="صورة توضيحية للدرس الرابع"
+             class="lesson-image">
+
+    </section>
 
     <!-- التحكم في صلاحيات المستخدمين -->
 
@@ -568,7 +637,6 @@
         </ul>
 
     </section>
-
 
     <!-- إدارة حسابات المستخدمين -->
 
@@ -653,7 +721,6 @@
 
     </section>
 
-
     <!-- إدارة الملفات -->
 
     <section class="lesson-section" id="files">
@@ -696,20 +763,16 @@
 
         </div>
 
-
-<div class="video-container" style="margin: 20px auto; max-width: 700px;">
-    <iframe
-        src="https://www.youtube.com/embed/6wrmgchVFVM"
-        title="فيديو تعليمي - زد علمك"
-        style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px;"
-        allowfullscreen>
-    </iframe>
-</div>
-
-
+        <div class="video-container" style="margin: 20px auto; max-width: 700px;">
+            <iframe
+                src="https://www.youtube.com/embed/6wrmgchVFVM"
+                title="فيديو تعليمي - زد علمك"
+                style="width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px;"
+                allowfullscreen>
+            </iframe>
+        </div>
 
     </section>
-
 
     <!-- روابط التنقل -->
 
@@ -743,6 +806,302 @@
 <footer>
     <p>© 2026 زد علمك | أدوات تعليمية مجانية</p>
 </footer>
+
+<script>
+    const synth = window.speechSynthesis;
+
+    let readingChunks = [];
+    let currentChunk = 0;
+    let currentUtterance = null;
+    let isReading = false;
+    let isPaused = false;
+    let pausedCharIndex = 0;
+    let readingSession = 0;
+
+    const readButton = document.getElementById("readButton");
+    const pauseButton = document.getElementById("pauseButton");
+    const resumeButton = document.getElementById("resumeButton");
+    const stopButton = document.getElementById("stopButton");
+    const readingStatus = document.getElementById("readingStatus");
+
+    function updateReadingButtons() {
+        readButton.disabled = isReading;
+        pauseButton.disabled = !isReading || isPaused;
+        resumeButton.disabled = !isReading || !isPaused;
+        stopButton.disabled = !isReading;
+    }
+
+    function getLessonText() {
+        const lessonCopy = document.getElementById("lessonContent").cloneNode(true);
+
+        lessonCopy.querySelectorAll(
+            ".reading-controls, .toc, .back-link, .video-container, iframe, script, style"
+        ).forEach(function (element) {
+            element.remove();
+        });
+
+        lessonCopy.querySelectorAll("img").forEach(function (image) {
+            image.remove();
+        });
+
+        return lessonCopy.innerText
+            .replace(/\(Operating Systems\)/g, " ")
+            .replace(/\(Microsoft Windows\)/g, "مايكروسوفت ويندوز")
+            .replace(/\(macOS\)/g, "ماك أو إس")
+            .replace(/\(Apple\)/g, "آبل")
+            .replace(/\(User Interface\)/g, "واجهة المستخدم")
+            .replace(/\(Memory Management\)/g, "إدارة الذاكرة")
+            .replace(/\(Input\/Output - I\/O Management\)/g, "إدارة الإدخال والإخراج")
+            .replace(/\(Programs Management\)/g, "إدارة البرامج")
+            .replace(/\(Multitasking\)/g, "المهام المتعددة")
+            .replace(/\(Users Access Management\)/g, "التحكم في صلاحيات المستخدمين")
+            .replace(/\(User Account Management\)/g, "إدارة حسابات المستخدمين")
+            .replace(/\(File Management\)/g, "إدارة الملفات")
+            .replace(/\(Standard User\)/g, "المستخدم العادي")
+            .replace(/\(Administrator\)/g, "المستخدم المسؤول")
+            .replace(/\(Access Levels\)/g, "مستويات الوصول")
+            .replace(/\(File Explorer\)/g, "مستكشف الملفات")
+            .replace(/\(Finder\)/g, "فايندر")
+            .replace(/\(Device Settings\)/g, "إعدادات الجهاز")
+            .replace(/\(RAM\)/g, "ذاكرة الوصول العشوائي")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    function splitTextIntoChunks(text) {
+        const sentences = text.match(/[^.!؟?]+[.!؟?]*/g) || [text];
+        const chunks = [];
+        let currentText = "";
+
+        sentences.forEach(function (sentence) {
+            const cleanSentence = sentence.trim();
+
+            if (!cleanSentence) {
+                return;
+            }
+
+            if ((currentText + " " + cleanSentence).trim().length > 220 && currentText) {
+                chunks.push(currentText.trim());
+                currentText = cleanSentence;
+            } else {
+                currentText = (currentText + " " + cleanSentence).trim();
+            }
+        });
+
+        if (currentText) {
+            chunks.push(currentText.trim());
+        }
+
+        return chunks;
+    }
+
+    function readLesson() {
+        if (!("speechSynthesis" in window)) {
+            readingStatus.textContent =
+                "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في متصفح آخر.";
+            return;
+        }
+
+        stopReading();
+
+        const text = getLessonText();
+
+        if (!text) {
+            readingStatus.textContent = "لم يتم العثور على نص لقراءته.";
+            return;
+        }
+
+        readingChunks = splitTextIntoChunks(text);
+        currentChunk = 0;
+        pausedCharIndex = 0;
+        isReading = true;
+        isPaused = false;
+        readingSession++;
+
+        updateReadingButtons();
+        speakCurrentChunk(readingSession, 0);
+    }
+
+    function speakCurrentChunk(session, startIndex) {
+        if (session !== readingSession || !isReading || isPaused) {
+            return;
+        }
+
+        if (currentChunk >= readingChunks.length) {
+            finishReading();
+            return;
+        }
+
+        const fullChunk = readingChunks[currentChunk];
+        const textToSpeak = fullChunk.slice(startIndex);
+
+        if (!textToSpeak) {
+            currentChunk++;
+            pausedCharIndex = 0;
+            speakCurrentChunk(session, 0);
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        currentUtterance = utterance;
+
+        utterance.lang = "ar-SA";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        utterance.onboundary = function (event) {
+            if (
+                session === readingSession &&
+                currentUtterance === utterance &&
+                !isPaused &&
+                typeof event.charIndex === "number"
+            ) {
+                pausedCharIndex = startIndex + event.charIndex;
+            }
+        };
+
+        utterance.onend = function () {
+            if (session !== readingSession || currentUtterance !== utterance) {
+                return;
+            }
+
+            currentUtterance = null;
+
+            if (isPaused) {
+                return;
+            }
+
+            currentChunk++;
+            pausedCharIndex = 0;
+
+            if (currentChunk < readingChunks.length) {
+                speakCurrentChunk(session, 0);
+            } else {
+                finishReading();
+            }
+        };
+
+        utterance.onerror = function (event) {
+            if (session !== readingSession || currentUtterance !== utterance) {
+                return;
+            }
+
+            if (event.error === "canceled" || event.error === "interrupted") {
+                return;
+            }
+
+            currentUtterance = null;
+            readingStatus.textContent =
+                "حدثت مشكلة أثناء القراءة. اضغط على «قراءة الدرس» للمحاولة مجددًا.";
+            isReading = false;
+            isPaused = false;
+            updateReadingButtons();
+        };
+
+        readingStatus.textContent =
+            "جارٍ قراءة الدرس... الجزء " +
+            (currentChunk + 1) +
+            " من " +
+            readingChunks.length;
+
+        synth.speak(utterance);
+    }
+
+    function pauseReading() {
+        if (!isReading || isPaused) {
+            return;
+        }
+
+        isPaused = true;
+
+        /*
+         * نحاول حفظ موضع القراءة من حدث onboundary.
+         * دعم هذا الحدث يختلف بين المتصفحات والأجهزة.
+         */
+        synth.pause();
+
+        const session = readingSession;
+
+        window.setTimeout(function () {
+            if (session !== readingSession || !isPaused) {
+                return;
+            }
+
+            synth.cancel();
+            currentUtterance = null;
+
+            readingStatus.textContent =
+                "تم إيقاف القراءة مؤقتًا. اضغط «متابعة القراءة» للاستكمال.";
+
+            updateReadingButtons();
+        }, 250);
+
+        updateReadingButtons();
+    }
+
+    function resumeReading() {
+        if (!isReading || !isPaused) {
+            return;
+        }
+
+        isPaused = false;
+
+        const session = readingSession;
+        const startIndex = pausedCharIndex;
+
+        synth.cancel();
+        currentUtterance = null;
+
+        readingStatus.textContent = "جارٍ متابعة القراءة...";
+
+        updateReadingButtons();
+
+        window.setTimeout(function () {
+            if (session !== readingSession || !isReading || isPaused) {
+                return;
+            }
+
+            speakCurrentChunk(session, startIndex);
+        }, 150);
+    }
+
+    function stopReading() {
+        readingSession++;
+
+        if ("speechSynthesis" in window) {
+            synth.cancel();
+        }
+
+        readingChunks = [];
+        currentChunk = 0;
+        currentUtterance = null;
+        pausedCharIndex = 0;
+        isReading = false;
+        isPaused = false;
+
+        readingStatus.textContent =
+            "تم إيقاف القراءة. اضغط على «قراءة الدرس» للبدء من جديد.";
+
+        updateReadingButtons();
+    }
+
+    function finishReading() {
+        isReading = false;
+        isPaused = false;
+        currentUtterance = null;
+        pausedCharIndex = 0;
+
+        readingStatus.textContent = "✅ انتهت قراءة الدرس.";
+
+        updateReadingButtons();
+    }
+
+    window.addEventListener("beforeunload", function () {
+        if ("speechSynthesis" in window) {
+            synth.cancel();
+        }
+    });
+</script>
 
 </body>
 </html>
