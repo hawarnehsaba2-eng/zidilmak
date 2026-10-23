@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الدرس الثالث: نماذج الربط في الشبكات السلكية | زد علمك</title>
+
+    <meta name="description" content="شرح الدرس الثالث من المهارات الرقمية للصف السابع: نماذج الربط في الشبكات السلكية، والنموذج الخطي والنجمي والحلقي والتشابكي.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+            line-height: 1.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 25px 18px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 27px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 17px;
+        }
+
+        .lesson-section {
+            background: white;
+            padding: 22px;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+        }
+
+        .lesson-section h2 {
+            color: #1d4ed8;
+            font-size: 23px;
+            margin-top: 0;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 10px;
+        }
+
+        .lesson-section h3 {
+            color: #1e40af;
+            font-size: 19px;
+            margin-top: 22px;
+        }
+
+        .lesson-section p {
+            margin: 12px 0;
+        }
+
+        .lesson-section ul {
+            padding-right: 25px;
+        }
+
+        .lesson-section li {
+            margin-bottom: 8px;
+        }
+
+        .english {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: embed;
+        }
+
+        .lesson-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 18px auto;
+            border-radius: 10px;
+        }
+
+        .question-box {
+            background: #eff6ff;
+            border-right: 5px solid #2563eb;
+            padding: 15px;
+            margin-top: 18px;
+            border-radius: 8px;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            margin: 20px 0;
+            border-radius: 12px;
+            font-size: 17px;
+        }
+
+        .back-btn:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            header {
+                padding: 20px 12px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .lesson-section {
+                padding: 16px;
+            }
+
+            .lesson-section h2 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>الدرس الثالث: نماذج الربط في الشبكات السلكية</h1>
+        <p class="english">Computer Networks Topologies</p>
+        <p>المهارات الرقمية - الصف السابع</p>
+    </header>
+
+    <!-- تعريف نموذج ربط الشبكة السلكية -->
+
+    <section class="lesson-section">
+
+        <h2>نموذج ربط الشبكة السلكية (Network Topology)</h2>
+
+        <p>
+            <strong>وضح المقصود بنموذج ربط الشبكة السلكية (Network Topology):</strong>
+        </p>
+
+        <p>
+            طريقةً تنظيمية لترتيب عملية الربط بين أجهزة الحاسوب في الشبكة.
+        </p>
+
+        <ul>
+            <li>
+                تتعدد نماذج الربط في شبكات الحاسوب، وتختلف في ما بينها من حيث طريقة الربط والفاعلية، والتكلفة وآلية نقل البيانات.
+            </li>
+        </ul>
+
+        <h3>نماذج الربط الخاصة بشبكات الحاسوب</h3>
+
+        <ul>
+            <li>النموذج الخطي <span class="english">(Bus Topology)</span>.</li>
+            <li>النموذج النجمي <span class="english">(Star Topology)</span>.</li>
+            <li>النموذج الحلقي <span class="english">(Ring Topology)</span>.</li>
+            <li>النموذج التشابكي <span class="english">(Mesh Topology)</span>.</li>
+        </ul>
+
+    </section>
+
+    <!-- النموذج الخطي -->
+
+    <section class="lesson-section">
+
+        <h2>أولًا: النموذج الخطي (Bus Topology)</h2>
+
+        <h3>الشكل العام للنموذج الخطي</h3>
+
+        <p>
+            نموذج تتصل فيه جميع أجهزة الشبكة بخط اتصال رئيس يُسمّى
+            <span class="english">(BUS)</span>.
+            ولهذا الخط نقطة بداية ونقطة نهاية
+            <span class="english">(Terminator)</span>.
+        </p>
+
+        <h3>آلية عمل النموذج الخطي (Bus Topology)</h3>
+
+        <p><strong>طريقة نقل البيانات في النموذج</strong></p>
+
+        <p>
+            تتصل فيه جميع أجهزة الشبكة بخط اتصال رئيس يُسمى
+            <span class="english">(BUS)</span>.
+            ولهذا الخط نقطة بداية ونقطة نهاية
+            <span class="english">(Terminator)</span>؛
+            فعند إرسال بيانات من أحد أجهزة الحاسوب إلى جهاز آخر، فإنَّ البيانات تسري على طول خط الاتصال الرئيس، ويتحقَّقُ كلُّ جهاز حاسوب إذا كانَتْ هذه البيانات مُوجَهَةً إِلَيْهِ أمْ لَا. فإذا كانَتْ كذلك، صدر أمر بالموافقة على تسلم البياناتِ، وَإِلَّا فَإِنَّها تُمرّرُ إلى جهاز الحاسوب التالي في الشبكة.
+        </p>
+
+        <h3>مميزات النموذج الخطي</h3>
+
+        <ul>
+            <li>سهولة التركيب والكلفة القليلة.</li>
+            <li>والقابلية للتوسع بإضافة أجهزة جديدة.</li>
+        </ul>
+
+        <h3>أبرز عيوب النموذج الخطي</h3>
+
+        <ul>
+            <li>توقف الشبكة كلها عن العمل إذا تعطل خط الاتصال الرئيس.</li>
+            <li>
+                وعدم مناسبته للشبكات الكبيرة؛ إذْ يتسبب توسيع الشبكة – بإضافة جهاز جديد إليها - في تباطؤ أدائها، والحد من كفاءتها وفاعليتها.
+            </li>
+        </ul>
+
+    </section>
+
+    <!-- النموذج النجمي -->
+
+    <section class="lesson-section">
+
+        <h2>ثانيًا: النموذج النجمي (Star Topology)</h2>
+
+        <h3>الشكل العام للنموذج النجمي</h3>
+
+        <p>
+            نموذج تتصل فيه جميع الأجهزة فى الشبكة بجهاز مركزي واحدٍ
+            (قد يكونُ مُوزّعًا <span class="english">(Hub)</span>
+            أو مُحوّلًا <span class="english">(Switch)</span>)،
+            يتفرّعُ مِنْهُ سلك مستقل لكل جهاز، فيكون أشبه بالنجمة.
+        </p>
+
+        <h3>آلية العمل في النموذج النجمي (Star Topology)</h3>
+
+        <p><strong>طريقة نقل البيانات في النموذج</strong></p>
+
+        <p>
+            وفيه تمر جميع البياناتِ المُرسَلة من جهاز إلى آخر عبر الجهاز المركزى، ثم يعيد هذا الأخير إرسال البيانات إلى الجهاز المستقبل.
+        </p>
+
+        <h3>مميزات النموذج النجمي</h3>
+
+        <ul>
+            <li>ببساطة التركيب.</li>
+            <li>وسهولة تحديد الأخطاء في الشبكة.</li>
+            <li>وعدم تأثر الشبكة إذا حدث عطل في أحد الأجهزة المرتبطة بها.</li>
+        </ul>
+
+        <h3>أبرز عيوب النموذج النجمي</h3>
+
+        <ul>
+            <li>فتتمثل في توقف الشبكة كلها عن العمل إذا تعطل الجهاز المركزي.</li>
+            <li>وصعوبة توسيع الشبكة بإضافة أجهزة جديدة.</li>
+            <li>
+                وكلفته المرتفعة نسبيًا؛ إذ يتطلّب تركيبه استخدام كثير من الأسلاك الطويلة.
+            </li>
+        </ul>
+
+    </section>
+
+    <!-- النموذج الحلقي -->
+
+    <section class="lesson-section">
+
+        <h2>ثالثًا: النموذج الحلقي (Ring Topology)</h2>
+
+        <h3>الشكل العام للنموذج الحلقي</h3>
+
+        <p>
+            نموذج يرتبط فيه طرفا كل جهاز في الشبكة بجهازين آخرين أو في الاتجاهين
+            (مع عقارب الساعة وعكس عقارب الساعة)
+            فيظهرُ النموذج في صورة حلقة دائرية.
+        </p>
+
+        <h3>آلية عمل النموذج الحلقي (Ring Topology)</h3>
+
+        <p><strong>طريقة نقل البيانات في النموذج</strong></p>
+
+        <p>
+            وفيه تنتقل البيانات من الجهاز المُرسل إلى الجهاز المستقبل مرورًا بجميع الأجهزة الموجودة بينهما في اتجاه واحد فقط، ثم يعيد كل جهاز إرسال البيانات حتى تصل إلى الجهاز المستقبل.
+        </p>
+
+        <h3>مميزات النموذج الحلقي (Ring Topology)</h3>
+
+        <ul>
+            <li>ببساطة التركيب.</li>
+            <li>والقدرة على نقل البيانات فى اتجاه واحد؛ ما يمنع التداخل في ما بينها.</li>
+        </ul>
+
+        <h3>عيوب النموذج الحلقي (Ring Topology)</h3>
+
+        <p>
+            فتتمثل فى توقف الشبكة كلها عن العمل إذا تعطل جهاز واحد في النموذج في كلا المسارين.
+        </p>
+
+    </section>
+
+    <!-- النموذج التشابكي -->
+
+    <section class="lesson-section">
+
+        <h2>رابعًا: النموذج التشابكي (Mesh Topology)</h2>
+
+        <h3>الشكل العام للنموذج التشابكي</h3>
+
+        <p>
+            نموذج يتصل فيه كل جهاز في الشبكة بجميع الأجهزة الأخرى بواسطة كبل مستقل؛ ما يُشكل العديد من المسارات التي تتيحُ انتقال البيانات من جهاز إلى آخر.
+        </p>
+
+        <h3>طريقة نقل البيانات في النموذج</h3>
+
+        <p>
+            يحتوي النموذج على العديد من المسارات التي تتيح انتقال البيانات من جهاز إلى آخر.
+        </p>
+
+        <h3>مميزات النموذج التشابكي (Mesh Topology)</h3>
+
+        <ul>
+            <li>
+                احتوائه على العديد من مسارات الاتصال، بحيث إذا تعطل اتصال في مسار محدد، أمكن استخدام مسار بديل للاستمرار في عمل الشبكة.
+            </li>
+            <li>كذلك يمتاز النموذج بمرونة كبيرة.</li>
+            <li>ويحظى بموثوقية عالية.</li>
+        </ul>
+
+        <div class="question-box">
+            <strong>علل: يمتاز النموذج التشابكي بمرونة كبيرة ويحظى بموثوقية عالية.</strong>
+
+            <p>
+                لاحتوائه على العديد من مسارات الاتصال، بحيث إذا تعطل اتصال في مسار محدد، أمكن استخدام مسار بديل للاستمرار في عمل الشبكة.
+            </p>
+        </div>
+
+        <h3>عيوب النموذج التشابكي</h3>
+
+        <ul>
+            <li>کلفته المرتفعة جدا.</li>
+            <li>
+                وصعوبة إعداده وتركيبه؛ إذ يتطلب ذلك استخدام العديد من الأسلاك والمنافذ.
+            </li>
+        </ul>
+
+    </section>
+
+    <a class="back-btn" href="digital-skills-7-term1.html">
+        ↩️ العودة إلى دروس الفصل
+    </a>
+
+    <footer>
+        © 2026 زد علمك - جميع الحقوق محفوظة
+    </footer>
+
+</div>
+
+</body>
+</html>
