@@ -10,13 +10,17 @@
     <meta name="description" content="شرح الدرس الثالث من المهارات الرقمية للصف السابع: نماذج الربط في الشبكات السلكية، والنموذج الخطي والنجمي والحلقي والتشابكي.">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background: #f4f7fb;
+            background: #f1f5f9;
             margin: 0;
-            padding: 20px;
-            color: #222;
-            line-height: 1.9;
+            padding: 18px;
+            color: #1e293b;
+            line-height: 2;
         }
 
         .container {
@@ -25,56 +29,24 @@
         }
 
         header {
-            background: #2563eb;
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
             color: white;
-            padding: 25px 18px;
-            border-radius: 16px;
+            padding: 28px 18px;
+            border-radius: 18px;
             text-align: center;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 14px rgba(37, 99, 235, 0.18);
         }
 
         header h1 {
             margin: 0 0 10px;
             font-size: 27px;
+            line-height: 1.6;
         }
 
         header p {
             margin: 5px 0;
-            font-size: 17px;
-        }
-
-        .lesson-section {
-            background: white;
-            padding: 22px;
-            margin-bottom: 20px;
-            border-radius: 14px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
-        }
-
-        .lesson-section h2 {
-            color: #1d4ed8;
-            font-size: 23px;
-            margin-top: 0;
-            border-bottom: 2px solid #dbeafe;
-            padding-bottom: 10px;
-        }
-
-        .lesson-section h3 {
-            color: #1e40af;
-            font-size: 19px;
-            margin-top: 22px;
-        }
-
-        .lesson-section p {
-            margin: 12px 0;
-        }
-
-        .lesson-section ul {
-            padding-right: 25px;
-        }
-
-        .lesson-section li {
-            margin-bottom: 8px;
+            font-size: 16px;
         }
 
         .english {
@@ -83,20 +55,150 @@
             unicode-bidi: embed;
         }
 
+        .reading-box {
+            background: white;
+            border: 1px solid #dbeafe;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+        }
+
+        .reading-box h2 {
+            color: #1d4ed8;
+            font-size: 20px;
+            margin: 0 0 12px;
+        }
+
+        .reading-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .reading-buttons button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 8px;
+            min-height: 46px;
+            font-size: 15px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+        }
+
+        .start-btn {
+            background: #2563eb;
+        }
+
+        .pause-btn {
+            background: #d97706;
+        }
+
+        .resume-btn {
+            background: #16a34a;
+        }
+
+        .stop-btn {
+            background: #dc2626;
+        }
+
+        .reading-buttons button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .reading-status {
+            background: #f8fafc;
+            border-radius: 9px;
+            padding: 10px 12px;
+            margin: 12px 0 0;
+            color: #475569;
+            font-size: 14px;
+            min-height: 44px;
+        }
+
+        .lesson-section {
+            background: white;
+            padding: 23px;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+        }
+
+        .lesson-section h2 {
+            color: #1d4ed8;
+            font-size: 23px;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dbeafe;
+            line-height: 1.7;
+        }
+
+        .lesson-section h3 {
+            color: #1e40af;
+            background: #eff6ff;
+            border-right: 4px solid #3b82f6;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 19px;
+            margin-top: 24px;
+            line-height: 1.8;
+        }
+
+        .lesson-section p {
+            margin: 13px 0;
+        }
+
+        .lesson-section ul {
+            padding-right: 25px;
+        }
+
+        .lesson-section li {
+            margin-bottom: 9px;
+        }
+
         .lesson-image {
             display: block;
             max-width: 100%;
             height: auto;
-            margin: 18px auto;
-            border-radius: 10px;
+            margin: 20px auto;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
         }
 
         .question-box {
             background: #eff6ff;
-            border-right: 5px solid #2563eb;
-            padding: 15px;
-            margin-top: 18px;
+            border: 2px solid #93c5fd;
+            border-right: 6px solid #2563eb;
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+
+        .question-title {
+            color: #1d4ed8;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .answer-title {
+            color: #15803d;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .answer-text {
+            background: #f0fdf4;
+            border-right: 4px solid #22c55e;
+            color: #166534;
+            padding: 12px;
             border-radius: 8px;
+            margin: 0 !important;
         }
 
         .back-btn {
@@ -106,9 +208,10 @@
             color: white;
             text-decoration: none;
             padding: 14px;
-            margin: 20px 0;
+            margin: 22px 0;
             border-radius: 12px;
             font-size: 17px;
+            font-weight: bold;
         }
 
         .back-btn:hover {
@@ -120,15 +223,16 @@
             color: #64748b;
             font-size: 14px;
             margin-top: 25px;
+            padding: 10px;
         }
 
         @media (max-width: 600px) {
             body {
-                padding: 12px;
+                padding: 10px;
             }
 
             header {
-                padding: 20px 12px;
+                padding: 22px 13px;
             }
 
             header h1 {
@@ -140,7 +244,19 @@
             }
 
             .lesson-section h2 {
-                font-size: 21px;
+                font-size: 20px;
+            }
+
+            .lesson-section h3 {
+                font-size: 17px;
+            }
+
+            .reading-box {
+                padding: 14px;
+            }
+
+            .reading-buttons button {
+                font-size: 14px;
             }
         }
     </style>
@@ -156,248 +272,528 @@
         <p>المهارات الرقمية - الصف السابع</p>
     </header>
 
-    <!-- تعريف نموذج ربط الشبكة السلكية -->
-
-    <section class="lesson-section">
-
-        <h2>نموذج ربط الشبكة السلكية (Network Topology)</h2>
-
-        <p>
-            <strong>وضح المقصود بنموذج ربط الشبكة السلكية (Network Topology):</strong>
-        </p>
-
-        <p>
-            طريقةً تنظيمية لترتيب عملية الربط بين أجهزة الحاسوب في الشبكة.
-        </p>
-
-        <ul>
-            <li>
-                تتعدد نماذج الربط في شبكات الحاسوب، وتختلف في ما بينها من حيث طريقة الربط والفاعلية، والتكلفة وآلية نقل البيانات.
-            </li>
-        </ul>
-
-        <h3>نماذج الربط الخاصة بشبكات الحاسوب</h3>
-
-        <ul>
-            <li>النموذج الخطي <span class="english">(Bus Topology)</span>.</li>
-            <li>النموذج النجمي <span class="english">(Star Topology)</span>.</li>
-            <li>النموذج الحلقي <span class="english">(Ring Topology)</span>.</li>
-            <li>النموذج التشابكي <span class="english">(Mesh Topology)</span>.</li>
-        </ul>
-
-    </section>
-
-    <!-- النموذج الخطي -->
-
-    <section class="lesson-section">
-
-        <h2>أولًا: النموذج الخطي (Bus Topology)</h2>
-
-        <h3>الشكل العام للنموذج الخطي</h3>
-
-        <p>
-            نموذج تتصل فيه جميع أجهزة الشبكة بخط اتصال رئيس يُسمّى
-            <span class="english">(BUS)</span>.
-            ولهذا الخط نقطة بداية ونقطة نهاية
-            <span class="english">(Terminator)</span>.
-        </p>
-
-        <h3>آلية عمل النموذج الخطي (Bus Topology)</h3>
-
-        <p><strong>طريقة نقل البيانات في النموذج</strong></p>
-
-        <p>
-            تتصل فيه جميع أجهزة الشبكة بخط اتصال رئيس يُسمى
-            <span class="english">(BUS)</span>.
-            ولهذا الخط نقطة بداية ونقطة نهاية
-            <span class="english">(Terminator)</span>؛
-            فعند إرسال بيانات من أحد أجهزة الحاسوب إلى جهاز آخر، فإنَّ البيانات تسري على طول خط الاتصال الرئيس، ويتحقَّقُ كلُّ جهاز حاسوب إذا كانَتْ هذه البيانات مُوجَهَةً إِلَيْهِ أمْ لَا. فإذا كانَتْ كذلك، صدر أمر بالموافقة على تسلم البياناتِ، وَإِلَّا فَإِنَّها تُمرّرُ إلى جهاز الحاسوب التالي في الشبكة.
-        </p>
-
-
-
-
-
-<img src="images/IMG_٢٠٢٦١٠٢٤_٠٠٥١٤٧.jpg" alt="النموذج الخطي للشبكات" class="lesson-image">
-
-
-
-
-
-
-
-
-        <h3>مميزات النموذج الخطي</h3>
-
-        <ul>
-            <li>سهولة التركيب والكلفة القليلة.</li>
-            <li>والقابلية للتوسع بإضافة أجهزة جديدة.</li>
-        </ul>
-
-        <h3>أبرز عيوب النموذج الخطي</h3>
-
-        <ul>
-            <li>توقف الشبكة كلها عن العمل إذا تعطل خط الاتصال الرئيس.</li>
-            <li>
-                وعدم مناسبته للشبكات الكبيرة؛ إذْ يتسبب توسيع الشبكة – بإضافة جهاز جديد إليها - في تباطؤ أدائها، والحد من كفاءتها وفاعليتها.
-            </li>
-        </ul>
-
-    </section>
-
-    <!-- النموذج النجمي -->
-
-    <section class="lesson-section">
-
-        <h2>ثانيًا: النموذج النجمي (Star Topology)</h2>
-
-        <h3>الشكل العام للنموذج النجمي</h3>
-
-        <p>
-            نموذج تتصل فيه جميع الأجهزة فى الشبكة بجهاز مركزي واحدٍ
-            (قد يكونُ مُوزّعًا <span class="english">(Hub)</span>
-            أو مُحوّلًا <span class="english">(Switch)</span>)،
-            يتفرّعُ مِنْهُ سلك مستقل لكل جهاز، فيكون أشبه بالنجمة.
-        </p>
-
-
-
-<img src="images/IMG_٢٠٢٦١٠٢٤_٠٠٥٤٥٣.jpg" alt="النموذج النجمي للشبكات" class="lesson-image">
-
-
-
-
-
-
-
-
-        <h3>آلية العمل في النموذج النجمي (Star Topology)</h3>
-
-        <p><strong>طريقة نقل البيانات في النموذج</strong></p>
-
-        <p>
-            وفيه تمر جميع البياناتِ المُرسَلة من جهاز إلى آخر عبر الجهاز المركزى، ثم يعيد هذا الأخير إرسال البيانات إلى الجهاز المستقبل.
-        </p>
-
-        <h3>مميزات النموذج النجمي</h3>
-
-        <ul>
-            <li>ببساطة التركيب.</li>
-            <li>وسهولة تحديد الأخطاء في الشبكة.</li>
-            <li>وعدم تأثر الشبكة إذا حدث عطل في أحد الأجهزة المرتبطة بها.</li>
-        </ul>
-
-        <h3>أبرز عيوب النموذج النجمي</h3>
-
-        <ul>
-            <li>فتتمثل في توقف الشبكة كلها عن العمل إذا تعطل الجهاز المركزي.</li>
-            <li>وصعوبة توسيع الشبكة بإضافة أجهزة جديدة.</li>
-            <li>
-                وكلفته المرتفعة نسبيًا؛ إذ يتطلّب تركيبه استخدام كثير من الأسلاك الطويلة.
-            </li>
-        </ul>
-
-    </section>
-
-    <!-- النموذج الحلقي -->
-
-    <section class="lesson-section">
-
-        <h2>ثالثًا: النموذج الحلقي (Ring Topology)</h2>
-
-        <h3>الشكل العام للنموذج الحلقي</h3>
-
-        <p>
-            نموذج يرتبط فيه طرفا كل جهاز في الشبكة بجهازين آخرين أو في الاتجاهين
-            (مع عقارب الساعة وعكس عقارب الساعة)
-            فيظهرُ النموذج في صورة حلقة دائرية.
-        </p>
-<img src="images/IMG_٢٠٢٦١٠٢٤_٠٠٥٧١٢.jpg" alt="النموذج الحلقي للشبكات" class="lesson-image">
-
-
-        <h3>آلية عمل النموذج الحلقي (Ring Topology)</h3>
-
-        <p><strong>طريقة نقل البيانات في النموذج</strong></p>
-
-        <p>
-            وفيه تنتقل البيانات من الجهاز المُرسل إلى الجهاز المستقبل مرورًا بجميع الأجهزة الموجودة بينهما في اتجاه واحد فقط، ثم يعيد كل جهاز إرسال البيانات حتى تصل إلى الجهاز المستقبل.
-        </p>
-
-        <h3>مميزات النموذج الحلقي (Ring Topology)</h3>
-
-        <ul>
-            <li>ببساطة التركيب.</li>
-            <li>والقدرة على نقل البيانات فى اتجاه واحد؛ ما يمنع التداخل في ما بينها.</li>
-        </ul>
-
-        <h3>عيوب النموذج الحلقي (Ring Topology)</h3>
-
-        <p>
-            فتتمثل فى توقف الشبكة كلها عن العمل إذا تعطل جهاز واحد في النموذج في كلا المسارين.
-        </p>
-
-    </section>
-
-    <!-- النموذج التشابكي -->
-
-    <section class="lesson-section">
-
-        <h2>رابعًا: النموذج التشابكي (Mesh Topology)</h2>
-
-        <h3>الشكل العام للنموذج التشابكي</h3>
-
-        <p>
-            نموذج يتصل فيه كل جهاز في الشبكة بجميع الأجهزة الأخرى بواسطة كبل مستقل؛ ما يُشكل العديد من المسارات التي تتيحُ انتقال البيانات من جهاز إلى آخر.
-        </p>
-
-        <h3>طريقة نقل البيانات في النموذج</h3>
-
-        <p>
-            يحتوي النموذج على العديد من المسارات التي تتيح انتقال البيانات من جهاز إلى آخر.
-        </p>
-
-
-<img src="images/IMG_٢٠٢٦١٠٢٤_٠١٠٠٤٠.jpg" alt="النموذج التشابكي للشبكات" class="lesson-image">
-
-
-        <h3>مميزات النموذج التشابكي (Mesh Topology)</h3>
-
-        <ul>
-            <li>
-                احتوائه على العديد من مسارات الاتصال، بحيث إذا تعطل اتصال في مسار محدد، أمكن استخدام مسار بديل للاستمرار في عمل الشبكة.
-            </li>
-            <li>كذلك يمتاز النموذج بمرونة كبيرة.</li>
-            <li>ويحظى بموثوقية عالية.</li>
-        </ul>
-
-        <div class="question-box">
-            <strong>علل: يمتاز النموذج التشابكي بمرونة كبيرة ويحظى بموثوقية عالية.</strong>
-
-            <p>
-                لاحتوائه على العديد من مسارات الاتصال، بحيث إذا تعطل اتصال في مسار محدد، أمكن استخدام مسار بديل للاستمرار في عمل الشبكة.
-            </p>
+    <div class="reading-box no-read">
+        <h2>🔊 القراءة الصوتية للدرس</h2>
+
+        <div class="reading-buttons">
+            <button type="button" class="start-btn" id="startBtn" onclick="readLesson()">
+                🔊 قراءة الدرس
+            </button>
+
+            <button type="button" class="pause-btn" id="pauseBtn" onclick="pauseReading()" disabled>
+                ⏸️ إيقاف مؤقت
+            </button>
+
+            <button type="button" class="resume-btn" id="resumeBtn" onclick="resumeReading()" disabled>
+                ▶️ متابعة القراءة
+            </button>
+
+            <button type="button" class="stop-btn" id="stopBtn" onclick="stopReading()" disabled>
+                ⏹️ إيقاف القراءة
+            </button>
         </div>
 
-        <h3>عيوب النموذج التشابكي</h3>
+        <p class="reading-status" id="readingStatus" aria-live="polite">
+            اضغط على «قراءة الدرس» للاستماع إلى محتوى الدرس.
+        </p>
+    </div>
 
-        <ul>
-            <li>کلفته المرتفعة جدا.</li>
-            <li>
-                وصعوبة إعداده وتركيبه؛ إذ يتطلب ذلك استخدام العديد من الأسلاك والمنافذ.
-            </li>
-        </ul>
+    <div id="lessonContent">
 
-    </section>
+        <!-- تعريف نموذج ربط الشبكة السلكية -->
 
-    <a class="back-btn" href="digital-skills-7-term1.html">
+        <section class="lesson-section">
+
+            <h2>نموذج ربط الشبكة السلكية (Network Topology)</h2>
+
+            <div class="question-box">
+                <span class="question-title">
+                    وضح المقصود بنموذج ربط الشبكة السلكية (Network Topology):
+                </span>
+
+                <span class="answer-title">الإجابة:</span>
+                <p class="answer-text">
+                    طريقةً تنظيمية لترتيب عملية الربط بين أجهزة الحاسوب في الشبكة.
+                </p>
+            </div>
+
+            <ul>
+                <li>
+                    تتعدد نماذج الربط في شبكات الحاسوب، وتختلف في ما بينها من حيث طريقة الربط والفاعلية، والتكلفة وآلية نقل البيانات.
+                </li>
+            </ul>
+
+            <h3>نماذج الربط الخاصة بشبكات الحاسوب</h3>
+
+            <ul>
+                <li>النموذج الخطي <span class="english">(Bus Topology)</span>.</li>
+                <li>النموذج النجمي <span class="english">(Star Topology)</span>.</li>
+                <li>النموذج الحلقي <span class="english">(Ring Topology)</span>.</li>
+                <li>النموذج التشابكي <span class="english">(Mesh Topology)</span>.</li>
+            </ul>
+
+        </section>
+
+        <!-- النموذج الخطي -->
+
+        <section class="lesson-section">
+
+            <h2>أولًا: النموذج الخطي (Bus Topology)</h2>
+
+            <h3>الشكل العام للنموذج الخطي</h3>
+
+            <p>
+                نموذج تتصل فيه جميع أجهزة الشبكة بخط اتصال رئيس يُسمّى
+                <span class="english">(BUS)</span>.
+                ولهذا الخط نقطة بداية ونقطة نهاية
+                <span class="english">(Terminator)</span>.
+            </p>
+
+            <h3>آلية عمل النموذج الخطي (Bus Topology)</h3>
+
+            <p><strong>طريقة نقل البيانات في النموذج</strong></p>
+
+            <p>
+                تتصل فيه جميع أجهزة الشبكة بخط اتصال رئيس يُسمى
+                <span class="english">(BUS)</span>.
+                ولهذا الخط نقطة بداية ونقطة نهاية
+                <span class="english">(Terminator)</span)؛
+                فعند إرسال بيانات من أحد أجهزة الحاسوب إلى جهاز آخر، فإنَّ البيانات تسري على طول خط الاتصال الرئيس، ويتحقَّقُ كلُّ جهاز حاسوب إذا كانَتْ هذه البيانات مُوجَهَةً إِلَيْهِ أمْ لَا. فإذا كانَتْ كذلك، صدر أمر بالموافقة على تسلم البياناتِ، وَإِلَّا فَإِنَّها تُمرّرُ إلى جهاز الحاسوب التالي في الشبكة.
+            </p>
+
+            <img src="images/IMG_٢٠٢٦١٠٢٤_٠٠٥١٤٧.jpg" alt="النموذج الخطي للشبكات" class="lesson-image">
+
+            <h3>مميزات النموذج الخطي</h3>
+
+            <ul>
+                <li>سهولة التركيب والكلفة القليلة.</li>
+                <li>والقابلية للتوسع بإضافة أجهزة جديدة.</li>
+            </ul>
+
+            <h3>أبرز عيوب النموذج الخطي</h3>
+
+            <ul>
+                <li>توقف الشبكة كلها عن العمل إذا تعطل خط الاتصال الرئيس.</li>
+                <li>
+                    وعدم مناسبته للشبكات الكبيرة؛ إذْ يتسبب توسيع الشبكة – بإضافة جهاز جديد إليها - في تباطؤ أدائها، والحد من كفاءتها وفاعليتها.
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- النموذج النجمي -->
+
+        <section class="lesson-section">
+
+            <h2>ثانيًا: النموذج النجمي (Star Topology)</h2>
+
+            <h3>الشكل العام للنموذج النجمي</h3>
+
+            <p>
+                نموذج تتصل فيه جميع الأجهزة فى الشبكة بجهاز مركزي واحدٍ
+                (قد يكونُ مُوزّعًا <span class="english">(Hub)</span>
+                أو مُحوّلًا <span class="english">(Switch)</span>)،
+                يتفرّعُ مِنْهُ سلك مستقل لكل جهاز، فيكون أشبه بالنجمة.
+            </p>
+
+            <img src="images/IMG_٢٠٢٦١٠٢٤_٠٠٥٤٥٣.jpg" alt="النموذج النجمي للشبكات" class="lesson-image">
+
+            <h3>آلية العمل في النموذج النجمي (Star Topology)</h3>
+
+            <p><strong>طريقة نقل البيانات في النموذج</strong></p>
+
+            <p>
+                وفيه تمر جميع البياناتِ المُرسَلة من جهاز إلى آخر عبر الجهاز المركزى، ثم يعيد هذا الأخير إرسال البيانات إلى الجهاز المستقبل.
+            </p>
+
+            <h3>مميزات النموذج النجمي</h3>
+
+            <ul>
+                <li>ببساطة التركيب.</li>
+                <li>وسهولة تحديد الأخطاء في الشبكة.</li>
+                <li>وعدم تأثر الشبكة إذا حدث عطل في أحد الأجهزة المرتبطة بها.</li>
+            </ul>
+
+            <h3>أبرز عيوب النموذج النجمي</h3>
+
+            <ul>
+                <li>فتتمثل في توقف الشبكة كلها عن العمل إذا تعطل الجهاز المركزي.</li>
+                <li>وصعوبة توسيع الشبكة بإضافة أجهزة جديدة.</li>
+                <li>
+                    وكلفته المرتفعة نسبيًا؛ إذ يتطلّب تركيبه استخدام كثير من الأسلاك الطويلة.
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- النموذج الحلقي -->
+
+        <section class="lesson-section">
+
+            <h2>ثالثًا: النموذج الحلقي (Ring Topology)</h2>
+
+            <h3>الشكل العام للنموذج الحلقي</h3>
+
+            <p>
+                نموذج يرتبط فيه طرفا كل جهاز في الشبكة بجهازين آخرين أو في الاتجاهين
+                (مع عقارب الساعة وعكس عقارب الساعة)
+                فيظهرُ النموذج في صورة حلقة دائرية.
+            </p>
+
+            <img src="images/IMG_٢٠٢٦١٠٢٤_٠٠٥٧١٢.jpg" alt="النموذج الحلقي للشبكات" class="lesson-image">
+
+            <h3>آلية عمل النموذج الحلقي (Ring Topology)</h3>
+
+            <p><strong>طريقة نقل البيانات في النموذج</strong></p>
+
+            <p>
+                وفيه تنتقل البيانات من الجهاز المُرسل إلى الجهاز المستقبل مرورًا بجميع الأجهزة الموجودة بينهما في اتجاه واحد فقط، ثم يعيد كل جهاز إرسال البيانات حتى تصل إلى الجهاز المستقبل.
+            </p>
+
+            <h3>مميزات النموذج الحلقي (Ring Topology)</h3>
+
+            <ul>
+                <li>ببساطة التركيب.</li>
+                <li>والقدرة على نقل البيانات فى اتجاه واحد؛ ما يمنع التداخل في ما بينها.</li>
+            </ul>
+
+            <h3>عيوب النموذج الحلقي (Ring Topology)</h3>
+
+            <p>
+                فتتمثل فى توقف الشبكة كلها عن العمل إذا تعطل جهاز واحد في النموذج في كلا المسارين.
+            </p>
+
+        </section>
+
+        <!-- النموذج التشابكي -->
+
+        <section class="lesson-section">
+
+            <h2>رابعًا: النموذج التشابكي (Mesh Topology)</h2>
+
+            <h3>الشكل العام للنموذج التشابكي</h3>
+
+            <p>
+                نموذج يتصل فيه كل جهاز في الشبكة بجميع الأجهزة الأخرى بواسطة كبل مستقل؛ ما يُشكل العديد من المسارات التي تتيحُ انتقال البيانات من جهاز إلى آخر.
+            </p>
+
+            <h3>طريقة نقل البيانات في النموذج</h3>
+
+            <p>
+                يحتوي النموذج على العديد من المسارات التي تتيح انتقال البيانات من جهاز إلى آخر.
+            </p>
+
+            <img src="images/IMG_٢٠٢٦١٠٢٤_٠١٠٠٤٠.jpg" alt="النموذج التشابكي للشبكات" class="lesson-image">
+
+            <h3>مميزات النموذج التشابكي (Mesh Topology)</h3>
+
+            <ul>
+                <li>
+                    احتوائه على العديد من مسارات الاتصال، بحيث إذا تعطل اتصال في مسار محدد، أمكن استخدام مسار بديل للاستمرار في عمل الشبكة.
+                </li>
+                <li>كذلك يمتاز النموذج بمرونة كبيرة.</li>
+                <li>ويحظى بموثوقية عالية.</li>
+            </ul>
+
+            <div class="question-box">
+                <span class="question-title">
+                    علل: يمتاز النموذج التشابكي بمرونة كبيرة ويحظى بموثوقية عالية.
+                </span>
+
+                <span class="answer-title">الإجابة:</span>
+                <p class="answer-text">
+                    لاحتوائه على العديد من مسارات الاتصال، بحيث إذا تعطل اتصال في مسار محدد، أمكن استخدام مسار بديل للاستمرار في عمل الشبكة.
+                </p>
+            </div>
+
+            <h3>عيوب النموذج التشابكي</h3>
+
+            <ul>
+                <li>کلفته المرتفعة جدا.</li>
+                <li>
+                    وصعوبة إعداده وتركيبه؛ إذ يتطلب ذلك استخدام العديد من الأسلاك والمنافذ.
+                </li>
+            </ul>
+
+        </section>
+
+    </div>
+
+    <a class="back-btn no-read" href="digital-skills-7-term1.html">
         ↩️ العودة إلى دروس الفصل
     </a>
 
-    <footer>
+    <footer class="no-read">
         © 2026 زد علمك - جميع الحقوق محفوظة
     </footer>
 
 </div>
+
+<script>
+(function () {
+    const synth = window.speechSynthesis;
+
+    const startBtn = document.getElementById("startBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const statusBox = document.getElementById("readingStatus");
+
+    let chunks = [];
+    let currentIndex = 0;
+    let isReading = false;
+    let isPaused = false;
+    let runId = 0;
+    let fallbackTimer = null;
+    let retryCount = 0;
+
+    function setStatus(message) {
+        statusBox.textContent = message;
+    }
+
+    function updateButtons() {
+        startBtn.disabled = isReading;
+        pauseBtn.disabled = !isReading || isPaused;
+        resumeBtn.disabled = !isReading || !isPaused;
+        stopBtn.disabled = !isReading;
+    }
+
+    function clearFallbackTimer() {
+        if (fallbackTimer !== null) {
+            clearTimeout(fallbackTimer);
+            fallbackTimer = null;
+        }
+    }
+
+    function getLessonText() {
+        const content = document.getElementById("lessonContent");
+        const clone = content.cloneNode(true);
+
+        clone.querySelectorAll(
+            "script, style, button, input, textarea, select, .no-read, img, video, audio"
+        ).forEach(function (element) {
+            element.remove();
+        });
+
+        return clone.innerText
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    function splitTextIntoChunks(text, maxLength) {
+        const sentences = text.match(/[^.!؟]+[.!؟]?/g) || [text];
+        const result = [];
+        let current = "";
+
+        sentences.forEach(function (sentence) {
+            sentence = sentence.trim();
+            if (!sentence) return;
+
+            if ((current + " " + sentence).trim().length <= maxLength) {
+                current = (current + " " + sentence).trim();
+            } else {
+                if (current) result.push(current);
+
+                while (sentence.length > maxLength) {
+                    let splitAt = sentence.lastIndexOf(" ", maxLength);
+
+                    if (splitAt < 1) splitAt = maxLength;
+
+                    result.push(sentence.slice(0, splitAt).trim());
+                    sentence = sentence.slice(splitAt).trim();
+                }
+
+                current = sentence;
+            }
+        });
+
+        if (current) result.push(current);
+
+        return result;
+    }
+
+    function speakCurrentChunk(id) {
+        if (id !== runId || !isReading || isPaused) return;
+
+        clearFallbackTimer();
+
+        if (currentIndex >= chunks.length) {
+            finishReading(id);
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(chunks[currentIndex]);
+        utterance.lang = "ar-SA";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        let started = false;
+
+        utterance.onstart = function () {
+            if (id !== runId) return;
+
+            started = true;
+            retryCount = 0;
+            clearFallbackTimer();
+            setStatus("🔊 جارٍ قراءة الدرس... الجزء " + (currentIndex + 1) + " من " + chunks.length);
+        };
+
+        utterance.onend = function () {
+            if (id !== runId || !isReading || isPaused) return;
+
+            clearFallbackTimer();
+            currentIndex++;
+            retryCount = 0;
+
+            if (currentIndex < chunks.length) {
+                setTimeout(function () {
+                    speakCurrentChunk(id);
+                }, 100);
+            } else {
+                finishReading(id);
+            }
+        };
+
+        utterance.onerror = function (event) {
+            if (id !== runId || isPaused) return;
+
+            clearFallbackTimer();
+
+            if (event.error === "canceled" || event.error === "interrupted") {
+                return;
+            }
+
+            setStatus("تعذر تشغيل الصوت. تحقق من إعدادات الصوت في الهاتف ثم اضغط قراءة الدرس.");
+        };
+
+        synth.speak(utterance);
+
+        fallbackTimer = setTimeout(function () {
+            if (id !== runId || !isReading || isPaused || started) return;
+
+            if (retryCount < 1) {
+                retryCount++;
+                synth.cancel();
+
+                setTimeout(function () {
+                    speakCurrentChunk(id);
+                }, 250);
+            } else {
+                isReading = false;
+                isPaused = false;
+                clearFallbackTimer();
+                updateButtons();
+                setStatus("لم يبدأ الصوت. تحقق من محرك تحويل النص إلى كلام في إعدادات الهاتف.");
+            }
+        }, 1800);
+    }
+
+    function finishReading(id) {
+        if (id !== runId) return;
+
+        clearFallbackTimer();
+        isReading = false;
+        isPaused = false;
+        updateButtons();
+        setStatus("✅ انتهت قراءة الدرس.");
+    }
+
+    window.readLesson = function () {
+        if (!("speechSynthesis" in window) ||
+            !("SpeechSynthesisUtterance" in window)) {
+            setStatus("المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في Google Chrome.");
+            return;
+        }
+
+        runId++;
+        const id = runId;
+
+        clearFallbackTimer();
+        synth.cancel();
+
+        const text = getLessonText();
+
+        if (!text) {
+            setStatus("لم يتم العثور على نص الدرس.");
+            return;
+        }
+
+        chunks = splitTextIntoChunks(text, 220);
+        currentIndex = 0;
+        retryCount = 0;
+        isReading = true;
+        isPaused = false;
+
+        updateButtons();
+        setStatus("⏳ جارٍ تجهيز القراءة...");
+
+        setTimeout(function () {
+            speakCurrentChunk(id);
+        }, 250);
+    };
+
+    window.pauseReading = function () {
+        if (!isReading || isPaused) return;
+
+        isPaused = true;
+        clearFallbackTimer();
+
+        /*
+         * نلغي الجزء الحالي ونحتفظ برقمه،
+         * حتى تعيد المتابعة قراءة هذا الجزء من بدايته.
+         */
+        synth.cancel();
+
+        updateButtons();
+        setStatus("⏸️ توقفت القراءة مؤقتًا. اضغط متابعة القراءة لاستكمال الدرس.");
+    };
+
+    window.resumeReading = function () {
+        if (!isReading || !isPaused) return;
+
+        /*
+         * لا نعتمد على synth.resume()؛ لأنه قد لا يعمل
+         * بصورة موثوقة في بعض متصفحات الهواتف.
+         */
+        clearFallbackTimer();
+        synth.cancel();
+
+        isPaused = false;
+        retryCount = 0;
+
+        updateButtons();
+        setStatus("⏳ جارٍ استئناف القراءة...");
+
+        const id = runId;
+
+        setTimeout(function () {
+            speakCurrentChunk(id);
+        }, 300);
+    };
+
+    window.stopReading = function () {
+        runId++;
+        clearFallbackTimer();
+        synth.cancel();
+
+        isReading = false;
+        isPaused = false;
+        chunks = [];
+        currentIndex = 0;
+        retryCount = 0;
+
+        updateButtons();
+        setStatus("⏹️ تم إيقاف القراءة.");
+    };
+
+    window.addEventListener("beforeunload", function () {
+        clearFallbackTimer();
+        synth.cancel();
+    });
+
+    updateButtons();
+})();
+</script>
 
 </body>
 </html>
