@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الدرس الرابع: أنواع شبكات الحاسوب | زد علمك</title>
+<meta name="description" content="شرح أنواع شبكات الحاسوب للصف السابع: الشبكة الشخصية والمحلية والحضرية والواسعة، والشبكة التناظرية وشبكة الخادم والمستفيد.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+    padding: 18px;
+    color: #1e293b;
+    line-height: 2;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+header {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: white;
+    padding: 26px 18px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.18);
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+    line-height: 1.7;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+.english {
+    direction: ltr;
+    display: inline-block;
+    unicode-bidi: embed;
+}
+
+.reading-box {
+    background: white;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+.reading-box h2 {
+    color: #1d4ed8;
+    font-size: 21px;
+    margin: 0 0 12px;
+}
+
+.reading-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.reading-buttons button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 8px;
+    min-height: 46px;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.start-btn { background: #2563eb; }
+.pause-btn { background: #d97706; }
+.resume-btn { background: #16a34a; }
+.stop-btn { background: #dc2626; }
+
+.reading-buttons button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.reading-status {
+    background: #f8fafc;
+    border-radius: 9px;
+    padding: 10px 12px;
+    margin: 12px 0 0;
+    color: #475569;
+    font-size: 14px;
+    min-height: 44px;
+}
+
+.lesson-section {
+    background: white;
+    padding: 23px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+.lesson-section h2 {
+    color: #1d4ed8;
+    font-size: 23px;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dbeafe;
+    line-height: 1.7;
+}
+
+.lesson-section h3 {
+    color: #1e40af;
+    background: #eff6ff;
+    border-right: 4px solid #3b82f6;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 19px;
+    margin-top: 24px;
+    line-height: 1.8;
+}
+
+.lesson-section p {
+    margin: 13px 0;
+}
+
+.lesson-section ul {
+    padding-right: 25px;
+}
+
+.lesson-section li {
+    margin-bottom: 9px;
+}
+
+.question-box {
+    background: #eff6ff;
+    border: 2px solid #93c5fd;
+    border-right: 6px solid #2563eb;
+    padding: 16px;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+
+.question-title {
+    display: block;
+    color: #1d4ed8;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.answer-title {
+    display: block;
+    color: #15803d;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.answer-text {
+    background: #f0fdf4;
+    border-right: 4px solid #22c55e;
+    color: #166534;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 0 !important;
+}
+
+.comparison {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    overflow-wrap: anywhere;
+}
+
+.comparison th,
+.comparison td {
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    text-align: right;
+    vertical-align: top;
+}
+
+.comparison th {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.comparison td {
+    background: #f8fafc;
+}
+
+.comparison .advantage {
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.comparison .disadvantage {
+    background: #fff1f2;
+    color: #9f1239;
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    margin: 22px 0;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background: #1d4ed8;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 22px 13px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .lesson-section {
+        padding: 16px;
+    }
+
+    .lesson-section h2 {
+        font-size: 20px;
+    }
+
+    .lesson-section h3 {
+        font-size: 17px;
+    }
+
+    .reading-box {
+        padding: 14px;
+    }
+
+    .reading-buttons button {
+        font-size: 14px;
+    }
+
+    .comparison th,
+    .comparison td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>الدرس الرابع: أنواع شبكات الحاسوب</h1>
+    <p class="english">Computer Networks Types</p>
+    <p>المهارات الرقمية - الصف السابع</p>
+</header>
+
+<div class="reading-box no-read">
+    <h2>🔊 القراءة الصوتية للدرس</h2>
+
+    <div class="reading-buttons">
+        <button type="button" class="start-btn" id="startBtn" onclick="readLesson()">
+            🔊 قراءة الدرس
+        </button>
+
+        <button type="button" class="pause-btn" id="pauseBtn" onclick="pauseReading()" disabled>
+            ⏸️ إيقاف مؤقت
+        </button>
+
+        <button type="button" class="resume-btn" id="resumeBtn" onclick="resumeReading()" disabled>
+            ▶️ متابعة القراءة
+        </button>
+
+        <button type="button" class="stop-btn" id="stopBtn" onclick="stopReading()" disabled>
+            ⏹️ إيقاف القراءة
+        </button>
+    </div>
+
+    <p class="reading-status" id="readingStatus" aria-live="polite">
+        اضغط على «قراءة الدرس» للاستماع إلى محتوى الدرس.
+    </p>
+</div>
+
+<div id="lessonContent">
+
+<section class="lesson-section">
+
+    <h2>أولًا: تصنيف شبكات الحاسوب</h2>
+
+    <p>
+        تُصنّف شبكات الحاسوب إلى أنواع وفقًا لمعايير عديدة، أبرزها:
+    </p>
+
+    <ul>
+        <li>مساحة المنطقة الجغرافية التي تصلها شبكة الحاسوب.</li>
+        <li>العلاقة بين أجهزة الحاسوب في الشبكة.</li>
+    </ul>
+
+    <h3>أنواع الشبكات بحسب المساحة الجغرافية</h3>
+
+    <ul>
+        <li>شبكة المنطقة الشخصية <span class="english">(Personal Area Network: PAN)</span>.</li>
+        <li>شبكة المنطقة المحلية <span class="english">(Local Area Network: LAN)</span>.</li>
+        <li>شبكة المنطقة الحضرية <span class="english">(Metropolitan Area Network: MAN)</span>.</li>
+        <li>شبكة المنطقة الواسعة <span class="english">(Wide Area Network: WAN)</span>.</li>
+    </ul>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>1. شبكة المنطقة الشخصية (PAN)</h2>
+
+    <p>
+        تُعَدُّ شبكة المنطقة الشخصية أصغر شبكات الحاسوب من حيث المناطق التي تشملها.
+    </p>
+
+    <h3>أمثلة على شبكة المنطقة الشخصية</h3>
+
+    <ul>
+        <li>اتصال الهاتف الذكي بسماعة الرأس اللاسلكية لتشغيل الموسيقى.</li>
+        <li>اتصال الطابعة بجهاز الحاسوب بواسطة تقنية البلوتوث.</li>
+    </ul>
+
+    <div class="question-box">
+        <span class="question-title">
+            علّل: سُمِّيَت شبكة المنطقة الشخصية بهذا الاسم.
+        </span>
+        <span class="answer-title">الإجابة:</span>
+        <p class="answer-text">
+            لأنها تتعلق بأجهزة المستخدم القريبة منه، مثل الهاتف المحمول، والساعة الذكية، وسماعة الرأس.
+        </p>
+    </div>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>2. شبكة المنطقة المحلية (LAN)</h2>
+
+    <p>
+        يصل مدى شبكة المنطقة المحلية إلى مناطق أبعد من تلك التي تصلها شبكة المنطقة الشخصية.
+        وتتصل فيها الأجهزة الموجودة في منطقة صغيرة نسبيًا، مثل المنزل والغرف الصفية في المدرسة.
+    </p>
+
+    <h3>أمثلة على شبكة المنطقة المحلية</h3>
+
+    <ul>
+        <li>استخدام الأجهزة المنزلية المتصلة بالشبكة، مثل جهاز الحاسوب والطابعة.</li>
+        <li>
+            توصيل مجموعة من الحواسيب معًا داخل مرافق المدرسة المختلفة، مثل مختبر الحاسوب، والمكتبة، ومختبر العلوم، والمسرح.
+        </li>
+    </ul>
+
+    <div class="question-box">
+        <span class="question-title">
+            صح أم خطأ: يصل مدى شبكة المنطقة المحلية إلى مناطق أبعد من تلك التي تصلها شبكة المنطقة الشخصية.
+        </span>
+        <span class="answer-title">الإجابة:</span>
+        <p class="answer-text">✔️ عبارة صحيحة.</p>
+    </div>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>3. شبكة المنطقة الحضرية (MAN)</h2>
+
+    <p>
+        يصل مدى شبكة المنطقة الحضرية إلى مناطق أبعد من تلك التي تصلها شبكة المنطقة المحلية
+        <span class="english">(LAN)</span>، وإلى مناطق أقرب من تلك التي تصلها شبكة المنطقة الواسعة
+        <span class="english">(WAN)</span>.
+    </p>
+
+    <p>
+        ويمكن أن يشمل مداها مدينة كاملة أو جامعة، مثلًا.
+    </p>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>4. شبكة المنطقة الواسعة (WAN)</h2>
+
+    <p>
+        تُعَدُّ شبكة المنطقة الواسعة أكبر شبكات الحاسوب من حيث المناطق التي تشملها؛ إذ يصل مداها إلى مناطق شاسعة وممتدة في مختلف أنحاء العالم.
+    </p>
+
+    <h3>مثال على شبكة المنطقة الواسعة</h3>
+
+    <p>
+        الإنترنت <span class="english">(Internet)</span>.
+    </p>
+
+    <div class="question-box">
+        <span class="question-title">
+            قارن بين الشبكات بحسب المساحة الجغرافية التي تغطيها.
+        </span>
+        <span class="answer-title">الإجابة:</span>
+        <p class="answer-text">
+            PAN: شبكة المنطقة الشخصية، وهي الأصغر.<br>
+            LAN: شبكة المنطقة المحلية، وتغطي منطقة صغيرة مثل المنزل أو المدرسة.<br>
+            MAN: شبكة المنطقة الحضرية، وقد تغطي مدينة كاملة.<br>
+            WAN: شبكة المنطقة الواسعة، وهي الأكبر وقد تمتد عبر مناطق مختلفة من العالم.
+        </p>
+    </div>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>ثانيًا: تصنيف الشبكات بحسب العلاقة بين أجهزة الحاسوب</h2>
+
+    <p>
+        تُصنّف الشبكات بحسب العلاقة بين أجهزة الحاسوب إلى نوعين، هما:
+    </p>
+
+    <ul>
+        <li>الشبكة التناظرية <span class="english">(Peer-to-Peer Network)</span>.</li>
+        <li>شبكة الخادم / المستفيد <span class="english">(Server / Client Network)</span>.</li>
+    </ul>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>1. الشبكة التناظرية (Peer-to-Peer Network)</h2>
+
+    <div class="question-box">
+        <span class="question-title">
+            وضّح المقصود بالشبكة التناظرية.
+        </span>
+        <span class="answer-title">الإجابة:</span>
+        <p class="answer-text">
+            شبكة تتساوى فيها جميع أجهزة الحاسوب من حيث إمكانية الوصول إلى الشبكة واستخدامها، من دون تمييز بين هذه الأجهزة؛ إذ لا يتفرد جهاز بصلاحيات أكثر من غيره.
+        </p>
+    </div>
+
+    <div class="question-box">
+        <span class="question-title">
+            علّل: سُمِّيَت الشبكة التناظرية بهذا الاسم.
+        </span>
+        <span class="answer-title">الإجابة:</span>
+        <p class="answer-text">
+            لأن جميع الأجهزة فيها متناظرة ومتماثلة من حيث إمكانية الوصول إلى الشبكة واستخدامها، ولا يمتلك جهاز منها صلاحيات أكثر من غيره.
+        </p>
+    </div>
+
+    <h3>مميزات الشبكة التناظرية</h3>
+
+    <ul>
+        <li>تتساوى أجهزة الحاسوب في إمكانية الوصول إلى الشبكة واستخدامها.</li>
+        <li>لا يعتمد عمل الشبكة على جهاز خادم واحد.</li>
+    </ul>
+
+    <h3>عيوب الشبكة التناظرية</h3>
+
+    <ul>
+        <li>مستوى الحماية والأمان فيها أقل مقارنةً بشبكة الخادم / المستفيد.</li>
+    </ul>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>2. شبكة الخادم / المستفيد (Server / Client Network)</h2>
+
+    <div class="question-box">
+        <span class="question-title">
+            وضّح المقصود بشبكة الخادم / المستفيد.
+        </span>
+        <span class="answer-title">الإجابة:</span>
+        <p class="answer-text">
+            شبكة تشتمل على مجموعة من الأجهزة، يُسمّى أحدها الخادم (Server)، وتُسمّى بقية الأجهزة المستفيدين (Clients). ويمتاز الخادم بصلاحيات خاصة، إذ يتولى إدارة عمل الشبكة وتخزين البرامج فيها وتسجيل بيانات مستخدميها.
+        </p>
+    </div>
+
+    <div class="question-box">
+        <span class="question-title">
+            علّل: سُمِّيَت شبكة الخادم / المستفيد بهذا الاسم.
+        </span>
+        <span class="answer-title">الإجابة:</span>
+        <p class="answer-text">
+            لأنها تتكون من جهاز خادم يتولى إدارة الشبكة، ومجموعة من الأجهزة المستفيدة من الخدمات التي يقدمها الخادم.
+        </p>
+    </div>
+
+    <h3>مميزات شبكة الخادم / المستفيد</h3>
+
+    <ul>
+        <li>يمتاز جهاز الخادم بصلاحيات خاصة.</li>
+        <li>يتولى الخادم مسؤولية أمان الشبكة وإدارتها.</li>
+        <li>يمكن تخزين البرامج وبيانات المستخدمين على الخادم.</li>
+    </ul>
+
+    <h3>عيوب شبكة الخادم / المستفيد</h3>
+
+    <ul>
+        <li>إذا تعطل الخادم، فقد تتوقف الخدمات التي تعتمد عليه أو يتعطل عمل الشبكة.</li>
+    </ul>
+
+</section>
+
+<section class="lesson-section">
+
+    <h2>ثالثًا: المقارنة بين الشبكة التناظرية وشبكة الخادم / المستفيد</h2>
+
+    <table class="comparison">
+        <thead>
+            <tr>
+                <th>وجه المقارنة</th>
+                <th>شبكة الخادم / المستفيد</th>
+                <th>الشبكة التناظرية</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>المميزات</th>
+                <td class="advantage">
+                    يمتاز الخادم بصلاحيات خاصة، وهو مسؤول عن إدارة الشبكة وأمانها.
+                </td>
+                <td class="advantage">
+                    تتساوى أجهزة الحاسوب في إمكانية الوصول إلى الشبكة واستخدامها.
+                </td>
+            </tr>
+
+            <tr>
+                <th>العيوب</th>
+                <td class="disadvantage">
+                    إذا تعطل الخادم، فقد تتوقف الخدمات التي تعتمد عليه.
+                </td>
+                <td class="disadvantage">
+                    مستوى الحماية والأمان أقل.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="question-box">
+        <span class="question-title">
+            وضّح الفرق بين الشبكة التناظرية وشبكة الخادم / المستفيد من حيث المميزات والعيوب.
+        </span>
+
+        <span class="answer-title">الإجابة:</span>
+
+        <p class="answer-text">
+            <strong>شبكة الخادم / المستفيد:</strong><br>
+            المميزات: يتمتع الخادم بصلاحيات خاصة، ويتولى إدارة الشبكة وأمانها.<br>
+            العيوب: قد تتوقف الخدمات التي تعتمد على الخادم إذا تعطل.<br><br>
+
+            <strong>الشبكة التناظرية:</strong><br>
+            المميزات: تتساوى أجهزة الحاسوب في إمكانية الوصول إلى الشبكة واستخدامها.<br>
+            العيوب: مستوى الحماية والأمان فيها أقل.
+        </p>
+    </div>
+
+</section>
+
+</div>
+
+<a class="back-btn no-read" href="digital-skills-7-term1.html">
+    ↩️ العودة إلى دروس الفصل
+</a>
+
+<footer class="no-read">
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+(function () {
+    const startBtn = document.getElementById("startBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const statusBox = document.getElementById("readingStatus");
+
+    if (!("speechSynthesis" in window) ||
+        !("SpeechSynthesisUtterance" in window)) {
+        startBtn.disabled = true;
+        statusBox.textContent =
+            "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في Google Chrome.";
+        return;
+    }
+
+    const synth = window.speechSynthesis;
+
+    let chunks = [];
+    let currentIndex = 0;
+    let isReading = false;
+    let isPaused = false;
+    let runId = 0;
+    let currentUtterance = null;
+    let nextTimer = null;
+    let startTimer = null;
+
+    function setStatus(message) {
+        statusBox.textContent = message;
+    }
+
+    function clearTimers() {
+        clearTimeout(nextTimer);
+        clearTimeout(startTimer);
+        nextTimer = null;
+        startTimer = null;
+    }
+
+    function updateButtons() {
+        startBtn.disabled = isReading;
+        pauseBtn.disabled = !isReading || isPaused;
+        resumeBtn.disabled = !isReading || !isPaused;
+        stopBtn.disabled = !isReading;
+    }
+
+    function getLessonText() {
+        const clone = document.getElementById("lessonContent").cloneNode(true);
+
+        clone.querySelectorAll(
+            "script, style, button, input, textarea, select, img, video, audio"
+        ).forEach(function (element) {
+            element.remove();
+        });
+
+        return clone.innerText.replace(/\s+/g, " ").trim();
+    }
+
+    function splitText(text, maxLength) {
+        const sentences = text.match(/[^.!؟]+[.!؟]?/g) || [text];
+        const result = [];
+        let part = "";
+
+        sentences.forEach(function (sentence) {
+            sentence = sentence.trim();
+            if (!sentence) return;
+
+            while (sentence.length > maxLength) {
+                let splitAt = sentence.lastIndexOf(" ", maxLength);
+
+                if (splitAt < 1) splitAt = maxLength;
+
+                const piece = sentence.slice(0, splitAt).trim();
+                if (piece) result.push(piece);
+
+                sentence = sentence.slice(splitAt).trim();
+            }
+
+            if (!sentence) return;
+
+            if (part && (part + " " + sentence).length <= maxLength) {
+                part += " " + sentence;
+            } else {
+                if (part) result.push(part);
+                part = sentence;
+            }
+        });
+
+        if (part) result.push(part);
+
+        return result;
+    }
+
+    function speakCurrentChunk(id) {
+        if (id !== runId || !isReading || isPaused) return;
+
+        clearTimers();
+
+        if (currentIndex >= chunks.length) {
+            finishReading(id);
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(chunks[currentIndex]);
+        currentUtterance = utterance;
+
+        utterance.lang = "ar-SA";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        utterance.onstart = function () {
+            if (id !== runId) return;
+
+            setStatus(
+                "🔊 جارٍ قراءة الدرس... الجزء " +
+                (currentIndex + 1) + " من " + chunks.length
+            );
+        };
+
+        utterance.onend = function () {
+            if (id !== runId || !isReading || isPaused) return;
+
+            currentUtterance = null;
+            currentIndex++;
+
+            if (currentIndex < chunks.length) {
+                nextTimer = setTimeout(function () {
+                    speakCurrentChunk(id);
+                }, 300);
+            } else {
+                finishReading(id);
+            }
+        };
+
+        utterance.onerror = function (event) {
+            if (id !== runId || isPaused || !isReading) return;
+
+            if (event.error === "canceled" ||
+                event.error === "interrupted") {
+                return;
+            }
+
+            clearTimers();
+            isReading = false;
+            isPaused = false;
+            currentUtterance = null;
+            updateButtons();
+
+            setStatus(
+                "تعذر تشغيل الصوت. اضغط قراءة الدرس للمحاولة من جديد."
+            );
+        };
+
+        synth.speak(utterance);
+    }
+
+    function finishReading(id) {
+        if (id !== runId) return;
+
+        clearTimers();
+        isReading = false;
+        isPaused = false;
+        currentUtterance = null;
+
+        updateButtons();
+        setStatus("✅ انتهت قراءة الدرس بالكامل.");
+    }
+
+    window.readLesson = function () {
+        runId++;
+        const id = runId;
+
+        clearTimers();
+        synth.cancel();
+
+        currentUtterance = null;
+
+        const text = getLessonText();
+
+        if (!text) {
+            setStatus("لم يتم العثور على نص الدرس.");
+            return;
+        }
+
+        chunks = splitText(text, 300);
+        currentIndex = 0;
+        isReading = true;
+        isPaused = false;
+
+        updateButtons();
+        setStatus("⏳ جارٍ تجهيز القراءة...");
+
+        startTimer = setTimeout(function () {
+            speakCurrentChunk(id);
+        }, 350);
+    };
+
+    window.pauseReading = function () {
+        if (!isReading || isPaused) return;
+
+        isPaused = true;
+        clearTimers();
+
+        synth.cancel();
+        currentUtterance = null;
+
+        updateButtons();
+        setStatus(
+            "⏸️ توقفت القراءة مؤقتًا. اضغ
