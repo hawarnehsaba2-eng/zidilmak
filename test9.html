@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اختبر نفسك | الدرس التاسع: أنواع شبكات الحاسوب</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    margin: 0;
+    padding: 16px;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white;
+    padding: 28px 18px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 22px;
+    box-shadow: 0 7px 18px rgba(37, 99, 235, 0.18);
+}
+
+header .icon {
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    padding: 5px 14px;
+    border-radius: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.progress-box {
+    background: white;
+    border-radius: 14px;
+    padding: 15px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: #334155;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.progress-track {
+    height: 9px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    border-radius: 20px;
+    transition: width 0.25s ease;
+}
+
+.question {
+    background: white;
+    padding: 21px;
+    margin-bottom: 18px;
+    border-radius: 17px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.045);
+}
+
+.question h3 {
+    color: #1d4ed8;
+    font-size: 18px;
+    margin: 0 0 15px;
+    line-height: 1.9;
+}
+
+.question-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 10px;
+    margin-left: 7px;
+    font-size: 15px;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    background: #f0fdf4;
+    color: #166534;
+    border: 2px solid #dcfce7;
+    padding: 12px 13px;
+    margin-top: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.option:hover {
+    background: #dcfce7;
+    border-color: #86efac;
+}
+
+.option:has(input:checked) {
+    background: #dcfce7;
+    border-color: #22c55e;
+}
+
+.option input {
+    flex-shrink: 0;
+    margin: 6px 0 0;
+    accent-color: #16a34a;
+    transform: scale(1.15);
+}
+
+.option span {
+    flex: 1;
+}
+
+.finish-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #15803d, #22c55e);
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(22, 163, 74, 0.18);
+    margin-top: 5px;
+}
+
+.finish-btn:hover {
+    background: #15803d;
+}
+
+.finish-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.result {
+    display: none;
+    background: white;
+    padding: 25px 18px;
+    margin-top: 22px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.07);
+}
+
+.result h2 {
+    color: #15803d;
+    margin-top: 0;
+}
+
+.score {
+    color: #1d4ed8;
+    font-size: 34px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.result-message {
+    color: #475569;
+    font-size: 17px;
+}
+
+.retry-btn {
+    display: none;
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    background: white;
+    border: 1px solid #dbeafe;
+    color: #1d4ed8;
+    padding: 13px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+.back-btn:hover {
+    background: #eff6ff;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+    padding: 20px 5px 8px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 23px 14px;
+        border-radius: 16px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .question {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .question h3 {
+        font-size: 17px;
+    }
+
+    .option {
+        padding: 11px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <div class="icon">🧠</div>
+    <h1>اختبر نفسك</h1>
+    <p>الدرس التاسع: أنواع شبكات الحاسوب</p>
+    <p>اختر الإجابة الصحيحة واختبر فهمك للدرس.</p>
+    <div class="badge">📘 المهارات الرقمية | الصف السابع</div>
+</header>
+
+<div class="progress-box">
+    <div class="progress-top">
+        <span>تقدمك في الاختبار</span>
+        <span id="progressText">أجبت عن 0 من 10</span>
+    </div>
+    <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+</div>
+
+<form id="questionsForm">
+
+    <div class="question">
+        <h3><span class="question-number">1</span>ما المقصود بتصنيف الشبكات حسب المساحة الجغرافية؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q1" value="wrong">
+            <span>تصنيف الشبكات حسب لون الأجهزة.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="correct">
+            <span>تصنيف الشبكات حسب مساحة المنطقة التي تغطيها.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="wrong">
+            <span>تصنيف الشبكات حسب عدد البرامج المثبتة.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">2</span>ما نوع الشبكة التي تُعد الأصغر من حيث المساحة الجغرافية؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q2" value="correct">
+            <span>PAN — شبكة المنطقة الشخصية.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="wrong">
+            <span>MAN — شبكة المنطقة الحضرية.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="wrong">
+            <span>WAN — شبكة المنطقة الواسعة.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">3</span>أيّ مما يأتي مثال على شبكة المنطقة الشخصية (PAN)؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q3" value="wrong">
+            <span>ربط أجهزة الحاسوب في العالم عبر الإنترنت.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="correct">
+            <span>اتصال الهاتف بسماعة لاسلكية باستخدام Bluetooth.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="wrong">
+            <span>ربط شبكات مدينة كاملة.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">4</span>أيّ من الأماكن الآتية يناسب استخدام شبكة المنطقة المحلية (LAN)؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q4" value="correct">
+            <span>مختبر الحاسوب في المدرسة.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="wrong">
+            <span>العالم أجمع.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="wrong">
+            <span>أجهزة شخصية متصلة حول مستخدم واحد فقط.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">5</span>أي نوع من الشبكات يمكن أن يغطي مدينة أو جامعة كبيرة؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q5" value="wrong">
+            <span>PAN — شبكة المنطقة الشخصية.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="correct">
+            <span>MAN — شبكة المنطقة الحضرية.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="wrong">
+            <span>WAN — شبكة المنطقة الواسعة فقط.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">6</span>ما أكبر أنواع الشبكات من حيث المساحة الجغرافية؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q6" value="wrong">
+            <span>PAN — شبكة المنطقة الشخصية.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q6" value="wrong">
+            <span>LAN — شبكة المنطقة المحلية.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q6" value="correct">
+            <span>WAN — شبكة المنطقة الواسعة.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">7</span>ما مثال شبكة المنطقة الواسعة (WAN)؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q7" value="wrong">
+            <span>اتصال الهاتف بسماعة لاسلكية.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q7" value="correct">
+            <span>شبكة الإنترنت التي تربط أجهزة وشبكات حول العالم.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q7" value="wrong">
+            <span>شبكة داخل غرفة صفية واحدة فقط.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">8</span>في أي نوع من الشبكات تتساوى الأجهزة في إمكانية الوصول والاستخدام دون تمييز بينها؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q8" value="correct">
+            <span>الشبكة التناظرية (Peer-to-Peer Network).</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q8" value="wrong">
+            <span>شبكة الخادم/المستفيد (Server/Client Network).</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q8" value="wrong">
+            <span>شبكة المنطقة الواسعة فقط.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">9</span>ما الوظيفة الأساسية لجهاز الخادم (Server) في شبكة الخادم/المستفيد؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q9" value="wrong">
+            <span>تشغيل الشاشة فقط.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q9" value="correct">
+            <span>إدارة الشبكة وتخزين البرامج وبيانات المستخدمين والمساهمة في أمانها.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q9" value="wrong">
+            <span>منع جميع الأجهزة من تبادل البيانات.</span>
+        </label>
+    </div>
+
+    <div class="question">
+        <h3><span class="question-number">10</span>ما أحد عيوب شبكة الخادم/المستفيد؟</h3>
+
+        <label class="option">
+            <input type="radio" name="q10" value="wrong">
+            <span>لا يوجد جهاز مسؤول عن إدارة الشبكة.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q10" value="correct">
+            <span>قد تتوقف بعض خدمات الشبكة إذا تعطل الخادم.</span>
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q10" value="wrong">
+            <span>تتساوى جميع الأجهزة دائمًا في صلاحيات الخادم.</span>
+        </label>
+    </div>
+
+    <button type="button" class="finish-btn" id="finishButton" onclick="finishQuestions()">
+        ✅ إنهاء الاختبار وعرض العلامة
+    </button>
+
+</form>
+
+<div class="result" id="result" aria-live="polite">
+    <h2>🎉 انتهى الاختبار!</h2>
+    <div class="score" id="score"></div>
+    <p class="result-message" id="message"></p>
+    <button type="button" class="retry-btn" id="retryButton" onclick="retryQuestions()">
+        🔄 إعادة الاختبار
+    </button>
+</div>
+
+<a class="back-btn" href="digital-skills-7-lesson9.html">
+    ↩️ العودة إلى الدرس التاسع
+</a>
+
+<a class="back-btn" href="digital-skills-7-term1.html">
+    📚 العودة إلى دروس الفصل
+</a>
+
+<footer>
+    زد علمك | التعلّم طريق التميّز 🌟
+</footer>
+
+</div>
+
+<script>
+let questionsFinished = false;
+
+const questionsForm = document.getElementById("questionsForm");
+const progressText = document.getElementById("progressText");
+const progressFill = document.getElementById("progressFill");
+
+function updateProgress() {
+    let answered = 0;
+
+    for (let i = 1; i <= 10; i++) {
+        if (document.querySelector('input[name="q' + i + '"]:checked')) {
+            answered++;
+        }
+    }
+
+    progressText.textContent = "أجبت عن " + answered + " من 10";
+    progressFill.style.width = (answered * 10) + "%";
+}
+
+questionsForm.addEventListener("change", updateProgress);
+
+function finishQuestions() {
+    if (questionsFinished) return;
+
+    let score = 0;
+    let unanswered = 0;
+
+    for (let i = 1; i <= 10; i++) {
+        const answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (!answer) {
+            unanswered++;
+        } else if (answer.value === "correct") {
+            score++;
+        }
+    }
+
+    if (unanswered > 0) {
+        alert("يرجى الإجابة عن جميع الأسئلة قبل إنهاء الاختبار. بقي " + unanswered + " سؤالًا دون إجابة.");
+        return;
+    }
+
+    questionsFinished = true;
+
+    document.querySelectorAll(
+        '#questionsForm input[type="radio"]'
+    ).forEach(function(input) {
+        input.disabled = true;
+    });
+
+    document.getElementById("finishButton").disabled = true;
+
+    document.getElementById("score").textContent =
+        "علامتك: " + score + " / 10";
+
+    let message = "";
+
+    if (score === 10) {
+        message = "🌟 ممتاز! جميع إجاباتك صحيحة، أحسنت!";
+    } else if (score >= 8) {
+        message = "👏 رائع! لديك فهم ممتاز لمعظم مفاهيم الدرس.";
+    } else if (score >= 5) {
+        message = "👍 جيد! راجع النقاط التي تحتاج إلى تثبيت.";
+    } else {
+        message = "📚 لا بأس، راجع الدرس وحاول مرة أخرى.";
+    }
+
+    document.getElementById("message").textContent = message;
+    document.getElementById("result").style.display = "block";
+    document.getElementById("retryButton").style.display = "block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+function retryQuestions() {
+    questionsForm.reset();
+    questionsFinished = false;
+
+    document.querySelectorAll(
+        '#questionsForm input[type="radio"]'
+    ).forEach(function(input) {
+        input.disabled = false;
+    });
+
+    document.getElementById("finishButton").disabled = false;
+    document.getElementById("result").style.display = "none";
+
+    updateProgress();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
