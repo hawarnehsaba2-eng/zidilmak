@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اختبر نفسك | أنواع شبكات الحاسوب</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    margin: 0;
+    padding: 15px;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 18px;
+    margin-bottom: 22px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+.question {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #0000000d;
+}
+
+.question h3 {
+    color: #1d4ed8;
+    margin-top: 0;
+}
+
+.subquestion {
+    color: #334155;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.option {
+    display: block;
+    background: #f0fdf4;
+    border: 2px solid #bbf7d0;
+    color: #166534;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.option:has(input:checked) {
+    background: #dcfce7;
+    border-color: #16a34a;
+}
+
+.option input {
+    margin-left: 8px;
+    transform: scale(1.2);
+}
+
+.finish-btn {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 5px;
+    background: #16a34a;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.finish-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.result {
+    display: none;
+    background: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 22px;
+    border-radius: 16px;
+}
+
+.score {
+    color: #1d4ed8;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.back-btn {
+    display: block;
+    text-align: center;
+    margin: 22px 0;
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .question {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>🧠 أقيم تعلمي</h1>
+    <p>الدرس التاسع: أنواع شبكات الحاسوب</p>
+    <p>اختر الإجابة الصحيحة لكل سؤال</p>
+</header>
+
+<form id="quizForm">
+
+    <div class="question">
+        <h3>السؤال الأول: أميز بين شبكة الخادم/المستفيد والشبكة التناظرية من حيث المزايا والخصائص.</h3>
+
+        <p class="subquestion">1. ما الذي يميز شبكة الخادم/المستفيد؟</p>
+
+        <label class="option">
+            <input type="radio" name="q1" value="wrong">
+            تتساوى جميع الأجهزة في الصلاحيات.
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q1" value="correct">
+            يتميز جهاز الخادم بصلاحيات خاصة، وهو مسؤول عن أمان الشبكة.
+        </label>
+
+        <p class="subquestion">2. ما الذي يميز الشبكة التناظرية؟</p>
+
+        <label class="option">
+            <input type="radio" name="q2" value="correct">
+            تتساوى أجهزة الحاسوب في إمكانية الوصول إلى الشبكة واستخدامها.
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q2" value="wrong">
+            يوجد جهاز خادم يمتلك صلاحيات أعلى من بقية الأجهزة.
+        </label>
+    </div>
+
+    <div class="question">
+        <h3>السؤال الثاني: أكتب نوع شبكة الحاسوب المناسبة لكل مثال تبعًا للمساحة الجغرافية.</h3>
+
+        <p class="subquestion">3. شبكة حاسوب تشمل جامعة حكومية.</p>
+
+        <label class="option">
+            <input type="radio" name="q3" value="wrong">
+            LAN — شبكة المنطقة المحلية
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="correct">
+            MAN — شبكة المنطقة الحضرية
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q3" value="wrong">
+            WAN — شبكة المنطقة الواسعة
+        </label>
+
+        <p class="subquestion">4. شبكة حاسوب تشمل مبنى أو عددًا من المباني المتقاربة.</p>
+
+        <label class="option">
+            <input type="radio" name="q4" value="correct">
+            LAN — شبكة المنطقة المحلية
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="wrong">
+            MAN — شبكة المنطقة الحضرية
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q4" value="wrong">
+            WAN — شبكة المنطقة الواسعة
+        </label>
+
+        <p class="subquestion">5. شبكة حاسوب تشمل العالم أجمع.</p>
+
+        <label class="option">
+            <input type="radio" name="q5" value="wrong">
+            PAN — شبكة المنطقة الشخصية
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="wrong">
+            LAN — شبكة المنطقة المحلية
+        </label>
+
+        <label class="option">
+            <input type="radio" name="q5" value="correct">
+            WAN — شبكة المنطقة الواسعة
+        </label>
+    </div>
+
+    <button type="button" class="finish-btn" onclick="finishQuiz()">
+        ✅ إنهاء الاختبار
+    </button>
+
+</form>
+
+<div class="result" id="result" aria-live="polite">
+    <h2>🎉 انتهى الاختبار!</h2>
+    <div class="score" id="score"></div>
+    <p id="message"></p>
+</div>
+
+<a class="back-btn" href="digital-skills-7-lesson9.html">
+    ↩️ العودة إلى الدرس
+</a>
+
+</div>
+
+<script>
+let quizFinished = false;
+
+function finishQuiz() {
+    if (quizFinished) return;
+
+    const totalQuestions = 5;
+    let score = 0;
+    let unanswered = 0;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        const answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (!answer) {
+            unanswered++;
+        } else if (answer.value === "correct") {
+            score++;
+        }
+    }
+
+    if (unanswered > 0) {
+        alert("يرجى الإجابة عن جميع الأسئلة قبل إنهاء الاختبار.");
+        return;
+    }
+
+    quizFinished = true;
+
+    document.querySelectorAll(
+        '#quizForm input[type="radio"]'
+    ).forEach(function(input) {
+        input.disabled = true;
+    });
+
+    document.querySelector(".finish-btn").disabled = true;
+
+    document.getElementById("score").textContent =
+        "علامتك: " + score + " / " + totalQuestions;
+
+    let message;
+
+    if (score === 5) {
+        message = "🌟 ممتاز! جميع إجاباتك صحيحة.";
+    } else if (score >= 4) {
+        message = "👏 رائع! لديك فهم جيد للدرس.";
+    } else if (score >= 3) {
+        message = "👍 جيد، راجع الإجابات وحاول تحسين علامتك.";
+    } else {
+        message = "📚 راجع الدرس وحاول مرة أخرى.";
+    }
+
+    document.getElementById("message").textContent = message;
+    document.getElementById("result").style.display = "block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
