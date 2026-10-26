@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="الدرس الخامس من المهارات الرقمية للصف السابع: التواصل باستخدام الشبكات، ومزاياه وطرائق التواصل عبر الإنترنت والبريد الإلكتروني.">
+
+<title>الدرس الخامس: التواصل باستخدام الشبكات | زد علمك</title>
+
+<style>
+:root {
+    --blue: #1d4ed8;
+    --blue-light: #eff6ff;
+    --green: #15803d;
+    --green-light: #f0fdf4;
+    --text: #1f2937;
+    --muted: #64748b;
+    --border: #dbeafe;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Tahoma, sans-serif;
+    margin: 0;
+    padding: 16px;
+    background: #f3f6fb;
+    color: var(--text);
+    line-height: 1.9;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+header {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: white;
+    padding: 25px 18px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+    line-height: 1.6;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+.lesson-number {
+    display: inline-block;
+    background: rgba(255,255,255,0.17);
+    padding: 4px 13px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.reading-panel {
+    background: white;
+    padding: 16px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+}
+
+.reading-panel h2 {
+    margin: 0 0 12px;
+    color: var(--blue);
+    font-size: 19px;
+}
+
+.reading-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.reading-buttons button {
+    flex: 1 1 135px;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#readButton {
+    background: var(--blue);
+    color: white;
+}
+
+#pauseButton {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+#resumeButton {
+    background: #dcfce7;
+    color: #166534;
+}
+
+#stopButton {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.reading-status {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 10px 0 0;
+}
+
+.section {
+    background: white;
+    padding: 21px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    border: 1px solid #e5eaf2;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+.section h2 {
+    color: var(--blue);
+    font-size: 22px;
+    line-height: 1.7;
+    margin: 0 0 14px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--border);
+}
+
+.section h3 {
+    color: #1e40af;
+    font-size: 19px;
+    margin: 20px 0 8px;
+    line-height: 1.7;
+}
+
+p {
+    margin: 10px 0;
+}
+
+ul, ol {
+    padding-right: 25px;
+    margin: 10px 0;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.definition {
+    background: var(--blue-light);
+    border-right: 5px solid var(--blue);
+    padding: 14px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+.benefit {
+    background: var(--green-light);
+    border-right: 5px solid var(--green);
+    padding: 15px;
+    margin: 14px 0;
+    border-radius: 10px;
+}
+
+.benefit h3 {
+    color: var(--green);
+    margin-top: 0;
+}
+
+.note {
+    background: #fffbeb;
+    border-right: 5px solid #f59e0b;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.english {
+    direction: ltr;
+    unicode-bidi: embed;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.term-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.term {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 11px;
+}
+
+.media-box {
+    margin: 20px auto;
+    padding: 12px;
+    max-width: 760px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.media-box img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 450px;
+    height: auto;
+    object-fit: contain;
+    margin: 8px auto;
+    border-radius: 10px;
+}
+
+.media-box iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+}
+
+.media-caption {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--blue);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 13px;
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 15px 5px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 20px 13px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    .section h3 {
+        font-size: 18px;
+    }
+
+    .term-list {
+        grid-template-columns: 1fr;
+    }
+
+    .media-box {
+        padding: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <div class="lesson-number">المهارات الرقمية - الصف السابع</div>
+    <h1>الدرس الخامس: التواصل باستخدام الشبكات</h1>
+    <p>Networks Communications</p>
+    <p>تعرّف إلى مزايا التواصل باستخدام الشبكات وطرائقه عبر الإنترنت.</p>
+</header>
+
+<!-- أزرار القراءة الصوتية -->
+
+<div class="reading-panel">
+    <h2>🔊 القراءة الصوتية للدرس</h2>
+
+    <div class="reading-buttons">
+        <button id="readButton" type="button" onclick="startReading()">
+            ▶️ قراءة الدرس
+        </button>
+
+        <button id="pauseButton" type="button" onclick="pauseReading()">
+            ⏸️ إيقاف مؤقت
+        </button>
+
+        <button id="resumeButton" type="button" onclick="resumeReading()">
+            ⏯️ متابعة القراءة
+        </button>
+
+        <button id="stopButton" type="button" onclick="stopReading()">
+            ⏹️ إيقاف القراءة
+        </button>
+    </div>
+
+    <p class="reading-status" id="readingStatus" aria-live="polite">
+        اضغط على «قراءة الدرس» للاستماع إلى المحتوى.
+    </p>
+</div>
+
+<main id="lessonContent">
+
+<section class="section">
+
+    <h2>أولًا: مفهوم التواصل باستخدام الشبكات</h2>
+
+    <h3>وضح المقصود بالتواصل باستخدام الشبكات
+        <span class="english">(Network Communication)</span>:
+    </h3>
+
+    <div class="definition">
+        تبادل المعلومات بين الأفراد والأجهزة باستخدام التقنيات المختلفة للشبكات، بما في ذلك نقل البيانات بين جهازين أو أكثر عن طريق أنظمة الاتصال، مثل: الشبكات المحلية (LAN)، والشبكات الواسعة (WAN).
+    </div>
+
+    تخضع عمليات التواصل باستخدام الشبكات والاتصالات لبروتوكولات محددة، مثل:
+
+    <ul>
+        <li>بروتوكول نقل الملفات <span class="english">(FTP)</span>.</li>
+        <li>بروتوكول الإنترنت <span class="english">(IP)</span>.</li>
+    </ul>
+
+    <p>
+        وتساعد البروتوكولات على تنظيم عملية الاتصال ونقل البيانات بين الأجهزة.
+    </p>
+
+</section>
+
+<section class="section">
+
+    <h2>ثانيًا: مزايا التواصل باستخدام الشبكات</h2>
+
+    <p>يتصف التواصل باستخدام الشبكات بالعديد من المزايا التي تعود بالنفع على المستخدمين، وأبرزها:</p>
+
+    <div class="benefit">
+        <h3>1. مشاركة المعلومات</h3>
+
+        <p>
+            من مزايا التواصل باستخدام الشبكات مشاركة المعلومات. وضح ذلك:
+        </p>
+
+        <p>
+            إذ يُمكن للمستخدمين المصرح لهم باستعمال أجهزة الحاسوب في الشبكة الوصول إلى المعلومات والبيانات ومشاركتها. ويشمل ذلك المشروعات الخاصة بالمجموعة، وقواعد البيانات والصور وغيرها.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>2. مشاركة الأجهزة</h3>
+
+        <p>
+            من مزايا التواصل باستخدام الشبكات مشاركة الأجهزة. وضح ذلك:
+        </p>
+
+        <p>
+            إذ يُمكن مشاركة جهاز واحد متصل بالشبكة، مثل الطابعة والماسح الضوئي، بين العديد من المستخدمين؛ ما يقلل من التكلفة، ويختصر الوقت اللازم للوصول إلى الموارد.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>3. مشاركة البرامج</h3>
+
+        <p>
+            من مزايا التواصل باستخدام الشبكات مشاركة البرامج. وضح ذلك:
+        </p>
+
+        <p>
+            فبدلًا من شراء برنامج لكل جهاز حاسوب في الشبكة، تُثبت البرامج المشتركة في الخادم؛ ما يتيح لجميع المستخدمين الوصول إليها واستخدامها عن طريق أجهزتهم.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>4. البيئة التعاونية</h3>
+
+        <p>
+            من مزايا التواصل باستخدام الشبكات البيئة التعاونية. وضح ذلك:
+        </p>
+
+        <p>
+            إذ يُمكن للمستخدمين مشاركة الموارد والمعلومات في الشبكة على نحو فاعل؛ ما يسهل العمل الجماعي في المشروعات والمهام المشتركة، فتعزز الإنتاجية ويزيد الابتكار داخل المؤسسات.
+        </p>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>ثالثًا: التواصل عبر شبكة الإنترنت</h2>
+
+    <p>
+        شهد قطاع التكنولوجيا نموًا متسارعًا أدى إلى تطوير شبكات الاتصال المتقدمة، وبخاصة شبكة الإنترنت التي أحدثت تغييرًا جذريًا في طريقة التواصل بين الناس والوصول إلى المعلومات.
+    </p>
+
+    <h3>أشكال الاتصال والتواصل عبر شبكة الإنترنت
+        <span class="english">(Internet Communication)</span>:
+    </h3>
+
+    <div class="term-list">
+        <div class="term">✍️ الاتصال المكتوب</div>
+        <div class="term">🎧 الاتصال المسموع</div>
+        <div class="term">🎥 الاتصال المرئي باستخدام تقنية الفيديو</div>
+    </div>
+
+    <h3>مميزات الاتصال والتواصل عبر شبكة الإنترنت</h3>
+
+    <ul>
+        <li>توفير العديد من أدوات الاتصال.</li>
+        <li>أنه أقل تكلفة وأكثر سهولة مقارنة بطرائق التواصل التقليدية، مثل الهاتف الثابت والرسائل المتداولة بالبريد العادي.</li>
+    </ul>
+
+    <div class="note">
+        <h3>💡 إضاءة</h3>
+
+        <p>
+            في عام 2024م، وصل عدد مستخدمي شبكة الإنترنت إلى نحو 5.30 مليار شخص. وقد تعددت استخداماتهم لهذه الشبكة، وشملت التصفح والتواصل والتعلم والبحث والترفيه والتسوق وغير ذلك.
+        </p>
+
+        <p>
+            ولا شك في أن هذا الرقم كبير جدًا؛ فهو يمثل أكثر من نصف سكان كوكب الأرض.
+        </p>
+
+        <p>
+            ومن الملاحظ أن رسائل البريد الإلكتروني تتزاحم كل دقيقة، بحيث تُرسل أكثر من 150 مليون رسالة بريد إلكتروني يوميًا، وفقًا للأرقام الواردة في المادة التعليمية.
+        </p>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>رابعًا: طرائق الاتصال والتواصل عبر الإنترنت</h2>
+
+    <p>تتنوع طرائق الاتصال والتواصل عبر شبكة الإنترنت، ويمكن إجمال أبرز هذه الطرائق فيما يأتي:</p>
+
+    <div class="benefit">
+        <h3>1. البريد الإلكتروني</h3>
+
+        <h3>وضح المقصود بالبريد الإلكتروني:</h3>
+
+        <div class="definition">
+            وسيلة رقمية للتواصل، تتيح للمستخدمين إرسال الرسائل واستقبالها عبر شبكة الإنترنت.
+        </div>
+
+        <h3>استخدامات البريد الإلكتروني</h3>
+
+        <p>
+            يُستخدم البريد الإلكتروني في إرسال الرسائل واستقبالها عبر شبكة الإنترنت باستخدام عدد من البروتوكولات.
+        </p>
+
+        <h3>أمثلة على البروتوكولات التي يستخدمها البريد الإلكتروني</h3>
+
+        <ul>
+            <li><span class="english">SMTP</span>: يُستخدم لإرسال الرسائل.</li>
+            <li><span class="english">IMAP</span>: يُستخدم للوصول إلى الرسائل وإدارتها على الخادم.</li>
+        </ul>
+
+        <h3>أمثلة على خدمات البريد الإلكتروني</h3>
+
+        <ul>
+            <li><span class="english">Gmail</span>.</li>
+            <li><span class="english">Yahoo Mail</span>.</li>
+            <li><span class="english">Outlook</span>.</li>
+        </ul>
+    </div>
+
+    <div class="benefit">
+        <h3>2. التعلم عن بُعد</h3>
+
+        <p>
+            تحوي شبكة الإنترنت العديد من التطبيقات والمنصات التي تساعد على التعلم عن بُعد، مثل:
+        </p>
+
+        <ul>
+            <li><span class="english">Microsoft Teams</span>.</li>
+            <li><span class="english">Google Classroom</span>.</li>
+            <li><span class="english">Moodle</span>.</li>
+            <li>منصة إدراك.</li>
+            <li>منصة درسك.</li>
+            <li><span class="english">Khan Academy</span>.</li>
+        </ul>
+
+        <div class="note">
+            <h3>💡 إضاءة: منصة إدراك</h3>
+
+            <p>
+                إدراك منصة إلكترونية عربية للمساقات الجماعية مفتوحة المصادر
+                <span class="english">(MOOCs)</span>.
+                وقد أُسست هذه المنصة بمبادرة من مؤسسة الملكة رانيا للتعليم والتنمية التي تحرص على بذل الجهود والمساعي للنهوض بالعالم العربي في مجال التربية والتعليم؛ ذلك أنهما يمثلان حجر الأساس لتقدم الشعوب وتطورها وازدهارها.
+            </p>
+        </div>
+
+        <div class="note">
+            <h3>💡 إضاءة: منصة درسك</h3>
+
+            <p>
+                درسك منصة أردنية مجانية للتعلم عن بُعد؛ إذ توفر لطلبة المدارس من الصف الأول إلى الصف الثاني عشر دروسًا تعليمية عن طريق مقاطع الفيديو المصورة والمنظمة والمجدولة وفقًا لمنهاج التعليم الأردني.
+            </p>
+
+            <p>
+                ويقدم هذه الدروس نخبة من المعلمين والمعلمات؛ ما يسهل على الطلبة الاستمرار في عملية التعلم ومتابعة موادهم الدراسية.
+            </p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <h3>3. الحوسبة السحابية</h3>
+
+        <h3>كيف تساعد الحوسبة السحابية على الاتصال عبر شبكة الإنترنت؟</h3>
+
+        <p>
+            تتيح الحوسبة السحابية الوصول السهل إلى الموارد السحابية والتطبيقات عبر شبكة الإنترنت.
+        </p>
+
+        <h3>أمثلة على تطبيقات الحوسبة السحابية</h3>
+
+        <ul>
+            <li><span class="english">Google Drive</span>.</li>
+            <li><span class="english">OneDrive</span>.</li>
+        </ul>
+    </div>
+
+    <div class="benefit">
+        <h3>4. الألعاب الإلكترونية</h3>
+
+        <p>
+            تحوي شبكة الإنترنت العديد من تطبيقات الألعاب الترفيهية والتعليمية التي يُستخدم بعضها بصورة فردية، ويُستخدم بعضها الآخر بصورة جماعية.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>5. وسائل التواصل الاجتماعي والمراسلة والدردشة</h3>
+
+        <p>
+            تتيح هذه التطبيقات التواصل والتفاعل مع الآخرين بسهولة وسرعة.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>6. العمل عن بُعد</h3>
+
+        <p>
+            مثال على أدوات للتواصل يُمكن استخدامها في العمل من أي مكان باستخدام شبكة الإنترنت:
+        </p>
+
+        <p><span class="english">LinkedIn</span>.</p>
+    </div>
+
+    <div class="benefit">
+        <h3>7. المؤتمرات والاجتماعات عن بُعد</h3>
+
+        <p>
+            تُستخدم تطبيقات ومنصات مختلفة لعقد الاجتماعات الافتراضية والمؤتمرات عن بُعد.
+        </p>
+
+        <p class="note">
+            ملاحظة: يُرجى مراجعة أسماء التطبيقات الواردة في صورة الكتاب لإضافتها بدقة.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>8. البث المباشر</h3>
+
+        <p>
+            يتيح البث المباشر التواصل مع الجمهور عبر منصات الإنترنت المختلفة.
+        </p>
+
+        <p>
+            من أمثلة المنصات: <span class="english">YouTube</span>.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>9. المنتديات والمدونات</h3>
+
+        <h3>الاستفادة من المنتديات والمدونات</h3>
+
+        <p>
+            يُستفاد من المنتديات والمدونات في مشاركة الأفكار والمناقشات.
+        </p>
+
+        <h3>أمثلة على أدوات إنشاء المدونات</h3>
+
+        <ul>
+            <li><span class="english">Blogger</span>.</li>
+            <li><span class="english">WordPress</span>.</li>
+        </ul>
+    </div>
+
+    <div class="benefit">
+        <h3>10. البودكاست</h3>
+
+        <h3>استخدامات البودكاست</h3>
+
+        <p>
+            يُستخدم هذا التطبيق في إنشاء البرامج الصوتية والاستماع إليها عبر شبكة الإنترنت.
+        </p>
+
+        <h3>أمثلة على تطبيقات البودكاست</h3>
+
+        <ul>
+            <li><span class="english">Apple Podcasts</span>.</li>
+            <li><span class="english">Spotify</span>.</li>
+        </ul>
+    </div>
+
+    <div class="benefit">
+        <h3>11. الرسائل القصيرة</h3>
+
+        <p>
+            يمكن إرسال الرسائل النصية عبر العديد من التطبيقات باستخدام شبكة الإنترنت.
+        </p>
+
+        <p class="note">
+            ملاحظة: يُرجى مراجعة أسماء التطبيقات الواردة في صورة الكتاب لإضافتها بدقة.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <h3>12. إنترنت الأشياء
+            <span class="english">(IoT)</span>
+        </h3>
+
+        <h3>وضح المقصود بإنترنت الأشياء:</h3>
+
+        <div class="definition">
+            تتيح هذه التقنية إمكانية وصل الأجهزة المنزلية الذكية معًا، والتفاعل معها عبر شبكة الإنترنت.
+        </div>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>خامسًا: التواصل عن طريق البريد الإلكتروني
+        <span class="english">(E-mail)</span>
+    </h2>
+
+    <h3>وضح المقصود بالبريد الإلكتروني</h3>
+
+    <div class="definition">
+        وسيلة رقمية للتواصل، تتيح للمستخدمين إرسال الرسائل واستقبالها عبر شبكة الإنترنت.
+    </div>
+
+    <h3>مميزات البريد الإلكتروني</h3>
+
+    <ul>
+        <li>
+            يُستخدم غالبًا في التواصل الشخصي والتواصل المهني، وقد يتضمن نصوصًا وملفات مرفقة وصورًا وروابط.
+        </li>
+
+        <li>
+            يُعد البريد الإلكتروني أداة فاعلة وسريعة للتواصل؛ إذ يمكن الوصول إليه من أي مكان، وفي أي وقت، عن طريق الأجهزة المتصلة بشبكة الإنترنت.
+        </li>
+
+        <li>
+            يُعد من وسائل الاتصال الشائعة، ويمكن تعزيز خصوصيته وأمانه باستخدام كلمات مرور قوية وإجراءات حماية مناسبة.
+        </li>
+
+        <li>
+            يتيح البريد الإلكتروني إرسال رسائل فردية أو رسائل جماعية إلى مجموعة من الأشخاص باستخدام الخدمات المتوافرة فيه بخطوة واحدة.
+        </li>
+    </ul>
+
+</section>
+
+<!--
+مكان إضافة صور الدرس:
+أضف كل صورة في موضع شرحها باستخدام النموذج التالي،
+بعد التأكد من اسم ملف الصورة:
+
+<div class="media-box">
+    <img src="images/اسم-الصورة.jpg" alt="وصف الصورة">
+    <p class="media-caption">وصف الصورة</p>
+</div>
+
+مكان إضافة فيديو الدرس:
+أضف الفيديو في موضع الشرح المناسب باستخدام النموذج التالي،
+واستبدل VIDEO_ID بمعرّف الفيديو الصحيح:
+
+<div class="media-box">
+    <iframe
+        src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+        title="فيديو شرح الدرس"
+        loading="lazy"
+        allowfullscreen>
+    </iframe>
+</div>
+-->
+
+</main>
+
+<a class="back-link" href="digital-skills-7-term1.html">
+    ↩️ العودة إلى فهرس دروس الفصل
+</a>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+let speechParts = [];
+let currentPart = 0;
+let isPaused = false;
+let isReading = false;
+let readingRun = 0;
+
+const statusElement = document.getElementById("readingStatus");
+
+function prepareText() {
+    const content = document.getElementById("lessonContent").innerText;
+    const cleaned = content.replace(/\s+/g, " ").trim();
+
+    // تقسيم النص إلى مقاطع قصيرة لتقليل مشكلات القراءة على الهاتف.
+    speechParts = cleaned.match(/[^.!؟؛،]+[.!؟؛،]?/g) || [cleaned];
+    speechParts = speechParts.map(part => part.trim()).filter(Boolean);
+}
+
+function startReading() {
+    if (!("speechSynthesis" in window)) {
+        statusElement.textContent =
+            "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في متصفح آخر.";
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+    readingRun++;
+    prepareText();
+    currentPart = 0;
+    isPaused = false;
+    isReading = true;
+
+    statusElement.textContent = "جارٍ قراءة الدرس...";
+    speakNext(readingRun);
+}
+
+function speakNext(runId) {
+    if (runId !== readingRun || !isReading || isPaused) {
+        return;
+    }
+
+    if (currentPart >= speechParts.length) {
+        isReading = false;
+        statusElement.textContent = "اكتملت قراءة الدرس.";
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    utterance.onend = function() {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    utterance.onerror = function(event) {
+        if (runId !== readingRun) return;
+
+        if (event.error !== "canceled" && event.error !== "interrupted") {
+            statusElement.textContent =
+                "حدثت مشكلة أثناء القراءة. اضغط على قراءة الدرس للمحاولة مجددًا.";
+            isReading = false;
+        }
+    };
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function pauseReading() {
+    if (!isReading) {
+        statusElement.textContent = "لا توجد قراءة نشطة لإيقافها مؤقتًا.";
+        return;
+    }
+
+    isPaused = true;
+    window.speechSynthesis.pause();
+    statusElement.textContent = "تم إيقاف القراءة مؤقتًا.";
+}
+
+function resumeReading
