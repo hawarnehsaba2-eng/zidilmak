@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبر نفسك | الدرس الخامس: التواصل باستخدام الشبكات</title>
+
+    <meta name="description" content="اختبر معلوماتك في درس التواصل باستخدام الشبكات من مادة المهارات الرقمية للصف السابع.">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 22px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 25px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .question {
+            background: white;
+            padding: 18px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .question h3 {
+            margin-top: 0;
+            color: #1e3a8a;
+            line-height: 1.7;
+        }
+
+        .option {
+            display: block;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            line-height: 1.7;
+        }
+
+        .option:hover {
+            background: #eff6ff;
+            border-color: #60a5fa;
+        }
+
+        .option input {
+            margin-left: 8px;
+            transform: scale(1.2);
+        }
+
+        .finish-btn {
+            width: 100%;
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .finish-btn:hover {
+            background: #15803d;
+        }
+
+        .finish-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .result {
+            display: none;
+            background: white;
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h2 {
+            color: #16a34a;
+        }
+
+        .score {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>🧠 اختبر نفسك</h1>
+
+        <p>الدرس الخامس: التواصل باستخدام الشبكات</p>
+
+        <p>اختر الإجابة الصحيحة لكل سؤال</p>
+
+    </header>
+
+    <form id="quizForm">
+
+        <!-- السؤال الأول -->
+
+        <div class="question">
+
+            <h3>
+                1. ما المقصود بالتواصل باستخدام الشبكات؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q1" value="correct">
+                تبادل المعلومات بين الأفراد والأجهزة باستخدام تقنيات الشبكات
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                تخزين البيانات على جهاز حاسوب دون مشاركتها
+            </label>
+
+        </div>
+
+        <!-- السؤال الثاني -->
+
+        <div class="question">
+
+            <h3>
+                2. أيّ مما يأتي يُعد من مزايا التواصل باستخدام الشبكات؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                زيادة تكلفة استخدام الأجهزة
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="correct">
+                مشاركة المعلومات والأجهزة والبرامج
+            </label>
+
+        </div>
+
+        <!-- السؤال الثالث -->
+
+        <div class="question">
+
+            <h3>
+                3. ما الفائدة من مشاركة جهاز الطابعة بين مستخدمي الشبكة؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q3" value="correct">
+                تقليل التكلفة واختصار الوقت اللازم للوصول إلى الموارد
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                منع المستخدمين من طباعة المستندات
+            </label>
+
+        </div>
+
+        <!-- السؤال الرابع -->
+
+        <div class="question">
+
+            <h3>
+                4. أيّ بروتوكول يُستخدم في نقل الملفات؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                IP
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="correct">
+                FTP
+            </label>
+
+        </div>
+
+        <!-- السؤال الخامس -->
+
+        <div class="question">
+
+            <h3>
+                5. أيّ مما يأتي يُعد مثالًا على البريد الإلكتروني؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q5" value="correct">
+                Gmail
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                Microsoft Teams
+            </label>
+
+        </div>
+
+        <!-- السؤال السادس -->
+
+        <div class="question">
+
+            <h3>
+                6. ما المقصود بالبريد الإلكتروني؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q6" value="wrong">
+                وسيلة لتشغيل الألعاب دون اتصال بالإنترنت
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q6" value="correct">
+                وسيلة رقمية تتيح إرسال الرسائل واستقبالها عبر الإنترنت
+            </label>
+
+        </div>
+
+        <!-- السؤال السابع -->
+
+        <div class="question">
+
+            <h3>
+                7. أيّ منصة تُستخدم في التعلم عن بُعد؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q7" value="correct">
+                Google Classroom
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q7" value="wrong">
+                Apple Podcasts
+            </label>
+
+        </div>
+
+        <!-- السؤال الثامن -->
+
+        <div class="question">
+
+            <h3>
+                8. كيف تساعد الحوسبة السحابية على التواصل عبر الإنترنت؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q8" value="wrong">
+                تمنع الوصول إلى التطبيقات والموارد عبر الإنترنت
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q8" value="correct">
+                تتيح الوصول السهل إلى الموارد السحابية والتطبيقات عبر الإنترنت
+            </label>
+
+        </div>
+
+        <!-- السؤال التاسع -->
+
+        <div class="question">
+
+            <h3>
+                9. ما الاستخدام الأساسي للبودكاست؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q9" value="correct">
+                إنشاء البرامج الصوتية والاستماع إليها عبر الإنترنت
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q9" value="wrong">
+                تتبع الأجهزة المنزلية فقط
+            </label>
+
+        </div>
+
+        <!-- السؤال العاشر -->
+
+        <div class="question">
+
+            <h3>
+                10. ما المقصود بإنترنت الأشياء (IoT)؟
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q10" value="wrong">
+                إرسال الرسائل النصية فقط عبر الإنترنت
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q10" value="correct">
+                تقنية تتيح ربط الأجهزة الذكية معًا والتفاعل معها عبر الإنترنت
+            </label>
+
+        </div>
+
+        <button
+            type="button"
+            class="finish-btn"
+            onclick="finishQuiz()">
+
+            ✅ إنهاء الاختبار
+
+        </button>
+
+    </form>
+
+    <!-- النتيجة -->
+
+    <div class="result" id="result">
+
+        <h2>🎉 انتهى الاختبار!</h2>
+
+        <div class="score" id="score"></div>
+
+        <p id="message"></p>
+
+    </div>
+
+    <a
+        class="back-btn"
+        href="digital-skills-7-term1.html">
+
+        ↩️ العودة إلى دروس الفصل
+
+    </a>
+
+</div>
+
+<script>
+
+let quizFinished = false;
+
+function finishQuiz() {
+
+    // منع إعادة إنهاء الاختبار
+
+    if (quizFinished) {
+        return;
+    }
+
+    // التأكد من الإجابة عن جميع الأسئلة
+
+    for (let i = 1; i <= 10; i++) {
+
+        const answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (!answer) {
+            alert("يرجى الإجابة عن جميع الأسئلة قبل إنهاء الاختبار.");
+            return;
+        }
+
+    }
+
+    quizFinished = true;
+
+    let score = 0;
+
+    // حساب العلامة
+
+    for (let i = 1; i <= 10; i++) {
+
+        const answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (answer && answer.value === "correct") {
+            score++;
+        }
+
+    }
+
+    // تعطيل جميع الخيارات
+
+    const options = document.querySelectorAll(
+        '#quizForm input[type="radio"]'
+    );
+
+    options.forEach(function (option) {
+        option.disabled = true;
+    });
+
+    // تعطيل زر إنهاء الاختبار
+
+    const finishButton =
+        document.querySelector(".finish-btn");
+
+    finishButton.disabled = true;
+
+    // عرض العلامة
+
+    document.getElementById("score").textContent =
+        "علامتك: " + score + " / 10";
+
+    // رسالة حسب العلامة
+
+    let message = "";
+
+    if (score === 10) {
+
+        message =
+            "🌟 ممتاز! أحسنت، إجاباتك كلها صحيحة.";
+
+    }
+
+    else if (score >= 8) {
+
+        message =
+            "👏 رائع! لديك فهم جيد للدرس.";
+
+    }
+
+    else if (score >= 5) {
+
+        message =
+            "👍 جيد، حاول مراجعة الدرس مرة أخرى.";
+
+    }
+
+    else {
+
+        message =
+            "📚 تحتاج إلى مراجعة الدرس والمحاولة مرة أخرى.";
+
+    }
+
+    document.getElementById("message").textContent =
+        message;
+
+    // إظهار النتيجة
+
+    document.getElementById("result").style.display =
+        "block";
+
+    // الانتقال إلى النتيجة
+
+    window.scrollTo({
+
+        top: document.body.scrollHeight,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
