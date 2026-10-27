@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>أسئلة الوحدة الثانية مع الإجابات النموذجية | زد علمك</title>
+
+    <meta name="description"
+          content="أسئلة الوحدة الثانية في المهارات الرقمية مع الإجابات النموذجية للمراجعة والدراسة.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+            padding: 16px;
+            line-height: 1.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            color: white;
+            padding: 25px 18px;
+            border-radius: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 25px;
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 4px 0;
+        }
+
+        .reading-box {
+            background: white;
+            padding: 16px;
+            border-radius: 14px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .reading-box h2 {
+            font-size: 19px;
+            color: #1e40af;
+            margin-top: 0;
+        }
+
+        .reading-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .reading-buttons button {
+            flex: 1 1 130px;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 10px;
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
+            min-height: 45px;
+        }
+
+        #readBtn {
+            background: #2563eb;
+        }
+
+        #pauseBtn {
+            background: #d97706;
+        }
+
+        #resumeBtn {
+            background: #16a34a;
+        }
+
+        #stopBtn {
+            background: #dc2626;
+        }
+
+        .reading-status {
+            color: #475569;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .question {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+            border-right: 5px solid #2563eb;
+        }
+
+        .question h2 {
+            font-size: 20px;
+            color: #1d4ed8;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .answer {
+            background: #f0fdf4;
+            border-right: 4px solid #16a34a;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-top: 12px;
+        }
+
+        .answer-title {
+            color: #15803d;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .statement {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 9px;
+            padding: 10px 12px;
+            margin: 9px 0;
+        }
+
+        .true {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .false {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .abbreviation {
+            background: #eff6ff;
+            border-radius: 9px;
+            padding: 10px 12px;
+            margin: 8px 0;
+        }
+
+        .abbreviation strong {
+            color: #1d4ed8;
+            direction: ltr;
+            display: inline-block;
+            min-width: 65px;
+        }
+
+        .lesson-image {
+            display: block;
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 16px auto;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .note {
+            background: #fff7ed;
+            border-right: 4px solid #f97316;
+            padding: 12px;
+            border-radius: 9px;
+            margin-top: 12px;
+        }
+
+        .back-link {
+            display: block;
+            background: #1d4ed8;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 12px;
+            margin: 25px 0 12px;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            padding: 15px 5px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+
+            .question h2 {
+                font-size: 18px;
+            }
+
+            .reading-buttons button {
+                flex-basis: 45%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>📘 أسئلة الوحدة الثانية</h1>
+        <p>المهارات الرقمية</p>
+        <p>الأسئلة والإجابات النموذجية للمراجعة</p>
+    </header>
+
+    <section class="reading-box">
+        <h2>🔊 القراءة الصوتية</h2>
+
+        <div class="reading-buttons">
+            <button type="button" id="readBtn">▶️ قراءة الصفحة</button>
+            <button type="button" id="pauseBtn">⏸️ إيقاف مؤقت</button>
+            <button type="button" id="resumeBtn">⏯️ متابعة القراءة</button>
+            <button type="button" id="stopBtn">⏹️ إيقاف القراءة</button>
+        </div>
+
+        <p class="reading-status" id="readingStatus" aria-live="polite">
+            اضغط على «قراءة الصفحة» للاستماع إلى الأسئلة والإجابات.
+        </p>
+    </section>
+
+    <main id="lessonContent">
+
+        <!-- السؤال الأول -->
+
+        <section class="question">
+            <h2>السؤال الأول</h2>
+
+            <p class="question-text">
+                السؤال الأول:
+            </p>
+
+            <img
+                src="images/IMG_٢٠٢٦١٠٢٧_١٧٥٧٥٣.jpg"
+                alt="صورة السؤال الأول"
+                class="lesson-image"
+                loading="lazy">
+        </section>
+
+
+        <!-- السؤال الثاني -->
+
+        <section class="question">
+            <h2>السؤال الثاني</h2>
+
+            <p class="question-text">
+                أضع إشارة (√) بجانب العبارة الصحيحة، وإشارة (x) بجانب العبارة غير الصحيحة:
+            </p>
+
+            <div class="answer">
+                <p class="answer-title">الإجابات النموذجية:</p>
+
+                <div class="statement">
+                    <span class="false">(x) خطأ:</span>
+                    المدى الذي تصله شبكة المنطقة الشخصية (PAN) هو الجامعة أو المدينة.
+                </div>
+
+                <div class="statement">
+                    <span class="true">(√) صحيحة:</span>
+                    تساوي جميع الأجهزة في الشبكة التناظرية من حيث الصلاحيات.
+                </div>
+
+                <div class="statement">
+                    <span class="false">(x) خطأ:</span>
+                    أكبر كم من البيانات المنقولة عبر شبكة الإنترنت في وقت محدد يُعرف باسم (Load).
+                </div>
+
+                <div class="statement">
+                    <span class="true">(√) صحيحة:</span>
+                    من قواعد التواصل الآمن عبر شبكة الإنترنت عدم فتح أي رابط أو مرفق يرسله شخص مجهول.
+                </div>
+
+                <div class="statement">
+                    <span class="false">(x) خطأ:</span>
+                    www.google.com هو عنوان بريد إلكتروني.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- السؤال الثالث -->
+
+        <section class="question">
+            <h2>السؤال الثالث</h2>
+
+            <p class="question-text">
+                إلام يرمز كل من الاختصارات الآتية؟
+            </p>
+
+            <div class="answer">
+                <p class="answer-title">الإجابات النموذجية:</p>
+
+                <div class="abbreviation">
+                    <strong>MAN:</strong>
+                    الشبكة الحضرية.
+                </div>
+
+                <div class="abbreviation">
+                    <strong>LAN:</strong>
+                    الشبكة المحلية.
+                </div>
+
+                <div class="abbreviation">
+                    <strong>WAN:</strong>
+                    الشبكة الواسعة.
+                </div>
+
+                <div class="abbreviation">
+                    <strong>FTP:</strong>
+                    بروتوكول نقل الملفات.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- السؤال الرابع -->
+
+        <section class="question">
+            <h2>السؤال الرابع</h2>
+
+            <p class="question-text">
+                أوضح الفرق بين بروتوكول (HTTP) وبروتوكول (HTTPS).
+            </p>
+
+            <div class="answer">
+                <p class="answer-title">الإجابة النموذجية:</p>
+
+                <p>
+                    <strong>HTTP:</strong>
+                    يسمح بتصفح شبكة الإنترنت.
+                </p>
+
+                <p>
+                    <strong>HTTPS:</strong>
+                    يسمح بتصفح شبكة الإنترنت بصورة آمنة.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- السؤال الخامس -->
+
+        <section class="question">
+            <h2>السؤال الخامس</h2>
+
+            <p class="question-text">
+                أذكر مثالًا على كل نوع من أنواع الشبكات.
+            </p>
+
+            <div class="answer">
+                <p class="answer-title">الإجابات النموذجية:</p>
+
+                <p>
+                    <strong>1. شبكة المنطقة الشخصية (PAN):</strong>
+                    اتصال الطابعة بجهاز الحاسوب.
+                </p>
+
+                <p>
+                    <strong>2. شبكة المنطقة المحلية (LAN):</strong>
+                    مختبر المدرسة.
+                </p>
+
+                <p>
+                    <strong>3. شبكة المنطقة الحضرية (MAN):</strong>
+                    شبكة تضم جامعة.
+                </p>
+
+                <p>
+                    <strong>4. شبكة المنطقة الواسعة (WAN):</strong>
+                    شبكة الإنترنت.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- السؤال السادس -->
+
+        <section class="question">
+            <h2>السؤال السادس</h2>
+
+            <p class="question-text">
+                أرسم مخططًا يبين كيفية نقل البيانات بين الجهاز المرسل والجهاز المستقبل بواسطة بروتوكول (TCP/IP)، وأضمنه أشكالًا توضيحية من برنامج معالجة النصوص (Word).
+            </p>
+
+            <img
+                src="images/IMG_٢٠٢٦١٠٢٧_١٧٥٨٠٥.jpg"
+                alt="مخطط نقل البيانات بين الجهاز المرسل والجهاز المستقبل باستخدام بروتوكول TCP/IP"
+                class="lesson-image"
+                loading="lazy">
+
+            <div class="answer">
+                <p class="answer-title">الإجابة النموذجية:</p>
+
+                يوضّح المخطط انتقال البيانات من الجهاز المرسل إلى الجهاز المستقبل عبر الشبكة باستخدام بروتوكول (TCP/IP).
+            </div>
+        </section>
+
+    </main>
+
+    <a class="back-link" href="digital-skills-7-term1.html">
+        ↩️ العودة إلى دروس الفصل
+    </a>
+
+    <footer>
+        © 2026 زد علمك - جميع الحقوق محفوظة
+    </footer>
+
+</div>
+
+<script>
+    const readBtn = document.getElementById("readBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const readingStatus = document.getElementById("readingStatus");
+
+    let speechParts = [];
+    let currentPart = 0;
+    let isReading = false;
+    let isPaused = false;
+    let readingRun = 0;
+
+    function prepareSpeech() {
+        const content = document.getElementById("lessonContent");
+        const sections = content.querySelectorAll(".question");
+        const parts = [];
+
+        sections.forEach(function(section) {
+            const text = section.innerText.trim();
+
+            if (text) {
+                parts.push(text);
+            }
+        });
+
+        return parts;
+    }
+
+    function speakNext(runId) {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        if (currentPart >= speechParts.length) {
+            isReading = false;
+            isPaused = false;
+            readingStatus.textContent = "اكتملت قراءة الصفحة.";
+            return;
+        }
+
+        const utterance = new SpeechSynthesisUtterance(
+            speechParts[currentPart]
+        );
+
+        utterance.lang = "ar";
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+
+        utterance.onend = function() {
+            if (runId !== readingRun || !isReading || isPaused) {
+                return;
+            }
+
+            currentPart++;
+            speakNext(runId);
+        };
+
+        utterance.onerror = function(event) {
+            if (runId !== readingRun) {
+                return;
+            }
+
+            if (event.error === "canceled" || event.error === "interrupted") {
+                return;
+            }
+
+            readingStatus.textContent =
+                "تعذرت متابعة القراءة الصوتية. جرّب الضغط على قراءة الصفحة.";
+        };
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    readBtn.addEventListener("click", function() {
+        if (!("speechSynthesis" in window)) {
+            readingStatus.textContent =
+                "المتصفح لا يدعم القراءة الصوتية. جرّب استخدام متصفح آخر.";
+            return;
+        }
+
+        window.speechSynthesis.cancel();
+
+        readingRun++;
+        speechParts = prepareSpeech();
+        currentPart = 0;
+        isReading = true;
+        isPaused = false;
+
+        readingStatus.textContent = "جارٍ قراءة الأسئلة والإجابات...";
+
+        speakNext(readingRun);
+    });
+
+    pauseBtn.addEventListener("click", function() {
+        if (!isReading || isPaused) {
+            return;
+        }
+
+        isPaused = true;
+        window.speechSynthesis.cancel();
+        readingStatus.textContent = "القراءة متوقفة مؤقتًا.";
+    });
+
+    resumeBtn.addEventListener("click", function() {
+        if (!isReading || !isPaused) {
+            return;
+        }
+
+        isPaused = false;
+        readingStatus.textContent = "جارٍ متابعة القراءة...";
+        speakNext(readingRun);
+    });
+
+    stopBtn.addEventListener("click", function() {
+        readingRun++;
+        window.speechSynthesis.cancel();
+
+        isReading = false;
+        isPaused = false;
+        currentPart = 0;
+
+        readingStatus.textContent = "تم إيقاف القراءة.";
+    });
+</script>
+
+</body>
+</html>
