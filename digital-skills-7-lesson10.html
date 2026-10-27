@@ -798,7 +798,6 @@ footer {
     </iframe>
 </div>
 -->
-
 </main>
 
 <a class="back-link" href="digital-skills-7-term1.html">
@@ -899,4 +898,41 @@ function pauseReading() {
     statusElement.textContent = "تم إيقاف القراءة مؤقتًا.";
 }
 
-function resumeReading
+function resumeReading() {
+    if (!isReading) {
+        statusElement.textContent =
+            "اضغط على قراءة الدرس لبدء القراءة.";
+        return;
+    }
+
+    if (!isPaused) {
+        statusElement.textContent = "القراءة تعمل بالفعل.";
+        return;
+    }
+
+    isPaused = false;
+
+    // إذا كان المتصفح قد أوقف قائمة القراءة، نعيد تشغيل المقطع الحالي.
+    if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+    } else {
+        speakNext(readingRun);
+    }
+
+    statusElement.textContent = "تمت متابعة القراءة.";
+}
+
+function stopReading() {
+    readingRun++;
+    window.speechSynthesis.cancel();
+
+    isPaused = false;
+    isReading = false;
+    currentPart = 0;
+
+    statusElement.textContent = "تم إيقاف القراءة.";
+}
+</script>
+
+</body>
+</html>
