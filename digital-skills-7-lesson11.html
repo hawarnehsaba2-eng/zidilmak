@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="الدرس السادس من المهارات الرقمية للصف السابع: أداء الشبكة، وتأخر وصول البيانات، وعرض النطاق الترددي، وحجم البيانات المتبادلة، وجدار الحماية والأمن السيبراني.">
+
+<title>الدرس السادس: أداء الشبكة | زد علمك</title>
+
+<style>
+:root {
+    --blue: #1d4ed8;
+    --blue-light: #eff6ff;
+    --green: #15803d;
+    --green-light: #f0fdf4;
+    --text: #1f2937;
+    --muted: #64748b;
+    --border: #dbeafe;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Tahoma, sans-serif;
+    margin: 0;
+    padding: 16px;
+    background: #f3f6fb;
+    color: var(--text);
+    line-height: 1.9;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+header {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: white;
+    padding: 25px 18px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+    line-height: 1.6;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+.lesson-number {
+    display: inline-block;
+    background: rgba(255,255,255,0.17);
+    padding: 4px 13px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.reading-panel {
+    background: white;
+    padding: 16px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+}
+
+.reading-panel h2 {
+    margin: 0 0 12px;
+    color: var(--blue);
+    font-size: 19px;
+}
+
+.reading-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.reading-buttons button {
+    flex: 1 1 135px;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#readButton {
+    background: var(--blue);
+    color: white;
+}
+
+#pauseButton {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+#resumeButton {
+    background: #dcfce7;
+    color: #166534;
+}
+
+#stopButton {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.reading-status {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 10px 0 0;
+}
+
+.section {
+    background: white;
+    padding: 21px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    border: 1px solid #e5eaf2;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+.section h2 {
+    color: var(--blue);
+    font-size: 22px;
+    line-height: 1.7;
+    margin: 0 0 14px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid var(--border);
+}
+
+.section h3 {
+    color: #1e40af;
+    font-size: 19px;
+    margin: 20px 0 8px;
+    line-height: 1.7;
+}
+
+p {
+    margin: 10px 0;
+}
+
+ul, ol {
+    padding-right: 25px;
+    margin: 10px 0;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.definition {
+    background: var(--blue-light);
+    border-right: 5px solid var(--blue);
+    padding: 14px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+.example {
+    background: var(--green-light);
+    border-right: 5px solid var(--green);
+    padding: 14px;
+    border-radius: 10px;
+    margin: 14px 0;
+}
+
+.note {
+    background: #fffbeb;
+    border-right: 5px solid #f59e0b;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.english {
+    direction: ltr;
+    unicode-bidi: embed;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.term-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.term {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.lesson-media {
+    width: 100%;
+    max-width: 760px;
+    margin: 22px auto;
+    padding: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.lesson-media img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 450px;
+    height: auto;
+    object-fit: contain;
+    margin: 8px auto;
+    border-radius: 10px;
+}
+
+.lesson-media iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+}
+
+.media-caption {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--blue);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 13px;
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 15px 5px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 20px 13px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    .section h3 {
+        font-size: 18px;
+    }
+
+    .term-list {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-media {
+        padding: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <div class="lesson-number">المهارات الرقمية - الصف السابع</div>
+    <h1>الدرس السادس: أداء الشبكة</h1>
+    <p><span class="english">Network Performance</span></p>
+</header>
+
+<!-- أزرار القراءة الصوتية -->
+
+<div class="reading-panel">
+    <h2>🔊 القراءة الصوتية للدرس</h2>
+
+    <div class="reading-buttons">
+        <button id="readButton" type="button" onclick="startReading()">
+            ▶️ قراءة الدرس
+        </button>
+
+        <button id="pauseButton" type="button" onclick="pauseReading()">
+            ⏸️ إيقاف مؤقت
+        </button>
+
+        <button id="resumeButton" type="button" onclick="resumeReading()">
+            ⏯️ متابعة القراءة
+        </button>
+
+        <button id="stopButton" type="button" onclick="stopReading()">
+            ⏹️ إيقاف القراءة
+        </button>
+    </div>
+
+    <p class="reading-status" id="readingStatus" aria-live="polite">
+        اضغط على «قراءة الدرس» للاستماع إلى المحتوى.
+    </p>
+</div>
+
+<main id="lessonContent">
+
+<section class="section">
+
+    <h2>أولًا: مفهوم أداء الشبكة وفاعليتها</h2>
+
+    <h3>وضح المقصود بأداء الشبكة وفاعليتها:</h3>
+
+    <div class="definition">
+        هو مؤشر لمدى جودتها وفاعليتها، ويتضمن تقييم كل من سرعة الاتصال، وجودة التوصيل، ودرجة الموثوقية، وكفاءة الشبكة.
+    </div>
+
+    <h3>اذكر مثالًا على أداء الشبكة الجيد:</h3>
+
+    <div class="example">
+        إذا كنت أشاهد درسًا تعليميًا عبر شبكة الإنترنت بجودة عالية من دون توقف، أو أرسلت رسالة إلى صديقي بسرعة من دون تأخير، فهذا يعني أن أداء الشبكة جيد.
+    </div>
+
+    <h3>المؤشرات الرئيسة لأداء الشبكة</h3>
+
+    <div class="term-list">
+        <div class="term">
+            <strong>عرض النطاق الترددي</strong><br>
+            <span class="english">Bandwidth</span>
+        </div>
+
+        <div class="term">
+            <strong>تأخر وصول البيانات</strong><br>
+            <span class="english">Delay</span>
+        </div>
+
+        <div class="term">
+            <strong>حجم البيانات المتبادلة</strong><br>
+            <span class="english">Load</span>
+        </div>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>ثانيًا: مميزات الشبكة فائقة السرعة وفوائدها</h2>
+
+    <h3>مميزاتها</h3>
+
+    <p>
+        فإن الشبكة فائقة الأداء تمتاز بنقلها كمًا كبيرًا من البيانات بسرعة وأمان، واستمرارها في تقديم الخدمة من دون انقطاع أو أخطاء.
+    </p>
+
+    <h3>فوائدها</h3>
+
+    <ul>
+        <li>تعزز الإنتاجية.</li>
+        <li>تزيد ثقة المستخدم بها.</li>
+    </ul>
+
+    <h3>العوامل التي تؤثر في أداء الشبكة</h3>
+
+    <p>توجد عوامل عدة تؤثر في أداء الشبكة، أبرزها:</p>
+
+    <ul>
+        <li>تأخر وصول البيانات <span class="english">(Delay)</span>.</li>
+        <li>عرض النطاق الترددي <span class="english">(Bandwidth)</span>.</li>
+        <li>حجم البيانات المتبادلة <span class="english">(Load)</span>.</li>
+    </ul>
+
+</section>
+
+<section class="section">
+
+    <h2>ثالثًا: تأخر وصول البيانات <span class="english">(Delay)</span></h2>
+
+    <h3>وضح المقصود بتأخر وصول البيانات:</h3>
+
+    <div class="definition">
+        يقصد بذلك الوقت الذي تستغرقه عملية الإرسال والاستقبال للبيانات بين الأجهزة المتصلة بالشبكة.
+    </div>
+
+    <h3>العلاقة بين مدة التأخر ووقت الانتظار وأداء الشبكة</h3>
+
+    <p>
+        فكلما زادت مدة التأخر زاد وقت الانتظار المخصص لنقل البيانات. ولا شك في أن التأخر الكثير يؤثر في أداء الشبكة، لا سيما أثناء أداء المهام المتزامنة، مثل التأخر في وصول الحديث أثناء عقد اجتماع افتراضي بسبب تأخر وصول البيانات.
+    </p>
+
+    <h3>من أسباب التأخر في وصول البيانات</h3>
+
+    <div class="example">
+        <h3>1. المسافة</h3>
+        <p>
+            المسافة التي تقطعها البيانات في عملية الوصول؛ فكلما كانت المسافة أطول زادت مدة التأخير.
+        </p>
+    </div>
+
+    <div class="example">
+        <h3>2. وسائط النقل المستخدمة في الشبكة</h3>
+        <p>
+            تختلف وسائط النقل السلكية واللاسلكية فيما بينها من حيث السرعة في نقل البيانات.
+        </p>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>رابعًا: عرض النطاق الترددي <span class="english">(Bandwidth)</span></h2>
+
+    <h3>وضح المقصود بعرض النطاق الترددي:</h3>
+
+    <div class="definition">
+        يقصد بسعة الشبكة أكبر كم من البيانات التي يمكن نقلها عبر الشبكة في وقت محدد؛ فإذا كان عرض النطاق الترددي للشبكة منخفضًا، فإن ذلك سيؤثر سلبًا في سرعة نقل البيانات.
+    </div>
+
+    <!-- الصورة الأولى: أضف اسم الصورة الصحيح هنا -->
+
+    <div class="lesson-media">
+        <!--
+        بعد معرفة اسم الصورة، أزل التعليق التالي وضع اسم الملف الصحيح:
+
+        <img src="images/اسم-الصورة-الأولى.jpg"
+             alt="صورة توضيحية لعرض النطاق الترددي">
+
+        -->
+        <p class="media-caption">موضع الصورة الأولى من الكتاب</p>
+    </div>
+
+    <h3>العلاقة بين عرض النطاق الترددي وسرعة نقل البيانات</h3>
+
+    <p>
+        فإذا كان عرض النطاق الترددي للشبكة منخفضًا، فإن ذلك سيؤثر سلبًا في سرعة نقل البيانات.
+    </p>
+
+    <h3>مثال على انخفاض عرض النطاق الترددي للشبكة</h3>
+
+    <p>
+        المشكلات التي تواجهها إدارة المدرسة فيما يخص مشاركة ملفات المشروعات الكبيرة في الوقت المناسب عبر منصة المدرسة.
+    </p>
+
+    <p>
+        والشيء نفسه قد ينطبق على المنزل؛ إذ يوجد فيه العديد من أجهزة الهاتف المحمول وأجهزة الحاسوب، وكلها متصلة بشبكة الإنترنت الخاصة. فإذا كان أفراد العائلة يستخدمون شبكة الإنترنت في ممارسة الألعاب، أو مشاهدة مقاطع الفيديو والأفلام في موقع يوتيوب، أو تحميل الملفات والبرامج والتطبيقات والألعاب، فإن جميع هذه الأنشطة ستؤثر سلبًا في أداء الشبكة بصورة كبيرة؛ لأن كم البيانات المنقولة عندئذ خلال الشبكة أكبر من كم البيانات القصوى التي يوفرها مزود خدمة الإنترنت؛ ما يتسبب في ضعف عملية الاتصال بالشبكة.
+    </p>
+
+    <div class="note">
+        <h3>💡 إضاءة</h3>
+
+        <p>
+            ورد في المادة التعليمية أن سنغافورة تمتلك أسرع شبكة إنترنت في العالم؛ إذ تبلغ سرعة شبكتها 278 ميجابت في الثانية، تليها هونغ كونغ بسرعة 275 ميجابت في الثانية، ثم دولة الإمارات العربية المتحدة بسرعة 247 ميجابت في الثانية.
+        </p>
+
+        <p>
+            هذه أرقام مرتبطة بالمصدر والفترة الزمنية التي أُعدت فيها المادة التعليمية.
+        </p>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>خامسًا: حجم البيانات المتبادلة <span class="english">(Load)</span></h2>
+
+    <h3>وضح المقصود بحجم البيانات المتبادلة:</h3>
+
+    <div class="definition">
+        يقصد بذلك مدى قدرة جهاز الحاسوب على التعامل مع البيانات خلال وقت محدد، أو عدد المهام المنجزة في جهاز الحاسوب خلال وقت معين.
+    </div>
+
+    <h3>على ماذا يشمل حجم البيانات المتبادلة؟</h3>
+
+    <p>ويشمل ذلك:</p>
+
+    <ul>
+        <li>معالجة المهام.</li>
+        <li>التعامل مع طلبات المستخدمين.</li>
+        <li>تشغيل التطبيقات.</li>
+        <li>إدارة نقل البيانات.</li>
+    </ul>
+
+    <h3>العلاقة بين الحمل وأداء الشبكة</h3>
+
+    <p>
+        قد يؤثر حجم البيانات المتبادلة في أداء الشبكة؛ ما ينعكس على السرعة والاستجابة والكفاءة. ومن ثم، فإن مراقبة حجم البيانات المتبادلة في الشبكة وإدارتها تُعد أمرًا ضروريًا لضمان الأداء الأمثل للشبكة.
+    </p>
+
+    <p>
+        فقد يؤدي الحمل الزائد إلى التأخر في نقل البيانات <span class="english">(Delay)</span>، فينخفض أداء الشبكة. أما الحمل المتوازن فيعمل على استقرار الشبكة ويزيد من فاعليتها.
+    </p>
+
+    <div class="note">
+        <h3>💡 إضاءة</h3>
+        <p>
+            وحدة قياس سرعة نقل البيانات في الشبكة هي ميجابت في الثانية
+            <span class="english">(Megabits per second: Mbps)</span>.
+        </p>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>سادسًا: جدار الحماية <span class="english">(Firewall)</span></h2>
+
+    <h3>وضح المقصود بجدار الحماية:</h3>
+
+    <div class="definition">
+        جدار الحماية هو نظام أمني يُستعمل للتحكم في الوصول إلى الشبكة والخروج منها، ويعمل حاجزًا بين الشبكة الداخلية المحمية والعالم الخارجي.
+    </div>
+
+    <!-- الصورة الثانية: أضف اسم الصورة الصحيح هنا -->
+
+    <div class="lesson-media">
+        <!--
+        بعد معرفة اسم الصورة، أزل التعليق التالي وضع اسم الملف الصحيح:
+
+        <img src="images/اسم-الصورة-الثانية.jpg"
+             alt="صورة توضيحية لجدار الحماية">
+
+        -->
+        <p class="media-caption">موضع الصورة الثانية من الكتاب</p>
+    </div>
+
+    <h3>الهدف الأساس من جدار الحماية</h3>
+
+    <ul>
+        <li>منع الوصول غير المصرح به إلى الشبكة.</li>
+        <li>
+            حماية البيانات المهمة من الهجمات السيبرانية، مثل هجمات القرصنة والفيروسات والبرامج الضارة.
+        </li>
+    </ul>
+
+    <p>
+        كذلك يعمل هذا الجدار على مراقبة حركة المرور داخل الشبكة ورصد الأنشطة المشبوهة لتحليلها لاحقًا؛ ما يسهم في تعزيز نظام الأمان في الشبكة.
+    </p>
+
+    <h3>أمثلة على الهجمات السيبرانية</h3>
+
+    <ul>
+        <li>هجمات القرصنة.</li>
+        <li>الفيروسات.</li>
+        <li>البرامج الضارة.</li>
+    </ul>
+
+</section>
+
+<section class="section">
+
+    <h2>سابعًا: الأمن السيبراني <span class="english">(Cybersecurity)</span></h2>
+
+    <h3>وضح المقصود بالأمن السيبراني:</h3>
+
+    <div class="definition">
+        يُعرّف الأمن السيبراني بأنه حماية الأنظمة والشبكات والبرامج من الهجمات الرقمية.
+    </div>
+
+    <p>
+        إذ تهدف الهجمات السيبرانية أساسًا إلى اختراق أماكن وجود المعلومات المهمة، أو تغييرها، أو تدميرها؛ بغية إجبار المستخدمين على دفع بعض المال، أو إلحاق الضرر بالأعمال والمشروعات.
+    </p>
+
+    <h3>الهدف من الهجمات السيبرانية</h3>
+
+    <p>
+        تهدف الهجمات السيبرانية أساسًا إلى اختراق أماكن وجود المعلومات المهمة، أو تغييرها أو تدميرها؛ بغية إجبار المستخدمين على دفع بعض المال، أو إلحاق الضرر بالأعمال والمشروعات.
+    </p>
+
+</section>
+
+</main>
+
+<a class="back-link" href="digital-skills-7-term1.html">
+    ↩️ العودة إلى فهرس دروس الفصل
+</a>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+let speechParts = [];
+let currentPart = 0;
+let isPaused = false;
+let isReading = false;
+let readingRun = 0;
+
+const statusElement = document.getElementById("readingStatus");
+
+function prepareText() {
+    const content = document.getElementById("lessonContent").innerText;
+    const cleaned = content.replace(/\s+/g, " ").trim();
+
+    speechParts = cleaned.match(/[^.!؟؛،]+[.!؟؛،]?/g) || [cleaned];
+    speechParts = speechParts.map(part => part.trim()).filter(Boolean);
+}
+
+function startReading() {
+    if (!("speechSynthesis" in window)) {
+        statusElement.textContent =
+            "المتصفح لا يدعم القراءة الصوتية. جرّب فتح الصفحة في متصفح آخر.";
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+    readingRun++;
+    prepareText();
+    currentPart = 0;
+    isPaused = false;
+    isReading = true;
+
+    statusElement.textContent = "جارٍ قراءة الدرس...";
+    speakNext(readingRun);
+}
+
+function speakNext(runId) {
+    if (runId !== readingRun || !isReading || isPaused) {
+        return;
+    }
+
+    if (currentPart >= speechParts.length) {
+        isReading = false;
+        statusElement.textContent = "اكتملت قراءة الدرس.";
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    utterance.onend = function() {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    utterance.onerror = function(event) {
+        if (runId !== readingRun) return;
+
+        if (event.error !== "canceled" && event.error !== "interrupted") {
+            statusElement.textContent =
+                "حدثت مشكلة أثناء القراءة. اضغط على قراءة الدرس للمحاولة مجددًا.";
+            isReading = false;
+        }
+    };
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function pauseReading() {
+    if (!isReading) {
+        statusElement.textContent = "لا توجد قراءة نشطة لإيقافها مؤقتًا.";
+        return;
+    }
+
+    isPaused = true;
+    window.speechSynthesis.pause();
+    statusElement.textContent = "تم إيقاف القراءة مؤقتًا.";
+}
+
+function resumeReading() {
+    if (!isReading) {
+        statusElement.textContent = "اضغط على قراءة الدرس لبدء القراءة.";
+        return;
+    }
+
+    if (!isPaused) {
+        statusElement.textContent = "القراءة تعمل بالفعل.";
+        return;
+    }
+
+    isPaused = false;
+
+    if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+    } else {
+        speakNext(readingRun);
+    }
+
+    statusElement.textContent = "تمت متابعة القراءة.";
+}
+
+function stopReading() {
+    readingRun++;
+    window.speechSynthesis.cancel();
+
+    isPaused = false;
+    isReading = false;
+    currentPart = 0;
+
+    statusElement.textContent = "تم إيقاف القراءة.";
+}
+</script>
+
+</body>
+</html>
