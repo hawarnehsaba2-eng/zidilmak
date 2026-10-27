@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<!-- Google tag (gtag.js) -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDXB0LLTSS"></script>  <script>  
-  window.dataLayer = window.dataLayer || [];  
-  function gtag(){dataLayer.push(arguments);}  
-  gtag('js', new Date());  
-  
-  gtag('config', 'G-FDXB0LLTSS');  
+<!-- Google tag (gtag.js) -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDXB0LLTSS"></script>  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-FDXB0LLTSS');
 </script>
 
 
@@ -96,23 +98,31 @@
             border-radius: 10px;
         }
 
+        /* تنسيق فيديو الشرح */
         .video-container {
-            position: relative;
+            max-width: 700px;
             width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            margin: 18px 0;
-            border-radius: 12px;
+            box-sizing: border-box;
+            margin: 25px auto;
+            padding: 15px;
+            background: #f0f7ff;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .video-container h2 {
+            color: #1d4ed8;
+            font-size: 21px;
+            margin: 0 0 15px;
         }
 
         .video-container iframe {
-            position: absolute;
-            top: 0;
-            right: 0;
+            display: block;
             width: 100%;
-            height: 100%;
+            aspect-ratio: 16 / 9;
+            height: auto;
             border: 0;
+            border-radius: 10px;
         }
 
         .reading-controls {
@@ -640,43 +650,19 @@
 
         </div>
 
-<!-- فيديو الشرح -->
-<div class="video-container">
-    <h2>🎥 فيديو شرح الدرس</h2>
+        <!-- فيديو الشرح -->
+        <div class="video-container">
+            <h2>🎥 فيديو شرح الدرس</h2>
 
-    <iframe
-        src="https://www.youtube-nocookie.com/embed/Y-sZDecpWhs"
-        title="فيديو شرح الدرس"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-    </iframe>
-</div>
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/Y-sZDecpWhs"
+                title="فيديو شرح الدرس"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
 
-<style>
-.video-container {
-    max-width: 700px;
-    margin: 25px auto;
-    padding: 15px;
-    background: #f0f7ff;
-    border-radius: 14px;
-    text-align: center;
-}
-
-.video-container h2 {
-    color: #1d4ed8;
-    font-size: 21px;
-    margin-bottom: 15px;
-}
-
-.video-container iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    border: none;
-    border-radius: 10px;
-}
-</style>
     </div>
 
     <a class="back-btn" href="digital-skills-7-term1.html">
