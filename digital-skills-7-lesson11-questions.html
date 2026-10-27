@@ -1,167 +1,292 @@
-<section class="quiz-section" id="assess-my-learning">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-    <h2>📝 أقيم تعلمي</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <p class="quiz-intro">
-        <strong>المعرفة:</strong>
-        أوظف في هذا الدرس ما تعلّمته من معارف في الإجابة عن السؤالين الآتيين.
-    </p>
+    <title>أقيم تعلمي | أداء الشبكة - زد علمك</title>
 
-    <div class="quiz-question">
+    <meta name="description"
+          content="أسئلة أقيم تعلمي لدرس أداء الشبكة مع الإجابات النموذجية في المهارات الرقمية.">
 
-        <h3>السؤال الأول: ما المقصود بأداء الشبكة؟</h3>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-        <div class="answer-box">
-            <strong>الإجابة:</strong>
-            هو مؤشر لمدى جودتها وفاعليتها، ويتضمن تقييمًا لكل من سرعة الاتصال،
-            وجودة التوصيل، ودرجة الموثوقية، وكفاءة الشبكة.
-        </div>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+            padding: 16px;
+            line-height: 1.9;
+        }
 
-    </div>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    <div class="quiz-question">
+        .page-header {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 24px 18px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 22px;
+        }
 
-        <h3>
-            السؤال الثاني: أكتب المصطلح المناسب بجانب كل جملة من الجمل في الجدول الآتي:
-        </h3>
+        .page-header h1 {
+            margin: 0 0 6px;
+            font-size: 25px;
+        }
 
-        <div class="table-wrapper">
-            <table class="assessment-table">
+        .page-header p {
+            margin: 0;
+            font-size: 16px;
+        }
 
-                <thead>
-                    <tr>
-                        <th>الجملة</th>
-                        <th>المصطلح المناسب</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>
-                            أقصى كم من البيانات المنقولة عبر شبكة الإنترنت في وقت محدد.
-                        </td>
-                        <td class="answer-cell">
-                            عرض النطاق الترددي (Bandwidth)
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            الوقت الذي تستغرقه البيانات في الانتقال عبر شبكة الإنترنت.
-                        </td>
-                        <td class="answer-cell">
-                            تأخر وصول البيانات (Delay)
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            مدى قدرة جهاز الحاسوب على التعامل مع البيانات خلال وقت محدد،
-                            أو عدد المهام المنجزة في جهاز الحاسوب خلال وقت معين.
-                        </td>
-                        <td class="answer-cell">
-                            حجم البيانات المتبادلة (Load)
-                        </td>
-                    </tr>
-                </tbody>
-
-            </table>
-        </div>
-
-    </div>
-
-</section>
-
-<style>
-    .quiz-section {
-        margin-top: 30px;
-        padding: 22px;
-        background: #f0f7ff;
-        border: 1px solid #bfdbfe;
-        border-radius: 16px;
-        line-height: 1.9;
-    }
-
-    .quiz-section > h2 {
-        margin-top: 0;
-        color: #1d4ed8;
-        text-align: center;
-    }
-
-    .quiz-intro {
-        background: #ffffff;
-        padding: 14px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-
-    .quiz-question {
-        background: #ffffff;
-        padding: 18px;
-        margin-top: 18px;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .quiz-question h3 {
-        color: #1e40af;
-        margin-top: 0;
-        line-height: 1.8;
-    }
-
-    .answer-box {
-        background: #dcfce7;
-        border-right: 4px solid #16a34a;
-        color: #166534;
-        padding: 14px;
-        border-radius: 8px;
-    }
-
-    .table-wrapper {
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    .assessment-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 12px;
-        background: #ffffff;
-    }
-
-    .assessment-table th,
-    .assessment-table td {
-        border: 1px solid #cbd5e1;
-        padding: 12px;
-        text-align: right;
-        vertical-align: middle;
-    }
-
-    .assessment-table th {
-        background: #dbeafe;
-        color: #1e3a8a;
-    }
-
-    .assessment-table .answer-cell {
-        background: #dcfce7;
-        color: #166534;
-        font-weight: bold;
-        min-width: 160px;
-    }
-
-    @media (max-width: 600px) {
         .quiz-section {
-            padding: 12px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .quiz-title {
+            color: #1d4ed8;
+            text-align: center;
+            font-size: 23px;
+            margin: 0 0 18px;
+        }
+
+        .quiz-intro {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 0 0 20px;
         }
 
         .quiz-question {
-            padding: 12px;
+            background: white;
+            padding: 20px;
+            margin-top: 18px;
+            border-radius: 12px;
+            border-right: 5px solid #2563eb;
+            box-shadow: 0 3px 9px rgba(0, 0, 0, 0.06);
+        }
+
+        .quiz-question h3 {
+            color: #1e40af;
+            font-size: 19px;
+            margin: 0 0 15px;
+            line-height: 1.8;
+        }
+
+        .answer-box {
+            background: #dcfce7;
+            border-right: 4px solid #16a34a;
+            color: #166534;
+            padding: 15px;
+            border-radius: 9px;
+        }
+
+        .answer-box strong {
+            color: #15803d;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 8px;
+        }
+
+        .assessment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
         }
 
         .assessment-table th,
         .assessment-table td {
-            padding: 9px;
-            font-size: 14px;
+            border: 1px solid #cbd5e1;
+            padding: 13px;
+            text-align: right;
+            vertical-align: middle;
         }
-    }
-</style>
+
+        .assessment-table th {
+            background: #dbeafe;
+            color: #1e3a8a;
+            font-size: 16px;
+        }
+
+        .assessment-table td {
+            background: #fff;
+        }
+
+        .assessment-table .answer-cell {
+            background: #dcfce7;
+            color: #166534;
+            font-weight: bold;
+            min-width: 190px;
+        }
+
+        .back-link {
+            display: block;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 13px;
+            border-radius: 10px;
+            margin-top: 22px;
+        }
+
+        .back-link:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            padding: 18px 5px 5px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .page-header {
+                padding: 20px 12px;
+            }
+
+            .page-header h1 {
+                font-size: 22px;
+            }
+
+            .quiz-section {
+                padding: 12px;
+            }
+
+            .quiz-title {
+                font-size: 21px;
+            }
+
+            .quiz-question {
+                padding: 14px;
+            }
+
+            .quiz-question h3 {
+                font-size: 17px;
+            }
+
+            .assessment-table th,
+            .assessment-table td {
+                padding: 9px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="page-header">
+        <h1>📘 المهارات الرقمية</h1>
+        <p>درس أداء الشبكة (Network Performance)</p>
+    </header>
+
+    <main class="quiz-section" id="assess-my-learning">
+
+        <h2 class="quiz-title">📝 أقيم تعلمي</h2>
+
+        <p class="quiz-intro">
+            <strong>المعرفة:</strong>
+            أوظف في هذا الدرس ما تعلّمته من معارف في الإجابة عن السؤالين الآتيين.
+        </p>
+
+        <section class="quiz-question">
+
+            <h3>السؤال الأول: ما المقصود بأداء الشبكة؟</h3>
+
+            <div class="answer-box">
+                <strong>الإجابة النموذجية:</strong>
+                هو مؤشر لمدى جودتها وفاعليتها، ويتضمن تقييمًا لكل من سرعة الاتصال،
+                وجودة التوصيل، ودرجة الموثوقية، وكفاءة الشبكة.
+            </div>
+
+        </section>
+
+        <section class="quiz-question">
+
+            <h3>
+                السؤال الثاني: أكتب المصطلح المناسب بجانب كل جملة من الجمل في الجدول الآتي:
+            </h3>
+
+            <div class="table-wrapper">
+                <table class="assessment-table">
+
+                    <thead>
+                        <tr>
+                            <th>الجملة</th>
+                            <th>المصطلح المناسب</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                أقصى كم من البيانات المنقولة عبر شبكة الإنترنت في وقت محدد.
+                            </td>
+                            <td class="answer-cell">
+                                عرض النطاق الترددي (Bandwidth)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                الوقت الذي تستغرقه البيانات في الانتقال عبر شبكة الإنترنت.
+                            </td>
+                            <td class="answer-cell">
+                                تأخر وصول البيانات (Delay)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                مدى قدرة جهاز الحاسوب على التعامل مع البيانات خلال وقت محدد،
+                                أو عدد المهام المنجزة في جهاز الحاسوب خلال وقت معين.
+                            </td>
+                            <td class="answer-cell">
+                                حجم البيانات المتبادلة (Load)
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <a class="back-link" href="digital-skills-7-term1.html">
+        ↩️ العودة إلى دروس الفصل
+    </a>
+
+    <footer>
+        © 2026 زد علمك - جميع الحقوق محفوظة
+    </footer>
+
+</div>
+
+</body>
+</html>
