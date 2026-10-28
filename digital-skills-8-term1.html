@@ -8,7 +8,7 @@
     <title>المهارات الرقمية - الصف الثامن | زد علمك</title>
 
     <meta name="description"
-          content="فهرس دروس المهارات الرقمية للصف الثامن، الفصل الأول، مع شرح الدروس وأسئلة الوحدات والإجابات النموذجية.">
+          content="شرح دروس المهارات الرقمية للصف الثامن، وأسئلة الدروس، واختبارات تفاعلية، وأسئلة الوحدات مع الإجابات النموذجية.">
 
     <style>
         * {
@@ -17,8 +17,8 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
+            background: #f0fdf4;
+            color: #1f2937;
             margin: 0;
             padding: 15px;
             line-height: 1.9;
@@ -30,7 +30,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            background: linear-gradient(135deg, #166534, #22c55e);
             color: white;
             text-align: center;
             padding: 25px 15px;
@@ -54,86 +54,110 @@
             padding: 20px;
             margin-bottom: 22px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+            border: 1px solid #dcfce7;
         }
 
         .unit h2 {
-            color: #1d4ed8;
+            color: #166534;
             font-size: 21px;
-            margin: 0 0 15px;
+            margin: 0 0 18px;
             padding-bottom: 12px;
-            border-bottom: 2px solid #dbeafe;
+            border-bottom: 2px solid #bbf7d0;
         }
 
         .unit h2 span {
             display: block;
             color: #64748b;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: normal;
             margin-top: 4px;
             direction: ltr;
             text-align: right;
         }
 
-        .lesson-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .lesson-list li {
-            margin: 10px 0;
-        }
-
-        .lesson-list a {
-            display: block;
-            text-decoration: none;
-            color: #334155;
+        .lesson {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-right: 4px solid #3b82f6;
-            border-radius: 10px;
-            padding: 12px 14px;
-            transition: background 0.2s, border-color 0.2s;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 16px;
         }
 
-        .lesson-list a:hover {
-            background: #eff6ff;
-            border-color: #93c5fd;
-        }
-
-        .lesson-list .unit-questions a {
-            background: #f0fdf4;
-            border-right-color: #16a34a;
+        .lesson-title {
             color: #166534;
+            font-size: 17px;
             font-weight: bold;
+            margin: 0 0 10px;
         }
 
-        .lesson-list .unit-questions a:hover {
-            background: #dcfce7;
-        }
-
-        .english {
+        .lesson-title span {
             display: block;
             color: #64748b;
             font-size: 13px;
+            font-weight: normal;
             direction: ltr;
             text-align: right;
-            margin-top: 3px;
         }
 
-        .coming {
-            display: inline-block;
-            background: #e2e8f0;
-            color: #475569;
-            border-radius: 6px;
-            font-size: 12px;
-            padding: 1px 7px;
-            margin-right: 5px;
+        .lesson-links {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .lesson-links a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+
+        .explanation-link {
+            background: #dcfce7;
+            color: #166534;
+            border-right: 4px solid #16a34a;
+        }
+
+        .questions-link {
+            background: #ecfdf5;
+            color: #047857;
+            border-right: 4px solid #059669;
+        }
+
+        .test-link {
+            background: #f0fdf4;
+            color: #15803d;
+            border-right: 4px solid #22c55e;
+        }
+
+        .lesson-links a:hover {
+            background: #bbf7d0;
+        }
+
+        .unit-questions {
+            margin-top: 18px;
+        }
+
+        .unit-questions a {
+            display: block;
+            background: #166534;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 13px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .unit-questions a:hover {
+            background: #14532d;
         }
 
         .back-link {
             display: block;
-            background: #2563eb;
+            background: #15803d;
             color: white;
             text-align: center;
             text-decoration: none;
@@ -149,6 +173,12 @@
             padding: 18px 5px 5px;
         }
 
+        @media (min-width: 600px) {
+            .lesson-links {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -159,15 +189,15 @@
             }
 
             .unit {
-                padding: 15px;
+                padding: 14px;
             }
 
             .unit h2 {
                 font-size: 19px;
             }
 
-            .lesson-list a {
-                padding: 11px;
+            .lesson {
+                padding: 12px;
             }
         }
     </style>
@@ -178,7 +208,7 @@
 <div class="container">
 
     <header>
-        <h1>📘 المهارات الرقمية</h1>
+        <h1>📗 المهارات الرقمية</h1>
         <p>الصف الثامن - الفصل الأول</p>
         <p>تعلّم، راجع، واختبر معلوماتك</p>
     </header>
@@ -194,45 +224,115 @@
                 <span>Computing Systems</span>
             </h2>
 
-            <ul class="lesson-list">
+            <!-- الدرس الأول -->
 
-                <li>
-                    <a href="computer-troubleshooting-8.html">
-                        الدرس الأول: إصلاح الأعطال
-                        <span class="english">Computer Troubleshooting</span>
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الأول: إصلاح الأعطال
+                    <span>Computer Troubleshooting</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="computer-troubleshooting-8.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="computer-hardware-maintenance-8.html">
-                        الدرس الثاني: صيانة الأعطال المادية
-                        <span class="english">Computer Hardware Maintenance</span>
+                    <a class="questions-link"
+                       href="computer-troubleshooting-questions-8.html">
+                        📝 أسئلة الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="computer-software-troubleshooting-8.html">
-                        الدرس الثالث: صيانة الأعطال البرمجية
-                        <span class="english">Computer Software Troubleshooting</span>
+                    <a class="test-link"
+                       href="computer-troubleshooting-test-8.html">
+                        ✅ اختبر نفسك
                     </a>
-                </li>
+                </div>
+            </div>
 
-                <li>
-                    <a href="troubleshooting-os-tools-8.html">
-                        الدرس الرابع: إصلاح الأعطال باستخدام أدوات نظام التشغيل
-                        <span class="english">
-                            Troubleshooting Using Operating System Tools
-                        </span>
+            <!-- الدرس الثاني -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثاني: صيانة الأعطال المادية
+                    <span>Computer Hardware Maintenance</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="computer-hardware-maintenance-8.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
 
-                <li class="unit-questions">
-                    <a href="unit1-questions-8.html">
-                        📝 أسئلة الوحدة الأولى مع الإجابات النموذجية
+                    <a class="questions-link"
+                       href="computer-hardware-maintenance-questions-8.html">
+                        📝 أسئلة الدرس
                     </a>
-                </li>
 
-            </ul>
+                    <a class="test-link"
+                       href="computer-hardware-maintenance-test-8.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الثالث -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثالث: صيانة الأعطال البرمجية
+                    <span>Computer Software Troubleshooting</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="computer-software-troubleshooting-8.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="computer-software-troubleshooting-questions-8.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="computer-software-troubleshooting-test-8.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الرابع -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الرابع: إصلاح الأعطال باستخدام أدوات نظام التشغيل
+                    <span>Troubleshooting Using Operating System Tools</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="troubleshooting-os-tools-8.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="troubleshooting-os-tools-questions-8.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="troubleshooting-os-tools-test-8.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <div class="unit-questions">
+                <a href="unit1-questions-8.html">
+                    📝 أسئلة الوحدة الأولى مع الإجابات النموذجية
+                </a>
+            </div>
 
         </section>
 
@@ -246,52 +346,141 @@
                 <span>Algorithms and Programming</span>
             </h2>
 
-            <ul class="lesson-list">
+            <!-- الدرس الأول -->
 
-                <li>
-                    <a href="introduction-to-scratch-8.html">
-                        الدرس الأول: مقدمة في برمجية سكراتش
-                        <span class="english">Introduction to Scratch</span>
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الأول: مقدمة في برمجية سكراتش
+                    <span>Introduction to Scratch</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="introduction-to-scratch-8.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="scratch-design-elements-8.html">
-                        الدرس الثاني: عناصر التصميم في سكراتش
-                        <span class="english">Design Elements in Scratch</span>
+                    <a class="questions-link"
+                       href="introduction-to-scratch-questions-8.html">
+                        📝 أسئلة الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="scratch-programming-blocks-8.html">
-                        الدرس الثالث: عناصر البرمجة في سكراتش - اللبنات البرمجية
-                        <span class="english">
-                            Programming Elements in Scratch: Blocks
-                        </span>
+                    <a class="test-link"
+                       href="introduction-to-scratch-test-8.html">
+                        ✅ اختبر نفسك
                     </a>
-                </li>
+                </div>
+            </div>
 
-                <li>
-                    <a href="scratch-variables-8.html">
-                        الدرس الرابع: المتغيرات في برمجية سكراتش
-                        <span class="english">Variables in Scratch</span>
+            <!-- الدرس الثاني -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثاني: عناصر التصميم في سكراتش
+                    <span>Design Elements in Scratch</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="scratch-design-elements-8.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="scratch-control-blocks-8.html">
-                        الدرس الخامس: لبنات التحكم في برمجية سكراتش
-                        <span class="english">Control Blocks in Scratch</span>
+                    <a class="questions-link"
+                       href="scratch-design-elements-questions-8.html">
+                        📝 أسئلة الدرس
                     </a>
-                </li>
 
-                <li class="unit-questions">
-                    <a href="unit2-questions-8.html">
-                        📝 أسئلة الوحدة الثانية مع الإجابات النموذجية
+                    <a class="test-link"
+                       href="scratch-design-elements-test-8.html">
+                        ✅ اختبر نفسك
                     </a>
-                </li>
+                </div>
+            </div>
 
-            </ul>
+            <!-- الدرس الثالث -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثالث: عناصر البرمجة في سكراتش - اللبنات البرمجية
+                    <span>Programming Elements in Scratch: Blocks</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="scratch-programming-blocks-8.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="scratch-programming-blocks-questions-8.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="scratch-programming-blocks-test-8.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الرابع -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الرابع: المتغيرات في برمجية سكراتش
+                    <span>Variables in Scratch</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="scratch-variables-8.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="scratch-variables-questions-8.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="scratch-variables-test-8.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الخامس -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الخامس: لبنات التحكم في برمجية سكراتش
+                    <span>Control Blocks in Scratch</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="scratch-control-blocks-8.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="scratch-control-blocks-questions-8.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="scratch-control-blocks-test-8.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <div class="unit-questions">
+                <a href="unit2-questions-8.html">
+                    📝 أسئلة الوحدة الثانية مع الإجابات النموذجية
+                </a>
+            </div>
 
         </section>
 
