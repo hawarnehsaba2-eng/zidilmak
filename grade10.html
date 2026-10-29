@@ -5,131 +5,557 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="دروس المهارات الرقمية للصف العاشر، تشمل تحليل البيانات والمواقع الإلكترونية والبرمجة.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDXB0LLTSS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FDXB0LLTSS');
+    </script>
 
     <title>المهارات الرقمية - الصف العاشر | زد علمك</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+          content="شرح دروس المهارات الرقمية للصف العاشر، وتحليل البيانات وإنشاء الصفحات الإلكترونية، وأسئلة الدروس واختبارات تفاعلية.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0fdf4;
+            color: #1f2937;
+            margin: 0;
+            padding: 15px;
+            line-height: 1.9;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #166534, #22c55e);
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-size: 26px;
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .unit {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+            border: 1px solid #dcfce7;
+        }
+
+        .unit h2 {
+            color: #166534;
+            font-size: 21px;
+            margin: 0 0 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #bbf7d0;
+        }
+
+        .unit h2 span {
+            display: block;
+            color: #64748b;
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: 4px;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .lesson {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 16px;
+        }
+
+        .lesson-title {
+            color: #166534;
+            font-size: 17px;
+            font-weight: bold;
+            margin: 0 0 10px;
+        }
+
+        .lesson-title span {
+            display: block;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: normal;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .lesson-links {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .lesson-links a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+
+        .explanation-link {
+            background: #dcfce7;
+            color: #166534;
+            border-right: 4px solid #16a34a;
+        }
+
+        .questions-link {
+            background: #ecfdf5;
+            color: #047857;
+            border-right: 4px solid #059669;
+        }
+
+        .test-link {
+            background: #f0fdf4;
+            color: #15803d;
+            border-right: 4px solid #22c55e;
+        }
+
+        .lesson-links a:hover {
+            background: #bbf7d0;
+        }
+
+        .unit-questions {
+            margin-top: 18px;
+        }
+
+        .unit-questions a {
+            display: block;
+            background: #166534;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 13px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .unit-questions a:hover {
+            background: #14532d;
+        }
+
+        .back-link {
+            display: block;
+            background: #15803d;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            padding: 18px 5px 5px;
+        }
+
+        @media (min-width: 600px) {
+            .lesson-links {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .unit {
+                padding: 14px;
+            }
+
+            .unit h2 {
+                font-size: 19px;
+            }
+
+            .lesson {
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+<div class="container">
+
     <header>
-        <h1>زد علمك</h1>
-        <p>المهارات الرقمية - الصف العاشر</p>
+        <h1>📗 المهارات الرقمية</h1>
+        <p>الصف العاشر</p>
+        <p>تعلّم، راجع، واختبر معلوماتك</p>
     </header>
 
     <main>
 
-        <h2>فهرس الدروس</h2>
+        <!-- الوحدة الأولى -->
 
         <section class="unit">
-            <h2>الوحدة الأولى: تحليل البيانات</h2>
-            <p dir="ltr">Data Analysis</p>
 
-            <ol>
-                <li>
-                    <a href="grade10-lesson1.html">
-                        البيانات والمعلومات
-                        (Information and Data)
+            <h2>
+                الوحدة الأولى: تحليل البيانات
+                <span>Data Analysis</span>
+            </h2>
+
+            <!-- الدرس الأول -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الأول: البيانات والمعلومات
+                    <span>Information and Data</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson1.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="grade10-lesson2.html">
-                        أنواع البيانات وطرائق تنظيمها
-                        (Data Types and Data Organization)
+                    <a class="questions-link"
+                       href="grade10-lesson1-questions.html">
+                        📝 أسئلة الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="grade10-lesson3.html">
-                        التمثيل المرئي للبيانات
-                        (Data Visualization)
+                    <a class="test-link"
+                       href="grade10-lesson1-test.html">
+                        ✅ اختبر نفسك
                     </a>
-                </li>
+                </div>
+            </div>
 
-                <li>
-                    <a href="grade10-lesson4.html">
-                        تحليل البيانات
-                        (Data Analysis)
+            <!-- الدرس الثاني -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثاني: أنواع البيانات وطرائق تنظيمها
+                    <span>Data Types and Data Organization</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson2.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
-            </ol>
 
-            <a class="unit-questions" href="grade10-unit1-questions.html">
-                أسئلة الوحدة الأولى
-            </a>
+                    <a class="questions-link"
+                       href="grade10-lesson2-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson2-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الثالث -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثالث: التمثيل المرئي للبيانات
+                    <span>Data Visualization</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson3.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="grade10-lesson3-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson3-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الرابع -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الرابع: تحليل البيانات
+                    <span>Data Analysis</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson4.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="grade10-lesson4-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson4-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <div class="unit-questions">
+                <a href="grade10-unit1-questions.html">
+                    📝 أسئلة الوحدة الأولى مع الإجابات النموذجية
+                </a>
+            </div>
+
         </section>
+
+
+        <!-- الوحدة الثانية -->
 
         <section class="unit">
-            <h2>الوحدة الثانية: الخوارزميات والبرمجة</h2>
-            <p dir="ltr">Algorithms &amp; Programming</p>
 
-            <ol>
-                <li>
-                    <a href="grade10-lesson5.html">
-                        مقدمة إلى المواقع الإلكترونية
-                        (Introduction to Websites)
+            <h2>
+                الوحدة الثانية: الخوارزميات والبرمجة
+                <span>Algorithms &amp; Programming</span>
+            </h2>
+
+            <!-- الدرس الأول -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الأول: مقدمة إلى المواقع الإلكترونية
+                    <span>Introduction to Websites</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson5.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="grade10-lesson6.html">
-                        إنشاء الصفحات الإلكترونية
-                        (Creating Web Pages)
+                    <a class="questions-link"
+                       href="grade10-lesson5-questions.html">
+                        📝 أسئلة الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="grade10-lesson7.html">
-                        تنسيق النصوص
-                        (Text Formatting)
+                    <a class="test-link"
+                       href="grade10-lesson5-test.html">
+                        ✅ اختبر نفسك
                     </a>
-                </li>
+                </div>
+            </div>
 
-                <li>
-                    <a href="grade10-lesson8.html">
-                        التعليقات والقوائم
-                        (Comments and Lists)
+            <!-- الدرس الثاني -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثاني: إنشاء الصفحات الإلكترونية
+                    <span>Creating Web Pages</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson6.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="grade10-lesson9.html">
-                        الصور (Images)
+                    <a class="questions-link"
+                       href="grade10-lesson6-questions.html">
+                        📝 أسئلة الدرس
                     </a>
-                </li>
 
-                <li>
-                    <a href="grade10-lesson10.html">
-                        الوسائط المتعددة والارتباطات التشعبية
-                        (Multimedia and Hyperlinks)
+                    <a class="test-link"
+                       href="grade10-lesson6-test.html">
+                        ✅ اختبر نفسك
                     </a>
-                </li>
+                </div>
+            </div>
 
-                <li>
-                    <a href="grade10-lesson11.html">
-                        الجداول (Tables)
+            <!-- الدرس الثالث -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الثالث: تنسيق النصوص
+                    <span>Text Formatting</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson7.html">
+                        📖 شرح الدرس
                     </a>
-                </li>
-            </ol>
 
-            <a class="unit-questions" href="grade10-unit2-questions.html">
-                أسئلة الوحدة الثانية
-            </a>
+                    <a class="questions-link"
+                       href="grade10-lesson7-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson7-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الرابع -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الرابع: التعليقات والقوائم
+                    <span>Comments and Lists</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson8.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="grade10-lesson8-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson8-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس الخامس -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس الخامس: الصور
+                    <span>Images</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson9.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="grade10-lesson9-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson9-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس السادس -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس السادس: الوسائط المتعددة والارتباطات التشعبية
+                    <span>Multimedia and Hyperlinks</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson10.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="grade10-lesson10-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson10-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <!-- الدرس السابع -->
+
+            <div class="lesson">
+                <h3 class="lesson-title">
+                    الدرس السابع: الجداول
+                    <span>Tables</span>
+                </h3>
+
+                <div class="lesson-links">
+                    <a class="explanation-link"
+                       href="grade10-lesson11.html">
+                        📖 شرح الدرس
+                    </a>
+
+                    <a class="questions-link"
+                       href="grade10-lesson11-questions.html">
+                        📝 أسئلة الدرس
+                    </a>
+
+                    <a class="test-link"
+                       href="grade10-lesson11-test.html">
+                        ✅ اختبر نفسك
+                    </a>
+                </div>
+            </div>
+
+            <div class="unit-questions">
+                <a href="grade10-unit2-questions.html">
+                    📝 أسئلة الوحدة الثانية مع الإجابات النموذجية
+                </a>
+            </div>
+
         </section>
-
-        <p class="coming">قريبًا المزيد من الدروس والأنشطة التعليمية.</p>
-
-        <a href="index.html">العودة إلى الصفحة الرئيسية</a>
 
     </main>
 
+    <a class="back-link" href="index.html">
+        ↩️ العودة إلى الصفحة الرئيسية
+    </a>
+
     <footer>
-        <p>© 2026 زد علمك - جميع الحقوق محفوظة</p>
+        © 2026 زد علمك - جميع الحقوق محفوظة
     </footer>
 
-</body>
+</div>
 
+</body>
 </html>
