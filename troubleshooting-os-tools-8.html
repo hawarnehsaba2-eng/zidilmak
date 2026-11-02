@@ -528,15 +528,215 @@ Windows)، فتظهر مجموع من الأدوات الإدارية، ولكل
      src="images/IMG_٢٠٢٦١١٠٣_٠٠٤٢٥٤.jpg"
      alt="خطوات تنظيف القرص">
 
+
+
+
+
+
+
 <div class="activity">
-    <h3>رتب الخطوات.</h3>
+    <h3>نشاط: رتب الخطوات 🧩</h3>
 
-    <p>تحديد محرك القراص ثم موافق</p>
+    <p>
+        رتب خطوات تنظيف القرص بالسحب والإفلات للوصول إلى الترتيب الصحيح:
+    </p>
 
-    <p>أنقر على تنظيف ملفات النظام</p>
+    <style>
+        .puzzle-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
 
-    <p>أحدد الملفات التي أريد حذفها اختيار القرص من قائمة ادوات اداية لنظام التشغيل</p>
+        .puzzle-item {
+            background: #ffffff;
+            border: 2px solid #3185c5;
+            border-radius: 10px;
+            padding: 13px;
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+        }
+
+        .puzzle-item.dragging {
+            opacity: 0.4;
+            background: #dceeff;
+        }
+
+        .puzzle-item.correct {
+            background: #e5f5e9;
+            border-color: #26734d;
+        }
+
+        .puzzle-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .puzzle-buttons button {
+            flex: 1;
+            min-width: 130px;
+        }
+
+        #puzzle-result {
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+
+    <div class="puzzle-list" id="puzzle-list">
+
+        <div class="puzzle-item" data-order="3">
+            أنقر على تنظيف ملفات النظام
+        </div>
+
+        <div class="puzzle-item" data-order="1">
+            اختيار القرص من قائمة أدوات إدارية لنظام التشغيل
+        </div>
+
+        <div class="puzzle-item" data-order="4">
+            تحديد الملفات التي أريد حذفها
+        </div>
+
+        <div class="puzzle-item" data-order="2">
+            تحديد محرك الأقراص ثم موافق
+        </div>
+
+    </div>
+
+    <div class="puzzle-buttons">
+        <button type="button" onclick="checkPuzzleOrder()">
+            تحقق من الترتيب
+        </button>
+
+        <button type="button" onclick="resetPuzzleOrder()">
+            إعادة المحاولة
+        </button>
+    </div>
+
+    <p id="puzzle-result"></p>
 </div>
+
+<script>
+const puzzleContainer = document.getElementById("puzzle-list");
+
+let activePuzzleItem = null;
+let activePointerId = null;
+
+puzzleContainer.addEventListener("pointerdown", function(e) {
+    const item = e.target.closest(".puzzle-item");
+
+    if (!item) return;
+
+    activePuzzleItem = item;
+    activePointerId = e.pointerId;
+
+    item.classList.add("dragging");
+    e.preventDefault();
+});
+
+document.addEventListener("pointermove", function(e) {
+    if (!activePuzzleItem || e.pointerId !== activePointerId) {
+        return;
+    }
+
+    const target = document.elementFromPoint(e.clientX, e.clientY);
+    const targetItem = target?.closest(".puzzle-item");
+
+    if (!targetItem || targetItem === activePuzzleItem) {
+        return;
+    }
+
+    const rect = targetItem.getBoundingClientRect();
+    const middle = rect.top + rect.height / 2;
+
+    if (e.clientY < middle) {
+        puzzleContainer.insertBefore(activePuzzleItem, targetItem);
+    } else {
+        puzzleContainer.insertBefore(
+            activePuzzleItem,
+            targetItem.nextSibling
+        );
+    }
+});
+
+document.addEventListener("pointerup", function(e) {
+    if (activePuzzleItem && e.pointerId === activePointerId) {
+        activePuzzleItem.classList.remove("dragging");
+        activePuzzleItem = null;
+        activePointerId = null;
+    }
+});
+
+document.addEventListener("pointercancel", function() {
+    if (activePuzzleItem) {
+        activePuzzleItem.classList.remove("dragging");
+        activePuzzleItem = null;
+        activePointerId = null;
+    }
+});
+
+function checkPuzzleOrder() {
+    const items = [...puzzleContainer.children];
+
+    const correct = items.every((item, index) => {
+        return Number(item.dataset.order) === index + 1;
+    });
+
+    const result = document.getElementById("puzzle-result");
+
+    if (correct) {
+        result.textContent = "أحسنت! 🎉 رتبت الخطوات ترتيبًا صحيحًا.";
+        result.style.color = "#26734d";
+
+        items.forEach(item => {
+            item.classList.add("correct");
+        });
+    } else {
+        result.textContent = "حاول مرة أخرى، بعض الخطوات ليست في مكانها الصحيح.";
+        result.style.color = "#b13b3b";
+
+        items.forEach(item => {
+            item.classList.remove("correct");
+        });
+    }
+}
+
+function resetPuzzleOrder() {
+    const originalOrder = ["1", "2", "3", "4"];
+    const items = [...puzzleContainer.children];
+
+    originalOrder.forEach(order => {
+        const item = items.find(
+            element => element.dataset.order === order
+        );
+
+        if (item) {
+            puzzleContainer.appendChild(item);
+        }
+    });
+
+    document.getElementById("puzzle-result").textContent = "";
+
+    puzzleContainer.querySelectorAll(".puzzle-item").forEach(item => {
+        item.classList.remove("correct", "dragging");
+    });
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="brown-box">
     <p>
