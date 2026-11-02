@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>صيانة الأعطال البرمجية | المهارات الرقمية الصف الثامن - زد علمك</title>
+  <meta name="description" content="شرح درس صيانة الأعطال البرمجية للصف الثامن، مع الأسئلة والأجوبة والأنشطة والإضاءة والصور.">
+  <meta name="google-site-verification" content="">
+  <meta name="google-analytics" content="G-FDXB0LLTSS">
+
+  <style>
+    :root {
+      --main: #762b49;
+      --main-dark: #542037;
+      --green: #e4f6e8;
+      --pink: #fff0f4;
+      --blue: #e7f3ff;
+      --yellow: #fff8cf;
+      --lav: #f0e6fa;
+      --text: #292929;
+      --border: #eadde2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f8f5f7;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    header {
+      background: var(--main);
+      color: white;
+      text-align: center;
+      padding: 24px 15px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 25px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 20px auto;
+      padding: 0 14px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 18px 0;
+    }
+
+    button,
+    .nav-button {
+      border: none;
+      border-radius: 12px;
+      padding: 11px 17px;
+      background: #218838;
+      color: white;
+      font-family: inherit;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover,
+    .nav-button:hover {
+      background: #176b2a;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .section {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    h2 {
+      color: var(--main);
+      font-size: 22px;
+      margin-top: 0;
+      border-bottom: 2px solid #f0dfe6;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      color: var(--main-dark);
+      font-size: 19px;
+    }
+
+    .question {
+      background: var(--pink);
+      border: 1px solid #f3d2dc;
+      border-radius: 12px;
+      padding: 13px 16px;
+      margin: 15px 0 7px;
+      font-weight: bold;
+    }
+
+    .answer {
+      background: var(--green);
+      border: 1px solid #ccebd2;
+      border-radius: 12px;
+      padding: 13px 16px;
+      margin: 7px 0 15px;
+    }
+
+    .activity {
+      background: var(--blue);
+      border: 1px solid #c9e3fb;
+      border-radius: 14px;
+      padding: 17px;
+      margin: 18px 0;
+    }
+
+    .activity h3 {
+      color: #185b91;
+      margin-top: 0;
+    }
+
+    .illumination {
+      background: var(--yellow);
+      border: 1px solid #efe2a0;
+      border-radius: 14px;
+      padding: 17px;
+      margin: 18px 0;
+    }
+
+    .illumination h3 {
+      color: #80651b;
+      margin-top: 0;
+    }
+
+    .enrichment {
+      background: var(--lav);
+      border: 1px solid #ddc9f0;
+      border-radius: 14px;
+      padding: 17px;
+      margin: 18px 0;
+    }
+
+    .enrichment h3 {
+      color: #68438a;
+      margin-top: 0;
+    }
+
+    .note {
+      background: #f7f7f7;
+      border-right: 4px solid var(--main);
+      padding: 12px 15px;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    .image-box {
+      text-align: center;
+      margin: 18px 0;
+    }
+
+    .image-box img {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+    }
+
+    ul,
+    ol {
+      padding-right: 25px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .term {
+      color: var(--main);
+      font-weight: bold;
+    }
+
+    .subheading {
+      background: #f8edf2;
+      color: var(--main-dark);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin: 18px 0 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      background: var(--main-dark);
+      color: white;
+      padding: 18px 10px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 21px;
+      }
+
+      .section {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      h3 {
+        font-size: 17px;
+      }
+
+      button,
+      .nav-button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDXB0LLTSS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FDXB0LLTSS');
+  </script>
+</head>
+
+<body>
+
+<header>
+  <h1>الدرس الثالث: صيانة الأعطال البرمجية</h1>
+  <p>المهارات الرقمية - الصف الثامن</p>
+  <p>Computer Software Troubleshooting</p>
+</header>
+
+<div class="container">
+
+  <div class="toolbar">
+    <button id="readButton" onclick="startReading()">🔊 قراءة الدرس</button>
+    <button id="pauseButton" onclick="pauseReading()">⏸ إيقاف مؤقت</button>
+    <button onclick="resumeReading()">▶ متابعة القراءة</button>
+    <button onclick="stopReading()">⏹ إيقاف القراءة</button>
+  </div>
+
+  <div class="section">
+    <h2>مكونات جهاز الحاسوب</h2>
+
+    <div class="question">ما هي مكونات جهاز الحاسوب؟</div>
+    <div class="answer">
+      يتكون جهاز الحاسوب من:
+      <ul>
+        <li>مكونات مادية.</li>
+        <li>مكونات برمجية.</li>
+      </ul>
+    </div>
+
+    <div class="question">الأعطال قد تصيب ماذا؟</div>
+    <div class="answer">
+      قد تصيب الأعطال:
+      <ul>
+        <li>المكونات المادية.</li>
+        <li>المكونات البرمجية.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      تُعد صيانة البرمجيات مكملة لصيانة المكونات المادية.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>نشاط: تحليل مشكلة برمجية</h2>
+
+    <div class="activity">
+      <h3>السيناريو</h3>
+      خالد طالب في الجامعة يعمل على إعداد بحث لمشروعه، وفي أثناء إجراء تعديلات نهائية على البحث باستخدام برنامج Microsoft Word توقف الجهاز عن الطباعة فجأة، وظهرت رسالة تبين عدم استجابة البرنامج، وتطلب إنهاء العمل أو إعادة تشغيل الجهاز.
+
+      <div class="question">ما تبعات هذه المشكلة وما أثرها في عمل خالد؟</div>
+      <div class="answer">
+        <ul>
+          <li>توقف الطباعة يعني أن بحثه لن يطبع في الوقت المحدد.</li>
+          <li>فقدان التعديلات الأخيرة إذا لم يكن قد حفظ الملف قبل تعليق البرنامج.</li>
+          <li>ضياع جزء من جهده ووقته، مما يسبب له ضغطًا نفسيًا خصوصًا إذا كان موعد التسليم قريبًا.</li>
+        </ul>
+      </div>
+
+      <div class="question">ما التصرف الصحيح الذي يجب أن يقوم به خالد؟</div>
+      <div class="answer">
+        <ol>
+          <li>الانتظار قليلًا، فقد يستجيب البرنامج بعد فترة.</li>
+          <li>إذا استمرت المشكلة، يختار إنهاء البرنامج من الرسالة الظاهرة.</li>
+          <li>إعادة فتح برنامج Word والتحقق مما إذا كان قد حفظ نسخة احتياطية (AutoRecover).</li>
+          <li>إعادة تشغيل الجهاز إذا استمر التعليق.</li>
+          <li>حفظ العمل بشكل دوري لاحقًا لتفادي فقدان البيانات.</li>
+        </ol>
+      </div>
+
+      <div class="question">هل يمكن أن يكون سبب الخلل عطلًا في المكونات المادية؟ أبرر إجابتي.</div>
+      <div class="answer">
+        في الغالب لا؛ لأن المشكلة مرتبطة ببرنامج Word أو نظام التشغيل، وقد تكون بسبب استهلاك كبير للذاكرة RAM، أو تضارب بين البرامج، أو خطأ في تعريف الطابعة، أو امتلاء قائمة الانتظار الخاصة بها.
+
+        لكن إذا تكررت المشكلة بشكل مستمر أو مع برامج أخرى، فقد يكون السبب الذاكرة RAM أو القرص الصلب، وهما من المكونات المادية.
+      </div>
+    </div>
+
+    <div class="question">ما إجراءات الصيانة التي تحافظ على المكونات البرمجية؟</div>
+    <div class="answer">
+      <ul>
+        <li>تحديث البرامج ونظام التشغيل Windows.</li>
+        <li>إضافة مهام جديدة.</li>
+        <li>تصحيح الأخطاء البرمجية.</li>
+        <li>تحسين الأداء العام لجهاز الحاسوب.</li>
+        <li>إزالة البرامج الضارة والفيروسات وغيرها.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>برنامج الفحص الذاتي عند التشغيل POST</h2>
+
+    <div class="question">وضح المقصود ببرنامج POST.</div>
+    <div class="answer">
+      هو برنامج الفحص الذاتي عند التشغيل
+      <span class="term">Power on Self Test</span>،
+      ويُرمز له بالاختصار POST. يوجد في ذاكرة القراءة فقط ROM، ومهمته فحص جهاز الحاسوب ومكوناته عند التشغيل.
+    </div>
+
+    <div class="question">ما مهمة برنامج الفحص POST؟</div>
+    <div class="answer">
+      فحص جهاز الحاسوب ومكوناته عند التشغيل، ثم إعطاء معلومات عن الأعطال التي حدثت في الجهاز.
+    </div>
+
+    <div class="question">ما آلية عمل برنامج POST؟</div>
+    <div class="answer">
+      يفحص البرنامج القرص الصلب، وذاكرة القراءة فقط ROM، وذاكرة الوصول العشوائي RAM، ومنافذ الإدخال والإخراج، ولوحة المفاتيح.
+
+      وهو المسؤول عن الصوت القصير الصادر عند التشغيل. وإذا واجه مشكلة أثناء الفحص، فقد يصدر أصواتًا على شكل نغمات متقطعة أو مستمرة، أو يعرض الأخطاء على شكل نص تحذيري يسهل على المستخدم فهمه.
+    </div>
+
+    <div class="question">كيف يعرض برنامج POST الأخطاء في النظام؟</div>
+    <div class="answer">
+      <ul>
+        <li>يصدر أصواتًا على شكل نغمات متقطعة أو مستمرة.</li>
+        <li>قد يعرض الأخطاء على الشاشة على شكل نص تحذيري.</li>
+      </ul>
+    </div>
+
+    <div class="subheading">أنواع رسائل الخطأ التي يصدرها POST</div>
+
+    <h3>أولًا: رسائل على شكل أصوات (Beep Codes)</h3>
+    يصدر الجهاز أصواتًا من السماعة الداخلية عند وجود عطل قبل تحميل نظام التشغيل.
+
+    <ul>
+      <li>صوت صفير واحد طويل ومتكرر: قد يشير إلى مشكلة في الذاكرة RAM.</li>
+      <li>صفيران قصيران: قد يشيران إلى خلل في بطاقة الشاشة.</li>
+      <li>صفير مستمر: قد يشير إلى مشكلة في مزود الطاقة أو اللوحة الأم.</li>
+    </ul>
+
+    <h3>ثانيًا: رسائل مكتوبة على الشاشة (Error Messages)</h3>
+    تظهر على شاشة الحاسوب عند فشل POST في فحص أحد المكونات.
+
+    <ul>
+      <li><span class="term">Keyboard Not Found:</span> لم يتم العثور على لوحة المفاتيح.</li>
+      <li><span class="term">CMOS Battery Failure:</span> بطارية حفظ الإعدادات ضعيفة أو فارغة.</li>
+      <li><span class="term">Disk Boot Failure:</span> الجهاز غير قادر على إيجاد قرص الإقلاع.</li>
+    </ul>
+
+    <!-- صورة مسببات أعطال المكونات البرمجية هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٦١٥٥٦.jpg"
+           alt="مسببات أعطال المكونات البرمجية"
+           loading="lazy">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>مسببات أعطال المكونات البرمجية</h2>
+
+    <div class="illumination">
+      <h3>إضاءة</h3>
+      عندما يصادفني عطل برمجي في جهاز الحاسوب، آخذ بعض الوقت للتفكير في سبب المشكلة، وقبل أن أتخذ أي إجراء، أحاول أن أجيب عن الأسئلة الآتية:
+      <ol>
+        <li>هل قمت بتنزيل أي برنامج مؤخرًا، أو تحميل برنامج من خلال شبكة الإنترنت؟</li>
+        <li>هل قمت بإضافة أو تحديث مكون من المكونات المادية؟</li>
+        <li>هل عرّفت بطاقة شاشة أو غيرها؟</li>
+        <li>هل قمت بحذف برنامج مؤخرًا؟</li>
+      </ol>
+      تساعد الإجابة عن هذه الأسئلة في تحديد السبب الفعلي للعطل، مما يسهل عملية إصلاحه.
+    </div>
+
+    <div class="activity">
+      <h3>نشاط جماعي</h3>
+      أبحث بالتعاون مع أفراد مجموعتي في المواقع الإلكترونية الموثوقة عن مسببات أخرى لأعطال المكونات البرمجية، ثم نشارك النتائج التي نتوصل إليها مع المجموعات الأخرى في الصف.
+
+      <div class="answer">
+        <ul>
+          <li>انقطاع الكهرباء أو إيقاف الجهاز بشكل مفاجئ، مما يؤدي إلى تلف ملفات النظام.</li>
+          <li>تلف ملفات النظام أو ملفات التمهيد Boot Files.</li>
+          <li>امتلاء القرص الصلب بالملفات المؤقتة والمخلفات دون تنظيف.</li>
+          <li>استخدام نسخ غير أصلية أو مفعلة بطرق غير شرعية من أنظمة التشغيل أو البرامج.</li>
+          <li>عدم تثبيت التحديثات الأمنية للبرامج الأساسية مثل المتصفحات أو برامج الحماية.</li>
+          <li>تثبيت تعريفات غير متوافقة مع النظام.</li>
+          <li>العبث بإعدادات النظام أو تعديلها بشكل غير صحيح، مثل السجل Registry في Windows.</li>
+          <li>ضعف أو خلل في برنامج الحماية، أو عدم وجود مضاد فيروسات أصلًا.</li>
+          <li>تشغيل برامج ثقيلة على جهاز ذي مواصفات ضعيفة، مما يسبب بطء وتعطل البرمجيات.</li>
+          <li>حذف ملفات مهمة بالخطأ، مثل ملفات DLL أو ملفات النظام.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">ما المقصود بصيانة المكونات البرمجية لجهاز الحاسوب؟</div>
+    <div class="answer">
+      هي إجراءات دورية تُطبّق على البرامج ونظام التشغيل بهدف المحافظة على كفاءتها.
+    </div>
+
+    <div class="question">ما الهدف من تطبيق إجراءات الصيانة الدورية للبرمجيات؟</div>
+    <div class="answer">
+      تحسين عمل الجهاز، وزيادة سرعته، ومعالجة العديد من المشكلات.
+    </div>
+
+    <div class="question">ما العلاقة بين الصيانة البرمجية وعلاج المشكلات؟</div>
+    <div class="answer">
+      الصيانة تساعد على الوقاية من المشكلات، وكذلك علاج المشكلات القائمة.
+    </div>
+
+    <div class="note">
+      تتطلب صيانة المكونات البرمجية لجهاز الحاسوب اتخاذ إجراءات يمكن تطبيقها بصورة دورية، تعمل على تحسين عمله وزيادة سرعته، بالإضافة إلى إمكانية استخدامها علاجًا للعديد من المشكلات.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>إجراءات صيانة المكونات البرمجية</h2>
+
+    <h3>أولًا: تحديث نظام التشغيل Windows</h3>
+
+    <div class="question">وضح المقصود بنظام التشغيل Windows.</div>
+    <div class="answer">
+      هو برنامج أساسي يقوم بإدارة جهاز الحاسوب، ويعمل وسيطًا بين المستخدم ومكونات الحاسوب.
+    </div>
+
+    <div class="question">علل: يجب الحرص على تحديث نظام التشغيل كلما توافر تحديث له.</div>
+    <div class="answer">
+      تتعلق معظم أعطال البرمجيات بنظام التشغيل Windows نفسه، وتتلخص أهمية تحديثه فيما يأتي:
+      <ul>
+        <li>سد الثغرات الأمنية وحماية النظام من الاختراق.</li>
+        <li>تحسين أداء النظام وإضافة ميزات جديدة.</li>
+        <li>علاج المشكلات التقنية والأخطاء البرمجية الموجودة في الإصدارات القديمة.</li>
+      </ul>
+    </div>
+
+    <!-- صورة تحديث نظام التشغيل هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٦٢٤٣٨.jpg"
+           alt="تحديث نظام التشغيل Windows"
+           loading="lazy">
+    </div>
+
+    <div class="activity">
+      <h3>نشاط بحث</h3>
+      أبحث في المواقع الإلكترونية الموثوقة عن أهم المزايا الجديدة التي يوفرها نظام التشغيل Windows 11، ثم أشارك النتائج مع زملائي عبر اللوح الرقمي التفاعلي Padlet.
+
+      <div class="answer">
+        <h3>أهم مزايا Windows 11</h3>
+        <ol>
+          <li>
+            <strong>تصميم واجهة حديثة وجاذبة:</strong>
+            قائمة ابدأ جديدة في منتصف الشاشة، وزوايا نوافذ مستديرة، وتصميم مبسط وأنيق، ودعم الوضع الداكن والشفافية.
+          </li>
+          <li>
+            <strong>تحسين الأداء والإنتاجية:</strong>
+            سرعة أكبر في التشغيل وإدارة التطبيقات، ودعم أفضل للمعالجات الحديثة والتخزين SSD، وميزة Snap Layouts وSnap Groups لترتيب النوافذ.
+          </li>
+          <li>
+            <strong>تكامل أفضل مع الألعاب:</strong>
+            دعم DirectStorage لتسريع تحميل الألعاب، وميزة Auto HDR لتحسين جودة الرسوميات.
+          </li>
+          <li>
+            <strong>تكامل مع Microsoft Teams:</strong>
+            توفير أدوات للتواصل مباشرة.
+          </li>
+          <li>
+            <strong>تجربة لمس محسنة:</strong>
+            دعم أفضل للأجهزة اللوحية والأجهزة القابلة للتحويل، وتحسين لوحة المفاتيح اللمسية والقلم الرقمي.
+          </li>
+          <li>
+            <strong>متجر Microsoft Store جديد:</strong>
+            تصميم جديد وسهل الاستخدام.
+          </li>
+          <li>
+            <strong>الأمان والحماية:</strong>
+            متطلبات مثل TPM 2.0 وSecure Boot لحماية أفضل للنظام.
+          </li>
+          <li>
+            <strong>تحسينات في تعدد الشاشات:</strong>
+            إمكانية إنشاء أكثر من سطح مكتب، ودعم أفضل للشاشات المتعددة.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>نشاط: تحديث البرامج والتطبيقات في Windows 10</h3>
+
+      <h3>أولًا: تحديث نظام التشغيل Windows 10</h3>
+      <ol>
+        <li>اضغط على زر ابدأ (Start).</li>
+        <li>اختر الإعدادات (Settings).</li>
+        <li>اضغط على التحديث والأمان (Update &amp; Security).</li>
+        <li>اختر Windows Update من القائمة الجانبية.</li>
+        <li>اضغط على التحقق من وجود تحديثات (Check for updates).</li>
+        <li>انتظر حتى يبحث النظام عن التحديثات المتاحة.</li>
+        <li>إذا وجدت تحديثات، اضغط على تنزيل وتثبيت (Download and install).</li>
+        <li>بعد اكتمال التثبيت، قد يطلب النظام إعادة التشغيل، فاضغط على إعادة التشغيل الآن (Restart now).</li>
+      </ol>
+
+      <h3>ثانيًا: تحديث التطبيقات من متجر Microsoft</h3>
+      <ol>
+        <li>افتح Microsoft Store من قائمة ابدأ.</li>
+        <li>اضغط على النقاط الثلاث أعلى الشاشة واختر التنزيلات والتحديثات (Downloads and updates).</li>
+        <li>اضغط على الحصول على التحديثات (Get updates).</li>
+        <li>سيتم تحديث التطبيقات المثبتة من المتجر.</li>
+      </ol>
+
+      <h3>ثالثًا: تحديث التطبيقات المثبتة يدويًا خارج المتجر</h3>
+      <ol>
+        <li>افتح البرنامج.</li>
+        <li>اذهب إلى قائمة Help ثم Check for updates، أو إلى الإعدادات ثم التحديث، حسب البرنامج.</li>
+        <li>اتبع التعليمات لتثبيت التحديثات.</li>
+      </ol>
+    </div>
+
+    <h3>ثانيًا: استخدام أدوات نظام التشغيل Windows 10</h3>
+
+    <div class="question">ما أهمية الأدوات المدمجة في نظام التشغيل Windows 10؟</div>
+    <div class="answer">
+      تشخيص المشكلات التقنية وإصلاحها، والتي يمكن مواجهتها عند استخدام جهاز الحاسوب.
+    </div>
+
+    <div class="question">اذكر أمثلة على الأدوات المدمجة في نظام التشغيل Windows 10.</div>
+    <div class="answer">
+      <ul>
+        <li>استكشاف الأخطاء وإصلاحها (Troubleshoot).</li>
+        <li>إلغاء التجزئة وتحسين محركات الأقراص (Defragment and Optimize Drives).</li>
+        <li>تنظيف القرص (Disk Cleanup).</li>
+      </ul>
+    </div>
+
+    <h3>ثالثًا: إزالة التطبيقات والبرامج غير المستخدمة</h3>
+
+    <div class="question">علل: يجب إزالة البرامج والتطبيقات غير المستخدمة بشكل دوري.</div>
+    <div class="answer">
+      يؤدي تراكمها إلى إشغال مساحة تخزينية في القرص الصلب بلا فائدة، وقد يؤدي إلى بطء الجهاز أو تعليقه أو توقفه عن العمل؛ لذا يجب إزالتها بشكل دوري.
+    </div>
+
+    <!-- صورة إزالة التطبيقات والبرامج غير المستخدمة هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٦٣٨٥٧.jpg"
+           alt="إزالة التطبيقات والبرامج غير المستخدمة"
+           loading="lazy">
+    </div>
+
+    <h3>رابعًا: عمل نسخ احتياطية للملفات</h3>
+
+    <div class="question">وضح المقصود بالنسخ الاحتياطي.</div>
+    <div class="answer">
+      هو عمل نسخ أخرى من البيانات المخزنة على جهاز الحاسوب والاحتفاظ بها في وسائط التخزين المختلفة؛ لنتمكن من استرجاعها عند الحاجة، أو لحمايتها في حال تعرضها للتلف أو الفقدان.
+    </div>
+
+    <div class="question">ما الهدف من النسخ الاحتياطي؟</div>
+    <div class="answer">
+      استرجاع البيانات عند الحاجة إليها، وحمايتها في حال تعرضها للتلف أو الفقدان.
+    </div>
+
+    <div class="question">ما نوعا النسخ الاحتياطي؟</div>
+    <div class="answer">
+      <ul>
+        <li>النسخ الاحتياطي المحلي.</li>
+        <li>النسخ الاحتياطي السحابي.</li>
+      </ul>
+    </div>
+
+    <div class="question">وضح المقصود بالنسخ الاحتياطي المحلي.</div>
+    <div class="answer">
+      الاحتفاظ بنسخ البيانات على وسائط التخزين المادية الموجودة في جهاز الحاسوب أو المتصلة به، مثل الأقراص الصلبة الداخلية أو الخارجية، وأقراص DVD، وذاكرة الفلاش USB.
+    </div>
+
+    <div class="question">لماذا تتطلب وسائط التخزين الخارجية العناية والحماية؟</div>
+    <div class="answer">
+      لأنها قد تتعرض لعوامل تؤدي إلى تلفها أو فقدان البيانات.
+    </div>
+
+    <div class="question">اذكر بعض العوامل التي قد تؤدي إلى تلف وسائط التخزين الخارجية أو فقدان البيانات منها.</div>
+    <div class="answer">
+      العوامل الطبيعية والحوادث، مثل الكسر والخدش وغيرها.
+    </div>
+
+    <div class="question">وضح المقصود بالنسخ الاحتياطي السحابي.</div>
+    <div class="answer">
+      الاحتفاظ بنسخ البيانات على مساحات تخزينية متوافرة على شبكة الإنترنت، مما يضمن سلامتها في حال تعرض جهاز الحاسوب للمشكلات والمخاطر، ويضمن سهولة الوصول إليها من أي جهاز حاسوب متصل بالإنترنت.
+    </div>
+
+    <div class="question">ما شرط الوصول إلى البيانات المخزنة على الإنترنت؟</div>
+    <div class="answer">
+      أن يكون الجهاز متصلًا بالإنترنت.
+    </div>
+
+    <div class="question">ما أمثلة المواقع الإلكترونية التي توفر خدمة التخزين السحابي؟</div>
+    <div class="answer">
+      Microsoft OneDrive وGoogle Drive وغيرها.
+    </div>
+
+    <div class="illumination">
+      <h3>إضاءة</h3>
+      يمنح التخزين السحابي عبر شبكة الإنترنت مساحة تخزينية مجانية ومحدودة، بالإضافة إلى إمكانية حصول المستخدم على مساحة إضافية مقابل رسوم معينة.
+    </div>
+
+    <!-- صورة النسخ الاحتياطي هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٦٤٤٢٥.jpg"
+           alt="النسخ الاحتياطي"
+           loading="lazy">
+    </div>
+
+    <!-- صورة التخزين السحابي هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٦٤٥٠٣.jpg"
+           alt="التخزين السحابي"
+           loading="lazy">
+    </div>
+
+    <div class="activity">
+      <h3>نشاط بحث: خطوات النسخ الاحتياطي السحابي</h3>
+      <ol>
+        <li>اختيار خدمة التخزين السحابي المناسبة.</li>
+        <li>تسجيل الدخول أو إنشاء حساب جديد.</li>
+        <li>تحديد الملفات والمجلدات المراد نسخها.</li>
+        <li>رفع الملفات إلى السحابة.</li>
+        <li>التأكد من اكتمال النسخ.</li>
+        <li>تفعيل المزامنة التلقائية للحفاظ على التحديثات، وهي خطوة اختيارية.</li>
+        <li>حماية الحساب بكلمة مرور قوية والمصادقة الثنائية.</li>
+      </ol>
+    </div>
+
+    <div class="activity">
+      <h3>مناقشة: أيهما أفضل، النسخ الاحتياطي على أقراص خارجية أم النسخ السحابي؟</h3>
+      <div class="answer">
+        <strong>الأقراص الخارجية:</strong>
+        سريعة ولا تحتاج إلى إنترنت، لكنها عرضة للكسر أو التلف، والوصول إليها محدود.
+
+        <br><br>
+
+        <strong>النسخ السحابي:</strong>
+        يمكن الوصول إليه من أي مكان، ويساعد على حماية البيانات عند فقدان الجهاز، لكنه يحتاج إلى الإنترنت وقد تكون المساحة محدودة.
+
+        <br><br>
+
+        <strong>الخلاصة:</strong>
+        أفضل استخدام الطريقتين معًا لضمان حماية البيانات.
+      </div>
+    </div>
+
+    <h3>خامسًا: إنشاء نقطة استعادة النظام</h3>
+
+    <div class="question">ما استخدام أداة استعادة النظام (System Restore)؟</div>
+    <div class="answer">
+      للعودة إلى نقطة مرجعية معينة من إعدادات الجهاز، والتراجع عن أي تغييرات حدثت لنظام التشغيل بعد تاريخ إنشاء هذه النقطة المرجعية.
+    </div>
+
+    <!-- صورة إنشاء نقطة استعادة النظام هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٧١٤٣٤.jpg"
+           alt="إنشاء نقطة استعادة النظام"
+           loading="lazy">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>أبرز الأعطال البرمجية</h2>
+
+    <p>من أبرز الأعطال البرمجية:</p>
+    <ol>
+      <li>بطء جهاز الحاسوب.</li>
+      <li>بطء تشغيل برنامج معين.</li>
+      <li>عدم استجابة برنامج معين، أو تجمده.</li>
+      <li>ظهور الشاشة الزرقاء.</li>
+    </ol>
+
+    <h3>أولًا: بطء جهاز الحاسوب</h3>
+
+    <div class="question">اذكر أسباب بطء جهاز الحاسوب.</div>
+    <div class="answer">
+      <ol>
+        <li>وجود العديد من التطبيقات التي تبدأ العمل مع بدء تحميل نظام التشغيل Windows.</li>
+        <li>عدم توافر مساحة كافية في القرص الصلب.</li>
+        <li>عدم توافر مساحة كافية في ذاكرة الوصول العشوائي RAM.</li>
+        <li>وجود الفيروسات والبرامج الضارة.</li>
+        <li>عطل في المكونات المادية لجهاز الحاسوب.</li>
+      </ol>
+    </div>
+
+    <div class="question">كيف يمكن حل مشكلة كثرة التطبيقات التي تعمل عند بدء تشغيل Windows؟</div>
+    <div class="answer">
+      إيقاف بدء تشغيل التطبيقات غير الضرورية مع تحميل نظام التشغيل.
+    </div>
+
+    <!-- صورة إيقاف تطبيقات بدء التشغيل هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٧٢٩١٣.jpg"
+           alt="إيقاف التطبيقات التي تعمل عند بدء التشغيل"
+           loading="lazy">
+    </div>
+
+    <h3>عدم توافر مساحة كافية في القرص الصلب</h3>
+
+    <div class="question">كيف يؤثر امتلاء القرص الصلب HDD أو SSD في أداء جهاز الحاسوب؟</div>
+    <div class="answer">
+      عندما يكون القرص الصلب ممتلئًا، تتأثر سرعة تشغيل البرامج وتنفيذ المهام؛ لأن القرص يحتفظ بالملفات والبيانات، وعندما تقل المساحة المتاحة قد يتباطأ الجهاز.
+    </div>
+
+    <div class="question">كيف نحل مشكلة امتلاء القرص الصلب؟</div>
+    <div class="answer">
+      نفرغ سلة المهملات (Recycle Bin)، ونلغي تثبيت البرامج غير المستخدمة لتوفير مساحة كافية للأقراص الصلبة.
+    </div>
+
+    <div class="activity">
+      <h3>مناقشة: أسباب امتلاء القرص الصلب وحلولها</h3>
+
+      <strong>أسباب امتلاء القرص HDD أو SSD:</strong>
+      <ul>
+        <li>برامج وألعاب كبيرة.</li>
+        <li>ملفات وسائط ضخمة، مثل الصور والفيديوهات.</li>
+        <li>تحديثات وملفات النظام.</li>
+        <li>ملفات مؤقتة ومكررة.</li>
+        <li>سلة محذوفات ممتلئة.</li>
+        <li>فيروسات أو نسخ احتياطي قديم.</li>
+      </ul>
+
+      <strong>الحلول:</strong>
+      <ul>
+        <li>حذف البرامج غير الضرورية.</li>
+        <li>نقل الملفات إلى قرص خارجي أو إلى السحابة.</li>
+        <li>تفريغ سلة المحذوفات وتنظيف النظام.</li>
+        <li>حذف الملفات المؤقتة والتكرارات.</li>
+        <li>ضغط الملفات أو ترقية القرص.</li>
+      </ul>
+    </div>
+
+    <h3>عدم توافر مساحة كافية في ذاكرة الوصول العشوائي RAM</h3>
+
+    <div class="question">كيف يؤثر عدم توافر مساحة كافية في RAM على بطء جهاز الحاسوب؟</div>
+    <div class="answer">
+      يعتمد جهاز الحاسوب على ذاكرة الوصول العشوائي لتخزين البيانات المؤقتة التي يحتاجها لتشغيل البرامج وتنفيذ المهام. وعندما تكون المساحة التخزينية للذاكرة غير كافية، ينعكس ذلك سلبًا على سرعة استجابة الجهاز.
+    </div>
+
+    <div class="question">كيف نحل مشكلة عدم توافر مساحة كافية في RAM؟</div>
+    <div class="answer">
+      زيادة سعة الذاكرة عن طريق تركيب ذاكرة وصول عشوائي حديثة.
+    </div>
+
+    <div class="illumination">
+      <h3>إضاءة</h3>
+      تستخدم بعض أنظمة التشغيل جزءًا من مساحة أقراص SSD كذاكرة افتراضية عندما تكون سعة RAM غير كافية، مما يساعد على استمرار عمل الجهاز، لكنه لا يعادل سرعة ذاكرة RAM.
+    </div>
+
+    <h3>وجود الفيروسات والبرامج الضارة</h3>
+
+    <div class="question">كيف تؤثر الفيروسات والبرامج الضارة في بطء جهاز الحاسوب؟</div>
+    <div class="answer">
+      تتسبب الفيروسات والبرامج الضارة في استهلاك الذاكرة والمعالج، مما يؤدي إلى بطء جهاز الحاسوب.
+    </div>
+
+    <div class="question">ما الحل لمشكلة وجود الفيروسات والبرامج الضارة؟</div>
+    <div class="answer">
+      استخدام برنامج مكافحة الفيروسات (Antivirus)، وتحديثه باستمرار.
+    </div>
+
+    <div class="activity">
+      <h3>نشاط بحث: برامج مكافحة الفيروسات</h3>
+
+      <strong>أمثلة على برامج مكافحة الفيروسات:</strong>
+      Windows Defender، وKaspersky، وBitdefender، وAvast، وAVG، وMcAfee، وNorton، وESET.
+
+      <br><br>
+
+      <strong>أهميتها:</strong>
+      <ul>
+        <li>الحماية من الفيروسات والاختراق.</li>
+        <li>تأمين البيانات والتصفح.</li>
+        <li>التصدي لبرامج الفدية.</li>
+        <li>تحسين استقرار الجهاز.</li>
+      </ul>
+
+      <strong>وظائفها:</strong>
+      <ul>
+        <li>الفحص والمراقبة الفورية.</li>
+        <li>عزل الملفات المصابة أو حذفها.</li>
+        <li>التحديثات التلقائية.</li>
+        <li>جدار حماية للشبكات.</li>
+      </ul>
+    </div>
+
+    <h3>عطل في المكونات المادية</h3>
+
+    <div class="question">كيف يؤثر عطل في المكونات المادية على بطء جهاز الحاسوب؟</div>
+    <div class="answer">
+      تعطل أحد المكونات المادية الداخلية، مثل وحدة المعالجة المركزية CPU أو القرص الصلب أو ذاكرة الوصول العشوائي RAM، قد يؤدي إلى بطء في عمل الجهاز؛ لذا يجب فحصها والتأكد من عملها بشكل جيد.
+
+      كما أن أجهزة الحاسوب القديمة تكون أقل قدرة على التعامل مع البرامج الحديثة والمعقدة، التي تحتاج إلى وحدة معالجة مركزية ومكونات مادية أحدث وأسرع.
+    </div>
+
+    <div class="activity">
+      <h3>نشاط بحث: فحص المكونات الداخلية للحاسوب</h3>
+      <ul>
+        <li>الفحص البصري للتأكد من النظافة وسلامة التوصيلات.</li>
+        <li>استخدام برامج تشخيص مثل HWMonitor وCPU-Z.</li>
+        <li>اختبار RAM باستخدام Windows Memory Diagnostic.</li>
+        <li>فحص القرص باستخدام CHKDSK وCrystalDiskInfo.</li>
+        <li>اختبار CPU وGPU باستخدام أدوات الاختبار المناسبة.</li>
+        <li>فحص مزود الطاقة PSU وقياس الفولتية عند الحاجة.</li>
+        <li>مراقبة درجة الحرارة لتجنب الأعطال.</li>
+      </ul>
+    </div>
+
+    <div class="illumination">
+      <h3>إضاءة</h3>
+      يمكن أن يصبح جهاز الحاسوب غير متجاوب أو يصاب بالتجمد، بحيث لا يمكن الضغط على أي مكان على الشاشة، أو فتح التطبيقات أو إغلاقها، أو الوصول إلى خيارات إيقاف التشغيل.
+
+      يمكن الضغط على المفاتيح Ctrl + Alt + Delete معًا لفتح إدارة المهام (Task Manager)، ثم تحديد Windows Explorer والنقر على زر إعادة التشغيل (Restart).
+
+      ومن الطرق الأخرى الضغط باستمرار على زر الطاقة لمدة تتراوح بين 5 إلى 10 ثوانٍ لإغلاق الجهاز، ثم إعادة تشغيله.
+
+      وإذا لم يتم إغلاق الحاسوب بهذه الطرق، يمكن فصل كابل الطاقة من مقبس الكهرباء وإعادته، ثم تشغيل الجهاز.
+    </div>
+
+    <h3>ثانيًا: بطء تشغيل برنامج معين</h3>
+
+    <div class="question">كيف يمكن حل مشكلة بطء تشغيل برنامج معين؟</div>
+    <div class="answer">
+      <ul>
+        <li>إغلاق البرنامج الذي يواجه بطئًا في التشغيل، ثم إعادة فتحه.</li>
+        <li>إجراء تحديث للبرنامج.</li>
+        <li>تشغيل برنامج مكافحة الفيروسات للتحقق من عدم وجود برامج ضارة أو ملفات مصابة.</li>
+        <li>تحرير مساحة على القرص الصلب بحذف الملفات والبرامج التي لا نحتاج إليها، وإلغاء تثبيت البرامج غير الضرورية.</li>
+      </ul>
+    </div>
+
+    <div class="activity">
+      <h3>أفكر وأناقش</h3>
+
+      <div class="question">هل يوجد ترتيب للأولويات لخطوات حل مشكلة بطء برنامج محدد؟ أفسر إجابتي.</div>
+      <div class="answer">
+        نعم، يوجد ترتيب منطقي. نبدأ بالحلول البسيطة والسريعة، مثل إغلاق البرنامج وإعادة فتحه، ثم تحديث البرنامج، وبعد ذلك فحص الجهاز من الفيروسات، وأخيرًا تحرير مساحة القرص بإزالة الملفات غير الضرورية.
+
+        يوفر هذا التدرج الوقت والجهد؛ إذ يمكن أن تُحل المشكلة بأبسط خطوة دون الحاجة إلى إجراءات معقدة.
+      </div>
+
+      <div class="question">هل توجد إجراءات أخرى يمكن أن تحل المشكلة؟</div>
+      <div class="answer">
+        <ul>
+          <li>تحديث نظام التشغيل.</li>
+          <li>زيادة الذاكرة العشوائية RAM أو تحسين مواصفات الجهاز.</li>
+          <li>التحقق من توافق البرنامج مع مواصفات الجهاز.</li>
+          <li>إعادة تثبيت البرنامج.</li>
+          <li>إغلاق البرامج الأخرى العاملة في الخلفية.</li>
+        </ul>
+      </div>
+
+      <div class="question">ماذا أفعل إذا جربت جميع الإجراءات ولم تُحل المشكلة؟</div>
+      <div class="answer">
+        <ul>
+          <li>التواصل مع الدعم الفني للبرنامج للحصول على مساعدة متخصصة.</li>
+          <li>البحث عن برنامج بديل يقوم بالمهام نفسها بشكل أسرع.</li>
+          <li>التفكير في ترقية الجهاز إذا كانت المشكلة مرتبطة بالمكونات المادية.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>ثالثًا: عدم استجابة برنامج معين (متجمد)</h3>
+
+    <div class="question">وضح المقصود بعدم استجابة برنامج معين (متجمد).</div>
+    <div class="answer">
+      يؤدي عدم استجابة البرنامج إلى عدم القدرة على إغلاق النافذة أو النقر فوق أي من أزرار البرنامج.
+    </div>
+
+    <!-- صورة حل مشكلة عدم استجابة برنامج هنا -->
+    <div class="image-box">
+      <img src="images/IMG_٢٠٢٦١١٠٢_٠٧٤٤١٩.jpg"
+           alt="حل مشكلة عدم استجابة برنامج"
+           loading="lazy">
+    </div>
+
+    <div class="illumination">
+      <h3>إضاءة</h3>
+      يمكن إعادة تشغيل جهاز الحاسوب، وبذلك تُغلق التطبيقات المفتوحة كافة، ويمكن التعامل بفعالية مع مشكلة البرنامج الذي لا يستجيب.
+    </div>
+
+    <div class="activity">
+      <h3>مناقشة: إجراءات أخرى لحل مشكلة تجمد برنامج</h3>
+      <ul>
+        <li>الانتظار قليلًا، فقد تُحل المشكلة مؤقتًا.</li>
+        <li>إغلاق البرنامج من إدارة المهام، مع الانتباه إلى احتمال فقدان البيانات غير المحفوظة.</li>
+        <li>إعادة تشغيل الجهاز لمعالجة الخلل المؤقت.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>ملخص الدرس</h2>
+
+    <div class="answer">
+      <ul>
+        <li>تُعد صيانة البرمجيات مكملة لصيانة المكونات المادية.</li>
+        <li>يفحص برنامج POST مكونات الحاسوب عند التشغيل ويُظهر الأعطال.</li>
+        <li>تحديث النظام والبرامج يساعد على تحسين الأداء وحماية الجهاز.</li>
+        <li>النسخ الاحتياطي يحمي البيانات من التلف أو الفقدان.</li>
+        <li>من أبرز الأعطال البرمجية: بطء الجهاز، وبطء تشغيل البرامج، وعدم استجابة البرامج.</li>
+        <li>تساعد الصيانة الدورية على الوقاية من المشكلات البرمجية وعلاجها.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <a class="nav-button" href="digital-skills-8-term1.html">العودة إلى فهرس الصف الثامن</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+<script>
+  let speechParts = [];
+  let currentPart = 0;
+  let isReading = false;
+  let isPaused = false;
+  let readingRun = 0;
+
+  function prepareSpeech() {
+    const content = document.querySelector(".container");
+    const text = content.innerText;
+
+    speechParts = text
+      .replace(/🔊|⏸|▶|⏹/g, "")
+      .split(/(?<=[.!؟:؛])\s+/)
+      .filter(part => part.trim().length > 0);
+
+    currentPart = 0;
+  }
+
+  function startReading() {
+    if (!("speechSynthesis" in window)) {
+      alert("عذرًا، المتصفح لا يدعم القراءة الصوتية.");
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    prepareSpeech();
+
+    isReading = true;
+    isPaused = false;
+    readingRun++;
+
+    speakNext(readingRun);
+  }
+
+  function speakNext(runId) {
+    if (runId !== readingRun || !isReading || isPaused) {
+      return;
+    }
+
+    if (currentPart >= speechParts.length) {
+      isReading = false;
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+      speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    utterance.onend = function() {
+      if (runId !== readingRun) return;
+      currentPart++;
+      speakNext(runId);
+    };
+
+    utterance.onerror = function() {
+      if (runId !== readingRun) return;
+      currentPart++;
+      speakNext(runId);
+    };
+
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function pauseReading() {
+    if (!("speechSynthesis" in window)) return;
+
+    isPaused = true;
+    window.speechSynthesis.pause();
+  }
+
+  function resumeReading() {
+    if (!("speechSynthesis" in window)) return;
+
+    if (isPaused) {
+      isPaused = false;
+      window.speechSynthesis.resume();
+
+      if (!window.speechSynthesis.speaking) {
+        speakNext(readingRun);
+      }
+    }
+  }
+
+  function stopReading() {
+    if (!("speechSynthesis" in window)) return;
+
+    readingRun++;
+    isReading = false;
+    isPaused = false;
+    window.speechSynthesis.cancel();
+  }
+
+  window.addEventListener("beforeunload", function() {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  });
+</script>
+
+</body>
+</html>
