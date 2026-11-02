@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اختبر نفسك - صيانة الأعطال البرمجية | زد علمك</title>
+<meta name="description" content="اختبر معلوماتك في درس صيانة الأعطال البرمجية للصف الثامن من خلال أسئلة تفاعلية مع التصحيح الفوري.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #333;
+    line-height: 1.9;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    background: #198754;
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+header p {
+    margin: 6px 0 0;
+}
+
+.question-box {
+    background: white;
+    padding: 17px;
+    border-radius: 13px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 7px #00000010;
+}
+
+.question-title {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #762b49;
+}
+
+.option {
+    display: block;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    border-radius: 9px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.option input {
+    margin-left: 8px;
+    accent-color: #198754;
+}
+
+.option:has(input:checked) {
+    background: #e9f8ee;
+    border-color: #198754;
+}
+
+.option.correct {
+    background: #d9f5e2;
+    border: 2px solid #198754;
+}
+
+.option.wrong {
+    background: #ffe5e5;
+    border: 2px solid #dc3545;
+}
+
+.feedback {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.correct-text {
+    color: #198754;
+}
+
+.wrong-text {
+    color: #dc3545;
+}
+
+.buttons {
+    text-align: center;
+    margin: 22px 0;
+}
+
+button, .nav-button {
+    background: #198754;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .nav-button:hover {
+    background: #146c43;
+}
+
+#result {
+    display: none;
+    background: #e9f8ee;
+    border: 2px solid #198754;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    color: #666;
+    padding: 20px 5px;
+    margin-top: 25px;
+}
+
+@media(max-width:600px) {
+    body {
+        padding: 8px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .question-box {
+        padding: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>اختبر نفسك</h1>
+    <p>صيانة الأعطال البرمجية - المهارات الرقمية - الصف الثامن</p>
+    <p>زد علمك</p>
+</header>
+
+<form id="quizForm">
+
+<div class="question-box" data-answer="b">
+    <div class="question-title">
+        1. يقصد بصيانة الحاسوب:
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q1" value="a">
+        صيانة المكونات المادية فقط
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q1" value="b">
+        صيانة المكونات المادية والبرمجية
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="a">
+    <div class="question-title">
+        2. الاحتفاظ بنسخ البيانات على وسائط التخزين المادية الموجودة في جهاز الحاسوب أو المتصلة به مثل الأقراص الصلبة الداخلية أو الخارجية، وأقراص DVD، وذاكرة الفلاش USB.
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q2" value="a">
+        النسخ الاحتياطي المحلي
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q2" value="b">
+        النسخ الاحتياطي السحابي
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="b">
+    <div class="question-title">
+        3. الاحتفاظ بنسخ البيانات على مساحات تخزينية متوافرة على شبكة الإنترنت؛ مما يضمن سلامتها في حال تعرض جهاز الحاسوب للمشكلات والمخاطر، ويضمن أيضًا سهولة الوصول إليها من أي جهاز حاسوب متصل بالإنترنت.
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q3" value="a">
+        النسخ الاحتياطي المحلي
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q3" value="b">
+        النسخ الاحتياطي السحابي
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="b">
+    <div class="question-title">
+        4. العودة إلى نقطة مرجعية معينة من إعدادات الجهاز:
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q4" value="a">
+        أدوات نظام التشغيل
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q4" value="b">
+        أداة استعادة النظام
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="a">
+    <div class="question-title">
+        5. هي إجراءات دورية تطبق على البرامج ونظام التشغيل بهدف المحافظة على كفاءتها:
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q5" value="a">
+        صيانة المكونات البرمجية لجهاز الحاسوب
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q5" value="b">
+        صيانة المكونات المادية لجهاز الحاسوب
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="a">
+    <div class="question-title">
+        6. من أبرز الأعطال البرمجية:
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q6" value="a">
+        بطء جهاز الحاسوب
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q6" value="b">
+        كسر في شاشة الجهاز
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="a">
+    <div class="question-title">
+        7. عدم توافر مساحة كافية في القرص الصلب، ما الحل؟
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q7" value="a">
+        حذف الملفات المؤقتة والتكرارات.
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q7" value="b">
+        إغلاق الجهاز
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="a">
+    <div class="question-title">
+        8. لحل مشكلة عدم توافر مساحة كافية في ذاكرة الوصول العشوائي (RAM):
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q8" value="a">
+        يجب زيادة سعة الذاكرة عن طريق تركيب ذاكرة وصول عشوائي حديثة.
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q8" value="b">
+        حذف الملفات المؤقتة والتكرارات.
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="a">
+    <div class="question-title">
+        9. ما الحل لمشكلة وجود الفيروسات والبرامج الضارة؟
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q9" value="a">
+        يجب استخدام برنامج مكافحة الفيروسات (Antivirus)، وتحديثه باستمرار.
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q9" value="b">
+        حذف الملفات المؤقتة والتكرارات.
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+<div class="question-box" data-answer="a">
+    <div class="question-title">
+        10. عدم القدرة على إغلاق النافذة أو النقر فوق أي من أزرار البرنامج:
+    </div>
+
+    <label class="option">
+        <input type="radio" name="q10" value="a">
+        البرنامج متجمد
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q10" value="b">
+        بطء تشغيل برنامج معين
+    </label>
+
+    <div class="feedback"></div>
+</div>
+
+</form>
+
+<div class="buttons">
+    <button type="button" onclick="checkAnswers()">تصحيح الإجابات</button>
+    <button type="button" onclick="resetQuiz()">إعادة الاختبار</button>
+</div>
+
+<div id="result"></div>
+
+<div class="buttons">
+    <a class="nav-button" href="digital-skills-8-term1.html">
+        العودة إلى فهرس الصف الثامن
+    </a>
+</div>
+
+<div class="footer">
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</div>
+
+</div>
+
+<script>
+function checkAnswers() {
+    const questions = document.querySelectorAll(".question-box");
+    let score = 0;
+
+    questions.forEach((question, index) => {
+        const correctAnswer = question.dataset.answer;
+        const selected = question.querySelector("input:checked");
+        const feedback = question.querySelector(".feedback");
+        const options = question.querySelectorAll(".option");
+
+        options.forEach(option => {
+            option.classList.remove("correct", "wrong");
+        });
+
+        if (selected) {
+            if (selected.value === correctAnswer) {
+                score++;
+                feedback.textContent = "إجابة صحيحة ✓";
+                feedback.className = "feedback correct-text";
+            } else {
+                feedback.textContent = "إجابة غير صحيحة ✗";
+                feedback.className = "feedback wrong-text";
+            }
+        } else {
+            feedback.textContent = "لم تختر إجابة.";
+            feedback.className = "feedback wrong-text";
+        }
+
+        options.forEach(option => {
+            const input = option.querySelector("input");
+
+            if (input.value === correctAnswer) {
+                option.classList.add("correct");
+            }
+
+            if (selected && input === selected && selected.value !== correctAnswer) {
+                option.classList.add("wrong");
+            }
+        });
+    });
+
+    const result = document.getElementById("result");
+    result.style.display = "block";
+    result.textContent = "نتيجتك: " + score + " من " + questions.length;
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+function resetQuiz() {
+    document.getElementById("quizForm").reset();
+
+    document.querySelectorAll(".feedback").forEach(item => {
+        item.textContent = "";
+        item.className = "feedback";
+    });
+
+    document.querySelectorAll(".option").forEach(option => {
+        option.classList.remove("correct", "wrong");
+    });
+
+    document.getElementById("result").style.display = "none";
+}
+</script>
+
+</body>
+</html>
