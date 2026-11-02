@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>أسئلة درس صيانة الأعطال البرمجية | زد علمك</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #333;
+    line-height: 1.9;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+}
+
+header {
+    background: #762b49;
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 23px;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+h2 {
+    color: #198754;
+    font-size: 21px;
+    border-bottom: 2px solid #198754;
+    padding-bottom: 8px;
+}
+
+h3 {
+    color: #198754;
+}
+
+.question {
+    background: #fff0f3;
+    border-right: 5px solid #d96b89;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 18px 0 8px;
+    font-weight: bold;
+}
+
+.answer {
+    background: #e9f8ee;
+    border-right: 5px solid #43a66b;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 8px 0 20px;
+}
+
+.answer img,
+.lesson-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+    border-radius: 10px;
+}
+
+.section {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px #00000010;
+}
+
+.nav-button,
+.read-button {
+    display: inline-block;
+    background: #198754;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 9px;
+    margin: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.buttons {
+    text-align: center;
+    margin: 18px 0;
+}
+
+.footer {
+    text-align: center;
+    color: #666;
+    padding: 20px 5px;
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 9px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .section {
+        padding: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>أسئلة درس صيانة الأعطال البرمجية</h1>
+    <p>المهارات الرقمية - الصف الثامن</p>
+    <p>زد علمك - أدوات تعليمية جاهزة</p>
+</header>
+
+<div class="buttons">
+    <button class="read-button" onclick="startReading()">▶ قراءة الأسئلة</button>
+    <button class="read-button" onclick="pauseReading()">⏸ إيقاف مؤقت / متابعة</button>
+    <button class="read-button" onclick="stopReading()">⏹ إيقاف القراءة</button>
+</div>
+
+<div class="section">
+
+<h2>أقيم تعلمي</h2>
+
+<h3>المعرفة</h3>
+
+<p>
+أوظف في هذا الدرس ما تعلمثه من معارف في الإجابة عن الأسئلة الآتية:
+</p>
+
+<div class="question">
+السؤال الأول: أذكر ثلاثة من مسببات أعطال المكونات البرمجية لجهاز الحاسوب.
+</div>
+
+<div class="answer">
+    <img class="lesson-image"
+         src="images/IMG_٢٠٢٦١١٠٢_٠٦١٥٥٦.jpg"
+         alt="إجابة السؤال الأول">
+</div>
+
+<div class="question">
+السؤال الثاني: أقارن بين النسخ الاحتياطى المحلي والنسخ الاحتياطى السحابي.
+</div>
+
+<div class="answer">
+    <h3>النسخ الاحتياطي المحلي</h3>
+
+    الاحتفاظ بنسخ البيانات على وسائط التخزين المادية الموجودة في جهاز
+    الحاسوب أو المتصلة به مثل الأقراص الصلبة الداخلية أو الخارجية، وأقراص
+    DVD، وذاكرة الفلاش USB.
+
+    <h3>النسخ الاحتياطي السحابي</h3>
+
+    الاحتفاظ بنسخ البيانات على مساحات تخزينية متوافرة على شبكة الإنترنت ؛
+    مما يضمن سلامتها في حال تعرض جهاز الحاسوب للمشكلات والمخاطر
+    ويضمن أيضًا سهولة الوصول إليها من أي جهاز حاسوب متصل بالإنترنت.
+</div>
+
+<div class="question">
+السؤال الثالث: في الصورة الآتية.
+</div>
+
+<div class="answer">
+    <img class="lesson-image"
+         src="images/IMG_٢٠٢٦١١٠٢_٢٢٠٥٢٢.jpg"
+         alt="صورة السؤال الثالث">
+</div>
+
+<div class="question">
+1. ما خطوات فتح النافذة السابقة؟
+</div>
+
+<div class="answer">
+    1. فتح لوحة التحكم.
+
+    <br>2. والنقر على خيارات النظام والأمان.
+
+    <br>3. ثم اختيار خيار النظام.
+
+    <br>4. والنقر على خيار حماية النظام ليتم إظهار نافذة خصائص النظام.
+</div>
+
+<div class="question">
+2. أذكر الإجراءات التي يمكن تنفيذها من خلال النافذة السابقة.
+</div>
+
+<div class="answer">
+    1. إنشاء نقطة استعادة النظام.
+
+    <br>2. استعادة Windows باستخدام نقطة استعادة النظام.
+</div>
+
+<div class="question">
+السؤال الرابع: أوضح أهمية إنشاء نقطة استعادة النظام.
+</div>
+
+<div class="answer">
+للعودة إلى نقطة مرجعية معينة من إعدادات الجهاز والتراجع عن أي تغييرات
+حدثت لنظام التشغيل بعد تاريخ إنشاء هذه النقطة المرجعية.
+</div>
+
+</div>
+<div class="section">
+
+<h3>المهارات</h3>
+
+<p>
+أوظف مهارات التفكير الناقد والتواصل الرقمي والبحث الرقمي في
+الإجابة عن الأسئلة الآتية:
+</p>
+
+<div class="question">
+السؤال الأول: كيف يسهم تحديث نظام التشغيل Windows، في تحسن أداء
+جهاز الحاسوب؟
+</div>
+
+<div class="answer">
+تحديث نظام التشغيل Windows يحسّن الأداء عن طريق:
+
+<ul>
+    <li>إصلاح الأخطاء البرمجية (Bugs).</li>
+    <li>تحديث تعريفات الأجهزة (Drivers).</li>
+    <li>تحسين الأمان والحماية من الفيروسات.</li>
+    <li>تحسين استقرار النظام وتقليل الأعطال.</li>
+</ul>
+</div>
+
+<div class="question">
+السؤال الثاني: أقترح طرق صيانة أخرى للمحافظة على المكونات البرمجية
+للحاسوب.
+</div>
+
+<div class="answer">
+<h3>طرق صيانة المكونات البرمجية</h3>
+
+<ul>
+    <li>تنظيف الملفات المؤقتة والذاكرة المؤقتة (Cache).</li>
+    <li>فحص البرامج الضارة والفيروسات بانتظام.</li>
+    <li>تحديث التطبيقات والبرامج المثبتة.</li>
+    <li>إزالة البرامج غير الضرورية.</li>
+    <li>إجراء نسخ احتياطي للنظام والملفات الهامة.</li>
+</ul>
+</div>
+
+<div class="question">
+السؤال الثالث: أبحث في المواقع الإلكترونية الموثوقة في شبكة الإنترنت عن
+المزايا الجديدة التي أضافها نظام التشغيل Windows 11 على جهاز الحاسوب
+وأثرها في الأعطال البرمجية.
+</div>
+
+<div class="answer">
+<h3>مزايا Windows 11 وتأثيرها على الأعطال البرمجية</h3>
+
+<ul>
+    <li>تحسين إدارة الموارد وزيادة استقرار النظام.</li>
+    <li>واجهة محسنة وسهولة الوصول للبرامج.</li>
+    <li>دعم أفضل للتطبيقات الحديثة والألعاب.</li>
+    <li>تحديثات أمان دورية تقلل الأعطال الناتجة عن الفيروسات أو التعارضات.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="buttons">
+    <a class="nav-button" href="digital-skills-8-term1.html">
+        العودة إلى فهرس الصف الثامن
+    </a>
+</div>
+
+<div class="footer">
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</div>
+
+</div>
+
+<script>
+let speechParts = [];
+let currentPart = 0;
+let isReading = false;
+let isPaused = false;
+let readingRun = 0;
+
+function startReading() {
+    if (!('speechSynthesis' in window)) {
+        alert("المتصفح لا يدعم القراءة الصوتية.");
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const content = document.querySelector(".container").cloneNode(true);
+
+    content.querySelectorAll("button, a, header, footer").forEach(el => {
+        el.remove();
+    });
+
+    speechParts = content.innerText.match(/[^.!؟?\n]+[.!؟?]?/g) || [];
+
+    currentPart = 0;
+    isReading = true;
+    isPaused = false;
+    readingRun++;
+
+    speakNext(readingRun);
+}
+
+function speakNext(runId) {
+    if (runId !== readingRun || !isReading || isPaused) {
+        return;
+    }
+
+    if (currentPart >= speechParts.length) {
+        isReading = false;
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+
+    utterance.onend = function() {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    utterance.onerror = function() {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function pauseReading() {
+    if (!isReading) return;
+
+    if (isPaused) {
+        isPaused = false;
+        window.speechSynthesis.resume();
+    } else {
+        isPaused = true;
+        window.speechSynthesis.pause();
+    }
+}
+
+function stopReading() {
+    readingRun++;
+    isReading = false;
+    isPaused = false;
+    currentPart = 0;
+
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+    }
+}
+</script>
+
+</body>
+</html>
