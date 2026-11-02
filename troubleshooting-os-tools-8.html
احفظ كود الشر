@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الدرس الرابع: إصلاح الأعطال باستخدام أدوات نظام التشغيل | زد علمك</title>
+
+<meta name="description" content="شرح الدرس الرابع إصلاح الأعطال باستخدام أدوات نظام التشغيل Windows للصف الثامن، مع الصور والأنشطة والتوضيحات.">
+
+<style>
+:root {
+    --green: #26734d;
+    --green-dark: #185638;
+    --blue: #e7f3ff;
+    --brown: #fff0dc;
+    --pink: #fff0f3;
+    --white: #ffffff;
+    --text: #292929;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    background: #f5f6f5;
+    font-family: Tahoma, Arial, sans-serif;
+    color: var(--text);
+    line-height: 2;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+h1, h2, h3 {
+    color: var(--green);
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 21px;
+    border-bottom: 2px solid #dce9df;
+    padding-bottom: 8px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    margin: 12px 0;
+}
+
+.lesson-image {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.activity {
+    background: var(--blue);
+    border-right: 5px solid #3185c5;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.brown-box {
+    background: var(--brown);
+    border-right: 5px solid #a87536;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.info-box {
+    background: #f0f7f1;
+    border-right: 5px solid var(--green);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.tool-box {
+    background: #f7f7f7;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+}
+
+.read-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button, .back-button {
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover, .back-button:hover {
+    background: var(--green-dark);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 7px;
+    }
+
+    .container {
+        padding: 14px;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>الدرس الرابع: إصلاح الأعطال باستخدام أدوات نظام التشغيل</h1>
+
+<div class="read-controls">
+    <button onclick="startReading()">▶ قراءة الدرس</button>
+    <button onclick="pauseReading()">⏸ إيقاف مؤقت / متابعة</button>
+    <button onclick="stopReading()">⏹ إيقاف القراءة</button>
+</div>
+
+<h2>الدرس الرابع : إصلاح الأعطال باستخدام أدوات نظام التشغيل</h2>
+
+<p>
+(Troubleshooting Using Operating System Tools)
+</p>
+
+<p>
+يوفر نظام التشغيل Windows مجموعة من أدوات الصيانة التي تسهم
+في تحسين الأداء العام لنظام التشغيل وتسريعه، بالإضافة إلى اكتشاف
+بعض الأخطاء المحتملة.
+</p>
+
+<h2>فوائد أدوات نظام التشغيل 10 Windows</h2>
+
+<p>
+تساعد الأدوات المدمجة في نظام التشغيل 10 Windows في تشخيص
+المشكلات التقنية التي يمكن مواجهتها عند استخدام جهاز الحاسوب وإصلاحها
+وقد تم تصميم هذه الأدوات لتكون سهلة الوصول وفعالة في مساعدة
+المستخدمين على حلّ مشكلاتهم بسرعة ودقة.
+</p>
+
+<p>
+وسواء أكنت تعاني من مشكلات في الأداء، أو مشكلات في الاتصال بالإنترنت أو
+مشكلات في تحديث النظام، فإنّ هذه الأدوات تقدم الدعم اللازم لضمان استمرار
+عمل نظام 10 Windows بكفاءة.
+</p>
+
+<div class="info-box">
+    <p>اذكر أهم أدوات الصيانة المتوافرة في نظام التشغيل 10 Windows:</p>
+
+    <p>
+    :أولا استكشاف الأخطاء وإصلاحها (Troubleshoot
+    </p>
+
+    <p>
+    ثانيا: مجلد أدوات إدارة نظام التشغيل Windows
+    (Windows Administrative Tools)
+    </p>
+
+    <p>
+    ثالثاً: الأدوات الإدارية لنظام التشغيل 10 Windows
+    </p>
+</div>
+
+<div class="brown-box">
+    <p>
+    علل يستخدم نظام التشغيل 10 Windows مستكشفاتِ الأخطاء ومصلحاتها؛
+    للمساعدة في اكتشاف المشكلات المتعلقة بجهاز الحاسوب وحلها.
+    </p>
+</div>
+
+<h3>لتشغيل مستكشف الأخطاء اتبع الخطوات الاتية</h3>
+
+<img class="lesson-image"
+     src="images/IMG_٢٠٢٦١١٠٣_٠٠٣١١٦.jpg"
+     alt="خطوات تشغيل مستكشف الأخطاء">
+
+<div class="activity">
+    <h3>أبحث</h3>
+
+    <p>
+    أبحث في المواقع الإلكترونية الموثوقة عن برامج إصلاح مشكلات نظام
+    التشغيل 10 Windows المجانية ، ثم أشاركها مع زملائي / زميلاتي في الصف
+    عن طريق اللوح التفاعلى .(Padlet)
+    </p>
+</div>
+
+<h3>أدوات مدمجة في Windows</h3>
+
+<div class="tool-box">
+    <p>
+    يفحص ملفات النظام التالفة ويصلحها : (SFC (sfc /scannow .1
+    </p>
+</div>
+
+<div class="tool-box">
+    <p>
+    يصلح (DISM (DISM /Online /Cleanup-image /Restorehealth .2
+    إذا لزم الأمر SFC صورة النظام قبل استخدام
+    </p>
+</div>
+
+<div class="tool-box">
+    <p>
+    يفحص القرص الصلب ويصلح القطاعات التالفة CHKDSK .3
+    </p>
+</div>
+
+<h3>برامج مجانية خارجية</h3>
+
+<div class="tool-box">
+    <p>
+    يصلح مشاكل الريجستري تحديثات Windows Repair (All in One .1
+    الجدار الناري وغيرها Windows،
+    </p>
+</div>
+
+<div class="tool-box">
+    <p>
+    يجمع أدوات تشخيص وإصلاح مختلفة في Windows Repair Toolbox .2
+    برنامج واحد محمول
+    </p>
+</div>
+
+<div class="tool-box">
+    <p>
+    يفحص النظام ضد الفيروسات والبرمجيات Microsoft Safety Scanner .3
+    الخبيثة عند الطلب
+    </p>
+</div>
+
+<div class="activity">
+    <h3>نشاط</h3>
+
+    <p>
+    عند استخدام أداة استكشاف الأعطال وإصلاحها ستظهر بعض الرسائل أحيانًا
+    للدلالة على المشكلة في ما يأتي بعض الرسائل التي قد تظهر ، أفكر في مدلول
+    هذه الرسائل وأتعاون مع زملائي في المجموعة على تحليلها واقتراح طرق
+    الحل:
+    </p>
+
+    <p>"USB Device not recognized"</p>
+
+    <p>"The application was unable to start correctly (0xc0000005)" ■</p>
+
+    <p>"Windows Update Error: (0x80070057)" ■</p>
+
+    <p>"This app cant open"</p>
+
+    <p>
+    نتبادل الحلول مع المجموعات الأخرى، ونستخدم المواقع الموثوقة على
+    الإنترنت للتأكد من الحل الصحيح لكل رسالة.
+    </p>
+</div>
+
+
+<h3>1/ "USB Device not recognized "</h3>
+
+<p>
+المدلول الجهاز الموصول عبر USB لم يتم التعرف عليه، قد يكون بسبب
+مشكلة في تعريف الجهاز (Driver).
+</p>
+
+<p>منفذ USB تالف أو ضعيف.</p>
+
+<p>مشكلة في الكابل أو الجهاز نفسه.</p>
+
+<h3>طرق الحل</h3>
+
+<ul>
+    <li>فصل الجهاز وإعادة توصيله على منفذ آخـ</li>
+    <li>تحديث أو إعادة تثبيت تعريف الجهاز من إدارة الأجهزة Device Manager) .</li>
+    <li>نجربة كابل USB آخر أو جهاز آخر للتأكد من سلامة الجهاز.</li>
+</ul>
+
+<h3>2 "The application was unable to start correctly (0xc0000005)"</h3>
+
+<p>
+المدلول خطأ في تشغيل البرنامج ، غالبًا مرتبط بملفات مفقودة أو تالفة أو
+مشاكل في الذاكرة.
+</p>
+
+<h3>طرق الحل</h3>
+
+<ul>
+    <li>إعادة تثبيت البرنامج.</li>
+    <li>تشغيل SFC و DISM لفحص ملفات النظام وإصلاح التالف منها.</li>
+    <li>فحص الذاكرة (RAM) باستخدام أداة Windows Memory Diagnostic.</li>
+    <li>تحديث النظام وبرامج التشغيل.</li>
+</ul>
+
+<h3>3/ "Windows Update Error: (0x80070057)"</h3>
+
+<p>:المدلول خطأ في تحديثات Windows، غالبا بسبب:</p>
+
+<ul>
+    <li>ملفات تحديث تالفة.</li>
+    <li>مشكلة في مساحة التخزين.</li>
+    <li>إعدادات المنطقة أو اللغة غير صحيحة.</li>
+</ul>
+
+<h3>طرق الحل</h3>
+
+<ul>
+    <li>تشغيل مستكشف مشاكل Windows Update (Troubleshooter.</li>
+    <li>حذف ملفات تحديث Windows المؤقتة (C</li>
+    <li>(\Windows\Software Distribution</li>
+    <li>التأكد من مساحة القرص الكافية.</li>
+    <li>إعادة تشغيل الجهاز ثم محاولة التحديث مرة أخرى.</li>
+</ul>
+
+<h3>4 "This app can't open"</h3>
+
+<p>المدلول التطبيق غير قادر على التشغيل بسبب</p>
+
+<ul>
+    <li>ملف التطبيق تالف أو غير مكتمل.</li>
+    <li>فيود أمان Windows أو حساب المستخدم.</li>
+    <li>عدم توافق التطبيق مع إصدار Windows.</li>
+</ul>
+
+<h3>طرق الحل</h3>
+
+<ul>
+    <li>إعادة تثبيت التطبيق.</li>
+    <li>تشغيل التطبيق كمسؤول (Run as Administrator).</li>
+    <li>التحقق من توافق التطبيق مع إصدار Windows</li>
+    <li>استخدام مستكشف مشاكل التطبيقات من Microsoft.</li>
+</ul>
+
+<h2>:ثانيا مجلد أدوات إدارة نظام التشغيل Windows</h2>
+
+<p>(Windows Administrative Tools)</p>
+
+<div class="info-box">
+    <p>على ماذا يحتوي مجلد أدوات إدارة نظام التشغيل Windows</p>
+
+    <p>وضح المقصود بمجلد أدوات إدارة نظام التشغيل Windows</p>
+
+    <p>اهمية / فوائد مجلد أدوات إدارة نظام التشغيل Windows</p>
+</div>
+
+<p>
+يحتوي هذا المجلد على مجموعة من البرامج والأدوات التي تساعد في تحسين
+الأداء العام لنظام التشغيل Windows وتسريعه، بالإضافة إلى اكتشاف بعض
+الأخطاء المحتملة.
+</p>
+
+<p>
+للوصول إلى الأدواتِ الإدارية لنظام التشغيل 10 Windows يجب
+الضغط على زر ابدأ (Start) ،
+ثم اختيار أدوات إدارية لنظام التشغيل Windows Administrative Tools
+Windows)، فتظهر مجموع من الأدوات الإدارية، ولكل منها وظيفته وإجراءاته.
+</p>
+
+<img class="lesson-image"
+     src="images/IMG_٢٠٢٦١١٠٣_٠٠٣٥٣٨.jpg"
+     alt="مجلد أدوات إدارة نظام التشغيل Windows">
+
+<h3>أعط أمثلة على الأدوات الإدارية لنظام التشغيل 10 Windows</h3>
+
+<p>
+:أولاً : إلغاء التجزئة / تحسين محركات الأقراص Defragment and Aptimize
+(Drives
+</p>
+
+<p>
+ثانيا: تنظيف القرص (Disk Cleanup
+</p>
+
+<p>
+ثالثًا: محرك الاسترداد (Recovery Drive)
+</p>
+
+<p>
+رابعًا تشخيص الذاكرة (Windows Memory Diagnostic )
+</p>
+
+<p>
+خامسا: مراقب الأداء (Performance Monitor)
+</p>
+
+<h3>اهمية أداة إلغاء التجزئة / تحسين محركات الأقراص Defragment and (Aptimize Drives</h3>
+
+<div class="info-box">
+    <p>
+    سبب استخدام أداة إلغاء التجزئة / تحسين محركات الأقراص Defragment
+    (and Aptimize Drives
+    </p>
+</div>
+
+<p>
+قد نحتاج في بعض الأحيان إلى إعادة ترتيب الملفات والبيانات المخزنة على
+القرص الصلب (HDD) وتنظيمها؛ إذ تؤدي كثرة التخزين والحذف على القرص
+الصلب إلى بطء فى سرعة جهاز الحاسوب عند استدعاء الملفات. يوفر برنامج
+إلغاء التجزئة تحسين محركات الأقراص إمكانية إعادة ترتيب الملفات وتنظيمها
+وإزالة المساحات الفارغة بينها؛ مما يسهم فى زيادة الكفاءة لعمليات القراءة
+والكتابة من القرص الصلب وإليه ، ومن ثمَّ تحسين أداء الحاسوب بصورة عامة.
+</p>
+
+<h3>لإجراء عملية إلغاء التجزئة / تحسين محركات الأقراص، أتبع الخطوات الآتية:</h3>
+
+<img class="lesson-image"
+     src="images/IMG_٢٠٢٦١١٠٣_٠٠٤٠٥١.jpg"
+     alt="خطوات إلغاء التجزئة وتحسين محركات الأقراص">
+
+
+
+<div class="brown-box">
+    <h3>اضاءة</h3>
+
+    <p>
+    يقوم نظام التشغيل Windows تلقائيًا بتحسين محركات الأقراص الخاصة
+    مرةً واحدةً في الأسبوع بشكل افتراضي، ولكن إذا كنتُ أرغب في تغيير هذا
+    الجدول، يمكنني النقر على زر تغيير الإعدادات Change settings ، وتغيير
+    الجدول إلى يومي او شهري.
+    </p>
+</div>
+
+<div class="activity">
+    <h3>أبحث</h3>
+
+    <p>
+    أبحث في المواقع الإلكترونية الموثوقة عن برامج إلغاء التجزئة / تحسين
+    محركات الأقراص المجانية، ثمَّ أشاركها مع زملائي زميلاتي في الصف عن
+    طريق اللوح التفاعلي (Padelt).
+    </p>
+
+    <p>1 Defraggler</p>
+    <p>إلغاء تجزئة الملفات أو الأقراص بالكامل.</p>
+    <p>يدعم HDD و SSD ، واجهة بسيطة.</p>
+
+    <p>21 Auslogics Disk Defrag</p>
+    <p>إلغاء تجزئة سريع للأقراص الصلبة.</p>
+    <p>جدولة تلقائية ودعم الملفات والأقراص.</p>
+
+    <p>3 Smart Defrag</p>
+    <p>إلغاء تجزئة تلقائى وتحسين أداء الألعاب.</p>
+    <p>جدولة تلقائية، يدعم الإقلاع لإلغاء التجزئة.</p>
+
+    <p>4 UltraDefrag</p>
+    <p>مفتوح المصدر، إلغاء تجزئة الملفات أثناء الإقلاع</p>
+
+    <p>5 Windows Built-in Defragmenter</p>
+    <p>أداة مدمجة في 10 Windows.</p>
+    <p>إلغاء تجزئة تلقائي للأقراص واجهة سهلة الاستخدام.</p>
+
+    <p>
+    ملاحظة : للأقراص SSD يُفضل عدم استخدام إلغاء التجزئة التقليدي
+    واستخدام أدوات تحسين مخصصة للـ SSD.
+    </p>
+</div>
+
+<h2>ثانيًا : تنظيف القرص (Disk Cleanup)</h2>
+
+<div class="info-box">
+    <p>وضح المقصود باداة تنظيف القرص (Disk Cleanup)</p>
+
+    <p>اذكر تأثير أداة تنظيف القرص (Disk Cleanup) على القرص الصلب</p>
+</div>
+
+<p>
+هي
+أداة تستخدم للحصول على مساحة خالية على القرص الصلب عن طريق إزالة
+الملفات غير الضرورية وغير المرغوب فيها؛ مما يؤثر إيجابيًا في عمل القرص
+الصلب بكفاءة أكبر، ومن ثم إلى زيادة كفاءة جهاز الحاسوب.
+</p>
+
+<h3>
+لإجراء عملية تنظيف القرص (Disk Cleanup)، أتبع الخطوات
+الآتية:
+</h3>
+
+<img class="lesson-image"
+     src="images/IMG_٢٠٢٦١١٠٣_٠٠٤٢٥٤.jpg"
+     alt="خطوات تنظيف القرص">
+
+<div class="activity">
+    <h3>رتب الخطوات.</h3>
+
+    <p>تحديد محرك القراص ثم موافق</p>
+
+    <p>أنقر على تنظيف ملفات النظام</p>
+
+    <p>أحدد الملفات التي أريد حذفها اختيار القرص من قائمة ادوات اداية لنظام التشغيل</p>
+</div>
+
+<div class="brown-box">
+    <p>
+    أناقش زملائي في الفَرْق بين عمليتي (تنظيف القرص ) و (إلغاء التجزئة من
+    حيث تأثيرُهُما فى عمل جهاز الحاسوب والمدة الزمنية اللازمة لإجراء كل
+    منهما، ونشارك أفكارنا مع المجموعات الأخرى.
+    </p>
+
+    <h3>تنظيف القرص (Disk Cleanup)</h3>
+
+    <p>
+    التأثير على الجهاز يحرر مساحة تخزين بحذف الملفات المؤقتة والمهملة، مما
+    يساعد النظام على العمل بشكل أسرع عند الوصول إلى الملفات.
+    </p>
+
+    <p>
+    المدة الزمنية قصيرة عادة دقائق قليلة حسب كمية الملفات.
+    </p>
+
+    <h3>2 إلغاء التجزئة (Disk Defragmentation)</h3>
+
+    <p>
+    التأثير على الجهاز يرتب الملفات على القرص الصلب بطريقة متتابعة ، مما
+    يحسن سرعة الوصول للملفات ويزيد أداء النظام على الأقراص HDD) غير
+    ضروري للأقراص (SSD)
+    </p>
+
+    <p>
+    المدة الزمنية : أطول، قد يستغرق من عدة دقائق إلى ساعات
+    القرص ودرجة التجزئة.
+    </p>
+</div>
+
+
+
+<h2>ثالثًا محرك الاسترداد (Recovery Drive)</h2>
+
+<p>
+يتم عمل من خلال أداة محرك الاسترداد Recovery Drive) حفظ نسخة
+احتياطية من ملفات نظام التشغيل Windows جميعها بالإضافة إلى
+الملفات الشخصية.
+</p>
+
+<div class="info-box">
+    <p>متى نستخدم أداة محرك الاسترداد</p>
+</div>
+
+<p>
+إذا واجه جهاز الحاسوب فشلا فى العمل؛ إذ سنقوم باسترداد تلك النسخة من أجل
+إعادة تثبيت نظام التشغيل 10 Windows.
+</p>
+
+<h3>
+لإعداد محرك الاسترداد (Recovery Drive) في نظام التشغيل 10
+Windows، أتبع الخطوات الآتية :
+</h3>
+
+<img class="lesson-image"
+     src="images/IMG_٢٠٢٦١١٠٣_٠٠٤٤٣٩.jpg"
+     alt="خطوات إعداد محرك الاسترداد">
+
+<div class="brown-box">
+    <h3>إضاءة</h3>
+
+    <p>
+    لعمل محرك استرداد، يفضّل استخدام محرك أقراص فارغ لا يقل عن (16GB).
+    </p>
+</div>
+
+<h2>رابعًا تشخيص الذاكرة (Windows Memory Diagnostic )</h2>
+
+<div class="info-box">
+    <p>وضح المقصود ب تشخيص الذاكرة Windows Memory Diagnostic )</p>
+
+    <p>وظيفة تشخيص الذاكرة Windows Memory Diagnostic )</p>
+
+    <p>الهدف من تشخيص الذاكرة Windows Memory Diagnostic )</p>
+</div>
+
+<p>
+تعمل هذه الأداة من الأدوات الإدارية على فحص ذاكرة الوصول العشوائي RAM
+وإعطاء تقرير مفصل بجميع المشكلات التي تعاني منها الذاكرة في نهاية الفحص.
+</p>
+
+<img class="lesson-image"
+     src="images/IMG_٢٠٢٦١١٠٣_٠٠٤٧١٥.jpg"
+     alt="تشخيص الذاكرة">
+
+<h2>خامسًا مراقب الأداء (Performance Monitor)</h2>
+
+<div class="info-box">
+    <p>وظيفة مراقب الأداء (Performance Monitor)</p>
+</div>
+
+<p>
+وظيفة هذه الأداة فتح نافذة مراقبة الأداء التي تحتوي على معلومات استخدام
+موارد جهاز الحاسوب المعالج، الذاكرة، كرت الشاشة الشبكة)، كما يظهر في الشكل
+</p>
+
+<img class="lesson-image"
+     src="images/IMG_٢٠٢٦١١٠٣_٠٠٤٦٥٤.jpg"
+     alt="مراقب الأداء">
+
+<div class="brown-box">
+    <p>
+    أناقش زملائي في المجموعة في أهمية المعلومات التي تظهرها شاشة
+    مراقب الأداء، وندونُ ثلاث فوائد يمكن الاستفادة منها. ونتبادل الأفكار مع
+    المجموعات الأخرى.
+    </p>
+
+    <p>
+    أهمية شاشة مراقب الأداء: متابعة حالة الحاسوب ومكونات النظام بشكل
+    لحظى.
+    </p>
+
+    <p>ثلاث فوائد</p>
+
+    <p>1. معرفة استخدام المعالج والذاكرة والقرص.</p>
+
+    <p>.2 اكتشاف أسباب بطء الجهاز أو تعطل البرامج.</p>
+
+    <p>3. تحسين إدارة الموارد واتخاذ قرارات لصيانة الجهاز.</p>
+</div>
+
+</div>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+<script>
+let speechParts = [];
+let currentPart = 0;
+let isReading = false;
+let isPaused = false;
+let readingRun = 0;
+
+function startReading() {
+    if (!('speechSynthesis' in window)) {
+        alert("المتصفح لا يدعم خاصية القراءة الصوتية.");
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const content = document.querySelector(".container").innerText;
+    speechParts = content.match(/[^.!؟?\n]+[.!؟?]?/g) || [];
+
+    currentPart = 0;
+    isReading = true;
+    isPaused = false;
+    readingRun++;
+
+    speakNext(readingRun);
+}
+
+function speakNext(runId) {
+    if (runId !== readingRun || !isReading || isPaused) {
+        return;
+    }
+
+    if (currentPart >= speechParts.length) {
+        isReading = false;
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    utterance.onend = function () {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    utterance.onerror = function () {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function pauseReading() {
+    if (!isReading) {
+        return;
+    }
+
+    if (isPaused) {
+        isPaused = false;
+        window.speechSynthesis.resume();
+        return;
+    }
+
+    isPaused = true;
+    window.speechSynthesis.pause();
+}
+
+function stopReading() {
+    readingRun++;
+    isReading = false;
+    isPaused = false;
+    currentPart = 0;
+
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+    }
+}
+</script>
+
+</body>
+</html>
