@@ -834,21 +834,22 @@ function speakNext(runId) {
     window.speechSynthesis.speak(utterance);
 }
 
+
 function pauseReading() {
-    if (window.speechSynthesis.speaking) {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
         window.speechSynthesis.pause();
         isPaused = true;
     }
 }
 
 function resumeReading() {
-    if (isPaused) {
-        isPaused = false;
-        window.speechSynthesis.resume();
+    if (!isPaused) return;
 
-        if (!window.speechSynthesis.speaking) {
-            speakNext(readingRun);
-        }
+    isPaused = false;
+    window.speechSynthesis.resume();
+
+    if (isReading && !window.speechSynthesis.speaking) {
+        speakNext(readingRun);
     }
 }
 
@@ -862,6 +863,7 @@ function stopReading() {
         window.speechSynthesis.cancel();
     }
 }
+
 </script>
 
 </body>
