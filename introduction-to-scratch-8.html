@@ -1,1 +1,868 @@
-وو
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مقدمة في برمجية سكراتش | المهارات الرقمية الصف الثامن | زد علمك</title>
+
+<meta name="description" content="شرح درس مقدمة في برمجية سكراتش للصف الثامن، يتناول الأوامر البرمجية والمبرمج ومكونات شاشة Scratch وعناصر التصميم والبرمجة.">
+
+<style>
+:root {
+    --green: #287a50;
+    --green-dark: #1c5c3b;
+    --green-light: #e9f5ed;
+    --blue: #e8f3ff;
+    --blue-border: #3985c8;
+    --brown: #f7eddf;
+    --brown-border: #a77b43;
+    --text: #292929;
+    --background: #f5f7f6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 2;
+    font-size: 17px;
+}
+
+header {
+    background: linear-gradient(135deg, var(--green-dark), var(--green));
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+}
+
+header p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 950px;
+    margin: 22px auto;
+    padding: 0 14px;
+}
+
+.lesson {
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+h2 {
+    color: var(--green-dark);
+    border-right: 5px solid var(--green);
+    padding: 7px 12px;
+    margin-top: 35px;
+    font-size: 22px;
+    background: var(--green-light);
+    border-radius: 5px;
+}
+
+h3 {
+    color: var(--green);
+    font-size: 19px;
+    margin-top: 24px;
+}
+
+p {
+    margin: 12px 0;
+}
+
+ul, ol {
+    padding-right: 28px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.question {
+    background: #fff0f5;
+    border-right: 4px solid #d77b9d;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin: 18px 0 8px;
+    font-weight: bold;
+}
+
+.answer {
+    background: var(--green-light);
+    border-right: 4px solid var(--green);
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin: 8px 0 18px;
+}
+
+.activity {
+    background: var(--blue);
+    border: 2px solid var(--blue-border);
+    border-radius: 12px;
+    padding: 17px;
+    margin: 22px 0;
+}
+
+.activity h3 {
+    color: #1766a8;
+    margin-top: 0;
+}
+
+.activity-title {
+    color: #1766a8;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.brown-box {
+    background: var(--brown);
+    border-right: 5px solid var(--brown-border);
+    border-radius: 9px;
+    padding: 15px;
+    margin: 18px 0;
+}
+
+.note {
+    background: #f1f1f1;
+    border-radius: 9px;
+    padding: 14px;
+    margin: 18px 0;
+}
+
+.lesson-image {
+    display: block;
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    margin: 18px auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.steps {
+    background: #f8faf9;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+.steps li {
+    margin-bottom: 10px;
+}
+
+.read-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button {
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 20px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--green-dark);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.site-link {
+    color: var(--green-dark);
+    font-weight: bold;
+    text-decoration: none;
+    direction: ltr;
+    display: inline-block;
+}
+
+.site-link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    background: var(--green-dark);
+    color: white;
+    padding: 18px 10px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .lesson {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    button {
+        flex: 1;
+        min-width: 110px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>الدرس الأول: مقدمة في برمجية سكراتش</h1>
+    <p>Introduction to Scratch | المهارات الرقمية – الصف الثامن</p>
+</header>
+
+<div class="container">
+
+<div class="read-controls">
+    <button id="readButton" onclick="startReading()">▶ قراءة الدرس</button>
+    <button onclick="pauseReading()">⏸ إيقاف مؤقت</button>
+    <button onclick="resumeReading()">▶ متابعة القراءة</button>
+    <button onclick="stopReading()">⏹ إيقاف</button>
+</div>
+
+<main class="lesson" id="lessonContent">
+
+<h2>مقدمة الدرس</h2>
+
+<p>نستخدم برمجية Scratch كأداة لتحويل الأفكار إلى واقع. ✓</p>
+
+<div class="activity">
+    <h3>نشاط عملي</h3>
+
+    <p>
+    أفكر في أحد أنشطتي اليومية، مثل الاستيقاظ صباحًا، وإعداد وجبة خفيفة،
+    أو الذهاب إلى المدرسة. أتعاون مع زملائي في مجموعتي لاختيار نشاط يومي
+    مشترك بيننا، ثم نعمل معًا على كتابة تعليمات تفصيلية لتنفيذه، وكأننا نوجه جهازًا
+    إلكترونيًا للقيام به. نحرص على أن تكون التعليمات واضحة ومرتبة ومقسمة إلى
+    خطوات صغيرة (على سبيل المثال: الخطوة 1 أضبط المنبه للاستيقاظ، الخطوة
+    2 أوقف المنبه عند سماعه، الخطوة 3 أنهض من فراشي... إلخ).
+    </p>
+
+    <p>
+    بعد الانتهاء، أشارك مع مجموعتي النشاط الذي اخترناه وتعليمات تنفيذه مع بقية
+    المجموعات.
+    </p>
+
+    <p>
+    نقوم معًا بمراجعة التعليمات للتأكد من وضوحها ودقتها، ونتأكد من عدم وجود
+    خطوات مفقودة أو غير مفهومة.
+    </p>
+
+    <h3>النشاط: الاستيقاظ صباحًا والذهاب إلى المدرسة</h3>
+
+    <h3>الخطوات التفصيلية</h3>
+
+    <ol class="steps">
+        <li>أضبط المنبه على الساعة المحددة للاستيقاظ.</li>
+        <li>عند سماع صوت المنبه، أمد يدي لإيقافه.</li>
+        <li>أنهض من السرير ببطء.</li>
+        <li>أذهب إلى الحمام لغسل وجهي.</li>
+        <li>أفرّش أسناني بمعجون وفرشاة الأسنان.</li>
+        <li>أرتدي ملابس المدرسة المرتبة.</li>
+        <li>أتناول وجبة الفطور (مثل كوب حليب وساندويش).</li>
+        <li>أرتدي الحذاء وأتأكد من حقيبة المدرسة (الكتب، الأقلام، الدفاتر).</li>
+        <li>أودع أفراد عائلتي.</li>
+        <li>أخرج من البيت وأتوجه إلى المدرسة.</li>
+    </ol>
+
+    <h3>ماذا يحدث إذا نسينا خطوة؟</h3>
+
+    <ul>
+        <li>إذا نسيت إيقاف المنبه ← سيظل يرن ويزعجني.</li>
+        <li>إذا نسيت تنظيف أسناني ← سأذهب إلى المدرسة بدون عناية بالنظافة.</li>
+        <li>إذا نسيت أخذ الحقيبة ← لن أستطيع متابعة دروسي.</li>
+        <li>إذا نسيت ارتداء الحذاء ← لن أتمكن من الخروج بشكل صحيح.</li>
+    </ul>
+
+    <p><strong>إذن:</strong> نسيان خطوة واحدة ممكن يسبب مشكلة كبيرة أو يوقف تنفيذ باقي الخطوات.</p>
+
+    <h3>كيف يشبه ذلك طريقة عمل الحاسوب والبرمجيات؟</h3>
+
+    <p>
+    الحاسوب يعمل وفق تعليمات دقيقة ومحددة.
+    إذا حذفت أو نسيت سطرًا من البرنامج، قد يتوقف البرنامج عن العمل أو يعطي خطأ.
+    </p>
+
+    <p>
+    مثلًا لو كتبنا برنامجًا لحساب مجموع الأعداد ونسينا خطوة "جمع الرقم" -
+    لن يخرج لنا النتيجة الصحيحة.
+    </p>
+
+    <p>
+    إذن الكمبيوتر مثلنا تمامًا، يحتاج كل خطوة مكتوبة بوضوح وبدون نسيان،
+    وإلا سيتعطل التنفيذ.
+    </p>
+</div>
+
+<h2>الأوامر البرمجية والمبرمج</h2>
+
+<div class="question">وضح المقصود بالأوامر البرمجية.</div>
+<div class="answer">
+    تعتمد البرمجيات على سلسلة من التعليمات الدقيقة لتنفيذ المهام المطلوبة.
+    نعرف بالأوامر البرمجية أو الكود هذه الأوامر هي الوسيلة التي يتواصل بها
+    المبرمج مع الأجهزة؛ مما يتيح لها أداء وظائفها بدقة وفعالية.
+</div>
+
+<div class="question">وضح المقصود بالمبرمج.</div>
+<div class="answer">
+    المبرمج هو الشخص الذي يقوم بتطوير البرمجيات عن طريق كتابة التعليمات
+    البرمجية بلغة برمجة معينة. يشمل عمله تحليل المتطلبات، وتصميم
+    البرمجيات، وكتابة الكود، واختبار البرامج، وصيانة الأنظمة.
+</div>
+
+<div class="question">على ماذا يشمل عمل المبرمج؟</div>
+<div class="answer">
+    <p>المهام الموكلة إلى المبرمج تشمل:</p>
+    <ul>
+        <li>تحليل المتطلبات.</li>
+        <li>تصميم البرمجيات.</li>
+        <li>كتابة الكود.</li>
+        <li>اختبار البرامج.</li>
+        <li>صيانة الأنظمة.</li>
+    </ul>
+</div>
+
+<div class="activity">
+    <h3>نشاط: ابحث</h3>
+
+    <p>
+    أستخدم متصفح الإنترنت وأبحث عن ثلاث لغات برمجية مختلفة ملخصًا أهم
+    ميزاتها واستخداماتها، وأشارك ما أتوصل إليه من نتائج مع زملائي من خلال
+    اللوح التفاعلي الرقمي (Canva).
+    </p>
+
+    <h3>بايثون (Python)</h3>
+    <p><strong>الميزات:</strong> سهلة وبسيطة، متعددة الاستخدامات، مكتبات كثيرة.</p>
+    <p><strong>الاستخدامات:</strong> تحليل البيانات، الذكاء الاصطناعي، تطوير الويب، تعليم المبتدئين.</p>
+
+    <h3>جافا سكريبت (JavaScript)</h3>
+    <p><strong>الميزات:</strong> تعمل مباشرة في المتصفح، تدعم التفاعل والوقت الحقيقي، لها أطر عمل قوية.</p>
+    <p><strong>الاستخدامات:</strong> تصميم صفحات ويب تفاعلية، تطبيقات الويب (Frontend وBackend)، الألعاب البسيطة.</p>
+
+    <h3>رست (Rust)</h3>
+    <p><strong>الميزات:</strong> أداء عالٍ مع أمان الذاكرة، نظام قوي للتزامن، أدوات تطوير ممتازة.</p>
+    <p><strong>الاستخدامات:</strong> برمجيات الأنظمة، الأمن والتشفير، تطبيقات عالية الأداء، إنترنت الأشياء.</p>
+</div>
+
+<h2>برمجية سكراتش Scratch</h2>
+
+<div class="question">وضح المقصود بسكراتش Scratch.</div>
+<div class="answer">
+    هي منصة برمجية تعتمد على لغة برمجة مرئية (كائنية)، تعتمد البرمجة في
+    هذه المنصة على اللبنات البرمجية (Blocks) التي يمكن ربطها معًا بطريقة
+    تشبه تركيب قطع الأحجية (Puzzles)؛ مما يجعل البرمجة أقل تعقيدًا
+    ومناسبة للمبتدئين.
+</div>
+
+<div class="question">استخدام برمجية سكراتش.</div>
+<div class="answer">
+    يمكن إنشاء مشروعات متنوعة مثل: الألعاب التفاعلية والقصص البصرية
+    والرسوم المتحركة، والأنشطة الإبداعية الأخرى.
+</div>
+
+<h2>طرق استخدام برمجية سكراتش</h2>
+
+<p>يمكن استخدام برنامج سكراتش بطريقتين بسيطتين:</p>
+
+<h3>الطريقة الأولى: استخدام البرنامج المثبت على جهاز الحاسوب</h3>
+
+<p>
+يمكن فتح برمجية سكراتش المثبتة على جهاز الحاسوب - كما تعلمت في
+البرامج الأخرى - بتنفيذ الخطوات الآتية:
+</p>
+
+<ol>
+    <li>أثبت برمجية سكراتش على جهاز الحاسوب من موقعها الرسمي.</li>
+    <li>أبحث عن أيقونة برنامج Scratch على سطح المكتب، أو ضمن قائمة البرامج.</li>
+    <li>أنقر على الأيقونة لتشغيل البرنامج.</li>
+</ol>
+
+<h3>الطريقة الثانية: تسجيل الدخول عبر الموقع الإلكتروني</h3>
+
+<p>
+يمكن استخدام برمجية سكراتش على السحابة من دون الحاجة إلى تنزيله على
+جهاز الحاسوب، وذلك بتنفيذ الخطوات الآتية:
+</p>
+
+<ol>
+    <li>أفتح متصفح الإنترنت على جهازي <a class="site-link" href="https://scratch.mit.edu" target="_blank">https://scratch.mit.edu</a>.</li>
+    <li>أذهب إلى الرابط <a class="site-link" href="https://scratch.mit.edu" target="_blank">https://scratch.mit.edu</a>. أو أبحث عن سكراتش عن طريق محرك البحث.</li>
+    <li>أسجل الدخول باستخدام حسابي على موقع Scratch أو أنشئ حسابًا جديدًا إذا لم يكن لدي حساب مسبق.</li>
+</ol>
+
+<h2>الشاشة الرئيسة لبرمجية Scratch</h2>
+
+<div class="question">وضح المقصود بالشاشة الرئيسة لبرمجية Scratch.</div>
+<div class="answer">
+    وهي الواجهة الأساسية التي تستخدم في إنشاء المشروعات البرمجية
+    وإدارتها. تحتوي الشاشة على مكونات رئيسة عدة، تُسهل العمل، وتوفر تجربة
+    برمجة مرنة وممتعة.
+</div>
+
+<p>تتكون الشاشة الرئيسة من المكونات الآتية:</p>
+
+<ol>
+    <li>زر تسجيل الدخول (Login Button).</li>
+    <li>القائمة (Menu).</li>
+    <li>لوحة اللبنات البرمجية (Blocks Palette).</li>
+    <li>منطقة البرمجة (Scripting Area).</li>
+    <li>الكائن (Sprite).</li>
+    <li>لوحة الكائنات (Sprites Pane).</li>
+    <li>المنصة (Stage).</li>
+    <li>تكبير تصغير اللبنات (Zoom Blocks).</li>
+</ol>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٣_٢٢٤٤٤٢.jpg" alt="مكونات الشاشة الرئيسة لبرمجية سكراتش">
+
+<h3>زر تسجيل الدخول (Login Button)</h3>
+
+<div class="question">وضح المقصود بزر تسجيل الدخول (Login Button) في برمجية سكراتش.</div>
+<div class="answer">
+    يستخدم لتسجيل الدخول إلى حسابي الشخصي على موقع Scratch مما
+    يسمح لي بالاستفادة من ميزات متعددة، مثل حفظ مشروعاتي ومشاركتها.
+    إضافة إلى الاستفادة من ميزات إضافية مثل الانضمام إلى مجتمع Scratch.
+</div>
+
+<h3>القائمة (Menu)</h3>
+
+<div class="question">وضح المقصود بالقائمة (Menu) في برمجية سكراتش.</div>
+<div class="answer">
+    توفر خيارات متعددة مثل:
+    <ul>
+        <li>إنشاء مشروع جديد.</li>
+        <li>فتح مشروع مخزن مسبقًا.</li>
+        <li>حفظ المشروع الحالي.</li>
+        <li>الوصول إلى دروس المساعدة.</li>
+        <li>المزيد من الأدوات.</li>
+    </ul>
+</div>
+
+<h3>لوحة اللبنات البرمجية (Blocks Palette)</h3>
+
+<div class="question">وضح المقصود باللبنات البرمجية (Blocks Palette) في برمجية سكراتش.</div>
+<div class="answer">
+    تحتوي على مجموعة متنوعة من الأوامر التي يمكنني استخدامها وهي مصنفة
+    إلى فئات مثل:
+    <ul>
+        <li>الحركة (Motion).</li>
+        <li>التحكم (Control).</li>
+        <li>المظهر (Looks).</li>
+        <li>الصوت (Sound).</li>
+    </ul>
+</div>
+
+<div class="question">علل: يمكن سحب اللبنات البرمجية إلى منطقة البرمجة.</div>
+<div class="answer">
+    لبناء البرامج؛ مما يمنحني الحرية في تصميم طريقة تفاعل الكائنات.
+</div>
+
+<h3>منطقة البرمجة (Scripting Area)</h3>
+
+<div class="question">وضح المقصود بمنطقة البرمجة (Scripting Area) في برمجية سكراتش.</div>
+<div class="answer">
+    المكان الذي يتم فيه تجميع اللبنات البرمجية وترتيبها لإنشاء المقاطع
+    البرمجية (الأكواد) التي تحدد سلوك الكائنات والتحكم في طريقة تفاعل
+    الكائنات داخل المشروع.
+</div>
+
+<h3>الكائن (Sprite)</h3>
+
+<div class="question">وضح المقصود بالكائن (Sprite) في برمجية سكراتش.</div>
+<div class="answer">
+    العنصر التفاعلي في المشروع، والذي يمثل الشخصيات أو العناصر الأخرى
+    التي تتحرك أو تتفاعل مع المستخدمين.
+</div>
+
+<div class="question">كيف يمكن تخصيص الكائنات؟</div>
+<div class="answer">
+    من خلال تغيير ألوانها، أو أشكالها، أو خصائصها.
+</div>
+
+<h3>لوحة الكائنات (Sprites Pane)</h3>
+
+<div class="question">وضح المقصود بلوحة الكائنات (Sprites Pane) في برمجية سكراتش.</div>
+<div class="answer">
+    تُظهر الكائنات المستخدمة في المشروع، وتساعد في التحكم في سلوك الكائنات،
+    ويمكن من خلالها إضافة كائنات جديدة، وحذف أو تعديل الكائنات الحالية
+    وتغيير الخصائص والتصرفات لكل كائن بما يتناسب مع رؤيتي الإبداعية.
+</div>
+
+<h3>المنصة (Stage)</h3>
+
+<div class="question">وضح المقصود بالمنصة (Stage) في برمجية سكراتش.</div>
+<div class="answer">
+    تمثل شاشة العرض؛ حيث تعرض التفاعلات بين الكائنات والخلفيات؛ مما يتيح
+    لي تصور النتائج النهائية لمشروعي.
+</div>
+
+<h3>تكبير تصغير اللبنات (Zoom Blocks)</h3>
+
+<div class="question">وضح المقصود بتكبير تصغير اللبنات (Zoom Blocks) في برمجية سكراتش.</div>
+<div class="answer">
+    أدوات مرنة للتحكم في حجم اللبنات البرمجية مما يسهل قراءة التعليمات
+    والمقاطع البرمجية. وتتيح لي تحسين تجربة البرمجة، وجعلها أكثر وضوحًا
+    وتنظيمًا.
+</div>
+
+<h2>المشروع في برمجية سكراتش</h2>
+
+<div class="question">وضح المقصود بالمشروع في برمجية سكراتش Scratch.</div>
+<div class="answer">
+    هو إنشاء تفاعلي يتيح للمستخدمين المجال لدمج البرمجة بالإبداع. يمكن أن
+    يتخذ المشروع أشكالًا مختلفة.
+</div>
+
+<div class="question">اذكر أشكال المشروع في برمجية سكراتش Scratch ووضح كل منها.</div>
+<div class="answer">
+    <h3>الألعاب</h3>
+    أنشطة ممتعة تتضمن تفاعل اللاعبين مع الشخصيات، والقواعد والنقاط، والمستويات.
+
+    <h3>الرسوم المتحركة</h3>
+    قصص أو مشاهد متحركة تروي سردًا بصريًا باستخدام الكائنات والخلفيات.
+
+    <h3>القصص التفاعلية</h3>
+    روايات تتغير وفقًا لقرارات المستخدم، حيث تسمح للمستخدمين باتخاذ قرارات
+    تؤثر في اتجاه القصة وكيفية تطورها.
+
+    <h3>مشروعات الفن</h3>
+    تصميم رسومات وأعمال فنية إبداعية باستخدام أدوات الرسم مع إمكانية التفاعل.
+</div>
+
+<h2>مكونات مشروع سكراتش</h2>
+
+<p>يتكون مشروع سكراتش من:</p>
+
+<ol>
+    <li>عناصر التصميم (Design Elements).</li>
+    <li>عناصر البرمجة (Code Elements).</li>
+</ol>
+
+<h3>عناصر التصميم (Design Elements)</h3>
+
+<div class="question">وضح المقصود بعناصر التصميم (Design Elements).</div>
+<div class="answer">
+    تعنى هذه العناصر بالجوانب المرئية والجمالية للمشروع.
+</div>
+
+<div class="question">
+على ماذا تشمل عناصر التصميم (Design Elements) في برمجة سكراتش؟ ثم وضح كل منها.
+</div>
+<div class="answer">
+    تشمل عناصر التصميم:
+    <ul>
+        <li>الكائنات.</li>
+        <li>الخلفيات.</li>
+        <li>الأصوات.</li>
+    </ul>
+</div>
+
+<h3>الكائنات (Sprites)</h3>
+
+<p>الشخصيات أو العناصر التفاعلية في المشروع.</p>
+
+<p>ومن الأمثلة عليها:</p>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٣_٢٢٥١٠٤.jpg" alt="أمثلة على الكائنات في سكراتش">
+
+<h3>الخلفيات (Backdrops)</h3>
+
+<p>
+البيئة التي تدور فيها أحداث المشروع، حيث يمكن تصميم خلفيات مخصصة عبر
+تعديل الخلفيات الجاهزة، أو رسم خلفيات جديدة باستخدام أدوات الرسم في
+سكراتش أو تحميل خلفيات جاهزة، أو اختيار الخلفيات المدمجة بالبرمجية.
+</p>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٣_٢٢٥٦٤٦.jpg" alt="الخلفيات في برمجية سكراتش">
+
+<h3>الأصوات (Sounds)</h3>
+
+<p>
+تعد الأصوات عنصرًا أساسيًا يمكن إضافته إلى المشروع في Scratch لتعزيز
+تجربة المستخدم، وجعل المشروعات أكثر تفاعلية وجاذبية، توفر البرمجية
+العديد من الأصوات ويمكن تسجيل الأصوات أو استخدامها أو إضافة ملفات
+صوتية جاهزة.
+</p>
+
+<div class="question">علل: تعد الأصوات عنصرًا أساسيًا يمكن إضافته إلى المشروع في Scratch.</div>
+<div class="answer">
+    لتعزيز تجربة المستخدم وجعل المشروعات أكثر تفاعلية وجاذبية.
+</div>
+
+<p>أمثلة على أصوات توفرها البرمجية:</p>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٣_٢٢٥٦٥٩.jpg" alt="أمثلة على الأصوات في سكراتش">
+
+<p>ويمكن تسجيل الأصوات أو استخدامها أو إضافة ملفات صوتية جاهزة.</p>
+
+<div class="question">اذكر الخلفيات التي يمكن استخدامها في برمجة سكراتش.</div>
+<div class="answer">
+    <ul>
+        <li>تصميم خلفيات مخصصة عبر تعديل الخلفيات الجاهزة.</li>
+        <li>رسم خلفيات جديدة باستخدام أدوات الرسم في سكراتش.</li>
+        <li>تحميل خلفيات جاهزة.</li>
+        <li>اختيار الخلفيات المدمجة بالبرمجية.</li>
+    </ul>
+</div>
+
+<h3>عناصر البرمجة (Code Elements)</h3>
+
+<div class="question">وضح المقصود بعناصر البرمجة (Code Elements).</div>
+<div class="answer">
+    هي التي تتحكم في طريقة تصرف الكائنات وتفاعلها في المشروعات. يتم ذلك
+    باستخدام اللبنات البرمجية (Blocks) التي تُسحب وتُفلت إلى منطقة البرمجة
+    لإنشاء الأوامر؛ مما يسهل كتابة المقاطع البرمجية (الأكواد) بطريقة مرئية
+    وتفاعلية.
+</div>
+
+<div class="question">كيف يتم التحكم في طريقة تصرف الكائنات وتفاعلها في المشروعات؟</div>
+<div class="answer">
+    يتم ذلك باستخدام اللبنات البرمجية (Blocks) التي تُسحب وتُفلت إلى منطقة
+    البرمجة لإنشاء الأوامر؛ مما يسهل كتابة المقاطع البرمجية (الأكواد) بطريقة
+    مرئية وتفاعلية.
+</div>
+
+<p>
+تتضمن اللبنات البرمجية في Scratch أنواعًا متعددة، يؤدي كل منها دورًا
+محددًا داخل المشروع. ✓
+</p>
+
+<p>الأنواع الأساسية من اللبنات تشمل:</p>
+
+<ul>
+    <li>
+        <strong>لبنات الحركة (Motion):</strong>
+        للتحكم في حركة الكائنات.
+    </li>
+    <li>
+        <strong>لبنات التحكم (Control):</strong>
+        لتنظيم تسلسل الأحداث وتحديد الحلقات والقرارات الشرطية.
+    </li>
+    <li>
+        <strong>لبنات الأحداث (Events):</strong>
+        لبدء الأنشطة بناءً على أحداث معينة.
+    </li>
+    <li>
+        <strong>لبنات المظاهر (Looks):</strong>
+        لتعديل مظهر الكائنات والتفاعل البصري.
+    </li>
+</ul>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٣_٢٣١٧٢٠.jpg" alt="أنواع اللبنات البرمجية في سكراتش">
+
+<h2>إنشاء مشروعات تفاعلية مبتكرة</h2>
+
+<div class="question">كيف يمكن إنشاء مشروعات تفاعلية مبتكرة في برمجة سكراتش؟</div>
+<div class="answer">
+    عندما يتم دمج عناصر التصميم مع البرمجة بشكل متكامل، يمكن إنشاء
+    مشروعات تفاعلية مبتكرة، كل مشروع في برمجية سكراتش يتكون من مزيج
+    متكامل من عناصر التصميم (Design) وعناصر البرمجة (Code)؛ مما يمنح
+    الطلبة الفرصة للتعبير عن إبداعهم وتطبيق مهاراتهم في البرمجة.
+</div>
+
+<h2>استكشاف مشروعات الآخرين</h2>
+
+<div class="question">من مميزات منصة سكراتش، كيف تكون سكراتش أداة رائعة تتيح للمستخدمين؟</div>
+<div class="answer">
+    تعد منصة Scratch أداة رائعة تتيح للمستخدمين فرصة استكشاف
+    المشروعات التي أنشأها الآخرون. تساعد هذه الميزة على فهم كيفية تطبيق
+    الأفكار البرمجية في مشروعات واقعية؛ مما يوسع آفاق التفكير، ويعزز
+    الإبداع، ويساعد على التعرف إلى تقنيات وأساليب جديدة لاستخدام اللبنات
+    البرمجية بطرق مبتكرة.
+</div>
+
+<div class="activity">
+    <h3>نشاط جماعي</h3>
+
+    <p class="activity-title">خصائص الاسم المناسب للمشروع</p>
+
+    <p>
+    بالتعاون مع زملائي وزميلاتي، أناقش وأحدد خصائص الاسم المناسب لمشروع
+    بناءً على ملحوظاتي للمشروعات المختلفة التي استكشفتها في النشاط السابق
+    ومسمياتها وتصنيفاتها.
+    </p>
+
+    <ol>
+        <li>
+            <strong>قصير وواضح:</strong>
+            يكون الاسم سهل القراءة والتذكر مثل "المتاهة السحرية".
+        </li>
+        <li>
+            <strong>معبر عن الفكرة:</strong>
+            يعكس محتوى المشروع أو هدفه (مثلاً: لعبة، قصة، تجربة علمية).
+        </li>
+        <li>
+            <strong>جذاب ومشوق:</strong>
+            يشجع الآخرين على تجربة المشروع أو استكشافه.
+        </li>
+        <li>
+            <strong>مناسب للفئة المستهدفة:</strong>
+            إذا كان للأطفال مثلاً، يكون بسيطًا وممتعًا، وإذا كان للتعلم يكون واضحًا وجادًا.
+        </li>
+        <li>
+            <strong>خلوه من الغموض:</strong>
+            ما يسبب لبس أو يبتعد عن موضوع المشروع.
+        </li>
+        <li>
+            <strong>إبداعي ومبتكر:</strong>
+            يميز المشروع عن باقي المشروعات المشابهة.
+        </li>
+        <li>
+            <strong>متوافق مع اللغة المستخدمة:</strong>
+            إذا كان المشروع بالعربية، يفضل أن يكون الاسم بالعربية أيضًا.
+        </li>
+    </ol>
+</div>
+
+</main>
+</div>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+<script>
+let speechParts = [];
+let currentPart = 0;
+let isReading = false;
+let isPaused = false;
+let readingRun = 0;
+
+function prepareSpeech() {
+    const content = document.getElementById("lessonContent");
+    const elements = content.querySelectorAll("h2, h3, p, li");
+
+    speechParts = [];
+
+    elements.forEach(element => {
+        const text = element.innerText.trim();
+
+        if (text) {
+            speechParts.push(text);
+        }
+    });
+}
+
+function startReading() {
+    if (!("speechSynthesis" in window)) {
+        alert("المتصفح لا يدعم خاصية قراءة النصوص.");
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    prepareSpeech();
+
+    currentPart = 0;
+    isReading = true;
+    isPaused = false;
+    readingRun++;
+
+    speakNext(readingRun);
+}
+
+function speakNext(runId) {
+    if (runId !== readingRun || !isReading || isPaused) {
+        return;
+    }
+
+    if (currentPart >= speechParts.length) {
+        isReading = false;
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+
+    utterance.onend = function() {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    utterance.onerror = function() {
+        if (runId === readingRun && isReading && !isPaused) {
+            currentPart++;
+            speakNext(runId);
+        }
+    };
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function pauseReading() {
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+        isPaused = true;
+    }
+}
+
+function resumeReading() {
+    if (isPaused) {
+        isPaused = false;
+        window.speechSynthesis.resume();
+
+        if (!window.speechSynthesis.speaking) {
+            speakNext(readingRun);
+        }
+    }
+}
+
+function stopReading() {
+    readingRun++;
+    isReading = false;
+    isPaused = false;
+    currentPart = 0;
+
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+    }
+}
+</script>
+
+</body>
+</html>
