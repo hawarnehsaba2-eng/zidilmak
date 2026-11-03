@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اختبر نفسك | مقدمة في برمجية سكراتش - الصف الثامن | زد علمك</title>
+
+<meta name="description" content="اختبر فهمك لدرس مقدمة في برمجية سكراتش للصف الثامن من خلال 10 أسئلة تفاعلية مع التصحيح الفوري وعرض العلامة من 10.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 15px;
+    line-height: 1.9;
+}
+
+.container {
+    max-width: 850px;
+    margin: 20px auto;
+}
+
+header {
+    background: #176b45;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 23px;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+.question {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 5px #00000008;
+}
+
+.question h3 {
+    background: #fce8ee;
+    color: #76364b;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 17px;
+    margin-top: 0;
+}
+
+.option {
+    display: block;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 9px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #f0f5f1;
+}
+
+.option input {
+    margin-left: 8px;
+    accent-color: #176b45;
+}
+
+.option.correct {
+    background: #dff3e4;
+    border-color: #4caf50;
+}
+
+.option.wrong {
+    background: #fde2e2;
+    border-color: #e57373;
+}
+
+.question-image {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 15px auto;
+    border-radius: 8px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #176b45;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #105537;
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+#result {
+    display: none;
+    background: #e4f4e8;
+    border: 2px solid #4caf50;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#result h2 {
+    color: #176b45;
+}
+
+.score {
+    font-size: 30px;
+    font-weight: bold;
+    color: #176b45;
+}
+
+.feedback {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 9px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .question {
+        padding: 13px;
+    }
+
+    .question h3 {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>اختبر نفسك</h1>
+    <p>الدرس الأول: مقدمة في برمجية سكراتش</p>
+    <p>المهارات الرقمية - الصف الثامن</p>
+</header>
+
+<form id="quizForm">
+
+<div class="question" data-answer="a">
+    <h3>السؤال 1: هي منصة برمجية تعتمد على لغة برمجة مرئية (كائنية)، تعتمد البرمجة في هذه المنصة على اللبنات البرمجية (Blocks) التي يمكن ربطها معًا بطريقة تشبه تركيب قطع الأحجية (Puzzles)، مما يجعل البرمجة أقل تعقيدًا ومناسبة للمبتدئين.</h3>
+
+    <label class="option">
+        <input type="radio" name="q1" value="a">
+        سكراتش
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q1" value="b">
+        بايثون
+    </label>
+</div>
+
+<div class="question" data-answer="b">
+    <h3>السؤال 2: من خلال الشكل أجب عن الأسئلة الآتية: مربع رقم 1 يشير إلى:</h3>
+
+    <img src="images/IMG_٢٠٢٦١١٠٣_٢٣٣٤٠٠.jpg"
+         alt="مكونات واجهة برنامج سكراتش"
+         class="question-image">
+
+    <label class="option">
+        <input type="radio" name="q2" value="a">
+        لوحة الكائنات
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q2" value="b">
+        لوحة اللبنات البرمجية
+    </label>
+</div>
+
+<div class="question" data-answer="a">
+    <h3>السؤال 3: مربع رقم 2 يشير إلى:</h3>
+
+    <label class="option">
+        <input type="radio" name="q3" value="a">
+        المنصة
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q3" value="b">
+        الكائن
+    </label>
+</div>
+
+<div class="question" data-answer="a">
+    <h3>السؤال 4: مربع رقم 3 يشير إلى:</h3>
+
+    <label class="option">
+        <input type="radio" name="q4" value="a">
+        منطقة البرمجة
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q4" value="b">
+        القائمة
+    </label>
+</div>
+
+<div class="question" data-answer="a">
+    <h3>السؤال 5: مربع رقم 4 يشير إلى:</h3>
+
+    <label class="option">
+        <input type="radio" name="q5" value="a">
+        لوحة الكائنات
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q5" value="b">
+        لوحة اللبنات البرمجية
+    </label>
+</div>
+
+<div class="question" data-answer="b">
+    <h3>السؤال 6: العناصر التي تهتم بالجوانب المرئية والجمالية للمشروع:</h3>
+
+    <label class="option">
+        <input type="radio" name="q6" value="a">
+        عناصر البرمجة (Code Elements)
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q6" value="b">
+        عناصر التصميم (Design Element)
+    </label>
+</div>
+
+<div class="question" data-answer="a">
+    <h3>السؤال 7: الشخصيات أو العناصر التفاعلية في المشروع:</h3>
+
+    <label class="option">
+        <input type="radio" name="q7" value="a">
+        الكائنات (Sprites)
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q7" value="b">
+        الخلفيات (Backdrops)
+    </label>
+</div>
+
+<div class="question" data-answer="a">
+    <h3>السؤال 8: لتنظيم تسلسل الأحداث وتحديد الحلقات والقرارات الشرطية نستخدم:</h3>
+
+    <label class="option">
+        <input type="radio" name="q8" value="a">
+        لبنات التحكم (Control)
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q8" value="b">
+        لبنات الحركة (Motion)
+    </label>
+</div>
+
+<div class="question" data-answer="a">
+    <h3>السؤال 9: لبدء الأنشطة بناءً على أحداث معينة نستخدم:</h3>
+
+    <label class="option">
+        <input type="radio" name="q9" value="a">
+        لبنات الأحداث (Events)
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q9" value="b">
+        لبنات المظاهر (Looks)
+    </label>
+</div>
+
+<div class="question" data-answer="a">
+    <h3>السؤال 10: روايات تتغير وفقًا لقرارات المستخدم، حيث تسمح للمستخدمين باتخاذ قرارات تؤثر في اتجاه القصة وكيفية تطورها:</h3>
+
+    <label class="option">
+        <input type="radio" name="q10" value="a">
+        القصص التفاعلية
+    </label>
+
+    <label class="option">
+        <input type="radio" name="q10" value="b">
+        الرسوم المتحركة
+    </label>
+</div>
+
+<button type="button" id="finishBtn" onclick="finishQuiz()">
+    إنهاء الاختبار
+</button>
+
+</form>
+
+<div id="result">
+    <h2>نتيجة الاختبار</h2>
+    <div class="score" id="score"></div>
+    <p id="message"></p>
+    <p id="feedback" class="feedback"></p>
+</div>
+
+<footer>
+    © 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+function finishQuiz() {
+
+    const questions = document.querySelectorAll(".question");
+    let score = 0;
+    let unanswered = 0;
+
+    questions.forEach((question, index) => {
+
+        const correctAnswer = question.dataset.answer;
+        const selected = question.querySelector(
+            'input[name="q' + (index + 1) + '"]:checked'
+        );
+
+        const options = question.querySelectorAll(".option");
+
+        options.forEach(option => {
+            option.classList.remove("correct", "wrong");
+        });
+
+        if (!selected) {
+            unanswered++;
+        } else if (selected.value === correctAnswer) {
+            score++;
+        }
+
+        options.forEach(option => {
+
+            const input = option.querySelector("input");
+
+            if (input.value === correctAnswer) {
+                option.classList.add("correct");
+            }
+
+            if (selected && input === selected &&
+                selected.value !== correctAnswer) {
+                option.classList.add("wrong");
+            }
+
+            input.disabled = true;
+        });
+    });
+
+    document.getElementById("score").textContent =
+        score + " / 10";
+
+    let message = "";
+
+    if (score === 10) {
+        message = "ممتاز! إجاباتك جميعها صحيحة.";
+    } else if (score >= 8) {
+        message = "أحسنت! مستوى رائع.";
+    } else if (score >= 5) {
+        message = "جيد، واصل المراجعة والتدريب.";
+    } else {
+        message = "حاول مراجعة الدرس ثم أعد المحاولة.";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    document.getElementById("feedback").textContent =
+        unanswered > 0
+        ? "عدد الأسئلة التي لم تجب عنها: " + unanswered
+        : "لقد أجبت عن جميع الأسئلة.";
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("finishBtn").disabled = true;
+
+    document.getElementById("result").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
