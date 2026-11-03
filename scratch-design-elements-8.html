@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عناصر التصميم في سكراتش | المهارات الرقمية الصف الثامن | زد علمك</title>
+
+<meta name="description" content="شرح درس عناصر التصميم في سكراتش للصف الثامن، ويتناول الكائنات والخلفيات والأصوات وطرق إضافتها وتحريرها مع الصور التوضيحية.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 15px;
+    line-height: 2;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+header {
+    background: #176b45;
+    color: white;
+    text-align: center;
+    padding: 22px 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+.reading-controls {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.reading-controls button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 5px;
+    color: white;
+    background: #176b45;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.reading-controls button:hover {
+    opacity: 0.85;
+}
+
+.reading-controls .pause {
+    background: #a87932;
+}
+
+.reading-controls .stop {
+    background: #a94442;
+}
+
+#readingStatus {
+    color: #176b45;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.content-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 2px 5px #00000008;
+}
+
+h2 {
+    color: #176b45;
+    border-right: 5px solid #176b45;
+    padding-right: 12px;
+    font-size: 21px;
+    margin-top: 0;
+}
+
+h3 {
+    color: #176b45;
+    font-size: 18px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+ul, ol {
+    padding-right: 25px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+.definition {
+    background: #e8f5ed;
+    border-right: 5px solid #399765;
+    padding: 14px;
+    border-radius: 9px;
+    margin: 15px 0;
+}
+
+.highlight {
+    background: #fff3d6;
+    border-right: 5px solid #b58a3b;
+    padding: 16px;
+    border-radius: 9px;
+    margin: 20px 0;
+}
+
+.lesson-image {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    margin: 18px auto;
+    border-radius: 9px;
+    border: 1px solid #ddd;
+}
+
+.steps {
+    background: #f0f7f2;
+    padding: 15px 25px;
+    border-radius: 9px;
+    margin: 12px 0;
+}
+
+.steps li {
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 9px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .content-box {
+        padding: 14px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    .reading-controls button {
+        padding: 9px 11px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>الدرس الثاني: عناصر التصميم في سكراتش</h1>
+    <p>Design Elements in Scratch</p>
+    <p>المهارات الرقمية - الصف الثامن</p>
+</header>
+
+<div class="reading-controls">
+
+    <button onclick="startReading()">▶ قراءة الدرس</button>
+
+    <button class="pause" onclick="pauseReading()">⏸ إيقاف مؤقت</button>
+
+    <button onclick="resumeReading()">⏯ متابعة القراءة</button>
+
+    <button class="stop" onclick="stopReading()">■ إيقاف</button>
+
+    <div id="readingStatus">اضغط على قراءة الدرس للاستماع إلى الشرح.</div>
+
+</div>
+
+<div id="lessonContent">
+
+<div class="content-box">
+
+<h2>عناصر التصميم في سكراتش</h2>
+
+<p>
+تتضمن عناصر التصميم في برمجية سكراتش الكائنات، والخلفيات والأصوات.
+</p>
+
+</div>
+
+<div class="content-box">
+
+<h2>أولًا: الكائنات (Sprites)</h2>
+
+<h3>وضح المقصود بالكائن (Sprite)</h3>
+
+<div class="definition">
+أي شخصية أو شكل يستخدم في المشروع في برمجية Scratch.
+</div>
+
+<h3>من الأمثلة على الكائنات:</h3>
+
+<p>
+الحيوانات، والسيارات، والشخصيات الكرتونية، أو أي صور أخرى.
+</p>
+
+<h3>طرق استخدام الكائنات في سكراتش وإنشائها</h3>
+
+<p>
+توجد طرق عدة لاستخدام الكائنات في سكراتش (Scratch)، وإنشائها، وهذه الطرق هي:
+</p>
+
+<ol>
+    <li>الطريقة الأولى: اختيار كائن من مكتبة سكراتش.</li>
+    <li>الطريقة الثانية: رسم كائن جديد في برمجية سكراتش.</li>
+    <li>الطريقة الثالثة: تحميل كائنات جاهزة.</li>
+    <li>الطريقة الرابعة: اختيار الكائن بشكل عشوائي في برمجية سكراتش.</li>
+</ol>
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٠٥١٢.jpg"
+alt="اختيار كائن من مكتبة سكراتش">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٠٧٠٢.jpg"
+alt="رسم كائن جديد في سكراتش">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٠٨٢٧.jpg"
+alt="تحميل كائن جاهز في سكراتش">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٠٩٥٦.jpg"
+alt="اختيار كائن عشوائي في سكراتش">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠١١٣٤.jpg"
+alt="أمثلة على الكائنات في سكراتش">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠١٢٥٢.jpg"
+alt="الكائنات في مشروع سكراتش">
+
+</div>
+
+<div class="content-box">
+
+<h2>ثانيًا: الخلفيات (Backdrops)</h2>
+
+<h3>وضح المقصود بالخلفيات (Backdrops)</h3>
+
+<div class="definition">
+عنصر أساسي في أي مشروع في برمجية Scratch، حيث تضيف عمقًا وسياقًا بصريًا للمشاهد، مما يعزز جاذبية المشروع، ويدعم القصة أو اللعبة التي نعمل على إنشائها.
+</div>
+
+<h3>طرق إضافة الخلفيات في سكراتش (Scratch)</h3>
+
+<p>
+هناك أربع طرق مختلفة لإضافة الخلفيات لمشروعك في Scratch. هذه الطرق مشابهة تمامًا لآلية إضافة الكائنات:
+</p>
+
+<ol>
+    <li>الطريقة الأولى: اختيار خلفية من مكتبة سكراتش (Scratch).</li>
+    <li>الطريقة الثانية: رسم خلفية جديدة.</li>
+    <li>الطريقة الثالثة: تحميل خلفية من جهازي.</li>
+    <li>الطريقة الرابعة: اختيار خلفية عشوائية.</li>
+</ol>
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٢٢١٩.jpg"
+alt="اختيار خلفية من مكتبة سكراتش">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٢٥٥٨.jpg"
+alt="رسم خلفية جديدة في سكراتش">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٣٢٠٠.jpg"
+alt="تحميل خلفية من الجهاز">
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٣٣٤٩.jpg"
+alt="اختيار خلفية عشوائية">
+
+</div>
+
+<div class="content-box">
+
+<h2>ثالثًا: الأصوات (Sounds)</h2>
+
+<h3>وضح المقصود بالأصوات (Sounds) في سكراتش</h3>
+
+<h3>وضح أهمية الأصوات في برمجة سكراتش</h3>
+
+<div class="definition">
+
+تعد الأصوات عنصرًا أساسيًا في برمجية Scratch، حيث يمكن استخدام الأصوات لإضافة طابع خاص، مثل جعل الشخصيات تتحدث، أو إضافة مؤثرات صوتية تبرز البيئة العامة؛ مما يزيد من حيوية المشروع ويجعله أكثر ديناميكية وتفاعلًا.
+
+تساعد الأصوات في إضفاء الواقعية على المشروعات مثل استخدام صوت المطر في خلفية المشهد، وإثارة المشاعر من خلال موسيقى مبهجة أو مؤثرات درامية أو أصوات ممتعة للأطفال.
+
+وتشجع الأصوات أيضًا على الإبداع؛ حيث تتيح للمستخدم حرية التعبير عن أفكاره بطريقة مسموعة وجذابة وتضفي لمسة فريدة على المشروع.
+
+</div>
+
+<h3>مصادر إضافة الأصوات</h3>
+
+<p>
+تتوفر مصادر عدة لإضافة الأصوات، وهي كما يأتي:
+</p>
+
+<ol>
+    <li>الطريقة الأولى: اختيار صوت من مكتبة الأصوات.</li>
+    <li>الطريقة الثانية: تسجيل الصوت مباشرة.</li>
+    <li>الطريقة الثالثة: تحميل مقاطع صوتية.</li>
+</ol>
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٣٦١٤.jpg"
+alt="مصادر إضافة الأصوات في سكراتش">
+
+</div>
+
+<div class="content-box">
+
+<h2>الطريقة الأولى: اختيار صوت من مكتبة الأصوات</h2>
+
+<h3>وضح المقصود باختيار صوت من مكتبة الأصوات في برمجية سكراتش</h3>
+
+<div class="definition">
+توفر البرمجية مكتبة واسعة من الأصوات الجاهزة. ويمكن اختيار الصوت المناسب من بين هذه الأصوات، مثل مؤثرات الحركة، وأصوات الطبيعة، أو الموسيقى القصيرة.
+</div>
+
+<h3>خطوات اختيار صوت من مكتبة الأصوات</h3>
+
+<p>
+توفر البرمجية مكتبة واسعة من الأصوات الجاهزة. ويمكن اختيار الصوت المناسب من بين هذه الأصوات، مثل مؤثرات الحركة، وأصوات الطبيعة، أو الموسيقى القصيرة.
+</p>
+
+<ol class="steps">
+    <li>أفتح مشروعي في برمجية سكراتش (Scratch) وأنتقل إلى تبويب "الأصوات" أعلى الشاشة.</li>
+    <li>أنقر على أيقونة اختيار صوت (Choose a Sound) أسفل الشاشة.</li>
+    <li>ستظهر مكتبة الأصوات المتاحة، أختار الصوت المناسب من المجموعة المتوافرة.</li>
+    <li>أنقر على الصوت ليُضاف مباشرةً إلى مشروعي، وسأجده في تبويب "الأصوات".</li>
+</ol>
+
+</div>
+
+<div class="content-box">
+
+<h2>الطريقة الثانية: تسجيل الصوت مباشرة</h2>
+
+<h3>وضح المقصود بتسجيل الصوت مباشرة في برمجية سكراتش</h3>
+
+<div class="definition">
+تتيح البرمجية تسجيل الصوت باستخدام الميكروفون مباشرةً وإضافته إلى المشروع. وهذا يعد مفيدًا إذا أردت إضافة تعليق صوتي أو أصوات مخصصة تتناسب مع فكرة مشروعي.
+</div>
+
+<h3>خطوات تسجيل الصوت مباشرة</h3>
+
+<p>
+تتيح البرمجية تسجيل الصوت باستخدام الميكروفون مباشرةً وإضافته إلى المشروع، وهذا يعد مفيدًا إذا أردت إضافة تعليق صوتي أو أصوات مخصصة تتناسب مع فكرة مشروعي.
+</p>
+
+<ol class="steps">
+    <li>أنتقل إلى تبويب "الأصوات" في مشروعي وأنقر على أيقونة "تسجيل (Record)".</li>
+    <li>في واجهة التسجيل التي تظهر، أنقر على زر التسجيل وأبدأ بالتحدث أو إصدار الصوت المطلوب.</li>
+    <li>أنقر على زر التوقف لإنهاء التسجيل.</li>
+    <li>أعيد تشغيل الصوت للتحقق منه. إذا كان الصوت مناسبًا، أنقر على "حفظ (Save)" ليظهر ضمن مكتبة "الأصوات" الخاصة بمشروعي.</li>
+</ol>
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٤٤٥٩.jpg"
+alt="تسجيل الصوت مباشرة في سكراتش">
+
+</div>
+
+<div class="content-box">
+
+<h2>الطريقة الثالثة: تحميل مقاطع صوتية</h2>
+
+<h3>وضح المقصود بتحميل مقاطع صوتية في برمجية سكراتش</h3>
+
+<div class="definition">
+يمكن تحميل مقاطع صوتية من جهاز الحاسوب الخاص بي أو من الإنترنت. تستخدم هذه الخاصية عادةً لإضافة موسيقى مميزة أو مؤثرات صوتية غير موجودة في المكتبة.
+</div>
+
+<h3>خطوات تحميل مقاطع صوتية</h3>
+
+<p>
+يمكن تحميل مقاطع صوتية من جهاز الحاسوب الخاص بي أو من الإنترنت. تستخدم هذه الخاصية عادةً لإضافة موسيقى مميزة أو مؤثرات صوتية غير موجودة في المكتبة.
+</p>
+
+<ol class="steps">
+    <li>أفتح تبويب "الأصوات" في مشروعي.</li>
+    <li>أنقر على أيقونة "تحميل صوت (Upload Sound)".</li>
+    <li>أحدد موقع ملف الصوت على جهازي وأختار الملف المطلوب. سيتم تحميل الصوت وإضافته مباشرة إلى مشروعي.</li>
+</ol>
+
+<img class="lesson-image"
+src="images/IMG_٢٠٢٦١١٠٤_٠٠٥٢٢٠.jpg"
+alt="تحميل مقطع صوتي إلى سكراتش">
+
+</div>
+
+<div class="content-box">
+
+<h2>تحرير الأصوات في سكراتش</h2>
+
+<p>
+ويمكن أيضًا تحرير الأصوات؛ حيث تتيح البرمجية أدوات تحرير الصوت لتعديل المقاطع الصوتية، وتشمل:
+</p>
+
+<ul>
+    <li><strong>قص الصوت:</strong> إزالة أجزاء غير مرغوب فيها.</li>
+    <li><strong>تغيير سرعة الصوت:</strong> لتجعله أسرع أو أبطأ.</li>
+    <li><strong>إضافة تأثيرات:</strong> مثل التلاشي التدريجي أو التكرار.</li>
+</ul>
+
+</div>
+
+<div class="highlight">
+
+<h2>إضاءة</h2>
+
+<p>
+توفر المصادر المجانية وحقوق النشر الإبداعية مكتبة واسعة من المحتوى الذي يمكن استخدامه بشكل قانوني وأخلاقي في مختلف المشروعات. تتيح هذه المنصات للمبدعين مشاركة أعمالهم، مثل الصور والموسيقى، ومقاطع الفيديو، بموجب شروط ترخيص مرنة.
+</p>
+
+<p>يساعد استخدام هذه الموارد على:</p>
+
+<ul>
+    <li>
+        <strong>العثور على محتوى عالي الجودة:</strong>
+        بحيث يمكن الوصول إلى مواد متنوعة تدعم فكرة المشروع.
+    </li>
+
+    <li>
+        <strong>احترام حقوق المؤلفين الأصليين:</strong>
+        من خلال الالتزام بشروط الترخيص والإشارة إلى المصدر عند الحاجة.
+    </li>
+
+    <li>
+        <strong>تعزيز الإبداع والتعاون:</strong>
+        حيث يشجع هذا النوع من التراخيص على مشاركة الأفكار والإسهام في تطوير مشروعات الغير.
+    </li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+
+let speechParts = [];
+let currentPart = 0;
+let isReading = false;
+let isPaused = false;
+let readingRun = 0;
+
+function prepareSpeech() {
+
+    const content = document.getElementById("lessonContent");
+    const elements = content.querySelectorAll("h2, h3, p, li");
+
+    speechParts = [];
+
+    elements.forEach(element => {
+
+        const text = element.innerText.trim();
+
+        if (text) {
+            speechParts.push(text);
+        }
+
+    });
+
+}
+
+function startReading() {
+
+    if (!("speechSynthesis" in window)) {
+        alert("المتصفح لا يدعم خاصية قراءة النصوص.");
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    prepareSpeech();
+
+    currentPart = 0;
+    isReading = true;
+    isPaused = false;
+    readingRun++;
+
+    document.getElementById("readingStatus").textContent =
+        "جاري قراءة الدرس...";
+
+    speakNext(readingRun);
+
+}
+
+function speakNext(runId) {
+
+    if (runId !== readingRun || !isReading || isPaused) {
+        return;
+    }
+
+    if (currentPart >= speechParts.length) {
+
+        isReading = false;
+
+        document.getElementById("readingStatus").textContent =
+            "اكتملت قراءة الدرس.";
+
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+
+    utterance.onend = function() {
+
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+
+    };
+
+    utterance.onerror = function() {
+
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+
+    };
+
+    window.speechSynthesis.speak(utterance);
+
+}
+
+function pauseReading() {
+
+    if (!isReading || isPaused) {
+        return;
+    }
+
+    isPaused = true;
+
+    readingRun++;
+
+    window.speechSynthesis.cancel();
+
+    document.getElementById("readingStatus").textContent =
+        "القراءة متوقفة مؤقتًا.";
+
+}
+
+function resumeReading() {
+
+    if (!isReading || !isPaused) {
+        return;
+    }
+
+    isPaused = false;
+
+    readingRun++;
+
+    const runId = readingRun;
+
+    window.speechSynthesis.cancel();
+
+    document.getElementById("readingStatus").textContent =
+        "تمت متابعة القراءة...";
+
+    setTimeout(function() {
+
+        if (runId === readingRun && isReading && !isPaused) {
+            speakNext(runId);
+        }
+
+    }, 200);
+
+}
+
+function stopReading() {
+
+    readingRun++;
+
+    isReading = false;
+    isPaused = false;
+    currentPart = 0;
+
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+    }
+
+    document.getElementById("readingStatus").textContent =
+        "تم إيقاف القراءة.";
+
+}
+
+</script>
+
+</body>
+</html>
