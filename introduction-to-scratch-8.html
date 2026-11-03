@@ -835,23 +835,33 @@ function speakNext(runId) {
 }
 
 
+
 function pauseReading() {
-    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
-        window.speechSynthesis.pause();
-        isPaused = true;
+    if (!isReading || isPaused) return;
+
+    isPaused = true;
+
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
     }
 }
 
 function resumeReading() {
-    if (!isPaused) return;
+    if (!isReading || !isPaused) return;
 
     isPaused = false;
-    window.speechSynthesis.resume();
 
-    if (isReading && !window.speechSynthesis.speaking) {
-        speakNext(readingRun);
-    }
+    window.speechSynthesis.cancel();
+
+    const runId = readingRun;
+
+    setTimeout(function() {
+        if (runId === readingRun && isReading && !isPaused) {
+            speakNext(runId);
+        }
+    }, 150);
 }
+
 
 function stopReading() {
     readingRun++;
