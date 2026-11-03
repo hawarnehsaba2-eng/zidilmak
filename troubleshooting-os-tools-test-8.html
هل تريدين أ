@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبر نفسك - الدرس الرابع | زد علمك</title>
+
+    <meta name="description"
+        content="اختبر نفسك في درس إصلاح الأعطال باستخدام أدوات نظام التشغيل للصف الثامن.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8f5;
+            color: #263238;
+            margin: 0;
+            padding: 15px;
+            line-height: 1.9;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        header {
+            background: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid #dce8df;
+            border-radius: 13px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 8px #00000008;
+        }
+
+        .question h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .question-text {
+            background: #fff0f5;
+            padding: 12px;
+            border-radius: 9px;
+            margin-bottom: 12px;
+        }
+
+        .option {
+            display: block;
+            background: #f7f9f7;
+            border: 1px solid #e0e8e1;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eaf5ec;
+        }
+
+        .option input {
+            margin-left: 8px;
+            accent-color: #2e7d32;
+        }
+
+        .question img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            margin: 15px auto;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        button,
+        .back-link {
+            border: none;
+            border-radius: 9px;
+            padding: 12px 22px;
+            font-size: 16px;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .check-btn {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .reset-btn {
+            background: #e8f2e9;
+            color: #2e7d32;
+        }
+
+        .back-link {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            background: #2e7d32;
+            color: white;
+        }
+
+        #result {
+            display: none;
+            background: #e8f5e9;
+            border: 2px solid #81c784;
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .feedback {
+            display: none;
+            padding: 8px 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .correct {
+            background: #e3f5e5;
+            color: #236b2c;
+        }
+
+        .incorrect {
+            background: #ffebee;
+            color: #b71c1c;
+        }
+
+        footer {
+            text-align: center;
+            color: #607064;
+            padding: 20px 5px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 21px;
+            }
+
+            .question {
+                padding: 13px;
+            }
+
+            .question h3 {
+                font-size: 17px;
+            }
+
+            button,
+            .back-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>اختبر نفسك</h1>
+            <p>الدرس الرابع: إصلاح الأعطال باستخدام أدوات نظام التشغيل</p>
+            <p>المهارات الرقمية - الصف الثامن</p>
+        </header>
+
+        <form id="quizForm">
+
+            <!-- السؤال الأول -->
+            <div class="question" data-answer="b">
+                <h3>السؤال الأول</h3>
+
+                <div class="question-text">
+                    مجلد يحتوي على مجموعة من البرامج والأدوات التي تساعد في تحسين الأداء العام لنظام التشغيل Windows وتسريعه،
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="a">
+                    استكشاف الأخطاء وإصلاحها (Troubleshoot)
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="b">
+                    مجلد أدوات إدارة نظام التشغيل Windows
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال الثاني -->
+            <div class="question" data-answer="b">
+                <h3>السؤال الثاني</h3>
+
+                <div class="question-text">
+                    إعادة ترتيب الملفات والبيانات المخزنة على القرص الصلب (HDD) وتنظيمها
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="a">
+                    محرك الاسترداد
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="b">
+                    أداة إلغاء التجزئة / تحسين محركات الأقراص
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال الثالث -->
+            <div class="question" data-answer="a">
+                <h3>السؤال الثالث</h3>
+
+                <div class="question-text">
+                    أداة تستخدم للحصول على مساحة خالية على القرص الصلب عن طريق إزالة الملفات غير الضرورية وغير المرغوب فيها
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="a">
+                    تنظيف القرص
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="b">
+                    محرك الاسترداد
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال الرابع -->
+            <div class="question" data-answer="a">
+                <h3>السؤال الرابع</h3>
+
+                <div class="question-text">
+                    إذا واجه جهاز الحاسوب فشلا في العمل؛ إذ سنقوم باسترداد ذلك النسخة من أجل إعادة تثبيت نظام التشغيل Windows 10.
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="a">
+                    محرك الاسترداد
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="b">
+                    تنظيف القرص
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال الخامس -->
+            <div class="question" data-answer="b">
+                <h3>السؤال الخامس</h3>
+
+                <div class="question-text">
+                    أداة من الأدوات الإدارية تعمل على فحص ذاكرة الوصول العشوائي RAM، وإعطاء تقرير مفصل بجميع المشكلات التي تعاني منها الذاكرة في نهاية الفحص.
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="a">
+                    مراقب الأداء (Performance Monitor)
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="b">
+                    أداة تشخيص الذاكرة (Windows Memory Diagnostic)
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال السادس -->
+            <div class="question" data-answer="a">
+                <h3>السؤال السادس</h3>
+
+                <div class="question-text">
+                    أداة من الأدوات الإدارية تعمل على فتح نافذة مراقبة الأداء التي تحتوي على معلومات استخدام موارد جهاز الحاسوب (المعالج، الذاكرة، كرت الشاشة، الشبكة).
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q6" value="a">
+                    مراقب الأداء (Performance Monitor)
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q6" value="b">
+                    أداة تشخيص الذاكرة (Windows Memory Diagnostic)
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال السابع -->
+            <div class="question" data-answer="a">
+                <h3>السؤال السابع</h3>
+
+                <img src="images/IMG_٢٠٢٦١١٠٣_٠٦٠٩٥٠.jpg"
+                     alt="صورة من أدوات نظام التشغيل">
+
+                <div class="question-text">
+                    هذه الشاشة من خطوات؟
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q7" value="a">
+                    مستكشف الأخطاء
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q7" value="b">
+                    إلغاء التجزئة وتحسين محركات الأقراص
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال الثامن -->
+            <div class="question" data-answer="b">
+                <h3>السؤال الثامن</h3>
+
+                <img src="images/IMG_٢٠٢٦١١٠٣_٠٦١١٠٦.jpg"
+                     alt="صورة نافذة تحسين محركات الأقراص">
+
+                <div class="question-text">
+                    لإتمام الخطوات يجب اختيار زر؟
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q8" value="a">
+                    تحليل
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q8" value="b">
+                    تحسين
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال التاسع -->
+            <div class="question" data-answer="b">
+                <h3>السؤال التاسع</h3>
+
+                <img src="images/IMG_٢٠٢٦١١٠٣_٠٦١٠٠٩.jpg"
+                     alt="صورة أداة تنظيف القرص">
+
+                <div class="question-text">
+                    بعد الانتهاء من تحليل القرص، ستظهر النافذة الرئيسة أداة تنظيف القرص المختار وبعد تحديد الملفات التي أريد حذفها يجب النقر على
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q9" value="a">
+                    موافق
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q9" value="b">
+                    تنظيف ملفات النظام
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <!-- السؤال العاشر -->
+            <div class="question" data-answer="a">
+                <h3>السؤال العاشر</h3>
+
+                <img src="images/IMG_٢٠٢٦١١٠٣_٠٦١٠٣١.jpg"
+                     alt="صورة شاشة من أدوات نظام التشغيل">
+
+                <div class="question-text">
+                    هذه الشاشة تسمى
+                </div>
+
+                <label class="option">
+                    <input type="radio" name="q10" value="a">
+                    شاشة تحليل الذاكرة
+                </label>
+
+                <label class="option">
+                    <input type="radio" name="q10" value="b">
+                    شاشة مراقبة الأداء
+                </label>
+
+                <div class="feedback"></div>
+            </div>
+
+            <div id="result"></div>
+
+            <div class="buttons">
+                <button type="button" class="check-btn" onclick="checkAnswers()">
+                    تحقق من إجاباتك
+                </button>
+
+                <button type="reset" class="reset-btn" onclick="resetQuiz()">
+                    إعادة المحاولة
+                </button>
+            </div>
+
+        </form>
+
+        <a class="back-link" href="digital-skills-8-term1.html">
+            العودة إلى فهرس الصف الثامن
+        </a>
+
+        <footer>
+            © 2026 زد علمك - جميع الحقوق محفوظة
+        </footer>
+
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const questions = document.querySelectorAll(".question");
+            let score = 0;
+
+            questions.forEach((question, index) => {
+                const correctAnswer = question.dataset.answer;
+                const selected = question.querySelector(
+                    'input[name="q' + (index + 1) + '"]:checked'
+                );
+                const feedback = question.querySelector(".feedback");
+
+                feedback.style.display = "block";
+
+                if (selected && selected.value === correctAnswer) {
+                    score++;
+                    feedback.textContent = "إجابة صحيحة ✓";
+                    feedback.className = "feedback correct";
+                } else {
+                    feedback.textContent = "إجابة غير صحيحة ✗";
+                    feedback.className = "feedback incorrect";
+                }
+            });
+
+            const result = document.getElementById("result");
+            result.style.display = "block";
+            result.textContent = "نتيجتك: " + score + " من " + questions.length;
+
+            result.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+
+        function resetQuiz() {
+            document.querySelectorAll(".feedback").forEach(feedback => {
+                feedback.style.display = "none";
+                feedback.textContent = "";
+            });
+
+            const result = document.getElementById("result");
+            result.style.display = "none";
+            result.textContent = "";
+        }
+    </script>
+
+</body>
+</html>
