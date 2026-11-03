@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اختبر نفسك: عناصر التصميم في سكراتش | الصف الثامن | زد علمك</title>
+
+<meta name="description" content="اختبار تفاعلي في درس عناصر التصميم في سكراتش للصف الثامن، يتكون من 10 أسئلة مع التصحيح الفوري وعرض النتيجة.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 15px;
+    line-height: 2;
+}
+
+.container {
+    max-width: 850px;
+    margin: 20px auto;
+}
+
+header {
+    background: #176b45;
+    color: white;
+    text-align: center;
+    padding: 22px 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+.info {
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.question-box {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #e2e2e2;
+}
+
+.question-title {
+    background: #fff0f4;
+    border-right: 5px solid #d77b99;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.option {
+    display: block;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 13px;
+    margin: 9px 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #edf5ef;
+}
+
+.option input {
+    margin-left: 8px;
+    accent-color: #176b45;
+}
+
+.option.correct {
+    background: #e3f5e8;
+    border-color: #399765;
+}
+
+.option.wrong {
+    background: #fde8e8;
+    border-color: #c65b5b;
+}
+
+.result {
+    display: none;
+    background: #e8f5ed;
+    border: 2px solid #399765;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.result h2 {
+    color: #176b45;
+    margin-top: 0;
+}
+
+.score {
+    font-size: 30px;
+    font-weight: bold;
+    color: #176b45;
+}
+
+button {
+    border: none;
+    border-radius: 9px;
+    padding: 12px 25px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 8px;
+    font-family: inherit;
+}
+
+.finish-btn {
+    background: #176b45;
+    color: white;
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.retry-btn {
+    background: #a87932;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.88;
+}
+
+.feedback {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+footer {
+    text-align: center;
+    color: #777;
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 9px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .question-box {
+        padding: 13px;
+    }
+
+    button {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>اختبر نفسك</h1>
+    <p>الدرس الثاني: عناصر التصميم في سكراتش</p>
+    <p>المهارات الرقمية - الصف الثامن</p>
+</header>
+
+<div class="info">
+    عدد الأسئلة: 10
+    <br>
+    العلامة الكلية: 10 علامات
+    <br>
+    اختر إجابة واحدة لكل سؤال.
+</div>
+
+<form id="quizForm">
+
+<div class="question-box" data-answer="0">
+
+<div class="question-title">
+1. شخصية أو شكل يستخدم في المشروع في برمجية (Scratch).
+</div>
+
+<label class="option">
+<input type="radio" name="q1" value="0">
+كائن
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="1">
+صوت
+</label>
+
+</div>
+
+<div class="question-box" data-answer="0">
+
+<div class="question-title">
+2. الحيوانات داخل المشروع تعتبر مثالًا على:
+</div>
+
+<label class="option">
+<input type="radio" name="q2" value="0">
+كائن
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="1">
+صوت
+</label>
+
+</div>
+
+<div class="question-box" data-answer="0">
+
+<div class="question-title">
+3. يمكنني تصميم الكائنات التي أتخيلها ورسمها باستخدام أدوات الرسم المدمجة في برمجية سكراتش.
+</div>
+
+<label class="option">
+<input type="radio" name="q3" value="0">
+صحيح
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="1">
+خطأ
+</label>
+
+</div>
+
+<div class="question-box" data-answer="0">
+
+<div class="question-title">
+4. عنصرًا أساسيًا في أي مشروع في برمجية Scratch حيث تضيف عمقًا وسياقًا بصريًا للمشاهد، مما يعزز جاذبية المشروع، ويدعم القصة أو اللعبة التي نعمل على إنشائها.
+</div>
+
+<label class="option">
+<input type="radio" name="q4" value="0">
+الخلفيات
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="1">
+منطقة البرمجة
+</label>
+
+</div>
+
+<div class="question-box" data-answer="0">
+
+<div class="question-title">
+5. تتوافر مصادر عدة لإضافة الأصوات.
+</div>
+
+<label class="option">
+<input type="radio" name="q5" value="0">
+صحيح
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="1">
+خطأ
+</label>
+
+</div>
+
+<div class="question-box" data-answer="1">
+
+<div class="question-title">
+6. تسجيل الصوت باستخدام الميكروفون تسمى هذه الطريقة استخدام مكتبة سكراتش.
+</div>
+
+<label class="option">
+<input type="radio" name="q6" value="0">
+صحيح
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="1">
+خطأ
+</label>
+
+</div>
+
+<div class="question-box" data-answer="1">
+
+<div class="question-title">
+7. أيقونة "تحميل صوت (Upload Sound)" نستخدمها لتسجيل صوت بواسطة الميكروفون.
+</div>
+
+<label class="option">
+<input type="radio" name="q7" value="0">
+صحيح
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="1">
+خطأ
+</label>
+
+</div>
+
+<div class="question-box" data-answer="0">
+
+<div class="question-title">
+8. أداة قص الصوت تستخدم لـ:
+</div>
+
+<label class="option">
+<input type="radio" name="q8" value="0">
+إزالة أجزاء غير مرغوب فيها.
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="1">
+لتجعله أسرع أو أبطأ.
+</label>
+
+</div>
+
+<div class="question-box" data-answer="1">
+
+<div class="question-title">
+9. يمكن استخدام أي صورة أجدها على الإنترنت من دون الحصول على إذن.
+</div>
+
+<label class="option">
+<input type="radio" name="q9" value="0">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="1">
+لا
+</label>
+
+</div>
+
+<div class="question-box" data-answer="1">
+
+<div class="question-title">
+10. الأصوات الخلفية لا تؤثر في تفاعل المستخدم مع المشروع.
+</div>
+
+<label class="option">
+<input type="radio" name="q10" value="0">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="1">
+لا
+</label>
+
+</div>
+
+<button type="button" class="finish-btn" onclick="finishQuiz()">
+إنهاء الاختبار
+</button>
+
+</form>
+
+<div class="result" id="result">
+    <h2>نتيجة الاختبار</h2>
+    <div class="score" id="score"></div>
+    <p id="message"></p>
+    <button class="retry-btn" onclick="retryQuiz()">
+        إعادة الاختبار
+    </button>
+</div>
+
+<footer>
+© 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+
+let submitted = false;
+
+function finishQuiz() {
+
+    if (submitted) {
+        return;
+    }
+
+    const questions = document.querySelectorAll(".question-box");
+    let score = 0;
+    let unanswered = 0;
+
+    questions.forEach((question, index) => {
+
+        const selected = question.querySelector("input:checked");
+
+        if (!selected) {
+            unanswered++;
+        }
+
+    });
+
+    if (unanswered > 0) {
+        alert("يرجى الإجابة عن جميع الأسئلة قبل إنهاء الاختبار.");
+        return;
+    }
+
+    questions.forEach((question) => {
+
+        const correctAnswer = question.dataset.answer;
+        const selected = question.querySelector("input:checked");
+        const options = question.querySelectorAll(".option");
+
+        options.forEach((option) => {
+
+            const input = option.querySelector("input");
+
+            input.disabled = true;
+
+            if (input.value === correctAnswer) {
+                option.classList.add("correct");
+            }
+
+            if (input.checked && input.value !== correctAnswer) {
+                option.classList.add("wrong");
+            }
+
+        });
+
+        if (selected.value === correctAnswer) {
+            score++;
+        }
+
+    });
+
+    submitted = true;
+
+    document.getElementById("score").textContent =
+        score + " / 10";
+
+    let message = "";
+
+    if (score === 10) {
+        message = "ممتاز! أحسنت، جميع إجاباتك صحيحة.";
+    } else if (score >= 8) {
+        message = "أحسنت! مستوى رائع.";
+    } else if (score >= 5) {
+        message = "جيد، يمكنك مراجعة الدرس لتحسين نتيجتك.";
+    } else {
+        message = "حاول مرة أخرى بعد مراجعة الدرس.";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    document.getElementById("result").style.display = "block";
+
+    document.querySelector(".finish-btn").disabled = true;
+
+    document.getElementById("result").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+function retryQuiz() {
+
+    document.getElementById("quizForm").reset();
+
+    document.querySelectorAll(".question-box").forEach(question => {
+
+        question.querySelectorAll("input").forEach(input => {
+            input.disabled = false;
+        });
+
+        question.querySelectorAll(".option").forEach(option => {
+            option.classList.remove("correct", "wrong");
+        });
+
+    });
+
+    submitted = false;
+
+    document.querySelector(".finish-btn").disabled = false;
+
+    document.getElementById("result").style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
