@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اختبر نفسك: عناصر البرمجة في سكراتش | زد علمك</title>
+<meta name="description" content="اختبر معلوماتك في درس عناصر البرمجة في سكراتش للصف الثامن من خلال أسئلة تفاعلية مع النتيجة والتصحيح.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f7f8fa;
+    color: #333;
+    line-height: 1.9;
+    margin: 0;
+    padding: 15px;
+}
+
+.container {
+    max-width: 850px;
+    margin: 20px auto;
+}
+
+header {
+    background: #198754;
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+    border-radius: 14px;
+    margin-bottom: 22px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+.instructions {
+    background: #e8f5e9;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.question {
+    background: white;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.question h3 {
+    margin-top: 0;
+    color: #176b3a;
+    font-size: 17px;
+}
+
+.option {
+    display: block;
+    background: #fce4ec;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin: 9px 0;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.option input {
+    margin-left: 8px;
+    accent-color: #198754;
+}
+
+.option.correct {
+    background: #d8f3dc;
+    border-color: #198754;
+}
+
+.option.wrong {
+    background: #ffe0e0;
+    border-color: #dc3545;
+}
+
+.feedback {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.correct-text {
+    color: #198754;
+}
+
+.wrong-text {
+    color: #dc3545;
+}
+
+button {
+    border: none;
+    border-radius: 9px;
+    padding: 13px 22px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 8px 4px;
+}
+
+#submitBtn {
+    background: #198754;
+    color: white;
+    width: 100%;
+}
+
+#retryBtn {
+    background: #e9ecef;
+    color: #333;
+    display: none;
+    width: 100%;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#result {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    background: #e8f5e9;
+    margin-top: 20px;
+}
+
+#score {
+    font-size: 30px;
+    font-weight: bold;
+    color: #198754;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    margin-top: 35px;
+    padding: 15px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 9px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .question {
+        padding: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>اختبر نفسك</h1>
+    <p>الدرس الثالث: عناصر البرمجة في سكراتش</p>
+</header>
+
+<div class="instructions">
+    أجب عن الأسئلة العشرة الآتية، ثم اضغط على زر «إنهاء الاختبار» لمعرفة نتيجتك.
+    لكل سؤال علامة واحدة، ويجب الإجابة عن جميع الأسئلة.
+</div>
+
+<form id="quizForm">
+
+<div class="question" data-answer="1">
+    <h3>السؤال 1: أوامر برمجية جاهزة تُستخدم لتحديد ما يجب أن يفعله البرنامج، وتشمل أوامر مثل «التحرك» و«التكرار» و«التغيير».</h3>
+    <label class="option"><input type="radio" name="q0" value="0"> عناصر التصميم</label>
+    <label class="option"><input type="radio" name="q0" value="1"> اللبنات البرمجية</label>
+</div>
+
+<div class="question" data-answer="0">
+    <h3>السؤال 2: يتم ترتيب اللبنات بشكل متتالٍ؛ بحيث تلتصق بعضها مع بعض، وتُنفّذ الأوامر واحدة تلو الأخرى بناءً على ترتيب اللبنات.</h3>
+    <label class="option"><input type="radio" name="q1" value="0"> الإلصاق (Sequential Stacking)</label>
+    <label class="option"><input type="radio" name="q1" value="1"> التداخل (Nesting)</label>
+</div>
+
+<div class="question" data-answer="1">
+    <h3>السؤال 3: وضع مجموعة من اللبنات داخل لبنة تحتوي على تكرار أو شرط معين.</h3>
+    <label class="option"><input type="radio" name="q2" value="0"> الإلصاق (Sequential Stacking)</label>
+    <label class="option"><input type="radio" name="q2" value="1"> التداخل (Nesting)</label>
+</div>
+
+<div class="question" data-answer="1">
+    <h3>السؤال 4: يتم وضع لبنة صغيرة مثل قيمة متغيرة أو عملية حسابية داخل لبنة أخرى.</h3>
+    <label class="option"><input type="radio" name="q3" value="0"> الإلصاق (Sequential Stacking)</label>
+    <label class="option"><input type="radio" name="q3" value="1"> الاحتواء (Embedding)</label>
+</div>
+
+<div class="question" data-answer="0">
+    <h3>السؤال 5: ما اللبنات التي تُستخدم مع الكائنات لا مع الخلفيات؟</h3>
+    <label class="option"><input type="radio" name="q4" value="0"> لبنات الحركة (Motion Blocks)</label>
+    <label class="option"><input type="radio" name="q4" value="1"> لبنات الهيئة (Looks Blocks)</label>
+</div>
+
+<div class="question" data-answer="0">
+    <h3>السؤال 6: نستخدم هذه اللبنات لتغيير مظهر الكائنات والتحكم بالطريقة التي تظهر بها على الشاشة؛ مما يضيف عنصرًا بصريًا وجماليًا للمشروعات البرمجية، ويجعلها أكثر تفاعلية وجاذبية.</h3>
+    <label class="option"><input type="radio" name="q5" value="0"> لبنات الهيئة (Looks Blocks)</label>
+    <label class="option"><input type="radio" name="q5" value="1"> لبنات الصوت (Sound Blocks)</label>
+</div>
+
+<div class="question" data-answer="1">
+    <h3>السؤال 7: تتيح تشغيل أو إيقاف أصوات من مكتبة سكراتش، أو تلك التي يتم تحميلها أو تسجيلها.</h3>
+    <label class="option"><input type="radio" name="q6" value="0"> لبنات تغيير أو تعيين الحجم والإيقاع</label>
+    <label class="option"><input type="radio" name="q6" value="1"> لبنات تشغيل أو إيقاف الأصوات</label>
+</div>
+
+<div class="question" data-answer="0">
+    <h3>السؤال 8: أي فعل أو إجراء يؤدي إلى استجابة معينة داخل المشروع؟</h3>
+    <label class="option"><input type="radio" name="q7" value="0"> الحدث البرمجي</label>
+    <label class="option"><input type="radio" name="q7" value="1"> لبنات التحكم (Control Blocks)</label>
+</div>
+
+<div class="question" data-answer="1">
+    <h3>السؤال 9: نستخدم هذه اللبنات لتنظيم النصوص البرمجية، فيمكن إدخال عبارات شرطية، وحلقات تكرار وتوقفات مؤقتة.</h3>
+    <label class="option"><input type="radio" name="q8" value="0"> لبنات الاستشعار (Sensing Blocks)</label>
+    <label class="option"><input type="radio" name="q8" value="1"> لبنات التحكم (Control Blocks)</label>
+</div>
+
+<div class="question" data-answer="0">
+    <h3>السؤال 10: هو أداة أساسية في البرمجة، تُستخدم لتخزين قيمة يمكن تعديلها في أثناء تشغيل البرنامج.</h3>
+    <label class="option"><input type="radio" name="q9" value="0"> المتغير</label>
+    <label class="option"><input type="radio" name="q9" value="1"> لبنات العمليات (Operations Blocks)</label>
+</div>
+
+<button type="button" id="submitBtn" onclick="submitQuiz()">إنهاء الاختبار</button>
+
+</form>
+
+<div id="result">
+    <h2>نتيجتك في الاختبار</h2>
+    <div id="score"></div>
+    <p id="message"></p>
+</div>
+
+<button type="button" id="retryBtn" onclick="retryQuiz()">إعادة الاختبار</button>
+
+<footer>
+© 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+const form = document.getElementById("quizForm");
+const questions = document.querySelectorAll(".question");
+const submitBtn = document.getElementById("submitBtn");
+const retryBtn = document.getElementById("retryBtn");
+const resultBox = document.getElementById("result");
+
+function submitQuiz() {
+    let score = 0;
+    let unanswered = 0;
+
+    questions.forEach((question, index) => {
+        const selected = form.querySelector(
+            'input[name="q' + index + '"]:checked'
+        );
+
+        if (!selected) {
+            unanswered++;
+        }
+    });
+
+    if (unanswered > 0) {
+        alert("يرجى الإجابة عن جميع الأسئلة قبل إنهاء الاختبار.");
+        return;
+    }
+
+    questions.forEach((question, index) => {
+        const correctAnswer = question.dataset.answer;
+        const selected = form.querySelector(
+            'input[name="q' + index + '"]:checked'
+        );
+
+        const options = question.querySelectorAll(".option");
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+
+        options.forEach(option => {
+            const input = option.querySelector("input");
+
+            input.disabled = true;
+
+            if (input.value === correctAnswer) {
+                option.classList.add("correct");
+            }
+
+            if (input.checked && input.value !== correctAnswer) {
+                option.classList.add("wrong");
+            }
+        });
+
+        if (selected.value === correctAnswer) {
+            score++;
+            feedback.textContent = "إجابة صحيحة ✓";
+            feedback.classList.add("correct-text");
+        } else {
+            feedback.textContent = "إجابة خاطئة ✗";
+            feedback.classList.add("wrong-text");
+        }
+
+        question.appendChild(feedback);
+    });
+
+    document.getElementById("score").textContent = score + " / 10";
+
+    let message = "";
+
+    if (score === 10) {
+        message = "ممتاز! جميع إجاباتك صحيحة.";
+    } else if (score >= 8) {
+        message = "أحسنت! أداء رائع.";
+    } else if (score >= 5) {
+        message = "جيد، يمكنك مراجعة الدرس وتحسين نتيجتك.";
+    } else {
+        message = "حاول مرة أخرى بعد مراجعة الدرس.";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    resultBox.style.display = "block";
+    submitBtn.disabled = true;
+    retryBtn.style.display = "block";
+
+    resultBox.scrollIntoView({ behavior: "smooth" });
+}
+
+function retryQuiz() {
+    form.reset();
+
+    questions.forEach(question => {
+        question.querySelectorAll("input").forEach(input => {
+            input.disabled = false;
+        });
+
+        question.querySelectorAll(".option").forEach(option => {
+            option.classList.remove("correct", "wrong");
+        });
+
+        question.querySelectorAll(".feedback").forEach(feedback => {
+            feedback.remove();
+        });
+    });
+
+    resultBox.style.display = "none";
+    submitBtn.disabled = false;
+    retryBtn.style.display = "none";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
