@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>المتغيرات في برمجية سكراتش للصف الثامن | زد علمك</title>
+<meta name="description" content="شرح درس المتغيرات في برمجية سكراتش للصف الثامن، أنواع المتغيرات وكيفية إنشائها واستخدامها مع الأمثلة.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f7f8fa;
+    color: #333;
+    line-height: 1.9;
+    margin: 0;
+    padding: 15px;
+}
+
+.container {
+    max-width: 950px;
+    margin: 20px auto;
+}
+
+header {
+    background: #198754;
+    color: white;
+    text-align: center;
+    padding: 23px 12px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+.read-controls {
+    background: white;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    text-align: center;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.05);
+}
+
+.read-controls button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    margin: 4px;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    background: #198754;
+    color: white;
+}
+
+.read-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#readingStatus {
+    display: block;
+    color: #555;
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+.lesson-section {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.04);
+}
+
+.section-title {
+    background: #e8f5e9;
+    color: #176b3a;
+    padding: 12px 15px;
+    border-right: 5px solid #198754;
+    border-radius: 8px;
+    margin: 25px 0 15px;
+    font-size: 20px;
+}
+
+.question-title {
+    color: #176b3a;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 18px;
+}
+
+.activity {
+    background: #e7f3ff;
+    border-right: 5px solid #4285c5;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.illumination {
+    background: #fff8cf;
+    border-right: 5px solid #d6b84a;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.example {
+    background: #f0e6fa;
+    border-right: 5px solid #a77ac4;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.lesson-image {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    margin: 18px auto;
+    border-radius: 10px;
+}
+
+ul, ol {
+    padding-right: 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    margin-top: 35px;
+    padding: 15px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 9px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .lesson-section {
+        padding: 13px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .read-controls button {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>الدرس الرابع: المتغيرات في برمجية سكراتش</h1>
+    <p>Variables in Scratch</p>
+</header>
+
+<div class="read-controls">
+    <button type="button" id="startReading">▶ بدء القراءة</button>
+    <button type="button" id="pauseReading" disabled>⏸ إيقاف مؤقت</button>
+    <button type="button" id="resumeReading" disabled>▶ متابعة القراءة</button>
+    <button type="button" id="stopReading" disabled>⏹ إيقاف القراءة</button>
+    <span id="readingStatus">اضغط على بدء القراءة للاستماع إلى الدرس.</span>
+</div>
+
+<main id="lessonContent">
+
+<section class="lesson-section">
+
+<div class="section-title">لبنات المتغيرات (Variables Blocks)</div>
+
+<h2 class="question-title">وضح المقصود بخاصية المزج (Remix) في برمجية سكراتش.</h2>
+
+<p>
+هي خاصية تتيح للمستخدمين استيراد كائنات أو نصوص برمجية من مشروعات أخرى ودمجها بسهولة مع مشروعاتهم الحالية.
+</p>
+
+<h3 class="question-title">مميزات خاصية المزج في برمجية سكراتش</h3>
+
+<p>
+تساعد هذه الميزة على توسيع إمكانات المشروع وتطويره بشكل أسرع، حيث يمكن الاستفادة من الجهود السابقة، وإعادة استخدام الأفكار أو الأكواد المبتكرة؛ مما يوفر الوقت والجهد.
+</p>
+
+<p>
+ويمكن استيراد كائنات متعددة بما يتضمن خلفياتها، وأصواتها، وبرمجياتها المرفقة، ثم تعديلها لتتماشى مع فكرتي الخاصة، مما يضمن اندماجها بسلاسة مع مشروعي.
+</p>
+
+</section>
+
+<section class="lesson-section">
+
+<div class="section-title">مكونات المتغيرات في سكراتش</div>
+
+<ul>
+    <li>اسم المتغير.</li>
+    <li>قيمة المتغير.</li>
+    <li>نوع البيانات.</li>
+</ul>
+
+<h3 class="question-title">وضح المقصود باسم المتغير:</h3>
+
+<p>
+هو الاسم الذي يُطلق على المتغير لتمييزه عن غيره من المتغيرات في المشروع، حيث يجب أن يكون واضحًا ومعبرًا عن محتوى المتغير أو وظيفته.
+</p>
+
+<h3 class="question-title">شروط تسمية المتغير</h3>
+
+<p>
+يجب أن يكون واضحًا ومعبرًا عن محتوى المتغير أو وظيفته (مثال: إذا كنا نصمم لعبة عن الكواكب، يمكن تسمية المتغير «عدد الكواكب»).
+</p>
+
+<p>
+في البرمجة عمومًا، يجب الالتزام بقواعد معينة لتسمية المتغيرات، تختلف باختلاف لغة البرمجة.
+</p>
+
+<h3 class="question-title">وضح المقصود بقيمة المتغير:</h3>
+
+<p>
+وهي تمثل البيانات أو المعلومات المخزنة داخل المتغير. هذه القيمة قد تتغير في أثناء تشغيل البرنامج بناءً على الأحداث أو العمليات البرمجية.
+</p>
+
+<p>
+مثال: إذا بدأ المتغير «عدد النقاط» بقيمة أولية، ثم جمع اللاعب نقطة، يتم تحديث القيمة إلى 1.
+</p>
+
+<h3 class="question-title">وضح المقصود بنوع البيانات:</h3>
+
+<p>
+يشير إلى طبيعة القيمة التي سيحتويها المتغير، ويساعد في تحديد كيفية التعامل مع المتغير في أثناء تنفيذ البرنامج.
+</p>
+
+</section>
+
+<section class="lesson-section">
+
+<div class="section-title">ما يميز برمجية سكراتش في العمل مع المتغيرات</div>
+
+<p>
+في برمجية سكراتش Scratch يتميز العمل مع المتغيرات بالبساطة والمرونة، فلا يُطلب تحديد نوع البيانات عند إنشاء المتغير؛ مما يجعل جميع المتغيرات قادرة على تخزين النصوص أو الأعداد تلقائيًا حسب الحاجة.
+</p>
+
+<p>
+مع ذلك، هناك ثلاثة أنواع بيانات رئيسة يتم استخدامها غالبًا في مشروعات سكراتش:
+</p>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٤_٢٣٤٣٠٦.jpg" alt="أنواع البيانات في سكراتش">
+
+<h3 class="question-title">الأعداد (Numbers)</h3>
+
+<p>
+تُستخدم لتخزين القيم العددية التي يمكن التعامل معها في العمليات الحسابية (مثل: جمع النقاط في الألعاب، وحساب الزمن، وعدد المحاولات)، يمكن أن تكون الأعداد في سكراتش صحيحة مثل (1، 5، 10) أو عشرية مثل (2.5، 3.14).
+</p>
+
+<p>
+مثل تعريف متغير «النقاط» لتخزين عدد النقاط التي يجمعها اللاعب في أثناء اللعبة.
+</p>
+
+<h3 class="question-title">النصوص (Strings)</h3>
+
+<p>
+تُستخدم لتخزين النصوص التي تتكون من أحرف وأرقام ورموز، مثل متغير «رسائل» لعرض رسائل على الشاشة (مثل «أحسنت!»).
+</p>
+
+<p>
+ومتغير «اسم اللاعب» لتخزين الاسم الذي يُظهره البرنامج عند بدء اللعبة أو عند عرض النتائج.
+</p>
+
+<h3 class="question-title">القيم المنطقية باستخدام المتغيرات (Boolean-like values)</h3>
+
+<p>
+في حين أن سكراتش لا يدعم القيم المنطقية (True و False) مباشرةً، فيمكن تمثيلها باستخدام الأعداد (على سبيل المثال، يمكن استخدام متغير يحمل قيمة 1 ليمثل «صحيح» وقيمة 0 ليمثل «خطأ») أو النصوص (مثل: «نعم» و«لا»).
+</p>
+
+<p>
+هذا النوع من البيانات يُستخدم للتحقق من حالات معينة، مثل: «هل انتهت اللعبة؟» «هل الكائن يلمس الحافة؟»؛ حيث يتم تخزين القيمة بناءً على الشرط، مثل تعريف متغير «الحالة» بحيث يحمل القيمة 1 إذا فاز اللاعب، والقيمة 0 إذا خسر.
+</p>
+
+<p>
+تساعد المتغيرات في تخزين القيم التي يمكن استخدامها وتحديثها في أثناء تشغيل المشروع.
+</p>
+
+</section>
+
+<section class="lesson-section">
+
+<div class="section-title">أنواع المتغيرات</div>
+
+<p>
+عند إنشاء المتغيرات باستخدام فئة «المتغيرات» يمكننا التفريق بين نوعين رئيسين:
+</p>
+
+<ol>
+    <li>أولًا: المتغيرات الثابتة (Constants).</li>
+    <li>ثانيًا: المتغيرات الديناميكية (Dynamic Variables).</li>
+</ol>
+
+<h3 class="question-title">وضح المقصود بالمتغيرات الثابتة (Constants) وأعط مثالًا عليها.</h3>
+
+<p>
+قيم هذه المتغيرات لا تتغير في أثناء تشغيل المشروع، وتستخدم لتخزين معلومات ثابتة. يساعد هذا النوع من المتغيرات في تخزين المعلومات التي نحتاجها في مختلف أجزاء البرنامج من دون الحاجة لتعديلها، مثل تخزين قيمة قصوى للنقاط، أو تخزين اسم اللعبة أو الرسائل الثابتة.
+</p>
+
+<p>
+مثل تعريف متغير «الحد الأقصى للنقاط» يحتفظ بقيمة 100 لتحديد الفوز في اللعبة.
+</p>
+
+<h3 class="question-title">خطوات إنشاء متغير ثابت في سكراتش (Scratch)</h3>
+
+<ol>
+    <li>
+        في نافذة اللبنات البرمجية، أختار فئة المتغيرات (Variables)، ثم أنقر على زر «إنشاء متغير» (Make a Variable).
+    </li>
+    <li>
+        أدخل اسمًا مناسبًا للمتغير، يعكس وظيفته بوضوح، مثل «الحد الأقصى للنقاط».
+    </li>
+    <li>
+        أختار «لجميع الكائنات» (For All Sprites) لجعل المتغير متاحًا لجميع الكائنات في المشروع.
+    </li>
+    <li>
+        لإعطاء المتغير قيمة ابتدائية، أضيف لبنة «اجعل [اسم المتغير] مساويًا [قيمة]».
+    </li>
+    <li>
+        أضع هذه اللبنة في بداية النص البرمجي (أسفل لبنة «عند النقر على العلم الأخضر»).
+    </li>
+    <li>
+        أدخل القيمة التي أريدها كقيمة ثابتة للمتغير، مثل: 100 كحد أقصى للنقاط.
+    </li>
+    <li>
+        أستخدم المتغير ضمن النصوص البرمجية للتحقق من الشروط، أو مقارنة القيم من دون تغييرها في أثناء تشغيل البرنامج.
+    </li>
+</ol>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٤_٢٣٤٦٣١.jpg" alt="خطوات إنشاء متغير ثابت في سكراتش">
+
+<div class="example">
+    <h3 class="question-title">مثال</h3>
+
+    <p>
+    لإنشاء متغير يُسمى «عدد المحاولات المتبقية» ويُضبط إلى 3. هذا يعني أن اللاعب لديه 3 محاولات فقط، وهذه القيمة لا تتغير في أثناء اللعب. أنفذ الخطوات الآتية:
+    </p>
+
+    <p>
+    أعمل على إنشاء متغير اسمه «عدد المحاولات المتبقية»، وأجعل المتغير متاحًا لجميع الكائنات.
+    </p>
+
+    <img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٤_٢٣٥٠٥٧.jpg" alt="إنشاء متغير عدد المحاولات المتبقية">
+
+    <p>
+    أضيف اللبنة: «اجعل [عدد المحاولات المتبقية] مساويًا [3]».
+    </p>
+
+    <p>
+    عند النقر على العلم الأخضر: يقوم الكود بإعادة ضبط اللعبة، وضبط عدد المحاولات المتاحة إلى 3 وعرض عدد المحاولات المتبقية.
+    </p>
+
+    <img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٤_٢٣٥٢٤٧.jpg" alt="تعيين عدد المحاولات المتبقية إلى ثلاثة">
+</div>
+
+</section>
+
+<section class="lesson-section">
+
+<div class="section-title">المتغيرات الديناميكية (Dynamic Variables)</div>
+
+<h3 class="question-title">وضح المقصود بالمتغيرات الديناميكية (Dynamic Variables).</h3>
+
+<p>
+هي نوع من المتغيرات يمكن تعديل قيمتها في أثناء تشغيل البرنامج؛ حيث تتغير بناءً على التفاعلات والأحداث التي تحدث خلال التنفيذ. هذا النوع يتميز بمرونته وقدرته على التحديث الديناميكي وفقًا لمنطق البرمجة.
+</p>
+
+<h3 class="question-title">أمثلة على استخدامات المتغيرات المتغيرة:</h3>
+
+<ul>
+    <li>
+        <strong>تتبع النقاط في الألعاب:</strong> يتم تحديث النقاط عند تحقيق إنجاز معين أو مواجهة عقبة.
+    </li>
+    <li>
+        <strong>حساب الوقت:</strong> تُستخدم لتسجيل الوقت المتبقي أو الزمن المستغرق لإتمام المهمة.
+    </li>
+    <li>
+        <strong>إدارة المستويات:</strong> تتغير قيم المتغيرات للإشارة إلى مستوى اللعبة الحالي.
+    </li>
+    <li>
+        <strong>متابعة الحالات:</strong> تُستخدم للإشارة إلى حالات معينة، مثل «تم النقر على الكائن» أو «اللعبة انتهت».
+    </li>
+</ul>
+
+<h3 class="question-title">خطوات إنشاء المتغيرات الديناميكية في سكراتش (Scratch)</h3>
+
+<ol>
+    <li>افتح برنامج سكراتش وانتقل إلى فئة «المتغيرات» في شريط اللبنات.</li>
+    <li>انقر على زر «إنشاء متغير» (Make a Variable).</li>
+    <li>اختر اسمًا للمتغير بما يعكس وظيفته، مثل «النقاط»، «الوقت»، أو «المستوى الحالي».</li>
+    <li>حدد النطاق حسب الحاجة.</li>
+</ol>
+
+<img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٤_٢٣٥٦٢٧.jpg" alt="تحديد نطاق المتغير في سكراتش">
+
+<ul>
+    <li>أختار «لجميع الكائنات» إذا كان المتغير مشتركًا بين جميع الكائنات.</li>
+    <li>أختار «لهذا الكائن فقط» إذا كان المتغير مخصصًا لكائن واحد.</li>
+    <li>أحدد القيمة الابتدائية للمتغير باستخدام لبنة «اجعل [اسم المتغير] مساويًا [قيمة]».</li>
+    <li>أستخدم كتلًا مثل «غيّر [اسم المتغير] بمقدار [قيمة]» لتعديل قيمة المتغير في أثناء تنفيذ البرنامج.</li>
+</ul>
+
+<div class="example">
+    <h3 class="question-title">مثال (1)</h3>
+
+    <p>
+    لنفترض أن لدينا متغيرين «عدد التفاح» و«عدد البرتقال»، وأنني أريد حساب عدد الفواكه، سأقوم بحساب «المجموع» باستخدام العمليات الحسابية.
+    </p>
+
+    <p>
+    في هذا المثال، قمت بإنشاء 3 متغيرات هي: عدد الفواكه، وعدد التفاح، وعدد البرتقال. وقمت بتعيين قيم أولية لكل متغير بالقيم الآتية على التوالي: صفر، 5 و6. ثم قمت بتعديل قيمة عدد الفواكه، ليُحسب مجموع عدد التفاح والبرتقال عن طريق إضافة المتغيرات «عدد التفاح» و«عدد البرتقال» باستخدام لبنة عملية الجمع.
+    </p>
+
+    <img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٤_٢٣٥٩٢٨.jpg" alt="مثال حساب عدد الفواكه باستخدام المتغيرات">
+</div>
+
+<div class="example">
+    <h3 class="question-title">مثال (2)</h3>
+
+    <p>
+    إضافة متغير لتمثيل تحصيل النقاط في الألعاب: في برمجة الألعاب، يتم استخدام متغير لتمثيل النقاط أو الإنجازات. هذا المتغير يمثل عدد النقاط التي يجمعها اللاعب خلال اللعب، ويتغير بناءً على أدائه.
+    </p>
+
+    <p>
+    أفترض أنني أريد إضافة متغير باسم «النقاط» ويتم تحديثه بزيادة قيمته كلما نقر اللاعب الكائن في اللعبة.
+    </p>
+
+    <p>
+    يمكنني تنفيذ ذلك باستخدام المقطع البرمجي الآتي:
+    </p>
+
+    <img class="lesson-image" src="images/IMG_٢٠٢٦١١٠٥_٠٠٠١٥٨.jpg" alt="مثال برمجي لزيادة النقاط عند النقر على الكائن">
+</div>
+
+</section>
+
+<section class="lesson-section">
+
+<div class="section-title">أناقش</div>
+
+<div class="activity">
+
+<p>
+هذا المثال، يبدأ اللاعب اللعبة مع 0 نقاط، وعند نقر الكائن، تزداد قيمة النقاط بمقدار 1.
+</p>
+
+<p>
+إظهار المتغيرات وإخفاؤها: أناقش زملائي في الأسئلة الآتية:
+</p>
+
+<ol>
+    <li>كيف يمكنني إخفاء أحد المتغيرات أو كلها من شاشة العرض؟</li>
+    <li>ما الفائدة من عرض هذه المتغيرات؟</li>
+    <li>ما المتغيرات التي ترى أنها ضرورية للعرض في أثناء تشغيل المشروع؟</li>
+    <li>ما نتوصل إليه من نتائج مع المجموعات الأخرى.</li>
+</ol>
+
+</div>
+
+<h3 class="question-title">1. كيف يمكنني إخفاء أحد المتغيرات أو كلها من شاشة العرض؟</h3>
+
+<p>
+في Scratch يمكن إظهار أو إخفاء المتغيرات من خلال الذهاب إلى لوحة المتغيرات في قسم اللبنات البرتقالية.
+</p>
+
+<p>
+بجانب اسم كل متغير يوجد مربع اختيار (✓).
+</p>
+
+<p>
+عند إزالة العلامة من المربع يختفي المتغير من شاشة العرض، وعند تفعيلها يظهر.
+</p>
+
+<h3 class="question-title">2. ما الفائدة من عرض هذه المتغيرات؟</h3>
+
+<ul>
+    <li>تساعد اللاعب على معرفة مستواه أو تقدمه في اللعبة (مثل عدد النقاط).</li>
+    <li>تسهل على المبرمج في أثناء التجربة التأكد أن الكود يعمل بشكل صحيح.</li>
+    <li>تجعل اللعبة أكثر تشويقًا لأن اللاعب يرى نتيجة أفعاله مباشرة.</li>
+</ul>
+
+<h3 class="question-title">3. ما المتغيرات التي ترى أنها ضرورية للعرض في أثناء تشغيل المشروع؟</h3>
+
+<ul>
+    <li>في لعبة النقاط، عرض النقاط مهم حتى يعرف اللاعب نتيجته.</li>
+    <li>إذا كان هناك عداد وقت أو المحاولات المتبقية، يفضل إظهارها أيضًا.</li>
+    <li>لكن المتغيرات الداخلية (مثل متغيرات مساعدة للحساب أو للتجارب) ليست ضرورية للعرض.</li>
+</ul>
+
+<h3 class="question-title">4. ما نتوصل إليه من نتائج مع المجموعات الأخرى؟</h3>
+
+<ul>
+    <li>يمكن عرض المتغيرات التي تعطي معلومة مباشرة للاعب مثل النقاط أو الوقت.</li>
+    <li>إخفاء المتغيرات الخاصة بالبرمجة الداخلية حتى لا تربك اللاعب.</li>
+    <li>عرض المتغيرات يزيد التفاعل والمتعة، لكن يجب أن يكون بقدر معقول حتى لا تمتلئ الشاشة بأرقام غير مفهومة.</li>
+</ul>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 زد علمك - جميع الحقوق محفوظة
+</footer>
+
+</div>
+
+<script>
+const startButton = document.getElementById("startReading");
+const pauseButton = document.getElementById("pauseReading");
+const resumeButton = document.getElementById("resumeReading");
+const stopButton = document.getElementById("stopReading");
+const statusElement = document.getElementById("readingStatus");
+
+let speechParts = [];
+let currentPart = 0;
+let isReading = false;
+let isPaused = false;
+let readingRun = 0;
+
+function prepareSpeech() {
+    const elements = document.querySelectorAll(
+        "#lessonContent p, #lessonContent h2, #lessonContent h3, #lessonContent li"
+    );
+
+    speechParts = [];
+
+    elements.forEach(element => {
+        const text = element.innerText.trim();
+
+        if (text) {
+            speechParts.push(text);
+        }
+    });
+}
+
+function updateButtons() {
+    startButton.disabled = isReading;
+    pauseButton.disabled = !isReading || isPaused;
+    resumeButton.disabled = !isReading || !isPaused;
+    stopButton.disabled = !isReading;
+}
+
+function speakNext(runId) {
+    if (runId !== readingRun || !isReading || isPaused) {
+        return;
+    }
+
+    if (currentPart >= speechParts.length) {
+        isReading = false;
+        isPaused = false;
+        statusElement.textContent = "اكتملت قراءة الدرس.";
+        updateButtons();
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(
+        speechParts[currentPart]
+    );
+
+    utterance.lang = "ar";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    utterance.onend = function() {
+        if (runId !== readingRun || !isReading || isPaused) {
+            return;
+        }
+
+        currentPart++;
+        speakNext(runId);
+    };
+
+    utterance.onerror = function() {
+        if (runId !== readingRun) return;
+
+        currentPart++;
+
+        if (isReading && !isPaused) {
+            speakNext(runId);
+        }
+    };
+
+    speechSynthesis.speak(utterance);
+}
+
+startButton.addEventListener("click", function() {
+    if (!("speechSynthesis" in window)) {
+        statusElement.textContent = "المتصفح لا يدعم خاصية القراءة الصوتية.";
+        return;
+    }
+
+    speechSynthesis.cancel();
+    readingRun++;
+
+    prepareSpeech();
+    currentPart = 0;
+    isReading = true;
+    isPaused = false;
+
+    statusElement.textContent = "جارٍ قراءة الدرس...";
+    updateButtons();
+
+    speakNext(readingRun);
+});
+
+pauseButton.addEventListener("click", function() {
+    if (!isReading) return;
+
+    isPaused = true;
+    speechSynthesis.pause();
+
+    statusElement.textContent = "تم إيقاف القراءة مؤقتًا.";
+    updateButtons();
+});
+
+resumeButton.addEventListener("click", function() {
+    if (!isReading || !isPaused) return;
+
+    isPaused = false;
+
+    speechSynthesis.resume();
+
+    statusElement.textContent = "تمت متابعة القراءة.";
+    updateButtons();
+});
+
+stopButton.addEventListener("click", function() {
+    readingRun++;
+    speechSynthesis.cancel();
+
+    isReading = false;
+    isPaused = false;
+    currentPart = 0;
+
+    statusElement.textContent = "تم إيقاف القراءة.";
+    updateButtons();
+});
+
+window.addEventListener("beforeunload", function() {
+    speechSynthesis.cancel();
+});
+</script>
+
+</body>
+</html>
